@@ -3,6 +3,7 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 
 import { ContactFormBase } from '../Form';
+import Spinner from '../Spinner';
 
 import {
   EMAIL_FIELD,
@@ -21,8 +22,6 @@ import Button from '../Button';
 const END_POINT = '/.netlify/functions/contact';
 
 const spinnerStyle = (t) => ({ display: 'block', marginTop: t.space[7] });
-
-const Spinner = () => <div>Spinner</div>;
 
 const ContactForm = () => {
   const { t } = useTranslation();

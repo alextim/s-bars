@@ -77,6 +77,12 @@ const addressWrapStyle = {
 const itemSepStyle = {
   marginBottom: '0.5rem',
 };
+const contactFormWrapStyle = (t) => ({
+  marginTop: '3rem',
+  [t.mq.lg]: {
+    margin: '2rem',
+  },
+});
 const ContactItemHeading = ({ title }) => <h2 css={contactItemTitleStyle}>{title}</h2>;
 
 const Address = ({ data }) => {
@@ -155,15 +161,15 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
         <Col>
           <iframe
             src={embedMap}
-            width="600"
+            width="100%"
             height="450"
             frameBorder="0"
-            style={{ border: 0, pointerEvents: 'none' }}
+            css={(t) => ({ border: 0, marginTop: '3rem', [t.mq.lg]: { marginTop: 0 } })}
             allowFullScreen=""
             aria-hidden="false"
           />
         </Col>
-        <Col>
+        <Col css={contactFormWrapStyle}>
           <ContactForm />
         </Col>
       </Row>

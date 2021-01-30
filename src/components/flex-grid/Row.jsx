@@ -13,7 +13,7 @@ const style = {
 };
 
 const Row = ({ css = {}, children, ...rest }) => (
-  <div css={{ ...style, ...css }} {...rest}>
+  <div css={[style, css]} {...rest}>
     {children}
   </div>
 );

@@ -7,7 +7,7 @@ const Hamburger = ({ w = 2.5, open, bp, onClick }) => {
   const wrapStyle = {
     height: `${w}rem`,
     width: `${w}rem`,
-    margin: '0',
+    margin: 0,
     cursor: 'pointer',
 
     [bp]: {
@@ -42,17 +42,17 @@ const Hamburger = ({ w = 2.5, open, bp, onClick }) => {
     ...commonSpanStyle,
     backgroundColor: open ? 'transparent' : t.colors.text,
 
-    '&::before, &::after': {
+    ':before, :after': {
       backgroundColor: t.colors.text,
       ...commonSpanStyle,
     },
 
-    '&::before': {
+    ':before': {
       top: open ? 0 : '-0.625rem',
       transform: open ? 'rotate(45deg)' : 'none',
     },
 
-    '&::after': {
+    ':after': {
       top: open ? 0 : '0.625rem',
       bottom: '-0.625rem',
       transform: open ? 'rotate(-45deg)' : 'none',

@@ -11,15 +11,17 @@ const defStyle = {
 const Col = ({ css = {}, lg, children, ...rest }) => {
   let style = defStyle;
   if (css) {
-    style = { ...defStyle, ...css };
+    style = [defStyle, css];
   }
   if (lg) {
-    style = {
+    style = [
       ...style,
-      [mq.lg]: {
-        width: `${lg === 4 ? '33.333' : (lg * 100) / 12}%`,
+      {
+        [mq.lg]: {
+          width: `${lg === 4 ? '33.333' : (lg * 100) / 12}%`,
+        },
       },
-    };
+    ];
   }
   return (
     <div css={style} {...rest}>
