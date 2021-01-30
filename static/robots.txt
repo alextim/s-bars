@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+sitemap: https://tarutino-steppe.netlify.app/sitemap.xml

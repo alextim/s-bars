@@ -1,0 +1,9 @@
+/* TEAM */
+
+Creator: Oleksii Tymoshenko
+Description: Hi! I'm Oleksii - mountain sports lover and front-end developer
+
+/* SITE */
+
+Standards: HTML5, CSS
+Components: Gatsby

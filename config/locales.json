@@ -1,0 +1,35 @@
+{
+  "ru": {
+    "default": true,
+    "htmlLang": "ru",
+    "formatLocale": "ru-UA",
+    "ogLocale": "ru_UA",
+    "name": "Russian",
+    "shortName": "Rus",
+    "localName": "Русский",
+    "shortLocalName": "Рус",
+
+    "dateFormat": "dd.MM.yyyy",
+
+    "siteTitle": "КОМПАНИЯ «СНЕЖНЫЙ БАРС»",
+    "siteDescription": "Парк \"Тарутинская степь\" - одна из последних нетронутых степных жемчужин Европы, в которой как в древности обитают дикие куланы, лани, сайгаки и другие животные.",
+    "siteHeadline": "Хед лайн sfsdcv ыма ывм ывм ывм ывм ыв м ым ым ы мы м ым м ы мs d",
+    "siteShortName": "СНЕЖНЫЙ БАРС"
+  },
+  "en": {
+    "htmlLang": "en",
+    "formatLocale": "en-UK",
+    "ogLocale": "en_UA",
+    "name": "English",
+    "shortName": "Eng",
+    "localName": "English",
+    "shortLocalName": "Eng",
+
+    "dateFormat": "dd/MM/yyyy",
+
+    "siteTitle": "Natural and Ethnographic Park \"Tarutino Steppe\"",
+    "siteDescription": "Park “Tarutyno Steppe” is one of the last untouched steppe pearls of Europe, where wild kulans, fallow deers, saigas and other animals roam free like centuries ago.",
+    "siteHeadline": "Headline dcdsc dsc sdc sdc sdc s dc sdc ds c c sdc d sc dc c s cs d",
+    "siteShortName": "Park \"Tarutino Steppe\""
+  }
+}

@@ -1,0 +1,104 @@
+- key: post.minToRead
+  value: мин чтения
+- key: post.readMore
+  value: Читать дальше...
+- key: post.widget.category
+  value: Категории
+- key: post.widget.tags
+  value: Тэги
+- key: post.widget.years
+  value: Архивы по годам
+- key: author
+  value: Автор
+- key: all_rights_reserved
+  value: Все права защищены.
+- key: cookie_warning.text
+  value: Этот сайт использует куки для оптимизации, анализа трафика и сохранения ваших настроек.
+- key: cookie_warning.details
+  value: Подробнее
+- key: form.send
+  value: Отправить
+- key: form.pls_wait
+  value: Пожалуйста, подождите...
+- key: form.cancel
+  value: Отменить
+- key: form.error
+  value: Ошибка
+- key: form.sending
+  value: Отправка
+- key: form.success
+  value: Завершено
+- key: validation.required
+  value: '{{name}} обязательно.'
+- key: validation.length
+  value: Поле "{{name}}" должно быть не меньше {{min}} и не больше {{max}} символов.
+- key: validation.only_symbols
+  value: Допускаются только символы и пробел
+- key: validation.invalid
+  value: Ошибка в "{{name}}".
+- key: error.err400
+  value: '400: ошибочные данные'
+- key: error.err401
+  value: 401 не авторизовано
+- key: error.err403
+  value: '403: запрещено'
+- key: error.err405
+  value: '405: недопуcтимый метод'
+- key: error.network
+  value: Ошибка сети
+- key: cf.name
+  value: Имя
+- key: cf.message
+  value: Сообщение
+- key: cf.your_name
+  value: Ваше имя
+- key: cf.your_email
+  value: Ваш e-mail
+- key: cf.your_message
+  value: Ваше сообщение
+- key: cf.sorry
+  value: Извините. Произошла ошибка во время отправки сообщения.
+- key: cf.try_later
+  value: Пожалуйста, повторите вашу попытку позже.
+- key: cf.thanks
+  value: Спасибо за ваше сообщение!
+- key: cf.we_will_response
+  value: Мы ответим вам в ближайшее время.
+- key: nav.support_us
+  value: Поддержите нас
+- key: footer.greeting.title
+  value: Добро пожаловать!
+- key: footer.greeting.text
+  value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+- key: footer.our_address
+  value: Юридический адрес
+- key: footer.call_us
+  value: Обращайтесь к нам
+- key: contacts.title
+  value: Контакты
+- key: contacts.wait_you_on_address
+  value: Юридический адрес
+- key: contacts.opening_time
+  value: Рабочее время
+- key: contacts.call_us
+  value: Обращайтесь к нам
+- key: contacts.write_us
+  value: Напишите нам
+- key: dow.d2.mo
+  value: Пн
+- key: dow.d2.tu
+  value: Вт
+- key: dow.d2.we
+  value: Ср
+- key: dow.d2.th
+  value: Чт
+- key: dow.d2.fr
+  value: Пт
+- key: dow.d2.sa
+  value: Сб
+- key: dow.d2.su
+  value: Вс
+- key: day_off
+  value: Выходной
+- key: days_off
+  value: Выходные

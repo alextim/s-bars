@@ -1,0 +1,18 @@
+legalName: ksdbkasdbkasdbaksd
+
+postalAddress:
+  streetAddress:
+    - Хмельницкое шосcе, 2а, оф.110
+  addressLocality: Odessa
+  postalCode:
+  addressCountry: Ukraine
+
+contactPoint:
+  - name: Светлана Доляк
+    contactType: отдел работы с клиентом
+    telephone: [380965553092]
+    email: [promalp.s.bars@gmail.com]
+  - name: Андрей Карпенко
+    contactType: клиент-менеджер
+    telephone: [380979705376, 380432573695]
+    email: [andrey.karpenko7@gmail.com]

@@ -1,0 +1,28 @@
+{
+  "name": "send-email-sendgrid",
+  "description": "Send email with Sendgrid and Netlify",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Oleksii Tymoshenko <buildmnt@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint --fix src/**/*.js contact.js",
+    "format": "prettier-eslint --write 'src/**/*.{js,json} contact.js'",
+    "ncu": "ncu -u"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
+    "email-validator": "^2.0.4"
+  },
+  "devDependencies": {
+  },
+  "repository": "https://github.com/alextim/kat-2"
+}
+

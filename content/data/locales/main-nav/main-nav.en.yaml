@@ -1,0 +1,11 @@
+- title: About
+  to: /about
+- title: Contacts
+  to: /contacts
+- title: Test1
+  to: /test
+  submenu:
+  - title: About us
+    to: /about
+  - title: Contacts
+    to: /contacts

@@ -1,0 +1,80 @@
+{
+  "post": {
+    "minToRead": "min read",
+    "readMore": "Read more...",
+    "widget": {
+      "category": "Categories",
+      "tags": "Tags",
+      "years": "Archive"
+    }
+  },
+  "author": "Author",
+  "all_rights_reserved": "All rights reserved",
+  "cookie_warning": {
+    "text": "We serve cookies on this site to analyze traffic, remember your preferences, and optimize your experience.",
+    "details": "More details"
+  },
+  "form": {
+    "send": "Send",
+    "pls_wait": "Please, wait...",
+    "cancel": "Cancel",
+    "error": "Error",
+    "sending": "Sending",
+    "success": "Success"
+  },
+  "validation": {
+    "required": "{{name}} is required.",
+    "length": "{{name}} length should be between {{min}} and {{max}}.",
+    "only_symbols": "Only symbols and space allowed.",
+    "invalid": "Invalid {{name}}."
+  },
+  "error": {
+    "err400": "400: Bad data",
+    "err401": "401 Unauthorized",
+    "err403": "403: Forbidden",
+    "err405": "405: Method Not Allowed",
+    "network": "Network error"
+  },
+  "cf": {
+    "name": "Name",
+    "message": "Message",
+    "your_name": "Your name",
+    "your_email": "Your e-mail",
+    "your_message": "Your message",
+    "sorry": "Sorry. Error happened while your message sending.",
+    "try_later": "Please, try again later or reach us in another way.",
+    "thanks": "Thank you for your message!",
+    "we_will_response": "We will response you in a nearest time."
+  },
+  "nav": {
+    "support_us": "Support Us"
+  },
+  "footer": {
+    "greeting": {
+      "title": "Welcome!",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    },
+    "our_address": "Legal Address",
+    "call_us": "Contact Us"
+  },
+  "contacts": {
+    "title": "Contact Us",
+    "wait_you_on_address": "Legal Address",
+    "opening_time": "Opening Time",
+    "call_us": "Call Us",
+    "write_us": "Write Us"
+  },
+  "dow": {
+    "d2": {
+      "mo": "Mo",
+      "tu": "Tu",
+      "we": "We",
+      "th": "Th",
+      "fr": "Fr",
+      "sa": "Sa",
+      "su": "Su"
+    }
+  },
+  "day_off": "Day off",
+  "days_off": "Days off"
+}
