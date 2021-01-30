@@ -14,7 +14,7 @@ const {
   EMAIL_MAX_LENGTH,
   MESSAGE_MIN_LENGTH,
   MESSAGE_MAX_LENGTH,
-} = require('./src/contact-form-validators');
+} = require('../src/lib/contact-form-validators');
 
 const utils = require('./src/utils/helpers');
 
