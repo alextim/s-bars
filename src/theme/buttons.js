@@ -1,24 +1,27 @@
-import { /* colors, */ brand } from './colors';
+/* eslint-disable import/no-named-as-default-member */
+import colors from './colors';
+
+const { brand } = colors;
 
 const common = {
   textTransform: 'uppercase',
   outline: 0,
-  '&:hover': {
-    bg: brand.secondDark,
+  ':hover': {
+    backgroundColor: brand.secondDark,
     borderColor: brand.secondDark,
   },
 };
 
 const buttons = {
   primary: {
-    color: 'background',
-    bg: 'primary',
+    color: colors.background,
+    backgroundColor: colors.primary,
     ...common,
   },
 
   secondary: {
-    color: 'background',
-    bg: 'secondary',
+    color: colors.background,
+    backgroundColor: colors.secondary,
     ...common,
   },
 };

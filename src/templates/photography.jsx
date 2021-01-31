@@ -27,7 +27,7 @@ const PhotographyTemplate = ({ path, data, pageContext: { locale } }) => {
     >
       <SEO locale={locale} title={metaTitle} description={metaDescription} pathname={path} />
       {/* <Section text={sections[0].text} small /> */}
-      <div>{sections[0].content}</div>
+      <div>{sections[0].text}</div>
       {sections.length > 1 && sections[1].items && <LightboxGallery items={sections[1].items} />}
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
     </Layout>
@@ -63,7 +63,7 @@ export const pageQuery = graphql`
         }
         noindex
         sections {
-          content
+          text
           items {
             title
             image {

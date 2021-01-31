@@ -6,6 +6,12 @@ import mq from '../../theme/media-queries';
 
 const defStyle = {
   flex: 1,
+  [mq.lg]: {
+    paddingRight: '1rem',
+    ':last-of-type': {
+      paddingRight: 0,
+    },
+  },
 };
 
 const Col = ({ css = {}, lg, children, ...rest }) => {
@@ -18,7 +24,7 @@ const Col = ({ css = {}, lg, children, ...rest }) => {
       ...style,
       {
         [mq.lg]: {
-          width: `${lg === 4 ? '33.333' : (lg * 100) / 12}%`,
+          maxWidth: `calc(100% / 12 * ${lg})`,
         },
       },
     ];

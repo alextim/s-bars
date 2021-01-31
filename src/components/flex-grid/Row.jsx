@@ -9,6 +9,7 @@ const style = {
   flexDirection: 'column',
   [mq.lg]: {
     flexDirection: 'row',
+    flexWwrap: 'wrap',
   },
 };
 

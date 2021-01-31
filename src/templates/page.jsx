@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { graphql } from 'gatsby';
@@ -5,11 +6,25 @@ import { graphql } from 'gatsby';
 import SEO from '../components/SEO';
 
 import Layout from '../components/Layout/PageLayout';
+import Section from '../components/Section';
+
+const Sections = ({ data }) =>
+  data.map(({ title, subtitle, text, image, items, type }, i) => (
+    <Section
+      key={i}
+      title={title}
+      subtitle={subtitle}
+      text={text}
+      image={image}
+      items={items}
+      type={type}
+    />
+  ));
 
 const PageTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
   const {
-    frontmatter: { title, metaTitle, description, metaDescription, cover, noindex },
+    frontmatter: { title, metaTitle, description, metaDescription, cover, noindex, sections },
     html,
   } = data.page;
 
@@ -28,6 +43,7 @@ const PageTemplate = ({ path, data, pageContext: { locale } }) => {
         noindex={noindex}
       />
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+      {sections && <Sections data={sections} />}
     </Layout>
   );
 };

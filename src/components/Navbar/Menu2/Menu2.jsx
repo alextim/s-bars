@@ -67,7 +67,7 @@ const styleMenuWrapper = {
   flexDirection: 'column',
   margin: 0,
   padding: 0,
-  listStyle: 'none',
+  listStyleType: 'none',
   [mq.lg]: {
     display: 'inline-flex',
     flexDirection: 'row',

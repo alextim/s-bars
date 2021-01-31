@@ -8,8 +8,8 @@ import { space, spacePx, spaceRaw } from './space';
 import sizes from './sizes';
 import shadows from './shadows';
 import transition from './transition';
-
-// import buttons from './buttons';
+import fonts from './fonts';
+import buttons, { links } from './buttons';
 
 const theme = {
   breakpoints,
@@ -17,12 +17,7 @@ const theme = {
   space,
   spacePx,
   spaceRaw,
-  fonts: {
-    body:
-      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'inherit',
-    monospace: 'Menlo, monospace',
-  },
+  fonts,
   fontSizes,
   fontSizesPx,
   fontSizesRaw,
@@ -47,7 +42,8 @@ const theme = {
   },
   styles,
   sizes,
-  // buttons,
+  buttons,
+  links,
   transition,
   shadows,
 };

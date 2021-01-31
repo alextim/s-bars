@@ -137,12 +137,13 @@ const GlobalStyle = () => {
           display: block;
         }
 
+        /*
         ol,
         ul {
           list-style-type: none;
           -webkit-padding-start: 0;
         }
-
+        */
         a,
         button {
           cursor: pointer;
@@ -245,6 +246,35 @@ const GlobalStyle = () => {
 
         h6 {
           font-size: ${theme.fontSizes[0]};
+        }
+
+        ol,
+        ul {
+          list-style: disc outside;
+          margin: 0 0 1rem 2rem;
+        }
+
+        p {
+          margin-bottom: 0.5rem;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+
+        input,
+        textarea {
+          margin: 0;
+          padding: 0.5rem;
+          width: 100%;
+          min-width: 0;
+          appearance: none;
+          border: 1px solid;
+          border-radius: 4px;
+          color: inherit;
+          background-color: transparent;
+          font-family: ${theme.fonts.body};
+          font-size: inherit;
+          line-height: inherit;
         }
       `}
     />

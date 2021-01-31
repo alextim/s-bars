@@ -9,11 +9,26 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayout';
+import Section from '../components/Section';
+
+const Sections = ({ data }) =>
+  data.map(({ title, subtitle, text, image, items, type }, i) => (
+    <Section
+      key={i}
+      title={title}
+      subtitle={subtitle}
+      text={text}
+      image={image}
+      items={items}
+      type={type}
+    />
+  ));
 
 const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
   const {
     frontmatter: { title, metaTitle, description, metaDescription, noindex, sections },
+    html,
   } = data.page;
 
   return (
@@ -26,19 +41,25 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
         noindex={noindex}
       />
 
-      {sections && sections[0].items && (
-        <Slider dots arrows infinite speed={500} slidesToShow={1} slidesToScroll={1}>
-          {sections[0].items.map(
-            ({ image }) =>
-              image &&
-              image.sm && (
-                <div key={image.sm.childImageSharp.fluid.src}>
-                  <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
-                </div>
-              ),
+      {sections && (
+        <>
+          {sections[0].items && (
+            <Slider dots arrows infinite speed={500} slidesToShow={1} slidesToScroll={1}>
+              {sections[0].items.map(
+                ({ image }) =>
+                  image &&
+                  image.sm && (
+                    <div key={image.sm.childImageSharp.fluid.src}>
+                      <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
+                    </div>
+                  ),
+              )}
+            </Slider>
           )}
-        </Slider>
+          <Sections data={sections.slice(1)} />
+        </>
       )}
+      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
     </Layout>
   );
 };
@@ -55,9 +76,15 @@ export const pageQuery = graphql`
         metaDescription
         noindex
         sections {
-          content
+          title
+          subtitle
+          text
+          type
           items {
             title
+            to
+            subtitle
+            text
             image {
               alt
               sm {
@@ -71,6 +98,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      html
     }
     address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
       ...AddressFragment

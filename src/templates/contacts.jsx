@@ -6,6 +6,8 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
+import Section from '../components/Section';
+
 import { Row, Col } from '../components/flex-grid';
 import ContactForm from '../components/ContactForm';
 import useOrganization from '../hooks/useOrganization';
@@ -16,11 +18,11 @@ import OrganizationOpeningHours from '../components/organization/OrganizationOpe
 import Utils from '../lib/utils';
 import { useTranslation } from '../i18n';
 
-const contactsStyle = {
+const styleContacts = {
   display: 'flex',
   flexWrap: 'wrap',
 };
-const contactItemStyle = (t) => ({
+const styleContactItem = (t) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -31,12 +33,47 @@ const contactItemStyle = (t) => ({
   },
 });
 
+const styleContactItemWrap = (t) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '1rem',
+  [t.mq.lg]: {
+    paddingRight: '1rem',
+    ':last-of-type': {
+      paddingRight: 0,
+    },
+  },
+});
+const styleContactItemTitle = {
+  marginBottom: '0.5rem',
+};
+const styleAddressWrap = {
+  marginBottom: '0.5rem',
+};
+const styleItemSeparator = {
+  marginBottom: '0.5rem',
+};
+const styleContactFormWrap = (t) => ({
+  marginTop: '3rem',
+  [t.mq.lg]: {
+    margin: '2rem',
+  },
+});
+
+const styleMap = (t) => ({
+  border: 0,
+  marginTop: '3rem',
+  [t.mq.lg]: {
+    marginTop: 0,
+  },
+});
+
 const SimpleContactData = () => {
   const { email, phone } = useOrganization();
   return (
     <React.Fragment>
-      <div css={contactsStyle}>
-        <div css={contactItemStyle}>
+      <div css={styleContacts}>
+        <div css={styleContactItem}>
           <Icon name="phone" />
           {phone.map((tel) => (
             <a key={tel} href={Utils.phoneUrl(tel)}>
@@ -44,7 +81,7 @@ const SimpleContactData = () => {
             </a>
           ))}
         </div>
-        <div css={contactItemStyle}>
+        <div css={styleContactItem}>
           <Icon name="envelope" />
           {email.map((em) => (
             <a key={em} href={`mailto:${em}`}>
@@ -57,33 +94,7 @@ const SimpleContactData = () => {
   );
 };
 
-const contactItemrapStyle = (t) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  marginBottom: '1rem',
-  [t.mq.lg]: {
-    paddingRight: '1rem',
-    ':last-of-type': {
-      paddingRight: 0,
-    },
-  },
-});
-const contactItemTitleStyle = {
-  marginBottom: '0.5rem',
-};
-const addressWrapStyle = {
-  marginBottom: '0.5rem',
-};
-const itemSepStyle = {
-  marginBottom: '0.5rem',
-};
-const contactFormWrapStyle = (t) => ({
-  marginTop: '3rem',
-  [t.mq.lg]: {
-    margin: '2rem',
-  },
-});
-const ContactItemHeading = ({ title }) => <h2 css={contactItemTitleStyle}>{title}</h2>;
+const ContactItemHeading = ({ title }) => <h2 css={styleContactItemTitle}>{title}</h2>;
 
 const Address = ({ data }) => {
   const {
@@ -91,9 +102,9 @@ const Address = ({ data }) => {
     postalAddress: { addressCountry, addressLocality, postalCode, streetAddress },
   } = data;
   return (
-    <div css={itemSepStyle}>
+    <div css={styleItemSeparator}>
       <ContactItemHeading title={legalName} />
-      <div css={addressWrapStyle}>
+      <div css={styleAddressWrap}>
         <div>{streetAddress}</div>
         <div>
           {addressLocality} {postalCode}
@@ -108,7 +119,7 @@ const OpeningHours = ({ data }) => {
   const { t } = useTranslation();
   return (
     <>
-      <h3 css={contactItemTitleStyle}>{t('contacts.opening_time')}</h3>
+      <h3 css={styleContactItemTitle}>{t('contacts.opening_time')}</h3>
       <OrganizationOpeningHours openingHours={data} />
     </>
   );
@@ -116,7 +127,7 @@ const OpeningHours = ({ data }) => {
 
 const ContactPoints = ({ items }) =>
   items.map(({ description, name, contactType, email, telephone }) => (
-    <Col css={contactItemrapStyle} key={name}>
+    <Col css={styleContactItemWrap} key={name}>
       <ContactItemHeading title={description} />
       <div>{name}</div>
       <div>{contactType}</div>
@@ -150,29 +161,35 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
         pathname={path}
         noindex={noindex}
       />
-      <Row>
-        <Col css={contactItemrapStyle}>
-          <Address data={address} />
-          <OpeningHours data={openingHours} />
-        </Col>
-        {contactPoint ? <ContactPoints items={contactPoint} /> : <SimpleContactData />}
-      </Row>
-      <Row>
-        <Col>
-          <iframe
-            src={embedMap}
-            width="100%"
-            height="450"
-            frameBorder="0"
-            css={(t) => ({ border: 0, marginTop: '3rem', [t.mq.lg]: { marginTop: 0 } })}
-            allowFullScreen=""
-            aria-hidden="false"
-          />
-        </Col>
-        <Col css={contactFormWrapStyle}>
-          <ContactForm />
-        </Col>
-      </Row>
+
+      <Section>
+        <Row>
+          <Col css={styleContactItemWrap}>
+            <Address data={address} />
+            <OpeningHours data={openingHours} />
+          </Col>
+          {contactPoint ? <ContactPoints items={contactPoint} /> : <SimpleContactData />}
+        </Row>
+      </Section>
+
+      <Section>
+        <Row>
+          <Col>
+            <iframe
+              src={embedMap}
+              width="100%"
+              height="450"
+              frameBorder="0"
+              css={styleMap}
+              allowFullScreen=""
+              aria-hidden="false"
+            />
+          </Col>
+          <Col css={styleContactFormWrap}>
+            <ContactForm />
+          </Col>
+        </Row>
+      </Section>
     </Layout>
   );
 };

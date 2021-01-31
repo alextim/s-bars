@@ -11,20 +11,52 @@ export const pageFragment = graphql`
         xl {
           childImageSharp {
             fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }
         sm {
           childImageSharp {
             fluid(maxWidth: 480) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }
         alt
       }
       noindex
+      sections {
+        title
+        subtitle
+        text
+        image {
+          sm {
+            childImageSharp {
+              fluid(maxWidth: 480) {
+                ...GatsbyImageSharpFluid_noBase64
+              }
+            }
+          }
+          alt
+        }
+        type
+        items {
+          title
+          to
+          subtitle
+          text
+          image {
+            sm {
+              childImageSharp {
+                fluid(maxWidth: 480) {
+                  ...GatsbyImageSharpFluid_noBase64
+                }
+              }
+            }
+            alt
+          }
+        }
+      }
     }
     html
   }

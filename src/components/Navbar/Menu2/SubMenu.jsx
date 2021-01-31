@@ -20,14 +20,16 @@ const menuItemWrapStyle = {
 const dropDownWrapStyle = {
   flexDirection: 'column',
   // padding: '0 2rem',
+  listStyleType: 'none',
+  padding: 0,
+  margin: 0,
   backgroundColor: colors.header.nav.submenu.bg,
   [mq.lg]: {
     position: 'absolute',
     top: sizes.header.sm,
     backgroundColor: colors.header.bg,
     left: 0,
-    padding: 0,
-    boxShadow: '2px 2px 15px 0 rgba(0,0,0,0.8)',
+    boxShadow: '2px 2px 15px 0 rgba(0,0,0,.8)',
     zIndex: 100,
   },
 };
@@ -47,17 +49,17 @@ const menuItemExtraStyle = {
     justifyContent: 'start',
     padding: '1rem',
     borderBottom: 0,
-    '&:first-of-type': {
+    ':first-of-type': {
       borderTop: 0,
     },
-    '&:after': {
+    ':after': {
       display: 'inline-block',
       content: '""',
       borderStyle: 'solid',
       borderColor: colors.header.nav.item.text,
       borderWidth: '0 1px 1px 0',
       padding: '3px',
-      marginLeft: '0.5rem',
+      marginLeft: '.5rem',
       transform: 'rotate(45deg)',
     },
   },
@@ -108,7 +110,7 @@ const SubMenu = ({ title, to, items, path, onClick }) => {
       borderStyle: 'solid',
       borderColor: colors.header.nav.item.text,
       borderWidth: '0 1px 1px 0',
-      transform: `rotate(${visible ? 45 : 315}deg)`,
+      transform: `rotate(${visible ? 225 : 45}deg)`,
     },
     [mq.lg]: {
       display: 'none',

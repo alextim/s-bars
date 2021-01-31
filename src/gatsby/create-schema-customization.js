@@ -337,7 +337,7 @@ module.exports = ({ actions, schema }) => {
         subtitle: {
           type: 'String',
         },
-        content: {
+        text: {
           type: 'String',
         },
         image: {
@@ -345,6 +345,9 @@ module.exports = ({ actions, schema }) => {
         },
         items: {
           type: '[SectionItem]',
+        },
+        type: {
+          type: 'String',
         },
       },
     }),
@@ -355,10 +358,13 @@ module.exports = ({ actions, schema }) => {
         title: {
           type: 'String',
         },
+        to: {
+          type: 'String',
+        },
         subtitle: {
           type: 'String',
         },
-        content: {
+        text: {
           type: 'String',
         },
         image: {
