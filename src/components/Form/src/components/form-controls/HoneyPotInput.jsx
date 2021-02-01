@@ -12,6 +12,7 @@ const style = {
 };
 
 const name = 'email';
+//  autoComplete="nope"
 
 const HoneyPotInput = ({ value, onChange }) => (
   <label htmlFor={name} css={style}>
@@ -22,7 +23,7 @@ const HoneyPotInput = ({ value, onChange }) => (
       type={name}
       name={name}
       tabIndex="-1"
-      autoComplete="nope"
+      autoComplete="off"
       placeholder={name}
       value={value}
       onChange={onChange}

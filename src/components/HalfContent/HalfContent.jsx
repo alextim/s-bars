@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 /** @jsx jsx */
 import React from 'react';
 import { jsx } from '@emotion/react';

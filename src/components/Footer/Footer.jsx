@@ -154,7 +154,7 @@ const Footer = () => {
       </div>
       <div css={styleColophonBottom}>
         <Container>
-          <LegalInfo foundingDate={foundingDate} legalName={address?.legalName} />
+          <LegalInfo foundingDate={foundingDate} legalName={address ? address.legalName : null} />
         </Container>
       </div>
     </footer>

@@ -8,11 +8,10 @@ import i18n from '../../i18n';
 import TagList from '../TagList';
 
 const PostTags = ({ tags }) => {
+  const { locale } = useLocale();
   if (!tags) {
     return null;
   }
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { locale } = useLocale();
   return (
     <TagList
       tags={tags.reduce((acc, tag) => {

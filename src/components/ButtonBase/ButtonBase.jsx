@@ -1,5 +1,3 @@
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable react/jsx-props-no-spreading */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import React from 'react';
@@ -20,7 +18,6 @@ const focusStyle = {
 
 const components = {
   href: ({ children, ...rest }) => <a {...rest}>{children}</a>,
-  // eslint-disable-next-line react/button-has-type
   button: ({ children, ...rest }) => <button {...rest}>{children}</button>,
 };
 

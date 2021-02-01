@@ -60,7 +60,7 @@ const PostPagination = ({ currentPage, numPages, subpath }) => {
   const prevPage = currentPage - 1 === 1 ? '/' : `/${(currentPage - 1).toString()}`;
   const nextPage = `/${(currentPage + 1).toString()}`;
   const pages = pagination(currentPage, numPages);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+
   const { locale } = useLocale();
   return (
     <div css={wrapperStyle}>

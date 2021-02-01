@@ -1,7 +1,5 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
-/* eslint-disable react/jsx-fragments */
-/* eslint-disable react/no-danger */
 /** @jsx jsx */
+import React from 'react';
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
@@ -76,10 +74,10 @@ const Address = ({ data }) => {
 const OpeningHours = ({ data }) => {
   const { t } = useTranslation();
   return (
-    <>
+    <React.Fragment>
       <h3 css={styleContactItemTitle}>{t('contacts.opening_time')}</h3>
       <OrganizationOpeningHours openingHours={data} />
-    </>
+    </React.Fragment>
   );
 };
 
@@ -138,6 +136,7 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
         <Row>
           <Col>
             <iframe
+              title="Google Maps"
               src={embedMap}
               width="100%"
               height="450"

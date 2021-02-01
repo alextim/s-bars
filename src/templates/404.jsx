@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-duplicates */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 

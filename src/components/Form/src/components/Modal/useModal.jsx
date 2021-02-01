@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import { useEffect, useRef, useState } from 'react';
@@ -38,7 +37,7 @@ const Modal = ({ children, isOpen = false, close, elementId = 'portal' }) => {
   };
 
   return createPortal(
-    <div css={styleModalWrapper} ref={ref} tabIndex="-1" onKeyDown={handleKeyDown}>
+    <div role="button" css={styleModalWrapper} ref={ref} tabIndex="-1" onKeyDown={handleKeyDown}>
       <div css={styleModalOverlay} />
       <div css={styleModalContent}>
         {children}

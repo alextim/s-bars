@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /** @jsx jsx */
-/* eslint-disable react/jsx-props-no-spreading */
 import { jsx } from '@emotion/react';
 
 const styleControlWrap = {

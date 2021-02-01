@@ -24,8 +24,9 @@ const sendData = async (data, endPoint) => {
     try {
       const json = await res.json();
       console.error(json);
-      // eslint-disable-next-line no-empty
-    } catch {}
+    } catch (ex) {
+      /* empty */
+    }
   }
   throw new Error(res.status.toString());
   /*

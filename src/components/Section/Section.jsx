@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/no-danger */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import Img from 'gatsby-image';

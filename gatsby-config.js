@@ -156,7 +156,15 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-eslint',
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        stages: ['develop'],
+        extensions: ['js', 'jsx'],
+        exclude: ['node_modules', '.cache', 'public', '.netlify', '.vscode'],
+        // Any eslint-webpack-plugin options below
+      },
+    },
     'gatsby-plugin-webpack-bundle-analyser-v2',
 
     // this (optional) plugin enables Progressive Web App + Offline functionality

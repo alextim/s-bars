@@ -25,17 +25,17 @@ const Utils = {
   formatPhone: (phone) => {
     switch (phone.length) {
       case 7:
-        return `${phone.substr(0, 3)} ${phone.substr(3, 2)} ${phone.substr(5, 2)}`;
+        return `${phone.substr(0, 3)}-${phone.substr(3, 2)}-${phone.substr(5, 2)}`;
       case 10:
-        return `${phone.substr(0, 1)} ${phone.substr(1, 3)} ${phone.substr(4, 3)} ${phone.substr(
+        return `${phone.substr(0, 1)} ${phone.substr(1, 3)}-${phone.substr(4, 3)}-${phone.substr(
           7,
           3,
         )}`;
       default:
-        return `+${phone.substr(0, 2)} (${phone.substr(2, 3)}) ${phone.substr(5, 1)} ${phone.substr(
-          6,
-          3,
-        )} ${phone.substr(9, 3)}`;
+        return `+${phone.substr(0, 2)} (${phone.substr(2, 3)}) ${phone.substr(5, 3)}-${phone.substr(
+          7,
+          2,
+        )}-${phone.substr(10, 2)}`;
     }
   },
 

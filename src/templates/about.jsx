@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
-/* eslint-disable react/no-danger */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';

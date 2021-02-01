@@ -19,11 +19,6 @@ const lightWhite = 'rgba(255, 255, 255, 0.9)';
 const lightGray = 'hsla(0, 0%, 0%, 0.2)';
 const red = 'red';
 
-// const flirt50 = '#DF0195';
-const flirt90 = '#9a0167';
-const cardinal50 = '#d0103a';
-const cardinal90 = '#a10c2d';
-
 const davisGrey = '#5c5a58';
 const jet = '#343332';
 
@@ -35,10 +30,10 @@ const nickel = '#7F7D76';
 // const queenBlue = '#3A6EA5';
 // const yaleBlue = '#004E98';
 
-export const brand = {
-  main: flirt90,
-  secondLight: cardinal50,
-  secondDark: cardinal90,
+const brand = {
+  main: '#007aad',
+  secondLight: 'rgb(156, 185, 200)',
+  secondDark: 'rgb(0, 122, 173)',
 };
 
 const text = grey90;

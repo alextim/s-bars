@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/no-danger */
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';

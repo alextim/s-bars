@@ -13,13 +13,12 @@ const sepStyle = (t) => ({
 });
 
 const PostInfo = ({ publishedDate, timeToRead }) => {
+  const { formatLocale } = useLocaleData();
+  const { t } = useTranslation();
+
   if (!publishedDate && !timeToRead) {
     return null;
   }
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { formatLocale } = useLocaleData();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = useTranslation();
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
 
   return (

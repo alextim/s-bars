@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 

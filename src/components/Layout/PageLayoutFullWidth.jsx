@@ -11,9 +11,9 @@ const PageLayoutFullWidth = ({ title, subtitle, cover, context, children }) => {
       <Hero
         title={title}
         subtitle={subtitle}
-        img={coverImage?.img}
-        alt={coverImage?.alt}
-        imgTitle={coverImage?.imgTitle}
+        img={coverImage ? coverImage.img : null}
+        alt={coverImage ? coverImage.alt : null}
+        imgTitle={coverImage ? coverImage.imgTitle : null}
       />
       {children}
     </BaseLayout>

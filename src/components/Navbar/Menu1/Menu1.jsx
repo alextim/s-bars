@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 // eslint-disable-next-line import/no-extraneous-dependencies

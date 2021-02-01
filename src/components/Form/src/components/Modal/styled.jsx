@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 

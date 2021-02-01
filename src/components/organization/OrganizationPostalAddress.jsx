@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 
 import { useAppContext } from '../../context';
@@ -14,9 +13,7 @@ const OrganizationPostalAddress = () => {
   return (
     <>
       <div>{legalName}</div>
-      {streetAddress?.map((item, i) => (
-        <div key={i}>{item}</div>
-      ))}
+      {streetAddress && streetAddress.map((item, i) => <div key={i}>{item}</div>)}
       <div>{`${postalCode || ''}  ${addressLocality}`}</div>
       <div>{addressCountry}</div>
     </>

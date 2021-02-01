@@ -10,6 +10,20 @@
 git diff --diff-filter=d --cached --name-only | grep "\.js.\?$" | xargs ./node_modules/.bin/eslint
 */
 module.exports = {
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2019,
+    sourceType: 'module',
+    allowImportExportEverywhere: true,
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   env: {
     browser: true,
     commonjs: true,
@@ -17,23 +31,20 @@ module.exports = {
     jest: true,
     node: true,
   },
+  plugins: ['prettier', '@emotion', 'react', 'react-hooks', 'import', 'jsx-a11y'],
   extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'prettier',
     'airbnb',
     'airbnb/hooks',
-    'plugin:react/recommended',
     'prettier/react',
     'plugin:prettier/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:import/errors',
   ],
-  parser: 'babel-eslint',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
-  plugins: ['prettier', '@emotion', 'react', 'react-hooks', 'import'],
+
   rules: {
     // 'react/react-in-jsx-scope': 'off',
     // 'react/jsx-uses-react': 'off',
@@ -50,12 +61,17 @@ module.exports = {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
     // Allowing ++ on numbers
     'no-plusplus': 'off',
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
-  },
-  settings: {
-    react: {
-      version: 'detect',
-    },
+    'react/no-danger': 0,
+    'react/no-array-index-key': 'warn',
+    'react/jsx-props-no-spreading': 0,
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'import/prefer-default-export': 'off',
+    // 'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/no-extraneous-dependencies': 'warn',
+    'jsx-a11y/label-has-associated-control': 'warn',
+    'jsx-a11y/click-events-have-key-events': 'warn',
+    'jsx-a11y/no-static-element-interactions': 'warn',
+    'react/button-has-type': 'warn',
   },
   globals: {
     // globalThis: false, // false means it is not writeable.
