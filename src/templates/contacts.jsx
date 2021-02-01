@@ -2,36 +2,20 @@
 /* eslint-disable react/jsx-fragments */
 /* eslint-disable react/no-danger */
 /** @jsx jsx */
-import React from 'react';
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import Section from '../components/Section';
-
-import { Row, Col } from '../components/flex-grid';
-import ContactForm from '../components/ContactForm';
-import useOrganization from '../hooks/useOrganization';
-import Icon from '../components/Icon';
-import SEO from '../components/SEO';
-import Layout from '../components/Layout/SimpleLayout';
-import OrganizationOpeningHours from '../components/organization/OrganizationOpeningHours';
 import Utils from '../lib/utils';
+import useOrganization from '../hooks/useOrganization';
 import { useTranslation } from '../i18n';
 
-const styleContacts = {
-  display: 'flex',
-  flexWrap: 'wrap',
-};
-const styleContactItem = (t) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  width: '100%',
-  marginBottom: t.space[7],
-  [t.mq.md]: {
-    width: '50%',
-  },
-});
+import SEO from '../components/SEO';
+import Layout from '../components/Layout/SimpleLayout';
+import Section from '../components/Section';
+import { Row, Col } from '../components/flex-grid';
+
+import ContactForm from '../components/ContactForm';
+import OrganizationOpeningHours from '../components/organization/OrganizationOpeningHours';
 
 const styleContactItemWrap = (t) => ({
   display: 'flex',
@@ -68,32 +52,6 @@ const styleMap = (t) => ({
   },
 });
 
-const SimpleContactData = () => {
-  const { email, phone } = useOrganization();
-  return (
-    <React.Fragment>
-      <div css={styleContacts}>
-        <div css={styleContactItem}>
-          <Icon name="phone" />
-          {phone.map((tel) => (
-            <a key={tel} href={Utils.phoneUrl(tel)}>
-              {Utils.formatPhone(tel)}
-            </a>
-          ))}
-        </div>
-        <div css={styleContactItem}>
-          <Icon name="envelope" />
-          {email.map((em) => (
-            <a key={em} href={`mailto:${em}`}>
-              {em}
-            </a>
-          ))}
-        </div>
-      </div>
-    </React.Fragment>
-  );
-};
-
 const ContactItemHeading = ({ title }) => <h2 css={styleContactItemTitle}>{title}</h2>;
 
 const Address = ({ data }) => {
@@ -125,8 +83,11 @@ const OpeningHours = ({ data }) => {
   );
 };
 
-const ContactPoints = ({ items }) =>
-  items.map(({ description, name, contactType, email, telephone }) => (
+const ContactPoints = ({ items }) => {
+  if (!items) {
+    return null;
+  }
+  return items.map(({ description, name, contactType, email, telephone }) => (
     <Col css={styleContactItemWrap} key={name}>
       <ContactItemHeading title={description} />
       <div>{name}</div>
@@ -143,6 +104,7 @@ const ContactPoints = ({ items }) =>
       ))}
     </Col>
   ));
+};
 
 const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
@@ -168,7 +130,7 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
             <Address data={address} />
             <OpeningHours data={openingHours} />
           </Col>
-          {contactPoint ? <ContactPoints items={contactPoint} /> : <SimpleContactData />}
+          <ContactPoints items={contactPoint} />
         </Row>
       </Section>
 

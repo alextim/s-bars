@@ -1,27 +1,23 @@
-/* eslint-disable react/no-array-index-key */
+/* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable react/no-danger */
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/SEO';
-
-import Layout from '../components/Layout/PageLayout';
 import Sections from '../components/Sections';
+import SectionTriptych from '../components/page-sections/SectionTriptych';
 
-const PageTemplate = ({ path, data, pageContext: { locale } }) => {
+import SEO from '../components/SEO';
+import Layout from '../components/Layout/SimpleLayout';
+
+const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
   const {
-    frontmatter: { title, metaTitle, description, metaDescription, cover, noindex, sections },
-    html,
+    frontmatter: { title, metaTitle, description, metaDescription, noindex, sections },
   } = data.page;
 
   return (
-    <Layout
-      title={title}
-      subtitle={description}
-      cover={cover}
-      context={{ translations, address, mainNav, footerNav, socialLinks }}
-    >
+    <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
       <SEO
         locale={locale}
         title={metaTitle || title}
@@ -29,16 +25,25 @@ const PageTemplate = ({ path, data, pageContext: { locale } }) => {
         pathname={path}
         noindex={noindex}
       />
-      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-      <Sections data={sections} />
+      {sections && (
+        <>
+          <SectionTriptych
+            title={sections[0].title}
+            subtitle={sections[0].subtitle}
+            text={sections[0].text}
+            items={sections[0].items}
+          />
+          <Sections data={sections.slice(1)} />
+        </>
+      )}
     </Layout>
   );
 };
 
-export default PageTemplate;
+export default AboutTemplate;
 
-export const pageQuery = graphql`
-  query PageQuery($id: String!, $locale: String!) {
+export const aboutPageQuery = graphql`
+  query AboutPageQuery($id: String!, $locale: String!) {
     page: markdownRemark(id: { eq: $id }) {
       ...PageFragment
     }
@@ -51,6 +56,10 @@ export const pageQuery = graphql`
           title
           fields {
             to
+            submenu {
+              title
+              to
+            }
           }
         }
       }

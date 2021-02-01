@@ -3,6 +3,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -10,6 +11,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayout';
 import Section from '../components/Section';
+
+import SectionTriptych from '../components/page-sections/SectionTriptych';
+import SectionObjectLinks from '../components/page-sections/SectionObjectLinks';
 
 const Sections = ({ data }) =>
   data.map(({ title, subtitle, text, image, items, type }, i) => (
@@ -43,19 +47,35 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
 
       {sections && (
         <>
-          {sections[0].items && (
-            <Slider dots arrows infinite speed={500} slidesToShow={1} slidesToScroll={1}>
-              {sections[0].items.map(
-                ({ image }) =>
-                  image &&
-                  image.sm && (
-                    <div key={image.sm.childImageSharp.fluid.src}>
-                      <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
-                    </div>
-                  ),
-              )}
-            </Slider>
-          )}
+          <Slider dots arrows infinite speed={500} slidesToShow={1} slidesToScroll={1}>
+            {sections[0].items.map(
+              ({ image }) =>
+                image &&
+                image.sm && (
+                  <div key={image.sm.childImageSharp.fluid.src}>
+                    <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
+                  </div>
+                ),
+            )}
+          </Slider>
+          <Section
+            title={sections[1].title}
+            subtitle={sections[1].subtitle}
+            text={sections[1].text}
+          />
+          <SectionObjectLinks
+            title={sections[2].title}
+            subtitle={sections[2].subtitle}
+            text={sections[2].text}
+            items={sections[2].items}
+          />
+          <SectionTriptych
+            title={sections[2].title}
+            subtitle={sections[2].subtitle}
+            text={sections[2].text}
+            items={sections[2].items}
+          />
+          <Sections data={sections.slice(1)} />
           <Sections data={sections.slice(1)} />
         </>
       )}
