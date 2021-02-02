@@ -5,7 +5,7 @@ const style = (t) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  color: 'footer.text',
+  color: t.colors.footer.text,
   textDecoration: 'none',
   height: '2rem',
   width: '2rem',

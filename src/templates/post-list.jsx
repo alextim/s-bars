@@ -2,6 +2,8 @@
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
+import { POSTS_PATH } from '../../config/website';
+
 import Layout from '../components/Layout/SimpleLayout';
 import PostCardList from '../components/PostCardList';
 import PostPagination from '../components/PostPagination';
@@ -58,7 +60,7 @@ const PostList = ({
       <PageHeader title={title} subtitle={description} />
       {html && isFirstPage && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
       <PostCardList posts={postList} />
-      <PostPagination currentPage={currentPage} numPages={numPages} subpath="/blog" />
+      <PostPagination currentPage={currentPage} numPages={numPages} subpath={POSTS_PATH} />
     </Layout>
   );
 };
@@ -67,6 +69,10 @@ export default PostList;
 
 export const pageQuery = graphql`
   query PostListQuery($locale: String!, $skip: Int!, $limit: Int!) {
+    #
+    # POSTS_PATH
+    # regex: "/blog$/"
+    #
     page: markdownRemark(fields: { slug: { regex: "/blog$/" }, locale: { eq: $locale } }) {
       ...PageFragment
     }

@@ -1,11 +1,15 @@
 /* eslint-disable no-console */
 const _ = require('lodash');
+
+const TEMPLATES_DIR = '../templates/';
+const { POSTS_PER_PAGE, POSTS_PATH } = require('../../config/website');
+
 // const { createTagPages, createCategoryPages, createYearPages } = require('./create-pages-utils');
 const i18n = require('../i18n/i18n');
 
-const { TEMPLATES_DIR, POSTS_PER_PAGE, POSTS_PATH } = require('./constants');
-
 const pageDefaultTemplate = require.resolve(`${TEMPLATES_DIR}page.jsx`);
+
+const objectTypeDefaultTemplate = require.resolve(`${TEMPLATES_DIR}object-type.jsx`);
 
 const postListTemplate = require.resolve(`${TEMPLATES_DIR}post-list.jsx`);
 const postDefaultTemplate = require.resolve(`${TEMPLATES_DIR}post.jsx`);
@@ -84,6 +88,23 @@ module.exports = async ({ graphql, actions, reporter }) => {
             }
           }
         }
+        objectTypes: allMarkdownRemark(
+          limit: 100
+          filter: { fields: { type: { eq: "object-type" } } }
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                template
+              }
+              fields {
+                slug
+                locale
+              }
+            }
+          }
+        }
         posts: allMarkdownRemark(
           limit: 1000
           filter: { frontmatter: { state: { eq: "published" } }, fields: { type: { eq: "post" } } }
@@ -125,6 +146,10 @@ module.exports = async ({ graphql, actions, reporter }) => {
   i18n.localeCodes.forEach((locale) => {
     console.log(`\n-------- Locale=${locale} --------`);
 
+    /**
+     * Pages
+     *
+     */
     const pages = result.data.pages.edges.filter(
       ({ node: { fields } }) =>
         fields.locale === locale && !prohibitedSlugs.some((s) => fields.slug.includes(s)),
@@ -155,6 +180,44 @@ module.exports = async ({ graphql, actions, reporter }) => {
       );
     }
 
+    /**
+     * Object Types
+     *
+     */
+    const objectTypes = result.data.objectTypes.edges.filter(
+      ({ node: { fields } }) =>
+        fields.locale === locale && !prohibitedSlugs.some((s) => fields.slug.includes(s)),
+    );
+    if (objectTypes.length === 0) {
+      console.warn('\nNo object types');
+    } else {
+      console.log(`\nMd object types: ${objectTypes.length}`);
+      console.log('---------------');
+      objectTypes.forEach(
+        ({
+          node: {
+            id,
+            frontmatter: { template },
+            fields: { slug },
+          },
+        }) => {
+          console.log('pagepath=', slug);
+          createPage({
+            path: slug,
+            component: getTemplate(template || slug.substring(1)) || objectTypeDefaultTemplate,
+            context: {
+              id,
+              locale,
+            },
+          });
+        },
+      );
+    }
+
+    /**
+     * Posts
+     *
+     */
     const posts = result.data.posts.edges.filter(
       ({ node: { fields } }) => fields.locale === locale,
     );

@@ -3,7 +3,7 @@ title: Прайс
 description:
 metaTitle: Прайс & Цена на услуги промышленного альпинизма | СНЕЖНЫЙ БАРС
 metaDescripton: Цены на услуги промышленного альпинизма от компании Снежный Барс Вас приятно удивлят. Для заказа звоните ☎+38 (096) 555-30-92
-slug: prajs
+slug: /prajs
 ---
 <table style="padding: 5px;" cellspacing="0" cellpadding="0">
 <tbody>

@@ -27,13 +27,13 @@
 | 2	| Резервная копия	                | Облако	                                               | [Github](https://github.com)
 | 3	| Хостинг       	                | Облако                                                 | [Netlify](https://netlify.com)
 | 4	| Почтовый сервер	                | Облако                                                 | [Sendgrid](https://sendgrid.com)
-| 5	| Контроль версий	                | Локальный компьютер -> Резервная копия -> Хостинг      | [Git](https://git-scm.com/)
+| 5	| Контроль версий	                | Локальный компьютер -> Резервная копия -> Хостинг      | [Git](https://git-scm.com)
 
 ### Стек технологий
 1. Язык программирования: JavaScript   
-1. Библиотека:  [React](https://ru.reactjs.org/)
-1. Разметка:  CSS-in-JS [Emotion](https://emotion.sh/)
-1. Генератор статических сайтов: [Gatsby](https://gatsbyjs.com/)
+1. Библиотека:  [React](https://ru.reactjs.org)
+1. Разметка:  CSS-in-JS [Emotion](https://emotion.sh)
+1. Генератор статических сайтов: [Gatsby](https://gatsbyjs.com)
 
 
 ## Коммерческая информация

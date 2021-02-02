@@ -11,8 +11,7 @@ const wrapStyle = {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  paddingTop: '1rem',
-  paddingBottom: '1rem',
+  padding: '1rem 0',
   marginBottom: '2rem',
   width: '100%',
 };

@@ -7,15 +7,18 @@ import i18n from '../../i18n';
 import useOrganization from '../../hooks/useOrganization';
 import Utils from '../../lib/utils';
 
-const wrapStyle = {
+const wrapStyle = (t) => ({
   display: 'inline-flex',
   alignItems: 'center',
   marginRight: '3rem',
   height: '100%',
+  a: {
+    color: t.colors.text,
+  },
   'a:hover, a:active, a:focus': {
     textDecoration: 'none',
   },
-};
+});
 
 const linkStyle = {
   height: '100%',
@@ -46,7 +49,7 @@ const Logo = ({ onClick }) => {
   return (
     <div css={wrapStyle}>
       <Link css={linkStyle} to="/" onClick={onClick}>
-        <img src="/assets/logo-s-bars.jpg" alt={i18n.locales[locale].siteTitle} css={imgStyle} />
+        <img src="/assets/logo-s-bars.svg" alt={i18n.locales[locale].siteTitle} css={imgStyle} />
       </Link>
       <div css={textWrapStyle}>
         <Link to="/" onClick={onClick}>

@@ -81,7 +81,8 @@ const onMdNode = (node, actions, getNode) => {
   const fileNode = getNode(node.parent);
   const isPage = fileNode.sourceInstanceName === 'pages';
   const isPost = fileNode.sourceInstanceName === 'posts';
-  if (!isPage && !isPost) {
+  const isObjectTypePage = fileNode.sourceInstanceName === 'object-types';
+  if (!isPage && !isPost && !isObjectTypePage) {
     return;
   }
 
@@ -115,7 +116,16 @@ const onMdNode = (node, actions, getNode) => {
 
   slug = i18n.localizePath(slug, locale);
 
-  const type = isPage ? 'page' : 'post';
+  let type;
+  if (isPage) {
+    type = 'page';
+  } else if (isPost) {
+    type = 'post';
+  } else if (isObjectTypePage) {
+    type = 'object-type';
+  } else {
+    throw new Error('Unknow Markdown node type');
+  }
 
   createNodeField({
     name: 'locale',
@@ -132,6 +142,7 @@ const onMdNode = (node, actions, getNode) => {
     node,
     value: slug,
   });
+
   if (isPost) {
     const { publishedDate } = frontmatter;
     const year = publishedDate ? new Date(publishedDate).getFullYear() : null;
