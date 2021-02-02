@@ -32,7 +32,7 @@ const nickel = '#7F7D76';
 
 const brand = {
   main: '#007aad',
-  secondLight: 'rgb(156, 185, 200)',
+  secondLight: '#ceebfa',
   secondDark: 'rgb(0, 122, 173)',
 };
 

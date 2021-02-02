@@ -1,13 +1,33 @@
 /** @jsx jsx */
+import React from 'react';
 import { jsx } from '@emotion/react';
 
 import Section from '../Section';
-import ItemsGrid from './ItemsGrid';
+import { SectionItemR, SectionItemL, SectionItemImage } from '../SectionItem';
 
-const SectionTriptych = ({ title, subtitle, text, items }) => (
-  <Section title={title} subtitle={subtitle} text={text} textLast>
-    <ItemsGrid items={items} cols={[3, 6, 3]} />
-  </Section>
-);
+const styleWrap = (t) => ({
+  display: 'grid',
+  gridGap: t.space[8],
+  [t.mq.lg]: {
+    gridTemplateColumns: '1fr 2fr 1fr',
+  },
+});
 
+const SectionTriptych = ({ title, subtitle, text, items }) => {
+  // eslint-disable-next-line no-console
+  console.log(items[1]);
+  return (
+    <Section title={title} subtitle={subtitle} text={text} textLast>
+      <div css={styleWrap}>
+        {items && items.length > 2 && (
+          <React.Fragment>
+            <SectionItemL data={items[0]} />
+            <SectionItemImage data={items[1]} />
+            <SectionItemR data={items[2]} />
+          </React.Fragment>
+        )}
+      </div>
+    </Section>
+  );
+};
 export default SectionTriptych;

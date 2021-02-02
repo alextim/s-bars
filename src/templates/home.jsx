@@ -10,21 +10,11 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayout';
 import Section from '../components/Section';
 
-import SectionTriptych from '../components/page-sections/SectionTriptych';
 import SectionObjectLinks from '../components/page-sections/SectionObjectLinks';
-
-const Sections = ({ data }) =>
-  data.map(({ title, subtitle, text, image, items, type }, i) => (
-    <Section
-      key={i}
-      title={title}
-      subtitle={subtitle}
-      text={text}
-      image={image}
-      items={items}
-      type={type}
-    />
-  ));
+import SectionTriptych from '../components/page-sections/SectionTriptych';
+import SectionWorkTypes from '../components/page-sections/SectionWorkTypes';
+import SectionRecommended from '../components/page-sections/SectionRecommended';
+import SectionCredo from '../components/page-sections/SectionCredo';
 
 const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
@@ -68,13 +58,29 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
             items={sections[2].items}
           />
           <SectionTriptych
-            title={sections[2].title}
-            subtitle={sections[2].subtitle}
-            text={sections[2].text}
-            items={sections[2].items}
+            title={sections[3].title}
+            subtitle={sections[3].subtitle}
+            text={sections[3].text}
+            items={sections[3].items}
           />
-          <Sections data={sections.slice(1)} />
-          <Sections data={sections.slice(1)} />
+          <SectionWorkTypes
+            title={sections[4].title}
+            subtitle={sections[4].subtitle}
+            text={sections[4].text}
+            items={sections[4].items}
+          />
+          <SectionRecommended
+            title={sections[5].title}
+            subtitle={sections[5].subtitle}
+            text={sections[5].text}
+            items={sections[5].items}
+          />
+          <SectionCredo
+            title={sections[6].title}
+            subtitle={sections[6].subtitle}
+            text={sections[6].text}
+            items={sections[6].items}
+          />
         </>
       )}
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}

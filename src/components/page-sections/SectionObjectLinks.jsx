@@ -7,11 +7,10 @@ import Section from '../Section';
 const ncols = 3;
 
 const styleWrap = (t) => ({
-  display: 'flex',
-  flexDirection: 'column',
+  display: 'grid',
+  gridGap: t.space[6],
   justifyContent: 'start',
   [t.mq.lg]: {
-    display: 'grid',
     gridTemplateColumns: `repeat(${ncols}, 1fr)`,
     gridGap: '1px',
     backgroundColor: t.colors.brand.main,
@@ -20,12 +19,11 @@ const styleWrap = (t) => ({
 
 const styleCell = (t) => ({
   display: 'inline-flex',
-  marginBottom: t.space[6],
   alignItems: 'center',
   [t.mq.lg]: {
     padding: '1.5rem',
-    marginBottom: 0,
     textAlign: 'center',
+    justifyContent: 'center',
     textTransform: 'uppercase',
     backgroundColor: t.colors.background,
   },
