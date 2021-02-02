@@ -25,6 +25,4 @@ const buttons = {
   },
 };
 
-export const links = { ...buttons };
-
 export default buttons;

@@ -9,7 +9,8 @@ import sizes from './sizes';
 import shadows from './shadows';
 import transition from './transition';
 import fonts from './fonts';
-import buttons, { links } from './buttons';
+import buttons from './buttons';
+import links from './links';
 
 const theme = {
   breakpoints,

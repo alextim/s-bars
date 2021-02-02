@@ -45,10 +45,9 @@ export const pageFragment = graphql`
           to
           subtitle
           text
+          icon
           image {
             sm {
-              publicURL
-              extension
               childImageSharp {
                 fluid(maxWidth: 480) {
                   ...GatsbyImageSharpFluid_noBase64

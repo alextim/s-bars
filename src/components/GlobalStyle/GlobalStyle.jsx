@@ -5,7 +5,7 @@ import BODY_PREVENT_SCROLLING from '../../constants/body-prevent-scrolling';
 
 const GlobalStyle = () => {
   const theme = useTheme();
-  const { sizes, mq, colors, breakpoints } = theme;
+  const { sizes, mq, colors, breakpoints, space } = theme;
   return (
     <Global
       styles={css`
@@ -150,7 +150,7 @@ const GlobalStyle = () => {
         }
 
         a {
-          color: inherit;
+          /* color: inherit; */
           background-color: transparent;
           -webkit-text-decoration-skip: objects;
         }
@@ -162,10 +162,13 @@ const GlobalStyle = () => {
         }
 
         /* LINKS */
+        a {
+          /* color: ${colors.text}; */
+          color: ${theme.links.color};
+        }
         a,
         :link,
         :visited {
-          /* color: ${colors.text}; */
           text-decoration: none;
         }
 
@@ -187,8 +190,8 @@ const GlobalStyle = () => {
         :visited:focus,
         :visited:active,
         :visited:hover {
-          /* text-decoration: underline; */
-          text-decoration: none;
+          text-decoration: underline;
+          /* text-decoration: none; */
         }
 
         a:hover: {
@@ -224,16 +227,23 @@ const GlobalStyle = () => {
         }
 
         h1 {
-          font-size: ${theme.fontSizes[5]};
+          font-size: ${theme.fontSizes[6]};
         }
 
         h2 {
-          font-size: ${theme.fontSizes[4]};
-          color: ${colors.brand.main};
+          font-size: ${theme.fontSizes[5]};
+          color: ${colors.brand.secondDark};
+          margin-bottom: ${space[4]};
+          ${mq.lg}: {
+            font-size: ${theme.fontSizes[6]};
+          }
         }
 
         h3 {
-          font-size: ${theme.fontSizes[3]};
+          font-size: ${theme.fontSizes[4]};
+          ${mq.lg}: {
+            font-size: ${theme.fontSizes[5]};
+          }
         }
 
         h4 {

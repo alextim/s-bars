@@ -370,6 +370,9 @@ module.exports = ({ actions, schema }) => {
         image: {
           type: 'Image',
         },
+        icon: {
+          type: 'String',
+        },
       },
     }),
 

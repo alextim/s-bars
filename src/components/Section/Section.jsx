@@ -6,7 +6,6 @@ const styleWrap = (t) => ({
   marginTop: t.space[10],
 });
 const styleTitle = {
-  marginTop: '2rem',
   textAlign: 'center',
 };
 

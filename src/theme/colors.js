@@ -31,9 +31,9 @@ const nickel = '#7F7D76';
 // const yaleBlue = '#004E98';
 
 const brand = {
-  main: '#007aad',
-  secondLight: '#ceebfa',
-  secondDark: 'rgb(0, 122, 173)',
+  main: 'rgb(206, 235, 250)',
+  secondLight: 'rgb(0, 122, 173)',
+  secondDark: 'rgb(58, 118, 150)',
 };
 
 const text = grey90;
@@ -47,7 +47,7 @@ const colors = {
   primary: brand.secondLight,
   secondary: nickel,
   muted: lightGray,
-  highlight: brand.secondLight,
+  highlight: brand.secondDark,
   heading: grey90,
 
   error: red,
@@ -66,18 +66,18 @@ const colors = {
     nav: {
       socialLink: grey20,
       item: {
-        text: brand.main,
+        text,
         borderColor: grey70,
         hoverBg: grey30,
         focusBg: grey40,
         activeBg: grey50,
-        boxShadowColor: brand.main,
+        boxShadowColor: brand.secondDark,
       },
       submenu: {
         bg: grey05,
       },
       languageSwitch: {
-        selected: brand.main,
+        selected: brand.secondDark,
       },
     },
   },

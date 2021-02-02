@@ -2,6 +2,8 @@
 import { jsx } from '@emotion/react';
 import Img from 'gatsby-image';
 
+import Icon from '../Icon';
+
 const styleWrap = () => ({
   display: 'flex',
   flexDirection: 'column',
@@ -16,6 +18,7 @@ const styleTitle = (t) => ({
 const styleTitleRound = (t) => ({
   marginTop: t.space[6],
   marginBottom: t.space[2],
+  textAlign: 'center',
 });
 
 const styleSubtitle = (t) => ({
@@ -32,8 +35,6 @@ const styleText = {
 
 const SectionItem = ({ data }) => {
   const { title, subtitle, text, image } = data;
-  // eslint-disable-next-line no-console
-  console.log(image);
   return (
     <div css={styleWrap}>
       {title && <h3 css={styleTitle}>{title}</h3>}
@@ -133,7 +134,7 @@ export const SectionItemRound = ({ data }) => {
 const styleWrapHorizontal = (t) => ({
   [t.mq.lg]: {
     display: 'grid',
-    gridTemplateColumns: '100px auto',
+    gridTemplateColumns: '6.25rem auto',
     gridTemplateRows: '2rem auto',
     gridGap: `0 ${t.space[5]}`,
   },
@@ -145,9 +146,9 @@ const styleCircleWrap = (t) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: t.colors.brand.secondLight,
-  height: '100px',
-  width: '100px',
+  backgroundColor: t.colors.brand.main,
+  height: '6.25rem',
+  width: '6.25rem',
   borderRadius: '50%',
   [t.mq.lg]: {
     float: 'none',
@@ -158,14 +159,19 @@ const styleCircleWrap = (t) => ({
 const styleCredoText = {
   textAlign: 'justify',
 };
+const styleIcon = {
+  width: '2.5rem',
+  height: '2.5rem',
+};
+const stylePlane = {
+  transform: 'rotate(-45deg)',
+};
 export const SectionItemCredo = ({ data }) => {
-  const { title, text, image } = data;
+  const { title, text, icon } = data;
   return (
     <div css={styleWrapHorizontal}>
       <div css={styleCircleWrap}>
-        {image && image.sm && image.sm.extension === 'svg' && (
-          <img src={image.sm.publicURL} alt={image.alt} />
-        )}
+        <Icon name={icon} extraStyle={{ ...styleIcon, ...(icon === 'plane' ? stylePlane : {}) }} />
       </div>
       <h3 css={styleTitle}>{title}</h3>
       <div css={styleCredoText} dangerouslySetInnerHTML={{ __html: text }} />

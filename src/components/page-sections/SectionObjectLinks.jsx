@@ -38,8 +38,15 @@ const styleIcon = (t) => ({
   },
 });
 
+const styleText = (t) => ({
+  textAlign: 'center',
+  marginTop: t.space[7],
+  [t.mq.lg]: {
+    textTransform: 'uppercase',
+  },
+});
 const SectionObjectLinks = ({ title, subtitle, text, items }) => (
-  <Section title={title} subtitle={subtitle} text={text} textLast>
+  <Section title={title} subtitle={subtitle}>
     <div css={styleWrap}>
       {items.map(({ title: itemTitle, to }, i) => (
         <div key={i} css={styleCell}>
@@ -48,6 +55,7 @@ const SectionObjectLinks = ({ title, subtitle, text, items }) => (
         </div>
       ))}
     </div>
+    <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />
   </Section>
 );
 

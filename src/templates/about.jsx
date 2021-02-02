@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import React from 'react';
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
@@ -24,7 +25,7 @@ const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
         noindex={noindex}
       />
       {sections && (
-        <>
+        <React.Fragment>
           <SectionTriptych
             title={sections[0].title}
             subtitle={sections[0].subtitle}
@@ -32,7 +33,7 @@ const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
             items={sections[0].items}
           />
           <Sections data={sections.slice(1)} />
-        </>
+        </React.Fragment>
       )}
     </Layout>
   );

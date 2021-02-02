@@ -83,7 +83,11 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
           />
         </>
       )}
-      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+      {html && (
+        <Section>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </Section>
+      )}
     </Layout>
   );
 };
@@ -109,6 +113,7 @@ export const pageQuery = graphql`
             to
             subtitle
             text
+            icon
             image {
               alt
               sm {
