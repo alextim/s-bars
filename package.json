@@ -76,7 +76,6 @@
     "gatsby-transformer-yaml": "^2.10.0",
     "lazysizes": "^5.3.0",
     "lodash": "^4.17.20",
-    "nanoid": "^3.1.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",

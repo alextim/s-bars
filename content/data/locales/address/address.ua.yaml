@@ -1,18 +1,21 @@
-legalName: ksdbkasdbkasdbaksd
+legalName: Компания «Снежный Барс»
 
+foundingDate: 2009-01-01
 postalAddress:
   streetAddress:
     - Хмельницкое шосcе, 2а, оф.110
-  addressLocality: Odessa
+  addressLocality:  Винница
   postalCode:
-  addressCountry: Ukraine
+  addressCountry: Украина
 
 contactPoint:
   - name: Светлана Доляк
+    description: Покраска металлоконструкций, фасадов и т.д.
     contactType: отдел работы с клиентом
     telephone: [380965553092]
     email: [promalp.s.bars@gmail.com]
   - name: Андрей Карпенко
+    description: Утепление квартир
     contactType: клиент-менеджер
     telephone: [380979705376, 380432573695]
     email: [andrey.karpenko7@gmail.com]

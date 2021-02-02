@@ -1,6 +1,3 @@
-- title: Главная
-  to: /
-
 - title: Услуги
   to: /dlya-predpriyatij
   submenu:

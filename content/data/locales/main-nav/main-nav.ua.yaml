@@ -1,0 +1,51 @@
+- title: Послуги
+  to: /dlya-predpriyatij
+  submenu:
+  - title: Фарбування металоконструкцій
+    to: /pokraska-metalla
+  - title: Внутрішні малярні роботи
+    to: /provedenie-vnutrennix-rabot
+  - title: Фарбування бетонних конструкцій
+    to: /pokraska-fasadov-i-zhelezobetonnyx-konstrukcij
+  - title: Мийка скляних фасадів
+    to: /moika-okon/
+  - title: Нанесення спеціальних покриттів
+    to: /nanesenie-specialnyx-pokrytij
+  - title: Монтаж рекламних конструкцій
+    to: /montazh-i-demontazh-reklamnyx-konstrukcij-shhitov-i-bannerov
+  - title: Утеплення фасадів
+    to: /uteplenie_sten_i_fasadov
+  - title: Фарбування фасадів
+    to: /pokraska-fasada
+  - title: Очищення і фарбування дахів
+    to: /pokraska-kryishi
+
+- title: Типи об'єктів
+  to: /tipy-obektov
+  submenu:
+  - title: Шляхопроводи, мости і естакади
+    to: /puteprovody-mosty-i-estakady
+  - title: "Електростанції: ГЕС, ТЕС, АЕС"
+    to: /elektrostancii-ges-tes-aes
+  - title: "Громадські об'єкти: ТРЦ, вокзали"
+    to: /obshhestvennye-obekty-trc-vokzaly
+  - title: Резервуари для рідин
+    to: /rezervuary-dlya-zhidkostej
+  - title:  "Крани: козлові, мостові, портові"
+    to: /krany-kozlovye-mostovye-portovye
+  - title: Елеватори, промислові цехи
+    to: /elevatory-promyshlennye-cexa
+
+- title: Блог
+  to: /blog
+
+- title: Прайс
+  to: /prajs
+
+- title: Про нас
+  to: /about
+
+- title: Контакти
+  to: /contacts
+
+

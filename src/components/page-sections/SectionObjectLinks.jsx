@@ -33,6 +33,7 @@ const styleIcon = (t) => ({
   marginRight: t.space[2],
   width: '1rem',
   height: '1rem',
+  color: t.links.color,
   [t.mq.lg]: {
     display: 'none',
   },
@@ -45,6 +46,7 @@ const styleText = (t) => ({
     textTransform: 'uppercase',
   },
 });
+
 const SectionObjectLinks = ({ title, subtitle, text, items }) => (
   <Section title={title} subtitle={subtitle}>
     <div css={styleWrap}>

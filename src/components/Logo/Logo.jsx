@@ -12,6 +12,9 @@ const wrapStyle = {
   alignItems: 'center',
   marginRight: '3rem',
   height: '100%',
+  'a:hover, a:active, a:focus': {
+    textDecoration: 'none',
+  },
 };
 
 const linkStyle = {
