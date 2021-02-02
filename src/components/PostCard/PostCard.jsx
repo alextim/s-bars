@@ -42,8 +42,8 @@ const PostCard = ({ data }) => {
           <Img fluid={data.cover.sm.childImageSharp.fluid} alt={data.cover.alt} css={imageStyle} />
         )}
         <h3 css={hStyle}>{data.title}</h3>
-        <p css={excerptStyle}>{data.excerpt}</p>
       </Link>
+      <p css={excerptStyle}>{data.excerpt}</p>
       <PostTags tags={data.tags} />
       <Link to={data.path} css={styleReadMore}>
         {t('post.readMore')}
