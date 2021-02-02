@@ -114,7 +114,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
     return;
   }
   const prohibitedSlugs = [
-    'travel-stories',
+    'blog',
     'category',
     'category-list',
     'tags',

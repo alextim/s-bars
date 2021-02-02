@@ -58,7 +58,7 @@ const PostList = ({
       <PageHeader title={title} subtitle={description} />
       {html && isFirstPage && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
       <PostCardList posts={postList} />
-      <PostPagination currentPage={currentPage} numPages={numPages} subpath="/travel-stories" />
+      <PostPagination currentPage={currentPage} numPages={numPages} subpath="/blog" />
     </Layout>
   );
 };
@@ -67,9 +67,7 @@ export default PostList;
 
 export const pageQuery = graphql`
   query PostListQuery($locale: String!, $skip: Int!, $limit: Int!) {
-    page: markdownRemark(
-      fields: { slug: { regex: "/travel-stories$/" }, locale: { eq: $locale } }
-    ) {
+    page: markdownRemark(fields: { slug: { regex: "/blog$/" }, locale: { eq: $locale } }) {
       ...PageFragment
     }
     posts: allMarkdownRemark(
