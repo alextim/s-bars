@@ -103,12 +103,7 @@ const menuItemWrapStyle = {
   },
 };
 
-const stripLastSlashes = (path) => {
-  if (isRoot(path)) {
-    return path;
-  }
-  return removeTrailingSlashes(path);
-};
+const stripLastSlashes = (path) => (isRoot(path) ? path : removeTrailingSlashes(path));
 
 const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
   const onClick = () => {

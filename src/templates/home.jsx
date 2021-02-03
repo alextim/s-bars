@@ -10,7 +10,7 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayout';
 import Section from '../components/Section';
 
-import SectionObjectLinks from '../components/page-sections/SectionObjectLinks';
+import SectionObjectTypes from '../components/page-sections/SectionObjectTypes';
 import SectionTriptych from '../components/page-sections/SectionTriptych';
 import SectionWorkTypes from '../components/page-sections/SectionWorkTypes';
 import SectionRecommended from '../components/page-sections/SectionRecommended';
@@ -22,6 +22,8 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
     frontmatter: { title, metaTitle, description, metaDescription, noindex, sections },
     html,
   } = data.page;
+
+  const getObjectTypes = () => mainNav[1].submenu;
 
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
@@ -51,11 +53,11 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
             subtitle={sections[1].subtitle}
             text={sections[1].text}
           />
-          <SectionObjectLinks
+          <SectionObjectTypes
             title={sections[2].title}
             subtitle={sections[2].subtitle}
             text={sections[2].text}
-            items={sections[2].items}
+            items={getObjectTypes()}
           />
           <SectionTriptych
             title={sections[3].title}

@@ -33,19 +33,6 @@ sections:
     subtitle: "По покраске и ремонту антикоррозионной защиты конструкций: от восстановления поврежденных участков, подготовки и очистки поверхности до нанесения финишного слоя."
   
   - title: МЫ РАБОТАЕМ С РАЗЛИЧНЫМИ ТИПАМИ ОБЪЕКТОВ
-    items:
-      - title: Резервувары для жидкостей
-        to: /rezervuary-dlya-zhidkostej
-      - title: 	Путепроводы, мосты и эстакады
-        to: /puteprovody-mosty-i-estakady
-      - title: Элеваторы, анграры, дымовые трубы
-        to: /elevatory-promyshlennye-cexa
-      - title: "Электростанции: ГЭС, ТЭС, АЭС"
-        to: /elektrostancii-ges-tes-aes
-      - title: "Краны: козловые, мостовые, портовые"
-        to: /krany-kozlovye-mostovye-portovye
-      - title: "Общественные объекты: ТРЦ, вокзалы"
-        to: /obshhestvennye-obekty-trc-vokzaly
     text: |
       <p>
         Мы обладаем опытом работы с такими объектами и хорошо знаем специфику работ с ними.

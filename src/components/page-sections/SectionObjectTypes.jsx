@@ -47,7 +47,7 @@ const styleText = (t) => ({
   },
 });
 
-const SectionObjectLinks = ({ title, subtitle, text, items }) => (
+const SectionObjectTypes = ({ title, subtitle, text, items }) => (
   <Section title={title} subtitle={subtitle}>
     <div css={styleWrap}>
       {items.map(({ title: itemTitle, to }, i) => (
@@ -61,4 +61,4 @@ const SectionObjectLinks = ({ title, subtitle, text, items }) => (
   </Section>
 );
 
-export default SectionObjectLinks;
+export default SectionObjectTypes;
