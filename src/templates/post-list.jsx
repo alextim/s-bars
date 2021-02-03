@@ -4,10 +4,9 @@ import { graphql } from 'gatsby';
 
 import { POSTS_PATH } from '../../config/website';
 
-import Layout from '../components/Layout/SimpleLayout';
+import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import PostCardList from '../components/PostCardList';
 import PostPagination from '../components/PostPagination';
-import PageHeader from '../components/DefaultHeader';
 import { CategoryWidget, TagsWidget, YearsWidget } from '../components/post-widgets';
 import SEO from '../components/SEO';
 
@@ -44,7 +43,11 @@ const PostList = ({
   } = page;
 
   return (
-    <Layout aside="hello" context={{ translations, address, mainNav, footerNav, socialLinks }}>
+    <Layout
+      title={title}
+      subtitle={description}
+      context={{ translations, address, mainNav, footerNav, socialLinks }}
+    >
       <SEO
         locale={locale}
         title={metaTitle || title}
@@ -57,7 +60,6 @@ const PostList = ({
       <TagsWidget items={tags} />
       <YearsWidget items={years} />
 
-      <PageHeader title={title} subtitle={description} />
       {html && isFirstPage && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
       <PostCardList posts={postList} />
       <PostPagination currentPage={currentPage} numPages={numPages} subpath={POSTS_PATH} />

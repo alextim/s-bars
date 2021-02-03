@@ -55,15 +55,16 @@ const buttonStyles = {
 
     ':active': {
       outline: 'none',
+      textDecoration: 'none',
     },
     ':hover, :focus': {
       backgroundColor: colors.button.primary.hoverBg,
       borderColor: colors.button.primary.hoverBorder,
       outline: 'none',
+      textDecoration: 'none',
     },
     ':focus': {
       ...focusStyle,
-      outline: 'none',
     },
     ':after': {
       content: '""',

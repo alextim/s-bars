@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 
 import SEO from '../components/SEO';
 
-import Layout from '../components/Layout/PageLayout';
+import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import AsideObjectTypeList from '../components/AsideObjectTypeList';
 
 const styleWrap = (t) => ({

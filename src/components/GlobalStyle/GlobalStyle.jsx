@@ -235,7 +235,7 @@ const GlobalStyle = () => {
 
         h2 {
           font-size: ${theme.fontSizes[5]};
-          color: ${colors.brand.secondDark};
+          /* color: ${colors.brand.secondDark}; */
           margin-bottom: ${space[4]};
           ${mq.lg}: {
             font-size: ${theme.fontSizes[6]};

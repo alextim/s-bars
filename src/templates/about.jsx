@@ -7,7 +7,7 @@ import Sections from '../components/Sections';
 import SectionTriptych from '../components/page-sections/SectionTriptych';
 
 import SEO from '../components/SEO';
-import Layout from '../components/Layout/PageLayout';
+import Layout from '../components/Layout/SimpleLayoutWithHeader';
 
 const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
@@ -18,7 +18,7 @@ const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
   return (
     <Layout
       title={title}
-      description={description}
+      subtitle={description}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO

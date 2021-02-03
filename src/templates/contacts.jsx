@@ -8,7 +8,7 @@ import useOrganization from '../hooks/useOrganization';
 import { useTranslation } from '../i18n';
 
 import SEO from '../components/SEO';
-import Layout from '../components/Layout/PageLayout';
+import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import Section from '../components/Section';
 import { Row, Col } from '../components/flex-grid';
 
@@ -115,7 +115,7 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
   return (
     <Layout
       title={title}
-      description={description}
+      subtitle={description}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO

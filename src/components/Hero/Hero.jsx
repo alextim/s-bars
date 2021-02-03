@@ -37,7 +37,7 @@ const styleOverlay = (t) => ({
 
 const styleOverlayNoImage = (t) => ({
   position: 'static',
-  color: t.colors.brand.secondDark,
+  color: t.colors.text,
   textShadow: 'none',
   // paddingBottom: 0,
 });

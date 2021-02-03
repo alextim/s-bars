@@ -15,13 +15,12 @@ const repeat = (t, n) => {
 };
 
 const wrapStyle = (t) => ({
-  display: 'flex',
-  flexDirection: 'column',
+  display: 'grid',
+  gridGap: t.space[7],
   [t.mq.lg]: {
     display: 'grid',
     gridTemplateColumns: repeat('1fr', POSTS_PER_ROW),
     gridTemplateRows: repeat('auto', POSTS_PER_PAGE / POSTS_PER_ROW),
-    gridGap: t.space[8],
   },
 });
 

@@ -26,8 +26,9 @@ const styleLink = {
 };
 
 const styleImg = {
+  marginTop: '2px',
   width: 'auto',
-  height: '100%',
+  height: '90%',
 };
 
 const styleTextWrap = {

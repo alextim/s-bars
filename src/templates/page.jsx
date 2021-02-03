@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 
 import SEO from '../components/SEO';
 
-import Layout from '../components/Layout/PageLayout';
+import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import Sections from '../components/Sections';
 
 const PageTemplate = ({ path, data, pageContext: { locale } }) => {

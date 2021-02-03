@@ -50,6 +50,7 @@ const colors = {
   black,
   text,
   background,
+  secondaryBackground: '#f6f8f8',
 
   primary: brand.secondLight,
   primaryDark: brand.secondLightDarker,
