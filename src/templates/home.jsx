@@ -23,7 +23,7 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
     html,
   } = data.page;
 
-  const getObjectTypes = () => mainNav[1].submenu;
+  const getObjectTypes = () => mainNav.edges[1].node.fields.submenu;
 
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>

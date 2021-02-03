@@ -5,6 +5,20 @@ import Img from 'gatsby-image';
 import SEO from '../components/SEO';
 
 import Layout from '../components/Layout/PageLayout';
+import AsideObjectTypeList from '../components/AsideObjectTypeList';
+
+const styleWrap = (t) => ({
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gridGap: t.space[8],
+  [t.mq.lg]: {
+    gridTemplateColumns: '3fr 1fr',
+  },
+});
+
+const styleImg = (t) => ({
+  marginBottom: t.space[4],
+});
 
 const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
@@ -17,7 +31,6 @@ const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
     <Layout
       title={title}
       subtitle={description}
-      cover={cover}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -27,9 +40,15 @@ const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
         pathname={path}
         noindex={noindex}
       />
-      <h2>{description}</h2>
-      {cover && cover.sm && <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} />}
-      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+      <div css={styleWrap}>
+        <div>
+          {cover && cover.sm && (
+            <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} css={styleImg} />
+          )}
+          {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+        </div>
+        <AsideObjectTypeList />
+      </div>
     </Layout>
   );
 };

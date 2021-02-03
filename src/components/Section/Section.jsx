@@ -3,7 +3,10 @@ import { jsx } from '@emotion/react';
 import Img from 'gatsby-image';
 
 const styleWrap = (t) => ({
-  marginTop: t.space[10],
+  marginBottom: t.space[10],
+  ':last-of-type': {
+    marginBottom: 0,
+  },
 });
 const styleTitle = {
   textAlign: 'center',

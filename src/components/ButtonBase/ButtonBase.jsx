@@ -1,18 +1,17 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import React from 'react';
 
 import colors from '../../theme/colors';
 import { space } from '../../theme/space';
 import transition from '../../theme/transition';
-import buttons from '../../theme/buttons';
 import fonts from '../../theme/fonts';
 import { fontSizes } from '../../theme/font-sizes';
+import buttons from '../../theme/buttons';
 
 const semibold = 500;
 
 const focusStyle = {
-  outline: 0,
+  outline: 'none',
   boxShadow: `0 0 0 2px ${colors.input.focusBoxShadow}`,
 };
 
@@ -23,36 +22,44 @@ const components = {
 
 const buttonStyles = {
   default: {
-    alignItems: 'center',
-    backgroundColor: colors.button.primaryBg,
-    borderRadius: 1,
-    borderWidth: 0,
-    borderStyle: 'solid',
-    borderColor: colors.button.primaryBorder,
-    color: colors.button.primaryText,
-    cursor: 'pointer',
-    display: 'inline-flex',
-    fontFamily: fonts.heading,
-    fontWeight: semibold,
-    fontSize: fontSizes[2],
     flexShrink: 0,
-    // lineHeight: 'solid',
-    textDecoration: 'none',
-    whiteSpace: 'nowrap',
+
+    display: 'inline-flex',
+    alignItems: 'center',
+
     paddingLeft: space[3],
     paddingRight: space[3],
     height: '3.5rem',
+
+    color: colors.button.primary.text,
+    backgroundColor: colors.button.primary.bg,
+    borderColor: colors.button.primary.border,
+
+    borderRadius: 1,
+    borderWidth: 0,
+    borderStyle: 'solid',
+
+    cursor: 'pointer',
+
+    fontFamily: fonts.heading,
+    fontWeight: semibold,
+    fontSize: fontSizes[2],
+    // lineHeight: 'solid',
+    textDecoration: 'none',
+    whiteSpace: 'nowrap',
     letterSpacing: '1px',
     textTransform: 'uppercase',
+
     backgroundSize: `${space[7]} ${space[7]}`,
     transition: `background-color color outline border-color ${transition.default}`,
-    ':hover, :focus': {
-      backgroundColor: colors.brand.secondDark,
+
+    ':active': {
       outline: 'none',
-
-      color: colors.white,
-
-      borderColor: colors.brand.secondDark,
+    },
+    ':hover, :focus': {
+      backgroundColor: colors.button.primary.hoverBg,
+      borderColor: colors.button.primary.hoverBorder,
+      outline: 'none',
     },
     ':focus': {
       ...focusStyle,
@@ -65,15 +72,16 @@ const buttonStyles = {
     '& svg': {
       marginLeft: '.2em',
     },
-    ':active': {
-      outline: 'none',
-    },
   },
   secondary: {
-    borderColor: colors.button.secondaryBorder,
-    backgroundColor: colors.button.secondaryBg,
-    color: colors.button.secondaryText,
-    fontWeight: semibold,
+    color: colors.button.secondary.text,
+    backgroundColor: colors.button.secondary.bg,
+    borderColor: colors.button.secondary.border,
+    ':hover, :focus': {
+      backgroundColor: colors.button.secondary.hoverBg,
+      borderColor: colors.button.secondary.hoverBorder,
+      outline: 'none',
+    },
   },
 };
 
@@ -140,7 +148,7 @@ const ButtonBase = ({
   return (
     <Tag css={styles} onClick={trackingOnClick} {...props}>
       {children}
-      {icon && <React.Fragment>{icon}</React.Fragment>}
+      {icon}
     </Tag>
   );
 };

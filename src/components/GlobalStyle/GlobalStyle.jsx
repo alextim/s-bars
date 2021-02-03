@@ -227,7 +227,10 @@ const GlobalStyle = () => {
         }
 
         h1 {
-          font-size: ${theme.fontSizes[6]};
+          font-size: ${theme.fontSizes[7]};
+          ${mq.lg}: {
+            font-size: ${theme.fontSizes[8]};
+          }
         }
 
         h2 {

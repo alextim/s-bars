@@ -43,8 +43,8 @@ const theme = {
   },
   styles,
   sizes,
-  buttons,
   links,
+  buttons,
   transition,
   shadows,
 };

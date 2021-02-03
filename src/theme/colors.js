@@ -17,6 +17,10 @@ const lightWhite = 'rgba(255, 255, 255, 0.9)';
 // const opaqueLightYellow = 'rgba(255, 229, 100, 0.2)';
 // const opaqueLightWhite = 'hsla(0, 0%, 100%, 0.2)';
 const lightGray = 'hsla(0, 0%, 0%, 0.2)';
+
+const gray20 = '#EBEBEB';
+const gray40 = '#dcdcdc';
+
 const red = 'red';
 
 const davisGrey = '#5c5a58';
@@ -24,6 +28,7 @@ const jet = '#343332';
 
 // const quickSilver = '#a5a39d';
 const nickel = '#7F7D76';
+const nickelDark = '#454440';
 
 // const platinum = '#EBEBEB';
 // const silver = '#C0C0C0';
@@ -32,7 +37,8 @@ const nickel = '#7F7D76';
 
 const brand = {
   main: 'rgb(206, 235, 250)',
-  secondLight: 'rgb(0, 122, 173)',
+  secondLight: 'rgb(58, 118, 150)',
+  secondLightDarker: 'rgb(28, 88, 120)',
   secondDark: 'rgb(58, 118, 150)',
 };
 
@@ -44,8 +50,11 @@ const colors = {
   black,
   text,
   background,
+
   primary: brand.secondLight,
+  primaryDark: brand.secondLightDarker,
   secondary: nickel,
+  secondaryDark: nickelDark,
   muted: lightGray,
   highlight: brand.secondDark,
   heading: grey90,
@@ -100,19 +109,31 @@ const colors = {
     focusBoxShadow: 'red',
   },
 
-  button: {
-    primaryText: white,
-    primaryBg: brand.secondLight,
-    primaryBorder: brand.secondLight,
-    secondaryText: white,
-    secondaryBg: nickel,
-    secondaryBorder: nickel,
-  },
-
   modal: {
     text,
     bg: background,
   },
 };
 
+colors.button = {
+  text,
+  bg: gray20,
+  border: gray20,
+  hoverBg: gray40,
+  hoverBorder: gray40,
+  primary: {
+    text: white,
+    bg: colors.primary,
+    border: colors.primary,
+    hoverBg: colors.primaryDark,
+    hoverBorder: colors.primaryDark,
+  },
+  secondary: {
+    text: white,
+    bg: nickel,
+    border: nickel,
+    hoverBg: colors.secondaryDark,
+    hoverBorder: colors.secondaryDark,
+  },
+};
 export default colors;

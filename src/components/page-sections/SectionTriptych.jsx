@@ -14,8 +14,6 @@ const styleWrap = (t) => ({
 });
 
 const SectionTriptych = ({ title, subtitle, text, items }) => {
-  // eslint-disable-next-line no-console
-  console.log(items[1]);
   return (
     <Section title={title} subtitle={subtitle} text={text} textLast>
       <div css={styleWrap}>

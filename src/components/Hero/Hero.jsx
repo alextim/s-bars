@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 
 import Img from 'gatsby-image';
-
+import Container from '../Container';
 import mq from '../../theme/media-queries';
 
 const wrapperStyle = {
@@ -11,7 +11,7 @@ const wrapperStyle = {
   alignItems: 'center',
 };
 
-const overlayStyle = (t) => ({
+const styleOverlay = (t) => ({
   padding: t.space[6],
   margin: '0 auto',
   position: 'absolute',
@@ -35,6 +35,12 @@ const overlayStyle = (t) => ({
   },
 });
 
+const styleOverlayNoImage = (t) => ({
+  position: 'static',
+  color: t.colors.brand.secondDark,
+  textShadow: 'none',
+  // paddingBottom: 0,
+});
 const BgImage = ({ fluid, alt, title, height = '100vh', fit = 'cover', position = '50% 50%' }) => {
   const style = {
     position: 'absolute',
@@ -65,27 +71,38 @@ const BgImage = ({ fluid, alt, title, height = '100vh', fit = 'cover', position 
 };
 
 const styleTitle = {
-  fontSize: '2rem',
-  [mq.lg]: {
-    fontSize: '4rem',
-  },
+  /* empty */
 };
 
-const styleSubtitle = {
-  fontSize: '1.2rem',
+const styleSubtitle = (t) => ({
+  fontSize: t.fontSizes[3],
   [mq.lg]: {
-    fontSize: '2.875rem',
+    fontSize: t.fontSizes[4],
   },
-};
+});
 
-const Hero = ({ title, subtitle, img, alt, imgTitle }) => (
-  <div css={wrapperStyle}>
-    {img && <BgImage alt={alt} title={imgTitle} fluid={img} />}
-    <div css={overlayStyle}>
-      {title && <h1 css={styleTitle}>{title}</h1>}
-      {subtitle && <p css={styleSubtitle}>{subtitle}</p>}
+const Hero = ({ title, subtitle, img, alt, imgTitle }) => {
+  if (!img) {
+    return (
+      <div css={wrapperStyle}>
+        <Container>
+          <div css={[styleOverlay, styleOverlayNoImage]}>
+            {title && <h1 css={styleTitle}>{title}</h1>}
+            {subtitle && <p css={styleSubtitle}>{subtitle}</p>}
+          </div>
+        </Container>
+      </div>
+    );
+  }
+  return (
+    <div css={wrapperStyle}>
+      {img && <BgImage alt={alt} title={imgTitle} fluid={img} />}
+      <div css={[styleOverlay, img ? null : styleOverlayNoImage]}>
+        {title && <h1 css={styleTitle}>{title}</h1>}
+        {subtitle && <p css={styleSubtitle}>{subtitle}</p>}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Hero;
