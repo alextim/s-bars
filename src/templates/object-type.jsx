@@ -50,6 +50,10 @@ export const objecTypePageQuery = graphql`
           title
           fields {
             to
+            submenu {
+              title
+              to
+            }
           }
         }
       }

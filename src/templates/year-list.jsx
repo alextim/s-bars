@@ -51,6 +51,10 @@ export const pageQuery = graphql`
           title
           fields {
             to
+            submenu {
+              title
+              to
+            }
           }
         }
       }

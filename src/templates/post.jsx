@@ -70,6 +70,10 @@ export const postQuery = graphql`
           title
           fields {
             to
+            submenu {
+              title
+              to
+            }
           }
         }
       }
