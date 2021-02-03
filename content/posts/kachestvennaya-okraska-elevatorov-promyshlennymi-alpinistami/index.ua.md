@@ -14,7 +14,7 @@ tags:
   - tag2
   - tag3
   - tag4
-publishedDate: 2020-12-03
+publishedDate: 2019-05-10T16:08:00Z
 state: published    
 ---
 ## Зачем окрашивать элеваторы?

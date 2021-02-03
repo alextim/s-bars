@@ -13,7 +13,7 @@ category:
 tags:
   - tag1
   - tag3
-publishedDate: 2019-12-20
+publishedDate: 2017-05-18T10:28:00Z
 state: published    
 ---
 _Как сделать праздничный день особенным?_  
