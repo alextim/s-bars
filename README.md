@@ -1,4 +1,4 @@
-# IGrig
+# Снежный барс
 
 ## Features
 
@@ -6,46 +6,53 @@
 - Site config and translations in Yaml
 - SEO (meta and language tags, sitemap, Twitter, Open Graph & schema.org)
 
-## Tech Stack
+## Используемые технологии
 
-- Markdown + Gatsby.js
+- Yaml + Markdown + Gatsby.js
 - Emotion styling & theming
 - preval.macro
 - ESLint (airbnb) + Prettier
-
+- Netlify: хостинг и облачные функции
+- SendGrid: почтовый сервер 
   
-## License
+## Лицензия
 
 MIT
 
-## Free tier limits on December, 2020.
+## Free tier limits on August, 2020.
 ### Netlify
 #### Hosting
 build - 300 minutes /month
+#### Functions
+- Receive up to 125K function endpoint requests per month
+- Use up to 100 hours of function run time per month
+### SendGrid
+Send 40,000 emails for first 30 days after registration, then 100/day forever.
 
-## Installation
+## Инсталляция
 
-### Requirements
-
-1. Have [GitHub](https://github.com) account.
-1. Have [Netlify](https://netlify.com) account.
+### Требования
+1. Have [SendGrid](https://sendgrid.com) account.
+   You need API key and verified e-mail.
+1. Быть зарегистрированыым на [GitHub](https://github.com).
+1. Быть зарегистрированыым на  [Netlify](https://netlify.com) account.
 1. Have installed **Git** on your local computer. You could download it from [here](https://git-scm.com/download).
 
 ### Steps
 #### Fork Source Repository and clone it on local computer
 1. Login to your [GitHub account](https://github.com).
-1. Open the source repository from [here](https://github.com/alextim/igrig) in a browser.
+1. Open the source repository from [here](https://github.com/alextim/tarutino-steppe) in a browser.
 1. Create fork from source repository - click **Fork** button  (in the right upper corner of window).
 1. After process finish click button **Code**.
 1. Copy your repository URL.  
-   It should be like this: `https://github.com/your-account-name/igrig.git`.
+   It should be like this: `https://github.com/your-account-name/tarutino-steppe.git`.
 1. Lanch command prompt on your computer.  
    For Windows it will be: `Start` -> `Windows System` -> `Command Prompt`.
 2. Select desired folder with `cd` (change directory) command.
 3. Clone source repository to selected folder with the next command:
 
 ```
-git clone https://github.com/your-account-name/igrig.git
+git clone https://github.com/your-account-name/tarutino-steppe.git
 ```
 
 #### Connect your repository to hosting and build site
@@ -60,11 +67,13 @@ git clone https://github.com/your-account-name/igrig.git
 1. Check **Site settings**.  
    These fields should to be set as follow:
    - **Build command**: `yarn build`
-   - **Publish directoty**: `public`
+   - **Publish directoty**: `www/public`
 1. Go to **Environment variables**.  
    Add following vars:
    |  Key              | Value
    |---                |---
+   | SENDGRID_API_KEY  | your SendGrid API key 
+   | SENDGRID_TO_EMAIL | your e-mail verified by SendGrid
    | WARNINGS          | true
 
 
@@ -127,7 +136,7 @@ my.awesome.file.jpg
 | Frontmatter Field | Recommended Length  | More Info                                                                                                                                                                       | Note                                                                |
 | ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | metaTitle         | up to 60 chars      | [What is a meta title tag?](https://moz.com/learn/seo/title-tag), [Create good titles and snippets in Search Results](https://support.google.com/webmasters/answer/35624?hl=en) | If no **metaTitle** provided the **title** will be used             |
-| metaDescription   | 50-160 chars        | [What is a meta description?](https://moz.com/learn/seo/meta-description), [How to create the right meta description](https://yoast.com/meta-descriptions)                     | If no **metaDescription** provided the **description** will be used |
+| metaDescription   | 50-160 chars        | [What is a meta description?](https://moz.com/learn/seo/meta-description), [How to create the right meta description](https://yoast.com/meta-descriptions/)                     | If no **metaDescription** provided the **description** will be used |
 | alt               | less then 125 chars | [What is Alt Text?](https://moz.com/learn/seo/alt-text)                                                                                                                         | images                                                              |
 
 _In case of neither **metaDescription** nor **description** the **site description** will be used._
@@ -160,13 +169,15 @@ With `target="_blank"` browser will open external site in new tab.
 bad:
 
 ```html
-<a href="https://sample.com/some-page.html">Some page from sample.com</a>
+<a href="https://frumushika.com/living.html">frumushika.com</a>
 ```
 
 good:
 
 ```html
-<a href="https://sample.com/some-page.html" target="_blank" rel="nofollow noreferrer noopener">Some page from sample.com</a>
+<a href="https://frumushika.com/living.html" target="_blank" rel="nofollow noreferrer noopener"
+  >frumushika.com</a
+>
 ```
 
 ## Settings
@@ -176,7 +187,7 @@ good:
 File: `[PROJECT_DIR]\src\config\website.js`
 Obligue values:
 - siteUrl
-Change it from `https://igrig.netlify.app` to your actual site address (NO TRAILING SLASH!).
+Change it from `https://tarutino-steppe.netlify.app` to your actual site address (NO TRAILING SLASH!).
 Leave these vars as `it is` if you are not using:
 - googleAnalyticsID
 - fbAppID
@@ -192,7 +203,7 @@ By default indexing is prohibited.
 User-agent: *
 Disallow: /
 
-sitemap: https://igrig.netlify.app/sitemap.xml
+sitemap: https://tarutino-steppe.netlify.app/sitemap.xml
 ```
 if you want your site to be indexed by **Google** edit it:
 ```
@@ -207,7 +218,7 @@ Program uses the `LOCALES` entry in file `[PROJECT_DIR]\.env.development`.
 Avalable languages present as a space separated list.
 
 ```js
-LOCALES = en;
+LOCALES = uk;
 ```
 
 Then the list will be checked against all avalable locales from `[PROJECT_DIR]\src\config\locales.json`.
@@ -220,12 +231,20 @@ Program simply uses all locales from file `[PROJECT_DIR]\src\config\locales.json
 The default locale marked with `default = true`.
 If no `default = true` found the first entry will be default locale.
 
+## Modal Form
+
+File: [PROJECT_DIR]\src\components\pages\contact\ContactForm.jsx
+
+```js
+const AUTOCLOSE_DELAY = 5000; // in millisecs
+```
+
 ### Site URL
 
 ```js
 const meta = {
   ...
-  siteUrl: 'https://www.your-domain-name.com', // No trailing slash!
+  siteUrl: 'https://www.example.com', // No trailing slash!
 };
 ```
 
@@ -237,11 +256,12 @@ const meta = {
 | Footer Menu  |                                         | footer-nav-items.yaml |
 | Social Links |                                         | social-links.yaml     | Facebook, Intagram etc          |
 | Contacts     |                                         | contacts.yaml         | Phone, Skype, Viber, E-mail etc |
-| Address      | [PROJECT_DIR]\content\data\address      | address.en.yaml       | Company Name, Legal Address     |
+| Address      | [PROJECT_DIR]\content\data\address      | address.uk.yaml       | Company Name, Legal Address     |
+|              |                                         | address.en.yaml       |
 |              |                                         | address.ru.yaml       |
-| Translations | [PROJECT_DIR]\content\data\translations | translations.en.yaml  |
+| Translations | [PROJECT_DIR]\content\data\translations | translations.uk.yaml  |
+|              |                                         | translations.en.yaml  |
 |              |                                         | translations.ru.yaml  |
-
 
 ### Translations
 
@@ -258,6 +278,7 @@ Valid file names:
 ```
 social-links.en.yaml
 social-links.ru.yaml
+social-links.uk.yaml
 ```
 
 File content sample:
@@ -281,13 +302,13 @@ Name pattern:
 File name: in English alpahaber, no spaces, dots. Only letters in lower case.
 Special name is **index** (explanation in **Routes**) .
 
-Locale: **en** or **ru**.
+Locale: **uk**, **en** or **ru**.
 
 Sample for valid file names:
 
 ```
 index.ru.md
-home.en.md
+home.uk.md
 ```
 
 ### Routes
@@ -317,9 +338,10 @@ metaTitle: for SEO. If it's omitted the "title" will be used
 metaDescription: for SEO. If it's omitted the "description"will be used
 
 cover:
-  sm: your-special-banner-used-by-default.jpg
-  xl: your-special-banner-used-on-large-screens.jpg
+  default: your-special-banner.jpg
+  mobile: your-special-banner-used-on-small-screens.jpg
   alt: for SEO, alternate text for image
+  author: image author name
 
 slug: used to create the page route during build
 template: name of the template used during build
@@ -331,10 +353,10 @@ noindex: "true" or "false" - show/hide page from crawler robots
 
 Recommended cover image sizes:
 
-| View                    | Ratio    | Size in px |
-| -------                 | -------- | ---------- |
-| Default (Mobile)        | 9 x 16   | 480 x 853  |
-| Large Screens (Desktop) | 16 x 9   | 1920 1080  |
+| View    | Ratio    | Size in px |
+| ------- | -------- | ---------- |
+| Desktop | 16 x 8.1 | 1920 x 972 |
+| Mobile  | 1 x 1    | 600 x 600  |
 
 #### Body
 
@@ -349,6 +371,7 @@ File name: **home.[supported language code].md**
 Expected file names:
 
 ```
+home.uk.md
 home.en.md
 home.ru.md
 ```
@@ -439,11 +462,14 @@ _Remark: picture #2 has no author_
 ## TO-DO
 
 - [ ] detect language
+- [ ] Lerna or workspaces
+- [ ] add firebase project and readne
 - [ ] TS
 - [ ] Storybook
 - [ ] gatsby-plugin-google-analytics
 - [ ] gatsby-plugin-offline
 - [ ] link - it has no styles in the text (displays properly in Contacts, but not in Services)
+- [ ] contact form - modal - add real Abort handler
 - [ ] logo is black in 'Dark Mode'
 
 ## Known Issues
