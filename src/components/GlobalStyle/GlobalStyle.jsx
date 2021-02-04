@@ -263,15 +263,36 @@ const GlobalStyle = () => {
 
         ol,
         ul {
-          list-style: disc outside;
           margin: 0 0 1rem 2rem;
         }
 
-        p {
+        ul {
+          list-style: disc outside;
+        }
+
+        ol {
+          list-style: decimal outside;
+        }
+
+        li > ul,
+        li > ol {
+          margin: 0 0 0 2rem;
+        }
+
+        li {
           margin-bottom: 0.5rem;
           &:last-of-type {
             margin-bottom: 0;
           }
+        }
+
+        p {
+          margin-bottom: 0.75rem;
+          /*
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          */
         }
 
         input,
@@ -288,6 +309,18 @@ const GlobalStyle = () => {
           font-family: ${theme.fonts.body};
           font-size: inherit;
           line-height: inherit;
+        }
+        .at_image-row-2 {
+          display: grid;
+          ${mq.lg}: {
+            grid-template-columns: 2fr 2fr;
+          }
+        }
+        .at_image-row-3 {
+          display: grid;
+          ${mq.lg}: {
+            grid-template-columns: 1fr 1fr 1fr;
+          }
         }
       `}
     />

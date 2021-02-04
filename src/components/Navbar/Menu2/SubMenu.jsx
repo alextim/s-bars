@@ -65,6 +65,10 @@ const menuItemExtraStyle = {
   },
 };
 
+const styleLi = {
+  margin: 0,
+};
+
 const SubMenu = ({ title, to, items, path, onClick }) => {
   const [visible, setVisible] = useState(false);
 
@@ -131,7 +135,7 @@ const SubMenu = ({ title, to, items, path, onClick }) => {
       </div>
       <ul css={{ ...dropDownWrapStyle, display: visible ? 'flex' : 'none' }}>
         {items.map((item) => (
-          <li key={item.to}>
+          <li key={item.to} css={styleLi}>
             <MenuItem
               isActive={path === item.to}
               to={item.to}

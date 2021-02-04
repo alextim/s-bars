@@ -97,6 +97,7 @@ const isRoot = (path) => path === '/';
 const removeTrailingSlashes = (url) => url.replace(/\/+$/, '');
 
 const menuItemWrapStyle = {
+  margin: 0,
   [mq.lg]: {
     display: 'inline-flex',
     alignIitems: 'center',

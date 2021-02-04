@@ -65,16 +65,14 @@ const linkStyle = {
   },
 };
 
-const MenuItem2 = ({ children, to, isActive, onClick, extraStyle = {} }) => {
-  return (
-    <Link
-      css={{ ...linkStyle, ...extraStyle, ...(isActive ? activeStyle : {}) }}
-      to={to}
-      onClick={onClick}
-    >
-      {children}
-    </Link>
-  );
-};
+const MenuItem2 = ({ children, to, isActive, onClick, extraStyle = {} }) => (
+  <Link
+    css={{ ...linkStyle, ...extraStyle, ...(isActive ? activeStyle : {}) }}
+    to={to}
+    onClick={onClick}
+  >
+    {children}
+  </Link>
+);
 
 export default MenuItem2;
