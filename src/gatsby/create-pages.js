@@ -9,6 +9,7 @@ const i18n = require('../i18n/i18n');
 
 const pageDefaultTemplate = require.resolve(`${TEMPLATES_DIR}page.jsx`);
 
+const serviceDefaultTemplate = require.resolve(`${TEMPLATES_DIR}service.jsx`);
 const objectTypeDefaultTemplate = require.resolve(`${TEMPLATES_DIR}object-type.jsx`);
 
 const postListTemplate = require.resolve(`${TEMPLATES_DIR}post-list.jsx`);
@@ -105,6 +106,20 @@ module.exports = async ({ graphql, actions, reporter }) => {
             }
           }
         }
+        services: allMarkdownRemark(limit: 100, filter: { fields: { type: { eq: "service" } } }) {
+          edges {
+            node {
+              id
+              frontmatter {
+                template
+              }
+              fields {
+                slug
+                locale
+              }
+            }
+          }
+        }
         posts: allMarkdownRemark(
           limit: 1000
           filter: { frontmatter: { state: { eq: "published" } }, fields: { type: { eq: "post" } } }
@@ -171,6 +186,40 @@ module.exports = async ({ graphql, actions, reporter }) => {
           createPage({
             path: slug,
             component: getTemplate(template || slug.substring(1)) || pageDefaultTemplate,
+            context: {
+              id,
+              locale,
+            },
+          });
+        },
+      );
+    }
+
+    /**
+     * Services
+     *
+     */
+    const services = result.data.services.edges.filter(
+      ({ node: { fields } }) =>
+        fields.locale === locale && !prohibitedSlugs.some((s) => fields.slug.includes(s)),
+    );
+    if (services.length === 0) {
+      console.warn('\nNo services');
+    } else {
+      console.log(`\nMd services: ${services.length}`);
+      console.log('---------------');
+      services.forEach(
+        ({
+          node: {
+            id,
+            frontmatter: { template },
+            fields: { slug },
+          },
+        }) => {
+          console.log('pagepath=', slug);
+          createPage({
+            path: slug,
+            component: getTemplate(template || slug.substring(1)) || serviceDefaultTemplate,
             context: {
               id,
               locale,

@@ -4,15 +4,13 @@ description:
 metaTitle: Наружное утепление стен и фасадов квартир в Украине | СНЕЖНЫЙ БАРС
 metaDescription: Заказывайте профессиональное утепление наружных стен и фасадов для квартир и домов ☎+38 (096)555-30-92 от специалистов компании Снежный Барс
 cover:
-  sm: ./images/uteplenie_sten_i_fasadov.jpg
+  sm: ./images/600.jpg
   xl: 
   alt: 
 ---
 **_«Снежный Барс»_** – это команда специалистов в области промышленного альпинизма, которые могут обеспечить тепло и уют в Вашем доме. Для этой цели мы используем самую современную технологию [утепления стен домов](/naruzhnoe-uteplenie-sten-kvartir-domov/).
 
-**_![](/wp-content/uploads/2019/03/uteplenie_sten_i_fasadov.jpg)
-
-![](/wp-content/uploads/2019/03/uteplenie_sten_i_fasadov.jpg)
+_![](./images/uteplenie_sten_i_fasadov.jpg)
 
 ## Зачем это нужно?
 
@@ -42,9 +40,7 @@ _Большая экономия энергоресурсов._
 
 ## Фасадная схема утепления
 
-![](/wp-content/uploads/2017/05/s-bars-3.jpg)
-
-![](/wp-content/uploads/2017/05/s-bars-3.jpg)
+![](./images/s-bars-3.jpg)
 
 1.  Клеевой раствор
 2.  Пенополистерол
@@ -57,14 +53,14 @@ _Большая экономия энергоресурсов._
 
 ![](data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)
 
-![](/wp-content/uploads/2017/05/fasad-1.jpg)
+![](./images/fasad-1.jpg)
 
 ![](data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)
 
-![](/wp-content/uploads/2017/05/fasad-2.jpg)
+![](./images/fasad-2.jpg)
 
 ![](data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)
 
-![](/wp-content/uploads/2017/05/fasad-3.jpg)
+![](./images/fasad-3.jpg)
 
 На все выполненные работы по утеплению **_«Снежный Барс»_** предоставляет трёхлетнюю гарантию. Мы поддерживаем постоянную связь с клиентами. Ведь нет лучшей награды для Мастера, чем уверенность в том, что каждый человек остаётся доволен его работой!

@@ -2,8 +2,6 @@
 import { jsx } from '@emotion/react';
 import Button from '../Button';
 
-import useObjectTypes from '../../hooks/useObjectTypes';
-
 const styleWrap = {
   display: 'flex',
   flexDirection: 'column',
@@ -13,14 +11,16 @@ const styleButton = (t) => ({
   marginTop: t.space[4],
 });
 
-const overrideCSS = { textTransform: 'unset' };
-const AsideObjectTypeList = () => {
-  const { items, title: heading } = useObjectTypes();
+const overrideCSS = {
+  textTransform: 'unset',
+};
+
+const AsideButtonList = ({ title, items }) => {
   return (
     <div>
-      <h2>{heading}</h2>
+      <h2>{title}</h2>
       <div css={styleWrap}>
-        {items.map(({ to, title }) => (
+        {items.map(({ to, title: itemTitle }) => (
           <Button
             key={to}
             tag="link"
@@ -29,7 +29,7 @@ const AsideObjectTypeList = () => {
             css={styleButton}
             overrideCSS={overrideCSS}
           >
-            {title}
+            {itemTitle}
           </Button>
         ))}
       </div>
@@ -37,4 +37,4 @@ const AsideObjectTypeList = () => {
   );
 };
 
-export default AsideObjectTypeList;
+export default AsideButtonList;

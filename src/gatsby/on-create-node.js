@@ -79,10 +79,13 @@ const onDataNode = (node, actions, getNode) => {
 
 const onMdNode = (node, actions, getNode) => {
   const fileNode = getNode(node.parent);
+
   const isPage = fileNode.sourceInstanceName === 'pages';
   const isPost = fileNode.sourceInstanceName === 'posts';
+  const isServicePage = fileNode.sourceInstanceName === 'services';
   const isObjectTypePage = fileNode.sourceInstanceName === 'object-types';
-  if (!isPage && !isPost && !isObjectTypePage) {
+
+  if (!isPage && !isPost && !isServicePage && !isObjectTypePage) {
     return;
   }
 
@@ -121,6 +124,8 @@ const onMdNode = (node, actions, getNode) => {
     type = 'page';
   } else if (isPost) {
     type = 'post';
+  } else if (isServicePage) {
+    type = 'service';
   } else if (isObjectTypePage) {
     type = 'object-type';
   } else {

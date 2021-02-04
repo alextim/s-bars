@@ -21,7 +21,7 @@ const styleImg = (t) => ({
   marginBottom: t.space[4],
 });
 
-const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
+const ServicePageTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
   const {
     frontmatter: { title, metaTitle, description, metaDescription, cover, noindex },
@@ -49,18 +49,18 @@ const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
         </div>
         <AsideButtonList
-          title={getListTitle(mainNav, 'object-type')}
-          items={getListItems(mainNav, 'object-type')}
+          title={getListTitle(mainNav, 'service')}
+          items={getListItems(mainNav, 'service')}
         />
       </div>
     </Layout>
   );
 };
 
-export default ObjectTypePageTemplate;
+export default ServicePageTemplate;
 
-export const objecTypePageQuery = graphql`
-  query ObjecTypePageQuery($id: String!, $locale: String!) {
+export const pageQuery = graphql`
+  query ServicePageQuery($id: String!, $locale: String!) {
     page: markdownRemark(id: { eq: $id }) {
       ...PageFragment
     }
