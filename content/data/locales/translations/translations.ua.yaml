@@ -8,6 +8,8 @@
   value: Тэги
 - key: post.widget.years
   value: Архивы по годам
+- key: post.widget.recent
+  value: Цікаві статті
 - key: author
   value: Автор
 - key: all_rights_reserved

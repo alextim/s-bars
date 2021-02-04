@@ -228,7 +228,7 @@ const GlobalStyle = () => {
 
         h1 {
           font-size: ${theme.fontSizes[7]};
-          ${mq.lg}: {
+          ${mq.lg} {
             font-size: ${theme.fontSizes[8]};
           }
         }
@@ -237,14 +237,15 @@ const GlobalStyle = () => {
           font-size: ${theme.fontSizes[5]};
           /* color: ${colors.brand.secondDark}; */
           margin-bottom: ${space[4]};
-          ${mq.lg}: {
+          ${mq.lg} {
             font-size: ${theme.fontSizes[6]};
           }
         }
 
         h3 {
           font-size: ${theme.fontSizes[4]};
-          ${mq.lg}: {
+          margin-bottom: ${space[2]};
+          ${mq.lg} {
             font-size: ${theme.fontSizes[5]};
           }
         }

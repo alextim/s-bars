@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react';
+import { jsx, useTheme } from '@emotion/react';
 import Img from 'gatsby-image';
 
 import Layout from '../Layout/SimpleLayoutWithHeader';
@@ -21,31 +21,32 @@ const styleItemsWrap = (t) => ({
   },
 });
 
-const styleCard = (t) => ({
-  backgroundColor: t.colors.secondaryBackground,
-  ':hover': {
-    boxShadow: '0 0 10px rgba(0,0,0,0.5)',
-  },
-});
-
-const styleHeading = {
-  margin: 0,
+const Cards = ({ items }) => {
+  const theme = useTheme();
+  return (
+    <div css={styleItemsWrap}>
+      {items.map(({ title, to, cover }, i) => (
+        <div key={i} css={theme.card.wrap}>
+          {cover && cover.sm && (
+            <a href={to}>
+              <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} />
+            </a>
+          )}
+          <div css={theme.card.textWrap}>
+            <h2 css={theme.card.heading}>
+              <a href={to} css={theme.card.link}>
+                {title}
+              </a>
+            </h2>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 };
-
-const styleCardText = (t) => ({
-  padding: t.space[4],
-});
-
-const styleAnchor = (t) => ({
-  color: t.colors.text,
-  ':hover, :focus, :active': {
-    textDecoration: 'none',
-  },
-});
 
 const ObjectTypeServiceList = ({ path, data, locale, type }) => {
   const { translations, address, mainNav, footerNav, socialLinks, page, pageItems = [] } = data;
-
   const {
     html,
     frontmatter: { title, metaTitle, description, metaDescription, noindex },
@@ -88,24 +89,7 @@ const ObjectTypeServiceList = ({ path, data, locale, type }) => {
         pathname={path}
         noindex={noindex}
       />
-      <div css={styleItemsWrap}>
-        {items.map(({ title: itemTitle, to, cover }, i) => (
-          <div key={i} css={styleCard}>
-            {cover && cover.sm && (
-              <a href={to}>
-                <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} />
-              </a>
-            )}
-            <div css={styleCardText}>
-              <h2 css={styleHeading}>
-                <a href={to} css={styleAnchor}>
-                  {itemTitle}
-                </a>
-              </h2>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Cards items={items} />
       {html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
     </Layout>
   );

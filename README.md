@@ -1,33 +1,33 @@
 # Снежный барс
+## Ввведение
+### Особенности
 
-## Features
+- i18n (Украинский, Русский)
+- Кофигурация сайта и переводы во внеших файлах в формате Yaml
+- SEO (мета и языковые тэги, карта сайта, Twitter, Open Graph & schema.org)
 
-- i18n (English, Russian)
-- Site config and translations in Yaml
-- SEO (meta and language tags, sitemap, Twitter, Open Graph & schema.org)
-
-## Используемые технологии
+### Используемые технологии
 
 - Yaml + Markdown + Gatsby.js
-- Emotion styling & theming
+- CSS-in-JS (Emotion) стили и темизация
 - preval.macro
 - ESLint (airbnb) + Prettier
 - Netlify: хостинг и облачные функции
 - SendGrid: почтовый сервер 
   
-## Лицензия
+### Лицензия
 
 MIT
 
-## Free tier limits on August, 2020.
-### Netlify
-#### Hosting
-build - 300 minutes /month
-#### Functions
-- Receive up to 125K function endpoint requests per month
-- Use up to 100 hours of function run time per month
-### SendGrid
-Send 40,000 emails for first 30 days after registration, then 100/day forever.
+### Лимиты бесплатных сервисов (на 1 марта 2021 г).
+#### Netlify
+##### Хостинг
+время на построение сайта - 300 минут в месяц
+##### Функции
+- До 125000 вызовов функций в месяц
+- До 100 часов времени исполнения в месяц
+#### SendGrid
+Посылка 40000 писем за первые 30 дней после регистрации, затем 100 писем в день.
 
 ## Инсталляция
 

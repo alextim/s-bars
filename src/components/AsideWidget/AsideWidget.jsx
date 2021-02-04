@@ -6,8 +6,8 @@ const wrapStyle = {
   flexDirection: 'column',
 };
 
-const AsideWidget = ({ title, children }) => (
-  <div>
+const AsideWidget = ({ title, children, extraStyle }) => (
+  <div css={extraStyle}>
     <h3>{title}</h3>
     <div css={wrapStyle}>{children}</div>
   </div>

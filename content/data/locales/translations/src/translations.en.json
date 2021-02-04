@@ -5,7 +5,8 @@
     "widget": {
       "category": "Categories",
       "tags": "Tags",
-      "years": "Archive"
+      "years": "Archive",
+      "recent": "Recent Posts"
     }
   },
   "author": "Author",

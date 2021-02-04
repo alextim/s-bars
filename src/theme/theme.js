@@ -11,6 +11,7 @@ import transition from './transition';
 import fonts from './fonts';
 import buttons from './buttons';
 import links from './links';
+import card from './card';
 
 const theme = {
   breakpoints,
@@ -47,6 +48,7 @@ const theme = {
   buttons,
   transition,
   shadows,
+  card,
 };
 
 export default theme;

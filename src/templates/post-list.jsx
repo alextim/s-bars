@@ -7,7 +7,7 @@ import { POSTS_PATH } from '../../config/website';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import PostCardList from '../components/PostCardList';
 import PostPagination from '../components/PostPagination';
-import { CategoryWidget, TagsWidget, YearsWidget } from '../components/post-widgets';
+// import { CategoryWidget, TagsWidget, YearsWidget } from '../components/post-widgets';
 import SEO from '../components/SEO';
 
 const htmlStyle = (t) => ({
@@ -18,7 +18,8 @@ const htmlStyle = (t) => ({
 const PostList = ({
   path,
   data,
-  pageContext: { locale, currentPage, numPages, categories, tags, years },
+  // pageContext: { locale, currentPage, numPages, categories, tags, years },
+  pageContext: { locale, currentPage, numPages },
 }) => {
   const { translations, address, mainNav, footerNav, socialLinks, page } = data;
   const isFirstPage = currentPage === 1;
@@ -55,10 +56,11 @@ const PostList = ({
         pathname={path}
         noindex={noindex}
       />
-
+      {/*
       <CategoryWidget items={categories} />
       <TagsWidget items={tags} />
       <YearsWidget items={years} />
+      */}
 
       {html && isFirstPage && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
       <PostCardList posts={postList} />

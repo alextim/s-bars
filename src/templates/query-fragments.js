@@ -124,9 +124,20 @@ export const postCardFragment = graphql`
     fields {
       slug
     }
-    excerpt(pruneLength: 120)
+    excerpt(pruneLength: 180)
     timeToRead
     html
+  }
+`;
+
+export const postShortInfoFragment = graphql`
+  fragment PostShortInfoFragment on MarkdownRemark {
+    frontmatter {
+      title
+    }
+    fields {
+      slug
+    }
   }
 `;
 

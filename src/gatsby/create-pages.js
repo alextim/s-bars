@@ -2,6 +2,11 @@
 const _ = require('lodash');
 
 const TEMPLATES_DIR = '../templates/';
+
+const CREATE_TAG_PAGES = false;
+const CREATE_CATEGORY_PAGES = false;
+const CREATE_YEAR_PAGES = false;
+
 const { POSTS_PER_PAGE, POSTS_PATH } = require('../../config/website');
 
 // const { createTagPages, createCategoryPages, createYearPages } = require('./create-pages-utils');
@@ -288,7 +293,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
             fields: { slug, year },
           },
         }) => {
-          if (tags) {
+          if (CREATE_TAG_PAGES && tags) {
             tags.forEach((tag) => {
               if (tagMap.get(tag)) {
                 tagMap.set(tag, tagMap.get(tag) + 1);
@@ -298,7 +303,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
             });
           }
 
-          if (category) {
+          if (CREATE_CATEGORY_PAGES && category) {
             category.forEach((cat) => {
               if (categoryMap.get(cat)) {
                 categoryMap.set(cat, categoryMap.get(cat) + 1);
@@ -308,13 +313,14 @@ module.exports = async ({ graphql, actions, reporter }) => {
             });
           }
 
-          if (year) {
+          if (CREATE_YEAR_PAGES && year) {
             if (yearMap.get(year)) {
               yearMap.set(year, yearMap.get(year) + 1);
             } else {
               yearMap.set(year, 1);
             }
           }
+
           console.log('pagepath=', slug);
           createPage({
             path: slug,
@@ -354,122 +360,134 @@ module.exports = async ({ graphql, actions, reporter }) => {
         });
       }
 
-      console.log('\n');
-      console.log('Category List: pagepath=', i18n.localizePath('/category', locale));
-      createPage({
-        path: i18n.localizePath('/category', locale),
-        component: categoryListTemplate,
-        context: {
-          locale,
-          categories,
-        },
-      });
-
-      console.log('Tag List: pagepath=', i18n.localizePath('/tags', locale));
-      createPage({
-        path: i18n.localizePath('/tags', locale),
-        component: tagListTemplate,
-        context: {
-          locale,
-          tags,
-        },
-      });
-
-      console.log('Year List: pagepath=', i18n.localizePath('/years', locale));
-      createPage({
-        path: i18n.localizePath('/years', locale),
-        component: yearListTemplate,
-        context: {
-          locale,
-          years,
-        },
-      });
-
-      console.log('\nCategory pages');
-      console.log('---------------');
-      categoryMap.forEach((count, category) => {
-        numPages = Math.ceil(count / POSTS_PER_PAGE);
-        for (let i = 0; i < numPages; i += 1) {
-          const path = i18n.localizePath(
-            i === 0
-              ? `/category/${_.kebabCase(category)}`
-              : `/category/${_.kebabCase(category)}/${i + 1}`,
+      if (CREATE_CATEGORY_PAGES) {
+        console.log('\n');
+        console.log('Category List: pagepath=', i18n.localizePath('/category', locale));
+        createPage({
+          path: i18n.localizePath('/category', locale),
+          component: categoryListTemplate,
+          context: {
             locale,
-          );
-          console.log('pagepath=', path);
-          createPage({
-            path,
-            component: categoryTemplate,
-            context: {
-              locale,
-              category,
-              limit: POSTS_PER_PAGE,
-              skip: i * POSTS_PER_PAGE,
-              numPages,
-              currentPage: i + 1,
-              categories,
-              tags,
-              years,
-            },
-          });
-        }
-      });
+            categories,
+          },
+        });
+      }
 
-      console.log('\nTag pages');
-      console.log('---------------');
-      tagMap.forEach((count, tag) => {
-        numPages = Math.ceil(count / POSTS_PER_PAGE);
-        for (let i = 0; i < numPages; i += 1) {
-          const path = i18n.localizePath(
-            i === 0 ? `/tags/${_.kebabCase(tag)}` : `/tags/${_.kebabCase(tag)}/${i + 1}`,
+      if (CREATE_TAG_PAGES) {
+        console.log('Tag List: pagepath=', i18n.localizePath('/tags', locale));
+        createPage({
+          path: i18n.localizePath('/tags', locale),
+          component: tagListTemplate,
+          context: {
             locale,
-          );
-          console.log('pagepath=', path);
-          createPage({
-            path,
-            component: tagTemplate,
-            context: {
-              locale,
-              tag,
-              limit: POSTS_PER_PAGE,
-              skip: i * POSTS_PER_PAGE,
-              numPages,
-              currentPage: i + 1,
-              categories,
-              tags,
-              years,
-            },
-          });
-        }
-      });
+            tags,
+          },
+        });
+      }
 
-      console.log('\nYear pages');
-      console.log('---------------');
-      yearMap.forEach((count, year) => {
-        numPages = Math.ceil(count / POSTS_PER_PAGE);
-        for (let i = 0; i < numPages; i += 1) {
-          const path = i18n.localizePath(
-            i === 0 ? `/years/${_.kebabCase(year)}` : `/years/${_.kebabCase(year)}/${i + 1}`,
+      if (CREATE_YEAR_PAGES) {
+        console.log('Year List: pagepath=', i18n.localizePath('/years', locale));
+        createPage({
+          path: i18n.localizePath('/years', locale),
+          component: yearListTemplate,
+          context: {
             locale,
-          );
-          console.log('pagepath=', path);
-          createPage({
-            path,
-            component: yearTemplate,
-            context: {
+            years,
+          },
+        });
+      }
+
+      if (CREATE_CATEGORY_PAGES) {
+        console.log('\nCategory pages');
+        console.log('---------------');
+        categoryMap.forEach((count, category) => {
+          numPages = Math.ceil(count / POSTS_PER_PAGE);
+          for (let i = 0; i < numPages; i += 1) {
+            const path = i18n.localizePath(
+              i === 0
+                ? `/category/${_.kebabCase(category)}`
+                : `/category/${_.kebabCase(category)}/${i + 1}`,
               locale,
-              year,
-              limit: POSTS_PER_PAGE,
-              skip: i * POSTS_PER_PAGE,
-              numPages,
-              currentPage: i + 1,
-              categories,
-              tags,
-              years,
-            },
-          });
-        }
-      });
+            );
+            console.log('pagepath=', path);
+            createPage({
+              path,
+              component: categoryTemplate,
+              context: {
+                locale,
+                category,
+                limit: POSTS_PER_PAGE,
+                skip: i * POSTS_PER_PAGE,
+                numPages,
+                currentPage: i + 1,
+                categories,
+                tags,
+                years,
+              },
+            });
+          }
+        });
+      }
+
+      if (CREATE_TAG_PAGES) {
+        console.log('\nTag pages');
+        console.log('---------------');
+        tagMap.forEach((count, tag) => {
+          numPages = Math.ceil(count / POSTS_PER_PAGE);
+          for (let i = 0; i < numPages; i += 1) {
+            const path = i18n.localizePath(
+              i === 0 ? `/tags/${_.kebabCase(tag)}` : `/tags/${_.kebabCase(tag)}/${i + 1}`,
+              locale,
+            );
+            console.log('pagepath=', path);
+            createPage({
+              path,
+              component: tagTemplate,
+              context: {
+                locale,
+                tag,
+                limit: POSTS_PER_PAGE,
+                skip: i * POSTS_PER_PAGE,
+                numPages,
+                currentPage: i + 1,
+                categories,
+                tags,
+                years,
+              },
+            });
+          }
+        });
+      }
+
+      if (CREATE_YEAR_PAGES) {
+        console.log('\nYear pages');
+        console.log('---------------');
+        yearMap.forEach((count, year) => {
+          numPages = Math.ceil(count / POSTS_PER_PAGE);
+          for (let i = 0; i < numPages; i += 1) {
+            const path = i18n.localizePath(
+              i === 0 ? `/years/${_.kebabCase(year)}` : `/years/${_.kebabCase(year)}/${i + 1}`,
+              locale,
+            );
+            console.log('pagepath=', path);
+            createPage({
+              path,
+              component: yearTemplate,
+              context: {
+                locale,
+                year,
+                limit: POSTS_PER_PAGE,
+                skip: i * POSTS_PER_PAGE,
+                numPages,
+                currentPage: i + 1,
+                categories,
+                tags,
+                years,
+              },
+            });
+          }
+        });
+      }
     }
   });
 };

@@ -30,13 +30,15 @@ function pagination(currentPage, pageCount, delta = 2) {
       return [page];
     });
 }
+
 const wrapperStyle = {
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
   width: '100%',
-  marginBottom: '3rem',
+  margin: '3rem 0',
 };
+
 const paginationNumberStyle = (t) => ({
   height: '2.5rem',
   margin: `0px ${t.space[1]}`,

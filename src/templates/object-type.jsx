@@ -10,7 +10,6 @@ import AsideButtonList from '../components/AsideButtonList';
 
 const styleWrap = (t) => ({
   display: 'grid',
-  gridTemplateColumns: '1fr',
   gridGap: t.space[8],
   [t.mq.lg]: {
     gridTemplateColumns: '3fr 1fr',

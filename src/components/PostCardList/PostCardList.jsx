@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from 'react';
 import { jsx } from '@emotion/react';
 
 import PostCard from '../PostCard';
@@ -35,4 +34,4 @@ const PostCardList = ({ posts }) => {
   );
 };
 
-export default React.memo(PostCardList);
+export default PostCardList;
