@@ -310,17 +310,26 @@ const GlobalStyle = () => {
           font-size: inherit;
           line-height: inherit;
         }
-        .at_image-row-2 {
+
+        .grid_2-col {
           display: grid;
-          ${mq.lg}: {
+          grid-gap: ${space[4]};
+          ${mq.lg} {
             grid-template-columns: 2fr 2fr;
           }
         }
-        .at_image-row-3 {
+
+        .grid_3-col {
           display: grid;
-          ${mq.lg}: {
+          grid-gap: ${space[4]};
+          ${mq.lg} {
             grid-template-columns: 1fr 1fr 1fr;
           }
+        }
+
+        img {
+          height: auto;
+          width: 100%;
         }
       `}
     />
