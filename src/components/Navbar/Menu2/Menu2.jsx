@@ -21,9 +21,10 @@ const styleWrapper = {
   top: sizes.header.sm,
   height: `calc(100vh - ${sizes.header.sm})`,
 
-  // no drop-down submenu
-  overflow: 'hidden',
-  // overflowY: 'auto',
+  /* no scrolling: no drop-down submenu or few items */
+  // overflow: 'hidden',
+  /* scrolling: has dropdown submenu or many items */
+  overflowY: 'auto',
 
   transition: 'transform 0.5s linear',
   willChange: 'transform',
