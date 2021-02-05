@@ -3,13 +3,21 @@ import { jsx } from '@emotion/react';
 
 import Icon from '../../../../Icon';
 
-const iconStyle = {
+const styleIconCommon = {
   marginRight: '1rem',
   width: '3rem',
   height: '3rem',
 };
 
-const wrapperStyle = {
+const styleExclamationIcon = {
+  ...styleIconCommon,
+  color: 'red',
+};
+const styleCheckIcon = {
+  ...styleIconCommon,
+  color: 'green',
+};
+const styleWtap = {
   display: 'flex',
 };
 
@@ -17,17 +25,17 @@ const Message = ({ type, children }) => {
   let icon = null;
   switch (type) {
     case 'error':
-      icon = <Icon name="exclamationTriangle" css={{ ...iconStyle, color: 'red' }} />;
+      icon = <Icon name="exclamationTriangle" css={styleExclamationIcon} />;
       break;
     case 'success':
-      icon = <Icon name="checkCircle" css={{ ...iconStyle, color: 'green' }} />;
+      icon = <Icon name="checkCircle" css={styleCheckIcon} />;
       break;
     default:
       break;
   }
 
   return (
-    <div css={wrapperStyle}>
+    <div css={styleWtap}>
       {icon}
       <div>{children}</div>
     </div>

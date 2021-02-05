@@ -4,27 +4,33 @@ import { jsx } from '@emotion/react';
 import Container from '../Container';
 import Navbar from '../Navbar';
 
+import mq from '../../theme/media-queries';
+import colors from '../../theme/colors';
+import { fontSizes } from '../../theme/font-sizes';
+import sizes from '../../theme/sizes';
+import shadows from '../../theme/shadows';
+
 // const rootPath = `${__PATH_PREFIX__}/`;
 //   if (location.pathname === rootPath) {
 
-const headerStyle = (t) => ({
+const headerStyle = {
   display: 'flex',
   alignItems: 'center',
   width: '100%',
-  height: t.sizes.header.sm,
+  height: sizes.header.sm,
   contain: 'layout',
-  color: t.colors.header.text,
-  backgroundColor: t.colors.header.bg,
+  color: colors.header.text,
+  backgroundColor: colors.header.bg,
   position: 'fixed',
   top: 0,
   left: 0,
-  boxShadow: t.shadows.raised,
-  fontSize: t.fontSizes[1],
+  boxShadow: shadows.raised,
+  fontSize: fontSizes[1],
   zIndex: 200,
-  [t.mq.xl]: {
-    height: t.sizes.header.xxl,
+  [mq.xl]: {
+    height: sizes.header.xxl,
   },
-});
+};
 
 const containerStyle = {
   display: 'flex',

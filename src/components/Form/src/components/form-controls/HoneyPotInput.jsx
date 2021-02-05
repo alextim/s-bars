@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/autocomplete-valid */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
@@ -23,7 +24,7 @@ const HoneyPotInput = ({ value, onChange }) => (
       type={name}
       name={name}
       tabIndex="-1"
-      autoComplete="off"
+      autoComplete="nope"
       placeholder={name}
       value={value}
       onChange={onChange}

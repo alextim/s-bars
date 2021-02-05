@@ -32,3 +32,8 @@
   to = "/services"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/ru/*"
+  to = "/ru/404"
+  status = 404

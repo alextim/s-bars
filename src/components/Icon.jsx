@@ -18,22 +18,22 @@ import FaUsers from '../assets/fa/solid/users.svg';
 // import { FaViber } from 'react-icons/fa';
 // import { FaSkype } from 'react-icons/fa';
 
-const Icon = ({ name, extraStyle }) => {
+const Icon = ({ name, ...rest }) => {
   if (!name) {
     return null;
   }
   const icons = {
-    facebook: <FaFacebookF className="fa" css={extraStyle} />,
-    instagram: <FaInstagram className="fa" css={extraStyle} />,
-    link: <FaLink className="fa" css={extraStyle} />,
-    phone: <FaPhone className="fa" css={extraStyle} />,
-    envelope: <FaEnvelope className="fa" css={extraStyle} />,
-    exclamationTriangle: <FaExclamationTriangle className="fa" css={extraStyle} />,
-    checkCircle: <FaCheckCircle className="fa" css={extraStyle} />,
-    thumbsUp: <FaThumbsUp className="fa" css={extraStyle} />,
-    check: <FaCheck className="fa" css={extraStyle} />,
-    plane: <FaPlane className="fa" css={extraStyle} />,
-    users: <FaUsers className="fa" css={extraStyle} />,
+    facebook: <FaFacebookF className="fa" {...rest} />,
+    instagram: <FaInstagram className="fa" {...rest} />,
+    link: <FaLink className="fa" {...rest} />,
+    phone: <FaPhone className="fa" {...rest} />,
+    envelope: <FaEnvelope className="fa" {...rest} />,
+    exclamationTriangle: <FaExclamationTriangle className="fa" {...rest} />,
+    checkCircle: <FaCheckCircle className="fa" {...rest} />,
+    thumbsUp: <FaThumbsUp className="fa" {...rest} />,
+    check: <FaCheck className="fa" {...rest} />,
+    plane: <FaPlane className="fa" {...rest} />,
+    users: <FaUsers className="fa" {...rest} />,
     // whatsapp: <FaWhatsapp />,
     // telegram: <FaTelegram />,
     // viber: <FaViber />,

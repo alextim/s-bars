@@ -16,6 +16,10 @@ import SectionWorkTypes from '../components/page-sections/SectionWorkTypes';
 import SectionRecommended from '../components/page-sections/SectionRecommended';
 import SectionCredo from '../components/page-sections/SectionCredo';
 
+const styleHtml = {
+  textAlign: 'justify',
+};
+
 const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
   const {
@@ -87,7 +91,7 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
       )}
       {html && (
         <Section>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <div dangerouslySetInnerHTML={{ __html: html }} css={styleHtml} />
         </Section>
       )}
     </Layout>

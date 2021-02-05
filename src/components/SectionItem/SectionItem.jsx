@@ -171,7 +171,7 @@ export const SectionItemCredo = ({ data }) => {
   return (
     <div css={styleWrapHorizontal}>
       <div css={styleCircleWrap}>
-        <Icon name={icon} extraStyle={{ ...styleIcon, ...(icon === 'plane' ? stylePlane : {}) }} />
+        <Icon name={icon} css={{ ...styleIcon, ...(icon === 'plane' ? stylePlane : {}) }} />
       </div>
       <h3 css={styleTitle}>{title}</h3>
       <div css={styleCredoText} dangerouslySetInnerHTML={{ __html: text }} />

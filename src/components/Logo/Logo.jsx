@@ -7,18 +7,21 @@ import i18n from '../../i18n';
 import useOrganization from '../../hooks/useOrganization';
 import Utils from '../../lib/utils';
 
-const styleWrap = (t) => ({
+import colors from '../../theme/colors';
+import fontWeights from '../../theme/font-weights';
+
+const styleWrap = {
   display: 'inline-flex',
   alignItems: 'center',
   marginRight: '3rem',
   height: '100%',
   a: {
-    color: t.colors.header.nav.item.text,
+    color: colors.header.nav.item.text,
   },
   'a:hover, a:active, a:focus': {
     textDecoration: 'none',
   },
-});
+};
 
 const styleLink = {
   display: 'inline-flex',
@@ -32,9 +35,9 @@ const styleTextWrap = {
   textAlign: 'left',
 };
 
-const styleHomeLink = (t) => ({
-  fontWeight: t.fontWeights.semibold,
-});
+const styleHomeLink = {
+  fontWeight: fontWeights.semibold,
+};
 
 const styleImg = {
   width: '2.5rem',
