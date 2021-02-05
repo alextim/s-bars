@@ -148,6 +148,7 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
 
       <Section>
         <div css={styleWrap2}>
+          <Contacts />
           <iframe
             title="Google Maps"
             src={embedMap}
@@ -157,7 +158,6 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
             allowFullScreen=""
             aria-hidden="false"
           />
-          <Contacts />
         </div>
       </Section>
     </Layout>

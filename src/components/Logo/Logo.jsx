@@ -21,31 +21,25 @@ const styleWrap = (t) => ({
 });
 
 const styleLink = {
-  height: '100%',
+  display: 'inline-flex',
+  alignItems: 'center',
   marginRight: '0.5rem',
-};
-
-const styleImg = {
-  marginTop: '2px',
-  width: 'auto',
-  height: '90%',
 };
 
 const styleTextWrap = {
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
+  textAlign: 'left',
 };
 
 const styleHomeLink = (t) => ({
   fontWeight: t.fontWeights.semibold,
 });
-const stylePhone = (t) => ({
-  marginLeft: '1rem',
-  [t.mq.lg]: {
-    marginLeft: '0',
-  },
-});
+
+const styleImg = {
+  width: '2.5rem',
+  height: '2.5rem',
+};
 
 const Logo = ({ onClick }) => {
   const { locale } = useLocale();
@@ -53,15 +47,19 @@ const Logo = ({ onClick }) => {
   return (
     <div css={styleWrap}>
       <Link css={styleLink} to="/" onClick={onClick}>
-        <img src="/assets/logo-s-bars.svg" alt={i18n.locales[locale].siteTitle} css={styleImg} />
+        <img
+          src="/assets/logo-s-bars.svg"
+          alt={i18n.locales[locale].siteTitle}
+          height="40"
+          width="40"
+          css={styleImg}
+        />
       </Link>
       <div css={styleTextWrap}>
-        <Link to="/" onClick={onClick} css={styleHomeLink}>
+        <a href="/" onClick={onClick} css={styleHomeLink}>
           {i18n.locales[locale].siteShortName}
-        </Link>
-        <a href={Utils.phoneUrl(phone[0])} css={stylePhone}>
-          {Utils.formatPhone(phone[0])}
         </a>
+        <a href={Utils.phoneUrl(phone[0])}>{Utils.formatPhone(phone[0])}</a>
       </div>
     </div>
   );
