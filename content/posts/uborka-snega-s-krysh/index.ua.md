@@ -7,6 +7,9 @@ cover:
   sm: ./images/uborka-snega-s-krysh.jpg
   xl: 
   alt: uborka-snega-s-krysh
+publishedDate: 2016-01-01T00:00:00Z
+state: published    
+featured: true
 ---
 ## Очистка кровли и крыши от сосулек. Винница.
 

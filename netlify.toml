@@ -26,3 +26,9 @@
   for = "404.html"
   [headers.values]
     Cache-Control = "max-age=300"
+
+[[redirects]]
+  from = "/dlya-predpriyatijh"
+  to = "/services"
+  status = 301
+  force = false

@@ -2,11 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import { getListTitle, getListItems } from '../utils/list-info';
-
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
-import AsideButtonList from '../components/AsideButtonList';
+import AsideServices from '../components/AsideServices';
 
 const styleWrap = (t) => ({
   display: 'grid',
@@ -47,10 +45,7 @@ const ServicePageTemplate = ({ path, data, pageContext: { locale } }) => {
           )}
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
         </div>
-        <AsideButtonList
-          title={getListTitle(mainNav, 'service')}
-          items={getListItems(mainNav, 'service')}
-        />
+        <AsideServices mainNav={mainNav} />
       </div>
     </Layout>
   );

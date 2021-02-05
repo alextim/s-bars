@@ -10,7 +10,6 @@ import { useTranslation } from '../i18n';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import Section from '../components/Section';
-import { Row, Col } from '../components/flex-grid';
 
 import ContactForm from '../components/ContactForm';
 import OrganizationOpeningHours from '../components/organization/OrganizationOpeningHours';
@@ -35,20 +34,6 @@ const styleAddressWrap = {
 const styleItemSeparator = {
   marginBottom: '0.5rem',
 };
-const styleContactFormWrap = (t) => ({
-  marginTop: '3rem',
-  [t.mq.lg]: {
-    margin: '2rem',
-  },
-});
-
-const styleMap = (t) => ({
-  border: 0,
-  marginTop: '3rem',
-  [t.mq.lg]: {
-    marginTop: 0,
-  },
-});
 
 const ContactItemHeading = ({ title }) => <h2 css={styleContactItemTitle}>{title}</h2>;
 
@@ -86,7 +71,7 @@ const ContactPoints = ({ items }) => {
     return null;
   }
   return items.map(({ description, name, contactType, email, telephone }) => (
-    <Col css={styleContactItemWrap} key={name}>
+    <div css={styleContactItemWrap} key={name}>
       <ContactItemHeading title={description} />
       <div>{name}</div>
       <div>{contactType}</div>
@@ -100,9 +85,34 @@ const ContactPoints = ({ items }) => {
           {em}
         </a>
       ))}
-    </Col>
+    </div>
   ));
 };
+
+const Contacts = () => {
+  const { t } = useTranslation();
+  return (
+    <div>
+      <ContactItemHeading title={t('contacts.write_us')} />
+      <ContactForm />
+    </div>
+  );
+};
+
+const styleWrap3 = (t) => ({
+  display: 'grid',
+  gridGap: t.space[8],
+  [t.mq.lg]: {
+    gridTemplateColumns: '1fr 1fr 1fr',
+  },
+});
+const styleWrap2 = (t) => ({
+  display: 'grid',
+  gridGap: t.space[8],
+  [t.mq.lg]: {
+    gridTemplateColumns: '1fr 1fr',
+  },
+});
 
 const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
@@ -127,33 +137,28 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
       />
 
       <Section>
-        <Row>
-          <Col css={styleContactItemWrap}>
+        <div css={styleWrap3}>
+          <div>
             <Address data={address} />
             <OpeningHours data={openingHours} />
-          </Col>
+          </div>
           <ContactPoints items={contactPoint} />
-        </Row>
+        </div>
       </Section>
 
       <Section>
-        <Row>
-          <Col>
-            <iframe
-              title="Google Maps"
-              src={embedMap}
-              width="100%"
-              height="450"
-              frameBorder="0"
-              css={styleMap}
-              allowFullScreen=""
-              aria-hidden="false"
-            />
-          </Col>
-          <Col css={styleContactFormWrap}>
-            <ContactForm />
-          </Col>
-        </Row>
+        <div css={styleWrap2}>
+          <iframe
+            title="Google Maps"
+            src={embedMap}
+            width="100%"
+            height="450"
+            frameBorder="0"
+            allowFullScreen=""
+            aria-hidden="false"
+          />
+          <Contacts />
+        </div>
       </Section>
     </Layout>
   );

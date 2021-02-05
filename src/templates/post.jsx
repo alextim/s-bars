@@ -5,7 +5,10 @@ import Img from 'gatsby-image';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
-import AsideRecentPosts from '../components/AsideRecentPosts';
+
+import AsideServices from '../components/AsideServices';
+import AsideFeaturedPosts from '../components/AsideFeaturedPosts';
+// import AsideRecentPosts from '../components/AsideRecentPosts';
 
 const styleWrap = (t) => ({
   display: 'grid',
@@ -19,12 +22,10 @@ const styleImg = (t) => ({
   marginBottom: t.space[4],
 });
 
-const styleWidgetArea = (t) => ({
-  [t.mq.lg]: {
-    height: '100%',
-    borderLeft: '1px solid #b4d5e7',
-  },
-});
+const styleWidgetArea = {
+  display: 'flex',
+  flexDirection: 'column',
+};
 
 const PostTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
@@ -53,7 +54,9 @@ const PostTemplate = ({ path, data, pageContext: { locale } }) => {
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
         </div>
         <aside css={styleWidgetArea}>
-          <AsideRecentPosts items={data.recentPosts.edges} />
+          <AsideServices mainNav={mainNav} />
+          <AsideFeaturedPosts items={data.featuredPosts.edges} />
+          {/* <AsideRecentPosts items={data.recentPosts.edges} /> */}
         </aside>
       </div>
     </Layout>
@@ -72,6 +75,20 @@ export const postQuery = graphql`
       limit: 10
       filter: {
         frontmatter: { state: { eq: "published" } }
+        fields: { type: { eq: "post" }, locale: { eq: $locale } }
+      }
+    ) {
+      edges {
+        node {
+          ...PostShortInfoFragment
+        }
+      }
+    }
+    featuredPosts: allMarkdownRemark(
+      sort: { fields: [frontmatter___publishedDate], order: DESC }
+      limit: 10
+      filter: {
+        frontmatter: { state: { eq: "published" }, featured: { eq: true } }
         fields: { type: { eq: "post" }, locale: { eq: $locale } }
       }
     ) {

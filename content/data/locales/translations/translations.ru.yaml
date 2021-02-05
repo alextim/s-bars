@@ -5,10 +5,12 @@
 - key: post.widget.category
   value: Категории
 - key: post.widget.tags
-  value: Тэги
+  value: Теги
 - key: post.widget.years
   value: Архивы по годам
 - key: post.widget.recent
+  value: Новые статьи
+- key: post.widget.featured
   value: Интересные статьи
 - key: author
   value: Автор
@@ -20,6 +22,8 @@
   value: Подробнее
 - key: form.send
   value: Отправить
+- key: form.send_message
+  value: Отправить сообщение
 - key: form.pls_wait
   value: Пожалуйста, подождите...
 - key: form.cancel
@@ -66,8 +70,8 @@
   value: Спасибо за ваше сообщение!
 - key: cf.we_will_response
   value: Мы ответим вам в ближайшее время.
-- key: nav.support_us
-  value: Поддержите нас
+- key: nav.inquiry
+  value: Послать запрос
 - key: footer.greeting.title
   value: Добро пожаловать!
 - key: footer.greeting.text

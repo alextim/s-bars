@@ -137,7 +137,7 @@ const ContactForm = () => {
     <ContactFormBase
       content={content}
       modalContent={modalContent}
-      actionControl={<Button type="submit">{t('form.send')}</Button>}
+      actionControl={<Button type="submit">{t('form.send_message')}</Button>}
       endPoint={END_POINT}
       getErrorMessage={getErrorTranslation}
     />

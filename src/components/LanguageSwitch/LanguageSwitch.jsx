@@ -11,9 +11,11 @@ import { useLocale } from '../../i18n/i18n-context';
 const wrapStyle = {
   display: 'inline-flex',
   alignItems: 'center',
+  justifyContent: 'center',
 };
+
 const itemWrapStyle = {
-  '&::after': {
+  ':after': {
     content: '"|"',
     marginLeft: '0.4rem',
     marginRight: '0.4rem',

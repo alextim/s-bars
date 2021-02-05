@@ -5,6 +5,7 @@ import LanguageSwitch from '../../LanguageSwitch';
 import mq from '../../../theme/media-queries';
 import sizes from '../../../theme/sizes';
 
+import CTAButton from './CTAButton';
 import MenuItem from './MenuItem2';
 import SubMenu from './SubMenu';
 
@@ -66,6 +67,9 @@ const styleMenuWrapper = {
   margin: 0,
   padding: 0,
   listStyleType: 'none',
+  li: {
+    margin: 0,
+  },
   [mq.lg]: {
     display: 'inline-flex',
     flexDirection: 'row',
@@ -74,14 +78,14 @@ const styleMenuWrapper = {
 };
 
 const styleRightWrapper = {
-  display: 'inline-flex',
-  // flexDirection: 'column',
+  display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'center',
   padding: '1rem 0',
   [mq.lg]: {
-    // display: 'inline-flex',
-    // flexDirection: 'row',
-    alignIitems: 'center',
+    display: 'inline-flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 };
 
@@ -100,7 +104,7 @@ const menuItemWrapStyle = {
   margin: 0,
   [mq.lg]: {
     display: 'inline-flex',
-    alignIitems: 'center',
+    alignItems: 'center',
   },
 };
 
@@ -142,6 +146,7 @@ const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
               })}
             </ul>
             <div css={styleRightWrapper}>
+              <CTAButton onClick={onClick} />
               <LanguageSwitch closeMenu={() => setIsMenuOpen(false)} />
             </div>
           </div>

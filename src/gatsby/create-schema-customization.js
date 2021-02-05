@@ -62,6 +62,9 @@ const postFrontmatterFields = {
   publishedDate: {
     type: 'Date',
   },
+  featured: {
+    type: 'Boolean',
+  },
 };
 
 /**

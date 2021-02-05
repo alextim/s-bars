@@ -1,69 +1,71 @@
 {
   "post": {
-    "minToRead": "мин чтения",
-    "readMore": "Читать дальше...",
+    "minToRead": "хв читання",
+    "readMore": "Читати далі...",
     "widget": {
-      "category": "Категории",
-      "tags": "Тэги",
-      "years": "Архивы по годам",
-      "recent": "Цікаві статті"
+      "category": "Категорії",
+      "tags": "Теги",
+      "years": "Архіви по роках",
+      "recent": "Нові статті",
+      "featured": "Цікаві статті"
     }
   },
   "author": "Автор",
-  "all_rights_reserved": "Все права защищены.",
+  "all_rights_reserved": "Всі права захищені.",
   "cookie_warning": {
     "text": "Этот сайт использует куки для оптимизации, анализа трафика и сохранения ваших настроек.",
     "details": "Подробнее"
   },
   "form": {
-    "send": "Отправить",
-    "pls_wait": "Пожалуйста, подождите...",
-    "cancel": "Отменить",
-    "error": "Ошибка",
-    "sending": "Отправка",
+    "send": "Надіслати",
+    "send_message": "Надіслати повідомлення",
+    "pls_wait": "Будь ласка зачекайте...",
+    "cancel": "Скасувати",
+    "error": "Помилка",
+    "sending": "Відправлення",
     "success": "Завершено"
   },
   "validation": {
-    "required": "{{name}} обязательно.",
-    "length": "Поле \"{{name}}\" должно быть не меньше {{min}} и не больше {{max}} символов.",
-    "only_symbols": "Допускаются только символы и пробел",
-    "invalid": "Ошибка в \"{{name}}\"."
+    "required": "{{name}} обов'язково.",
+    "length": "Поле \"{{name}}\" має бути не менше {{min}} і не більше {{max}} символів.",
+    "only_symbols": "Допускаються тільки символи і пробіл",
+    "invalid": "Помилка в \"{{name}}\"."
   },
   "error": {
-    "err400": "400: ошибочные данные",
+    "err400": "400: помилкові дані",
     "err401": "401 не авторизовано",
-    "err403": "403: запрещено",
-    "err405": "405: недопуcтимый метод",
-    "network": "Ошибка сети"
+    "err403": "403: заборонено",
+    "err405": "405: неприпустимих метод",
+    "network": "Помилка мережі"
   },
   "cf": {
-    "name": "Имя",
-    "message": "Сообщение",
-    "your_name": "Ваше имя",
+    "name": "Ім'я",
+    "message": "Повідомлення",
+    "your_name": "Ваше ім'я",
     "your_email": "Ваш e-mail",
-    "your_message": "Ваше сообщение",
-    "sorry": "Извините. Произошла ошибка во время отправки сообщения.",
-    "try_later": "Пожалуйста, повторите вашу попытку позже.",
-    "thanks": "Спасибо за ваше сообщение!",
-    "we_will_response": "Мы ответим вам в ближайшее время."
+    "your_message": "Ваше повідомлення",
+    "sorry": "Вибачте. Сталася помилка під час відправки повідомлення.",
+    "try_later": "Будь ласка, повторіть вашу спробу пізніше.",
+    "thanks": "Дякуємо за ваше повідомлення!",
+    "we_will_response": "Ми відповімо вам найближчим часом."
   },
   "nav": {
-    "support_us": "Поддержите нас"
+    "inquiry": "Надіслати запит"
   },
   "footer": {
     "greeting": {
-      "title": "Добро пожаловать!",
+      "title": "Ласкаво просимо!",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
     },
-    "our_address": "Юридический адрес",
-    "call_us": "Обращайтесь к нам"
+    "our_address": "Юридична адреса",
+    "call_us": "Звертайтеся до нас"
   },
   "contacts": {
-    "title": "Контакты",
-    "wait_you_on_address": "Юридический адрес",
-    "opening_time": "Рабочее время",
-    "call_us": "Обращайтесь к нам",
-    "write_us": "Напишите нам"
+    "title": "Контакти",
+    "wait_you_on_address": "Юридична адреса",
+    "opening_time": "Робочий час",
+    "call_us": "Звертайтеся до нас",
+    "write_us": "Напишіть нам"
   },
   "dow": {
     "d2": {
@@ -73,9 +75,9 @@
       "th": "Чт",
       "fr": "Пт",
       "sa": "Сб",
-      "su": "Вс"
+      "su": "Нд"
     }
   },
-  "day_off": "Выходной",
-  "days_off": "Выходные"
+  "day_off": "Вихідний",
+  "days_off": "Вихідні"
 }

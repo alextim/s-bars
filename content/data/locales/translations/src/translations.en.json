@@ -6,7 +6,8 @@
       "category": "Categories",
       "tags": "Tags",
       "years": "Archive",
-      "recent": "Recent Posts"
+      "recent": "Recent Posts",
+      "featured": "Featured Posts"
     }
   },
   "author": "Author",
@@ -17,6 +18,7 @@
   },
   "form": {
     "send": "Send",
+    "send_message": "Send Message",
     "pls_wait": "Please, wait...",
     "cancel": "Cancel",
     "error": "Error",
@@ -48,7 +50,7 @@
     "we_will_response": "We will response you in a nearest time."
   },
   "nav": {
-    "support_us": "Support Us"
+    "inquiry": "Send Inquiry"
   },
   "footer": {
     "greeting": {

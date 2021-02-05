@@ -1,15 +1,18 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-const wrapStyle = {
+const styleWrap = (t) => ({
+  marginBottom: t.space[6],
+});
+const styleContentWrap = {
   display: 'flex',
   flexDirection: 'column',
 };
 
 const AsideWidget = ({ title, children, extraStyle }) => (
-  <div css={extraStyle}>
+  <div css={[styleWrap, extraStyle]}>
     <h3>{title}</h3>
-    <div css={wrapStyle}>{children}</div>
+    <div css={styleContentWrap}>{children}</div>
   </div>
 );
 

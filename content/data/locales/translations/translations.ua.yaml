@@ -1,91 +1,95 @@
 - key: post.minToRead
-  value: мин чтения
+  value: хв читання
 - key: post.readMore
-  value: Читать дальше...
+  value: Читати далі...
 - key: post.widget.category
-  value: Категории
+  value: Категорії
 - key: post.widget.tags
-  value: Тэги
+  value: Теги
 - key: post.widget.years
-  value: Архивы по годам
+  value: Архіви по роках
 - key: post.widget.recent
+  value: Нові статті
+- key: post.widget.featured
   value: Цікаві статті
 - key: author
   value: Автор
 - key: all_rights_reserved
-  value: Все права защищены.
+  value: Всі права захищені.
 - key: cookie_warning.text
   value: Этот сайт использует куки для оптимизации, анализа трафика и сохранения ваших настроек.
 - key: cookie_warning.details
   value: Подробнее
 - key: form.send
-  value: Отправить
+  value: Надіслати
+- key: form.send_message
+  value: Надіслати повідомлення
 - key: form.pls_wait
-  value: Пожалуйста, подождите...
+  value: Будь ласка зачекайте...
 - key: form.cancel
-  value: Отменить
+  value: Скасувати
 - key: form.error
-  value: Ошибка
+  value: Помилка
 - key: form.sending
-  value: Отправка
+  value: Відправлення
 - key: form.success
   value: Завершено
 - key: validation.required
-  value: '{{name}} обязательно.'
+  value: "{{name}} обов'язково."
 - key: validation.length
-  value: Поле "{{name}}" должно быть не меньше {{min}} и не больше {{max}} символов.
+  value: Поле "{{name}}" має бути не менше {{min}} і не більше {{max}} символів.
 - key: validation.only_symbols
-  value: Допускаются только символы и пробел
+  value: Допускаються тільки символи і пробіл
 - key: validation.invalid
-  value: Ошибка в "{{name}}".
+  value: Помилка в "{{name}}".
 - key: error.err400
-  value: '400: ошибочные данные'
+  value: '400: помилкові дані'
 - key: error.err401
   value: 401 не авторизовано
 - key: error.err403
-  value: '403: запрещено'
+  value: '403: заборонено'
 - key: error.err405
-  value: '405: недопуcтимый метод'
+  value: '405: неприпустимих метод'
 - key: error.network
-  value: Ошибка сети
+  value: Помилка мережі
 - key: cf.name
-  value: Имя
+  value: Ім'я
 - key: cf.message
-  value: Сообщение
+  value: Повідомлення
 - key: cf.your_name
-  value: Ваше имя
+  value: Ваше ім'я
 - key: cf.your_email
   value: Ваш e-mail
 - key: cf.your_message
-  value: Ваше сообщение
+  value: Ваше повідомлення
 - key: cf.sorry
-  value: Извините. Произошла ошибка во время отправки сообщения.
+  value: Вибачте. Сталася помилка під час відправки повідомлення.
 - key: cf.try_later
-  value: Пожалуйста, повторите вашу попытку позже.
+  value: Будь ласка, повторіть вашу спробу пізніше.
 - key: cf.thanks
-  value: Спасибо за ваше сообщение!
+  value: Дякуємо за ваше повідомлення!
 - key: cf.we_will_response
-  value: Мы ответим вам в ближайшее время.
-- key: nav.support_us
-  value: Поддержите нас
+  value: Ми відповімо вам найближчим часом.
+- key: nav.inquiry
+  value: Надіслати запит
 - key: footer.greeting.title
-  value: Добро пожаловать!
+  value: Ласкаво просимо!
 - key: footer.greeting.text
   value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 - key: footer.our_address
-  value: Юридический адрес
+  value: Юридична адреса
 - key: footer.call_us
-  value: Обращайтесь к нам
+  value: Звертайтеся до нас
 - key: contacts.title
-  value: Контакты
+  value: Контакти
 - key: contacts.wait_you_on_address
-  value: Юридический адрес
+  value: Юридична адреса
 - key: contacts.opening_time
-  value: Рабочее время
+  value: Робочий час
 - key: contacts.call_us
-  value: Обращайтесь к нам
+  value: Звертайтеся до нас
 - key: contacts.write_us
-  value: Напишите нам
+  value: Напишіть нам
 - key: dow.d2.mo
   value: Пн
 - key: dow.d2.tu
@@ -99,8 +103,8 @@
 - key: dow.d2.sa
   value: Сб
 - key: dow.d2.su
-  value: Вс
+  value: Нд
 - key: day_off
-  value: Выходной
+  value: Вихідний
 - key: days_off
-  value: Выходные
+  value: Вихідні
