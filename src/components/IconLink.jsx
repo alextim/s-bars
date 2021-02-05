@@ -12,10 +12,7 @@ const style = { paddingLeft: '0.4em' };
 
 const IconLink = ({ children, to, icon, title, extraStyle = {}, ...props }) => {
   return (
-    <div
-      css={{ display: 'flex', flexDirection: 'row', alignItems: 'center', ...extraStyle }}
-      title={title}
-    >
+    <div css={{ display: 'inline-flex', alignItems: 'center', ...extraStyle }} title={title}>
       {icon ? <Icon name={icon} /> : <div css={styleSpacer} />}
       {to ? (
         <a css={style} href={to} {...props}>

@@ -204,8 +204,8 @@ const GlobalStyle = () => {
         }
 
         .fa {
-          width: 1rem;
-          height: 1rem;
+          width: 1em;
+          height: 1em;
         }
 
         @media (max-width: ${breakpoints.lg}) {

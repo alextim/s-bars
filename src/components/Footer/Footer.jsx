@@ -1,6 +1,10 @@
 /** @jsx jsx */
-import { jsx, useTheme } from '@emotion/react';
-import merge from 'lodash/merge';
+import { jsx } from '@emotion/react';
+
+import mq from '../../theme/media-queries';
+import { space } from '../../theme/space';
+import colors from '../../theme/colors';
+import { fontSizes } from '../../theme/font-sizes';
 
 import Container from '../Container';
 import FooterWidget from './FooterWidget';
@@ -15,135 +19,108 @@ import useSocialLinks from '../../hooks/useSocialLinks';
 
 import SocialLinks from './SocialLinks';
 
-import OrganizationPostalAddress from '../organization/OrganizationPostalAddress';
+// import OrganizationPostalAddress from '../organization/OrganizationPostalAddress';
 import OrganizationEmail from '../organization/OrganizationEmail';
+import OrganizationOpeningHours from '../organization/OrganizationOpeningHours';
 // import OrganizationSite from '../organization/OrganizationSite';
 import OrganizationPhones from '../organization/OrganizationPhones';
 // import OrganizationCloudPhones from '../organization/OrganizationCloudPhones';
+import Button from '../Button';
+
+const styleWidgetWrap = {
+  display: 'flex',
+  flexDirection: 'column',
+  lineHeight: 1.75,
+};
+
+const WidgetWrapper = ({ children }) => <div css={styleWidgetWrap}>{children}</div>;
+
+const styleWidgetArea = {
+  display: 'grid',
+  gridGap: space[6],
+  paddingTop: space[5],
+  paddingBottom: space[5],
+  a: {
+    ':hover': {
+      color: colors.footer.highlight,
+    },
+  },
+  [mq.lg]: {
+    gridTemplateColumns: '1fr 1fr 2fr',
+    paddingTop: space[6],
+    paddingBottom: space[6],
+  },
+};
+
+const styleColophonTop = {
+  width: '100%',
+  padding: '1.5rem 0',
+  backgroundColor: colors.footer.colophon.top.bg,
+};
+
+const styleColophonBottom = {
+  width: '100%',
+  padding: '0.5rem 0',
+  backgroundColor: colors.footer.colophon.bottom.bg,
+  fontSize: fontSizes[0],
+};
+
+const footerStyle = {
+  color: colors.footer.text,
+  backgroundColor: colors.footer.bg,
+  fontSize: fontSizes[1],
+  width: '100%',
+  a: {
+    color: colors.footer.text,
+    '&:active, &:focus, &:hover': {
+      outline: 'none',
+      textDecoration: 'none',
+    },
+  },
+};
+
+const styleInquiryText = {
+  marginBottom: space[3],
+};
+
+const styleInquiryButton = {
+  justifyContent: 'center',
+  [mq.lg]: {
+    alignSelf: 'flex-start',
+  },
+};
 
 const Footer = () => {
-  const theme = useTheme();
-  const { mq, space, colors, fontSizes } = theme;
   const { t } = useTranslation();
-  const { email, phone, foundingDate } = useOrganization();
+  const { email, phone, foundingDate, openingHours } = useOrganization();
   const { address } = useAppContext();
   const navItems = useFooterNavItems();
   const socialLinks = useSocialLinks();
 
-  const WidgetWrapper = ({ extraStyle, children }) => (
-    <div
-      css={merge(extraStyle, {
-        marginBottom: '1rem',
-        lineHeight: 1.75,
-        [mq.sm]: {
-          marginBottom: '1.5rem',
-        },
-        [mq.md]: {
-          marginBottom: '1rem',
-        },
-        [mq.lg]: {
-          marginBottom: 0,
-        },
-      })}
-    >
-      {children}
-    </div>
-  );
-
-  const styleWidgetArea = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    a: {
-      ':hover': {
-        color: colors.footer.highlight,
-      },
-    },
-    paddingTop: space[4],
-    paddingBottom: space[4],
-    [mq.md]: {
-      paddingTop: space[6],
-      paddingBottom: space[6],
-    },
-  };
-
-  const styleWidgetGreeting = {
-    width: '100%',
-    paddingRight: space[0],
-    [mq.lg]: {
-      width: '50%',
-      paddingRight: space[6],
-    },
-  };
-
-  const styleGreetingText = { textAlign: 'justify' };
-
-  const styleWidgetAddr1 = {
-    width: '100%',
-    [mq.sm]: {
-      width: 'auto',
-    },
-  };
-
-  const styleWidgetAddr2 = {
-    width: '100%',
-    [mq.sm]: {
-      width: 'auto',
-    },
-  };
-
-  const styleColophonTop = {
-    width: '100%',
-    padding: '1.5rem 0',
-    backgroundColor: colors.footer.colophon.top.bg,
-  };
-
-  const styleColophonBottom = {
-    width: '100%',
-    padding: '0.5rem 0',
-    backgroundColor: colors.footer.colophon.bottom.bg,
-    fontSize: fontSizes[0],
-  };
-
-  const footerStyle = {
-    color: colors.footer.text,
-    backgroundColor: colors.footer.bg,
-    fontSize: fontSizes[1],
-    width: '100%',
-    a: {
-      color: colors.footer.text,
-      '&:active, &:focus, &:hover': {
-        outline: 'none',
-        textDecoration: 'none',
-      },
-    },
-  };
-
   return (
     <footer css={footerStyle}>
-      <Container css={styleWidgetArea}>
-        <WidgetWrapper extraStyle={styleWidgetGreeting}>
-          <h3>{t('footer.greeting.title')}</h3>
-          <div css={styleGreetingText}>{t('footer.greeting.text')}</div>
-        </WidgetWrapper>
+      <Container>
+        <div css={styleWidgetArea}>
+          <WidgetWrapper>
+            <FooterWidget title={t('footer.call_us')}>
+              <OrganizationPhones phones={phone} />
+              <OrganizationEmail emails={email} />
+            </FooterWidget>
+          </WidgetWrapper>
 
-        <WidgetWrapper extraStyle={styleWidgetAddr1}>
-          <FooterWidget title={t('footer.our_address')}>
-            <OrganizationPostalAddress />
-          </FooterWidget>
-        </WidgetWrapper>
+          <WidgetWrapper>
+            <FooterWidget title={t('footer.opening_time')}>
+              <OrganizationOpeningHours openingHours={openingHours} />
+            </FooterWidget>
+          </WidgetWrapper>
 
-        <WidgetWrapper extraStyle={styleWidgetAddr2}>
-          <FooterWidget title={t('footer.call_us')}>
-            <OrganizationPhones phones={phone} />
-            <OrganizationEmail emails={email} />
-            {/*
-            <OrganizationSite />
-            <OrganizationCloudPhones voice={voice} />
-            */}
-          </FooterWidget>
-        </WidgetWrapper>
+          <WidgetWrapper>
+            <FooterWidget title={t('footer.inquiry.title')}>
+              <div css={styleInquiryText}>{t('footer.inquiry.text')}</div>
+              <Button overrideCSS={styleInquiryButton}>{t('footer.inquiry.button_title')}</Button>
+            </FooterWidget>
+          </WidgetWrapper>
+        </div>
       </Container>
 
       <div css={styleColophonTop}>

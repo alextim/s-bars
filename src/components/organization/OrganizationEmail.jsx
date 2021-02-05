@@ -2,7 +2,6 @@ import React from 'react';
 
 import IconLink from '../IconLink';
 import extraPadding from './extraPadding';
-// eslint-disable-next-line no-console
 
 const OrganizationEmail = ({ emails }) =>
   emails.map((email, i) => (
@@ -10,8 +9,10 @@ const OrganizationEmail = ({ emails }) =>
       key={email}
       icon={i === 0 ? 'envelope' : ''}
       extraStyle={extraPadding}
-      email={email}
-    />
+      to={`mailto:${email}`}
+    >
+      {email}
+    </IconLink>
   ));
 
 export default OrganizationEmail;

@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react';
 import React from 'react';
 
 const headingStyle = {
-  marginBottom: '0.3rem',
+  marginBottom: '0.4rem',
 };
 
 const FooterWidget = ({ title, children }) => (
