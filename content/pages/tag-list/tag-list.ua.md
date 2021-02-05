@@ -1,6 +1,6 @@
 ---
 title: Теги
-description: Его многочисленные, убого тонкие по сравнению с остальным телом
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. телом
 metaTitle:
 metaDescripton: 
 ---
