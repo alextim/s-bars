@@ -121,10 +121,14 @@ const styleImageRound = {
   marginBottom: space[4],
 };
 
+const styleWrapRound = {
+  ...styleWrap,
+  justifyContent: 'flex-start',
+};
 export const SectionItemRound = ({ data }) => {
   const { title, subtitle, text, image } = data;
   return (
-    <div css={styleWrap}>
+    <div css={styleWrapRound}>
       {image && image.sm && (
         <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} css={styleImageRound} />
       )}
