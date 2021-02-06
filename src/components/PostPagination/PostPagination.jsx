@@ -81,10 +81,10 @@ const PostPagination = ({ currentPage, numPages, subpath }) => {
           <Link
             key={`pagination-number${page}`}
             to={i18n.localizePath(`${subpath}${page === 1 ? '' : `/${page}`}`, locale)}
-            css={(t) => ({
-              ...paginationNumberStyle(t),
+            css={{
+              ...paginationNumberStyle,
               ...(page === currentPage ? activeStyle : {}),
-            })}
+            }}
           >
             {page}
           </Link>
