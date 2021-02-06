@@ -2,43 +2,45 @@
 import { jsx } from '@emotion/react';
 import Img from 'gatsby-image';
 
-const styleWrap = (t) => ({
-  marginBottom: t.space[10],
+import { space } from '../../theme/space';
+
+const styleWrap = {
+  marginBottom: space[10],
   ':last-of-type': {
     marginBottom: 0,
   },
-});
+};
 const styleTitle = {
   textAlign: 'center',
 };
 
-const styleSubtitle = (t) => ({
-  marginTop: t.space[2],
+const styleSubtitle = {
+  marginTop: space[2],
   textAlign: 'center',
-});
+};
 
-const styleText = (t) => ({
-  marginTop: t.space[7],
+const styleText = {
+  marginTop: space[7],
   textAlign: 'justify',
-});
+};
 
-const styleImg = (t) => ({
-  marginTop: t.space[2],
-});
+const styleImg = {
+  marginTop: space[2],
+};
 
-const styleSmall = (t) => ({
-  margin: `${t.space[8]} 0`,
-});
+const styleSmall = {
+  margin: `${space[8]} 0`,
+};
 
-const styleGgray = (t) => ({
+const styleGgray = {
   margin: 0,
-  padding: `${t.space[8]} 0`,
+  padding: `${space[8]} 0`,
   backgroundColor: '#d2d1ce',
-});
+};
 
-const styleBbodyWrap = (t) => ({
-  marginTop: t.space[10],
-});
+const styleBbodyWrap = {
+  marginTop: space[10],
+};
 
 const SectionBase = ({ title, subtitle, text, image, css, small, gray, textLast, children }) => {
   const styles = [styleWrap];
