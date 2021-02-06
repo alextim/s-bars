@@ -11,7 +11,7 @@ const OrganizationPhones = ({ phones }) =>
       key={phone}
       icon={i === 0 ? 'phone' : ''}
       to={Utils.phoneUrl(phone)}
-      extraStyle={extraPadding}
+      css={extraPadding}
     >
       {Utils.formatPhone(phone)}
     </IconLink>

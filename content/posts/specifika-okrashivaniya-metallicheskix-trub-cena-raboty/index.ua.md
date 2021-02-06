@@ -7,12 +7,6 @@ cover:
   sm: ./images/4.jpg
   xl: 
   alt: Фото окрашевание металлических треб. Промыхленный альпинизм "Снежный Барс"
-category:
-  - cat1
-  - cat3
-tags:
-  - tag1
-  - tag3
 publishedDate: 2019-05-20T17:34:00Z
 state: published    
 ---

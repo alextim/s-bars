@@ -12,7 +12,7 @@ const OrganizationSite = () => {
   const hostName = Utils.extractHostname(siteUrl);
 
   return (
-    <IconLink icon="link" to={siteUrl} extraStyle={extraPadding}>
+    <IconLink icon="link" to={siteUrl} css={extraPadding}>
       {hostName}
     </IconLink>
   );

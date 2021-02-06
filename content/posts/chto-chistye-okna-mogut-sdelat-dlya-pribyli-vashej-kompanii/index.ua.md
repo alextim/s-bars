@@ -7,12 +7,6 @@ cover:
   sm: ./images/moika-stekol-min.jpg
   xl: 
   alt: Фото мойки стеклянных фасадов промышленными альпинистами компании "Снежный Барс"
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2019-04-18T17:31:00Z
 state: published    
 ---

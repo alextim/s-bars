@@ -7,12 +7,6 @@ cover:
   sm: ./images/DSC05385.jpg
   xl: 
   alt: Фото Пескоструйная обработка металла Винница, Киев промальп "Снежный Барс"
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2019-05-10T16:38:00Z
 state: published    
 ---

@@ -4,6 +4,7 @@ import { breakpointsArray as breakpoints } from './breakpoints';
 import mq from './media-queries';
 import { fontSizes, fontSizesPx, fontSizesRaw } from './font-sizes';
 import fontWeights from './font-weights';
+import lineHeights from './line-heights';
 import { space, spacePx, spaceRaw } from './space';
 import sizes from './sizes';
 import shadows from './shadows';
@@ -24,10 +25,7 @@ const theme = {
   fontSizesPx,
   fontSizesRaw,
   fontWeights,
-  lineHeights: {
-    body: 1.5,
-    heading: 1.25,
-  },
+  lineHeights,
   colors,
   text: {
     heading: {

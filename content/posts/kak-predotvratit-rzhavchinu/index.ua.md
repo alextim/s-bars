@@ -7,12 +7,6 @@ cover:
   sm: ./images/IMG_0234.jpg
   xl: 
   alt: Покраска металлоконструкции Снежный Барс
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2019-04-19T14:36:00Z
 state: published    
 ---

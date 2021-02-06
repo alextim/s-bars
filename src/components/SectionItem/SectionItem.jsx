@@ -4,30 +4,34 @@ import Img from 'gatsby-image';
 
 import Icon from '../Icon';
 
-const styleWrap = () => ({
+import colors from '../../theme/colors';
+import mq from '../../theme/media-queries';
+import { space } from '../../theme/space';
+
+const styleWrap = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  /* marginTop: t.space[10], */
-});
-const styleTitle = (t) => ({
-  marginBottom: t.space[2],
-});
+};
 
-const styleTitleRound = (t) => ({
-  marginTop: t.space[6],
-  marginBottom: t.space[2],
+const styleTitle = {
+  marginBottom: space[2],
+};
+
+const styleTitleRound = {
+  marginTop: space[6],
+  marginBottom: space[2],
   textAlign: 'center',
-});
+};
 
-const styleSubtitle = (t) => ({
-  marginBottom: t.space[4],
-});
+const styleSubtitle = {
+  marginBottom: space[4],
+};
 
-const styleImg = (t) => ({
-  marginBottom: t.space[2],
-});
+const styleImg = {
+  marginBottom: space[2],
+};
 
 const styleText = {
   textAlign: 'justify',
@@ -47,19 +51,19 @@ const SectionItem = ({ data }) => {
   );
 };
 
-const styleWrapL = (t) => ({
+const styleWrapL = {
   textAlign: 'center',
-  [t.mq.lg]: {
+  [mq.lg]: {
     textAlign: 'right',
   },
-});
+};
 
-const styleTextL = (t) => ({
+const styleTextL = {
   textAlign: 'center',
-  [t.mq.lg]: {
+  [mq.lg]: {
     textAlign: 'right',
   },
-});
+};
 
 export const SectionItemL = ({ data }) => {
   const { title, subtitle, text } = data;
@@ -72,25 +76,25 @@ export const SectionItemL = ({ data }) => {
   );
 };
 
-const styleWrapR = (t) => ({
+const styleWrapR = {
   display: 'flex',
   flexDirection: 'column',
   textAlign: 'center',
-  [t.mq.lg]: {
+  [mq.lg]: {
     textAlign: 'left',
     flexDirection: 'column-reverse',
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
   },
-});
+};
 
-const styleTextR = (t) => ({
+const styleTextR = {
   textAlign: 'center',
-  [t.mq.lg]: {
+  [mq.lg]: {
     textAlign: 'left',
-    marginBottom: t.space[4],
+    marginBottom: space[4],
   },
-});
+};
 
 export const SectionItemR = ({ data }) => {
   const { title, subtitle, text } = data;
@@ -110,12 +114,12 @@ export const SectionItemImage = ({ data }) => {
     image.sm && <Img css={styleImg} fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
   );
 };
-const styleImageRound = (t) => ({
+const styleImageRound = {
   borderRadius: '50%',
   height: '18rem',
   width: '18rem',
-  marginBottom: t.space[2],
-});
+  marginBottom: space[2],
+};
 
 export const SectionItemRound = ({ data }) => {
   const { title, subtitle, text, image } = data;
@@ -131,41 +135,45 @@ export const SectionItemRound = ({ data }) => {
   );
 };
 
-const styleWrapHorizontal = (t) => ({
-  [t.mq.lg]: {
+const styleWrapHorizontal = {
+  [mq.lg]: {
     display: 'grid',
     gridTemplateColumns: '6.25rem auto',
     gridTemplateRows: '2rem auto',
-    gridGap: `0 ${t.space[5]}`,
+    gridGap: `0 ${space[5]}`,
   },
-});
+};
 
-const styleCircleWrap = (t) => ({
+const styleCircleWrap = {
   float: 'left',
-  margin: `0 ${t.space[5]} ${t.space[0]} 0`,
+  margin: `0 ${space[5]} ${space[0]} 0`,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: t.colors.brand.main,
+  backgroundColor: colors.brand.main,
   height: '6.25rem',
   width: '6.25rem',
   borderRadius: '50%',
-  [t.mq.lg]: {
+  [mq.lg]: {
     float: 'none',
     margin: 0,
     gridRow: 'span 2',
   },
-});
+};
+
 const styleCredoText = {
   textAlign: 'justify',
 };
+
 const styleIcon = {
   width: '2.5rem',
   height: '2.5rem',
 };
+
 const stylePlane = {
   transform: 'rotate(-45deg)',
 };
+
 export const SectionItemCredo = ({ data }) => {
   const { title, text, icon } = data;
   return (

@@ -7,12 +7,6 @@ cover:
   sm: ./images/trc-min.jpg
   xl: 
   alt: Фото покраски металлоконструкции торгово-развлекательного центра промышленными альпинистами компании "Снежный Барс"
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2019-04-04T15:23:00Z
 state: published    
 ---

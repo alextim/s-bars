@@ -1,19 +1,13 @@
 import React from 'react';
-import { useTheme } from '@emotion/react';
 
 import Utils from '../../lib/utils';
+import colors from '../../theme/colors';
 
 import IconLink from '../IconLink';
 import extraPadding from './extraPadding';
 
-const extraStyle = {
-  ...extraPadding,
-};
 const OrganizationCloudPhones = ({ voice }) => {
-  const theme = useTheme();
-
-  const { whatsapp, viber, telegram } = theme.colors.brands;
-
+  const { whatsapp, viber, telegram } = colors.brands;
   return (
     <>
       {voice.whatsapp && (
@@ -24,7 +18,7 @@ const OrganizationCloudPhones = ({ voice }) => {
           title="WhatsApp"
           target="_blank"
           rel="noindex noopener noreferrer"
-          extraStyle={extraStyle}
+          css={extraPadding}
         >
           {Utils.formatPhone(voice.whatsapp)}
         </IconLink>

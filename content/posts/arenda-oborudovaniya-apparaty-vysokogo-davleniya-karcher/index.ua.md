@@ -7,12 +7,6 @@ cover:
   sm: ./images/DSC03360.jpg
   xl: 
   alt: Фото аппарат высокого давления Karcher - Снежный Барс
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2019-04-25T17:09:00Z
 state: published    
 ---

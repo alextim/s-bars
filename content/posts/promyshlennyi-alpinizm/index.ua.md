@@ -7,12 +7,6 @@ cover:
   sm: ./images/6.jpg
   xl: 
   alt: Фото Покраска фасада здания промышленными альпинистами компании "Снежный Барс"
-category:
-  - cat1
-  - cat3
-tags:
-  - tag1
-  - tag3
 publishedDate: 2017-05-18T09:54:00Z
 state: published    
 ---

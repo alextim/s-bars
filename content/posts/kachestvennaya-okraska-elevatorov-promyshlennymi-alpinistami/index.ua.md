@@ -7,13 +7,6 @@ cover:
   sm: ./images/DSC07162.jpg
   xl: 
   alt: Фото окраска элеваторов промышленными альпинистами Снежный Барс
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
-  - tag4
 publishedDate: 2019-05-10T16:08:00Z
 state: published    
 ---

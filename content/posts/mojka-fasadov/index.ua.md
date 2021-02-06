@@ -7,12 +7,6 @@ cover:
   sm: ./images/4-1.jpg
   xl: 
   alt: Фото покраски металлоконструкций промышленными альпинистами компании "Снежный Барс"
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2017-05-18T10:55:00Z
 state: published    
 ---

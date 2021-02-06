@@ -8,7 +8,7 @@ const OrganizationEmail = ({ emails }) =>
     <IconLink
       key={email}
       icon={i === 0 ? 'envelope' : ''}
-      extraStyle={extraPadding}
+      css={extraPadding}
       to={`mailto:${email}`}
     >
       {email}

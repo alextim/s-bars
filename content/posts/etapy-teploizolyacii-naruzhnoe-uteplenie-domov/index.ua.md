@@ -7,12 +7,6 @@ cover:
   sm: ./images/6.jpg
   xl: 
   alt: Фото наружное утепление стен и фасадов промышленными альпинистами "Снежный Барс"
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2019-05-13T12:07:00Z
 state: published    
 ---

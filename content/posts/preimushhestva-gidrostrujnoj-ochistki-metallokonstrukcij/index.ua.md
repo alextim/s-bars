@@ -7,12 +7,6 @@ cover:
   sm: ./images/DSC03336-1.jpg
   xl: 
   alt: Фото гидроструйная очистка металла, металлоконструкций от промальпинистов "Снежный Барс"
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2019-05-02T15:27:00Z
 state: published    
 ---

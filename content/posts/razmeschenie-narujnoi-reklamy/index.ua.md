@@ -7,12 +7,6 @@ cover:
   sm: ./images/5-2.jpg
   xl: 
   alt: Фото Пескоструйной очистки металла промышленными альпинистами компании "Снежный Барс"
-category:
-  - cat1
-  - cat3
-tags:
-  - tag1
-  - tag3
 publishedDate: 2017-05-18T10:18:00Z
 state: published    
 ---

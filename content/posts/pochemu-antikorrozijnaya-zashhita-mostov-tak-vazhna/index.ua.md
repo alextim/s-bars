@@ -7,12 +7,6 @@ cover:
   sm: ./images/DSC00221.jpg
   xl: 
   alt: Фото антикоррозийная защита мостов - "Снежный Барс"
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2019-04-25T16:59:00Z
 state: published    
 ---

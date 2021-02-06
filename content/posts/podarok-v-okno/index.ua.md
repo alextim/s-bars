@@ -7,12 +7,6 @@ cover:
   sm: ./images/2.jpg
   xl: 
   alt: Сюрприз в окно. Возрождение средневековой романтики от альпинистов компании "Снежный Барс" Фото
-category:
-  - cat1
-  - cat3
-tags:
-  - tag1
-  - tag3
 publishedDate: 2017-05-18T10:28:00Z
 state: published    
 ---

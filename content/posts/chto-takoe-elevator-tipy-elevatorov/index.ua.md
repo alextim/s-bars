@@ -7,12 +7,6 @@ cover:
   sm: ./images/596087.jpeg
   xl: 
   alt: Элеваторный компекс Фото. Покраска элеваторов "Снежный Барс"
-category:
-  - cat1
-  - cat3
-tags:
-  - tag1
-  - tag3
 publishedDate: 2017-04-12T11:26:00Z
 state: published    
 ---

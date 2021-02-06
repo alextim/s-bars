@@ -7,12 +7,6 @@ cover:
   sm: ./images/DSC02885.jpg
   xl: 
   alt: Фото покраска металлоконструкции от коррозии
-category:
-  - cat2
-  - cat3
-tags:
-  - tag2
-  - tag3
 publishedDate: 2019-04-25T17:38:00Z
 state: published    
 ---

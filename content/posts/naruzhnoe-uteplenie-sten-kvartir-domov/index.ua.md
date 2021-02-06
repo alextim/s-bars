@@ -7,12 +7,6 @@ cover:
   sm: ./images/3-1.jpg
   xl: 
   alt: Фото работы промышленного альпиниста компании "Снежный Барс"
-category:
-  - cat1
-  - cat3
-tags:
-  - tag1
-  - tag3
 publishedDate: 2017-05-18T10:35:00Z
 state: published    
 ---

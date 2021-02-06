@@ -3,26 +3,21 @@ import { jsx } from '@emotion/react';
 
 import Icon from './Icon';
 
-const styleSpacer = {
-  display: 'inline-block',
-  width: '1em',
-};
-
-const style = { paddingLeft: '0.4em' };
-
-const IconLink = ({ children, to, icon, title, extraStyle = {}, ...props }) => {
+const IconLink = ({ children, to, icon, title, css = {}, ...props }) => {
+  const styleWrap = {
+    display: 'inline-flex',
+    alignItems: 'center',
+    ...css,
+  };
+  const styleLink = {
+    marginLeft: `${icon ? '0' : '1'}.4em`,
+  };
   return (
-    <div css={{ display: 'inline-flex', alignItems: 'center', ...extraStyle }} title={title}>
-      {icon ? <Icon name={icon} /> : <div css={styleSpacer} />}
-      {to ? (
-        <a css={style} href={to} {...props}>
-          {children}
-        </a>
-      ) : (
-        <span css={style} {...props}>
-          {children}
-        </span>
-      )}
+    <div css={styleWrap} title={title}>
+      <Icon name={icon} />
+      <a css={styleLink} href={to} {...props}>
+        {children}
+      </a>
     </div>
   );
 };

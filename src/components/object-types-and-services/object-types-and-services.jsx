@@ -1,40 +1,43 @@
 /** @jsx jsx */
-import { jsx, useTheme } from '@emotion/react';
+import { jsx } from '@emotion/react';
 import Img from 'gatsby-image';
+
+import card from '../../theme/card';
+import mq from '../../theme/media-queries';
+import { space } from '../../theme/space';
 
 import Layout from '../Layout/SimpleLayoutWithHeader';
 import SEO from '../SEO';
 
 import { getListItems } from '../../utils/list-info';
 
-const htmlStyle = (t) => ({
-  marginTop: t.space[6],
-  marginBottom: t.space[10],
-});
+const htmlStyle = {
+  marginTop: space[6],
+  marginBottom: space[10],
+};
 
-const styleItemsWrap = (t) => ({
+const styleItemsWrap = {
   display: 'grid',
-  gridGap: t.space[7],
+  gridGap: space[7],
   // gridTemplateColumns: '1fr',
-  [t.mq.lg]: {
+  [mq.lg]: {
     gridTemplateColumns: '1fr 1fr 1fr',
   },
-});
+};
 
 const Cards = ({ items }) => {
-  const theme = useTheme();
   return (
     <div css={styleItemsWrap}>
       {items.map(({ title, to, cover }, i) => (
-        <div key={i} css={theme.card.wrap}>
+        <div key={i} css={card.wrap}>
           {cover && cover.sm && (
             <a href={to}>
               <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} />
             </a>
           )}
-          <div css={theme.card.textWrap}>
-            <h2 css={theme.card.heading}>
-              <a href={to} css={theme.card.link}>
+          <div css={card.textWrap}>
+            <h2 css={card.heading}>
+              <a href={to} css={card.link}>
                 {title}
               </a>
             </h2>

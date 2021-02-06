@@ -1,31 +1,35 @@
 /** @jsx jsx */
-import { jsx, useTheme } from '@emotion/react';
+import { jsx } from '@emotion/react';
 import Img from 'gatsby-image';
+
+import card from '../../theme/card';
+import { space } from '../../theme/space';
+import { fontSizes } from '../../theme/font-sizes';
 
 import { useTranslation } from '../../i18n';
 
-const excerptStyle = (t) => ({
-  paddingTop: t.space[2],
-});
+const excerptStyle = {
+  paddingTop: space[2],
+};
 
-const styleReadMore = (t) => ({
+const styleReadMore = {
   paddingTop: t.space[5],
-  fontSize: t.fontSizes[0],
-});
+  fontSize: fontSizes[0],
+};
 
 const PostCard = ({ data: { path: to, cover, title, excerpt } }) => {
   const { t } = useTranslation();
-  const theme = useTheme();
+
   return (
-    <article css={theme.card.wrap}>
+    <article css={card.wrap}>
       {cover && cover.sm && (
         <a href={to}>
           <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} />
         </a>
       )}
-      <div css={theme.card.textWrap}>
-        <h2 css={theme.card.heading}>
-          <a href={to} css={theme.card.link}>
+      <div css={card.textWrap}>
+        <h2 css={card.heading}>
+          <a href={to} css={card.link}>
             {title}
           </a>
         </h2>

@@ -7,12 +7,6 @@ cover:
   sm: ./images/arenda-i-prodazha-oborudovaniya.jpg
   xl: 
   alt: 
-category:
-  - cat1
-  - cat3
-tags:
-  - tag1
-  - tag3
 publishedDate: 2019-05-01T16:22:00Z
 state: published    
 ---
