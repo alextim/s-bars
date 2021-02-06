@@ -1,51 +1,56 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
+import colors from '../../theme/colors';
+import links from '../../theme/links';
+import mq from '../../theme/media-queries';
+import { space } from '../../theme/space';
+
 import FaCheck from '../../assets/fa/solid/check.svg';
 import Section from '../Section';
 
 const ncols = 3;
 
-const styleWrap = (t) => ({
+const styleWrap = {
   display: 'grid',
-  gridGap: t.space[6],
+  gridGap: space[6],
   justifyContent: 'start',
-  [t.mq.lg]: {
+  [mq.lg]: {
     gridTemplateColumns: `repeat(${ncols}, 1fr)`,
     gridGap: '1px',
-    backgroundColor: t.colors.brand.main,
+    backgroundColor: colors.brand.main,
   },
-});
+};
 
-const styleCell = (t) => ({
+const styleCell = {
   display: 'inline-flex',
   alignItems: 'center',
-  [t.mq.lg]: {
+  [mq.lg]: {
     padding: '1.5rem',
     textAlign: 'center',
     justifyContent: 'center',
     textTransform: 'uppercase',
-    backgroundColor: t.colors.background,
+    backgroundColor: colors.background,
   },
-});
+};
 
-const styleIcon = (t) => ({
-  marginRight: t.space[2],
+const styleIcon = {
+  marginRight: space[2],
   width: '1rem',
   height: '1rem',
-  color: t.links.color,
-  [t.mq.lg]: {
+  color: links.color,
+  [mq.lg]: {
     display: 'none',
   },
-});
+};
 
-const styleText = (t) => ({
+const styleText = {
   textAlign: 'center',
-  marginTop: t.space[7],
-  [t.mq.lg]: {
+  marginTop: space[7],
+  [mq.lg]: {
     textTransform: 'uppercase',
   },
-});
+};
 
 const SectionObjectTypes = ({ title, subtitle, text, items }) => (
   <Section title={title} subtitle={subtitle}>

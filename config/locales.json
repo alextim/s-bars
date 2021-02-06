@@ -1,9 +1,9 @@
 {
   "ua": {
     "default": true,
-    "htmlLang": "ua",
+    "htmlLang": "uk",
     "formatLocale": "ua-UA",
-    "ogLocale": "ua_UA",
+    "ogLocale": "uk_UA",
     "name": "Ukranian",
     "shortName": "Ukr",
     "localName": "Український",

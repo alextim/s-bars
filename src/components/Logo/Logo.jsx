@@ -23,10 +23,10 @@ const styleWrap = {
   },
 };
 
-const styleLink = {
+const styleImageLink = {
   display: 'inline-flex',
   alignItems: 'center',
-  marginRight: '0.5rem',
+  marginRight: '1rem',
 };
 
 const styleTextWrap = {
@@ -49,7 +49,7 @@ const Logo = ({ onClick }) => {
   const { phone } = useOrganization();
   return (
     <div css={styleWrap}>
-      <Link css={styleLink} to="/" onClick={onClick}>
+      <Link css={styleImageLink} to="/" onClick={onClick}>
         <img
           src="/assets/logo-s-bars.svg"
           alt={i18n.locales[locale].siteTitle}

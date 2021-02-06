@@ -69,7 +69,7 @@ export const SectionItemL = ({ data }) => {
   const { title, subtitle, text } = data;
   return (
     <div css={styleWrapL}>
-      {title && <h3 css={styleTitle}>{title}</h3>}
+      {title && <h2 css={styleTitle}>{title}</h2>}
       {subtitle && <div css={styleSubtitle}>{subtitle}</div>}
       {text && <div css={styleTextL} dangerouslySetInnerHTML={{ __html: text }} />}
     </div>
@@ -100,7 +100,7 @@ export const SectionItemR = ({ data }) => {
   const { title, subtitle, text } = data;
   return (
     <div css={styleWrapR}>
-      {title && <h3 css={styleTitle}>{title}</h3>}
+      {title && <h2 css={styleTitle}>{title}</h2>}
       {subtitle && <div css={styleSubtitle}>{subtitle}</div>}
       {text && <div css={styleTextR} dangerouslySetInnerHTML={{ __html: text }} />}
     </div>
@@ -118,7 +118,7 @@ const styleImageRound = {
   borderRadius: '50%',
   height: '18rem',
   width: '18rem',
-  marginBottom: space[2],
+  marginBottom: space[4],
 };
 
 export const SectionItemRound = ({ data }) => {

@@ -62,7 +62,7 @@ const SeoBase = ({
           <link
             key={code}
             rel="alternate"
-            hrefLang={code}
+            hrefLang={i18n.locales[code].htmlLang}
             href={`${config.siteUrl}${i18n.localizePath(purePath, code)}`}
           />
         ))}

@@ -1,7 +1,7 @@
 const sizes = {
   header: {
-    sm: '3rem',
-    xl: '3.5rem',
+    sm: '3.25rem',
+    xl: '3.75rem',
   },
 };
 

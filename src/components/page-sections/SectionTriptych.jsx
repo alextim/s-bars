@@ -5,13 +5,17 @@ import { jsx } from '@emotion/react';
 import Section from '../Section';
 import { SectionItemR, SectionItemL, SectionItemImage } from '../SectionItem';
 
-const styleWrap = (t) => ({
+import mq from '../../theme/media-queries';
+import { space } from '../../theme/space';
+
+const styleWrap = {
   display: 'grid',
-  gridGap: t.space[8],
-  [t.mq.lg]: {
+  gridGap: space[4],
+  [mq.lg]: {
     gridTemplateColumns: '1fr 2fr 1fr',
+    gridGap: space[6],
   },
-});
+};
 
 const SectionTriptych = ({ title, subtitle, text, items }) => {
   return (

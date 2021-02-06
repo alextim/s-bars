@@ -4,7 +4,12 @@ import { graphql } from 'gatsby';
 import SEO from '../components/SEO';
 
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
-import Sections from '../components/Sections';
+import PriceList from '../components/PriceList';
+
+const styleHtml = (t) => ({
+  textAlign: 'justify',
+  marginTop: t.space[9],
+});
 
 const PageTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
@@ -12,8 +17,6 @@ const PageTemplate = ({ path, data, pageContext: { locale } }) => {
     frontmatter: { title, metaTitle, description, metaDescription, cover, noindex, sections },
     html,
   } = data.page;
-  // eslint-disable-next-line no-console
-  console.log(data.priceList);
   return (
     <Layout
       title={title}
@@ -28,45 +31,8 @@ const PageTemplate = ({ path, data, pageContext: { locale } }) => {
         pathname={path}
         noindex={noindex}
       />
-      {data.priceList &&
-        data.priceList.edges.map(({ node: { sectionTitle, headInfo, groups } }, i) => (
-          <div key={i}>
-            <div>{sectionTitle}</div>
-            {headInfo && (
-              <div>
-                <div>{headInfo.price.title}</div>
-
-                <div>
-                  {headInfo.price && headInfo.price.subtitles && (
-                    <div>
-                      {headInfo.price.subtitles.map((subtitle, j) => (
-                        <div key={j}>{subtitle}</div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  {groups.map(({ groupTitle, rows }, k) => (
-                    <div key={k}>
-                      {groupTitle}
-                      {rows.map((row, l) => (
-                        <div key={l}>
-                          {row.map((el, m) => (
-                            <div key={m}>{el}</div>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-
-      <Sections data={sections} />
+      {sections && sections[0] && sections[0].items && <PriceList items={sections[0].items} />}
+      {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
     </Layout>
   );
 };
@@ -77,27 +43,6 @@ export const pageQuery = graphql`
   query PriceListQuery($id: String!, $locale: String!) {
     page: markdownRemark(id: { eq: $id }) {
       ...PageFragment
-    }
-    priceList: allYaml(
-      filter: { fields: { type: { eq: "price-list" }, locale: { eq: $locale } } }
-    ) {
-      edges {
-        node {
-          sectionTitle
-          headInfo {
-            name
-            price {
-              title
-              subtitles
-            }
-            description
-          }
-          groups {
-            groupTitle
-            rows
-          }
-        }
-      }
     }
     address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
       ...AddressFragment

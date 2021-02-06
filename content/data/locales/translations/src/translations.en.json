@@ -81,5 +81,10 @@
     }
   },
   "day_off": "Day off",
-  "days_off": "Days off"
+  "days_off": "Days off",
+  "priceList": {
+    "name": "Name",
+    "price": "Price",
+    "description": "Description",
+  }
 }

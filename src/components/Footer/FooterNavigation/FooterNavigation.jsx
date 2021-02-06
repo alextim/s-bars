@@ -2,6 +2,9 @@
 import { jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
+import { space } from '../../../theme/space';
+import colors from '../../../theme/colors';
+
 const wrapStyle = {
   display: 'inline-flex',
   flexDirection: 'row',
@@ -11,14 +14,14 @@ const wrapStyle = {
   width: '100%',
 };
 
-const linkStyle = (t) => ({
+const linkStyle = {
   margin: '0 1rem',
-  padding: `${t.space[2]} 0`,
+  padding: `${space[2]} 0`,
   textTransform: 'uppercase',
   ':hover': {
-    color: t.colors.footer.highlight,
+    color: colors.footer.highlight,
   },
-});
+};
 
 const FooterNavigation = ({ items }) => (
   <div css={wrapStyle}>

@@ -112,3 +112,9 @@
   value: Вихідний
 - key: days_off
   value: Вихідні
+- key: priceList.name
+  value: Вид робіт
+- key: priceList.price
+  value: Ціна
+- key: priceList.description
+  value: Опис

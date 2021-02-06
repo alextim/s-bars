@@ -1,6 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
+import mq from '../../theme/media-queries';
+import { space } from '../../theme/space';
+
 import PostCard from '../PostCard';
 // import loadable from '@loadable/component';
 import { POSTS_PER_PAGE, POSTS_PER_ROW } from '../../../config/website';
@@ -13,15 +16,15 @@ const repeat = (t, n) => {
   return s;
 };
 
-const wrapStyle = (t) => ({
+const wrapStyle = {
   display: 'grid',
-  gridGap: t.space[7],
-  [t.mq.lg]: {
+  gridGap: space[7],
+  [mq.lg]: {
     display: 'grid',
     gridTemplateColumns: repeat('1fr', POSTS_PER_ROW),
     gridTemplateRows: repeat('auto', POSTS_PER_PAGE / POSTS_PER_ROW),
   },
-});
+};
 
 const PostCardList = ({ posts }) => {
   // const PostCard = loadable(() => import('../PostCard'));

@@ -1,16 +1,19 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
+import mq from '../../theme/media-queries';
+import { space } from '../../theme/space';
+
 import Section from '../Section';
 import { SectionItemRound as SectionItem } from '../SectionItem';
 
-const styleWrap = (t) => ({
+const styleWrap = {
   display: 'grid',
-  gridGap: t.space[10],
-  [t.mq.lg]: {
+  gridGap: space[10],
+  [mq.lg]: {
     gridTemplateColumns: 'repeat(2, 1fr)',
   },
-});
+};
 
 const SectionRecommended = ({ title, subtitle, text, items }) => (
   <Section title={title} subtitle={subtitle} text={text} textLast>

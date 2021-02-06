@@ -1,12 +1,14 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
+import { space } from '../../theme/space';
+
 import Button from '../Button';
 import AsideWidget from '../AsideWidget';
 
-const styleButton = (t) => ({
-  marginTop: t.space[4],
-});
+const styleButton = {
+  marginTop: space[4],
+};
 
 const overrideCSS = {
   textTransform: 'unset',

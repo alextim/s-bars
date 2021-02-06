@@ -81,5 +81,10 @@
     }
   },
   "day_off": "Вихідний",
-  "days_off": "Вихідні"
+  "days_off": "Вихідні",
+  "priceList": {
+    "name": "Вид робіт",
+    "price": "Ціна",
+    "description": "Опис"
+  }
 }

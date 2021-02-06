@@ -2,6 +2,8 @@
 import { jsx } from '@emotion/react';
 
 import mq from '../../theme/media-queries';
+import colors from '../../theme/colors';
+import { space } from '../../theme/space';
 
 const styleTitle = {
   fontSize: '2rem',
@@ -18,17 +20,17 @@ const styleSubtitle = {
   },
 };
 
-const innerWrapperStyle = (t) => ({
-  color: t.colors.black,
-  margin: `${t.space[7]} auto`,
-  paddingLeft: t.space[6],
-  paddingRight: t.space[6],
+const innerWrapperStyle = {
+  color: colors.black,
+  margin: `${space[7]} auto`,
+  paddingLeft: space[6],
+  paddingRight: space[6],
   textTransform: 'uppercase',
   textAlign: 'center',
   [mq.md]: {
     lineHeight: 1.25,
   },
-});
+};
 
 const DefaultHeader = ({ title, subtitle }) => (
   <div css={innerWrapperStyle}>

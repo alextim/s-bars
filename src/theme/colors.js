@@ -44,13 +44,13 @@ const brand = {
 
 const text = grey90;
 const background = white;
-
+const secondaryBackground = '#f6f8f8';
 const colors = {
   white,
   black,
   text,
   background,
-  secondaryBackground: '#f6f8f8',
+  secondaryBackground,
 
   primary: brand.secondLight,
   primaryDark: brand.secondLightDarker,
@@ -113,6 +113,12 @@ const colors = {
   modal: {
     text,
     bg: background,
+  },
+
+  tables: {
+    head: background,
+    odd: background,
+    even: secondaryBackground,
   },
 };
 

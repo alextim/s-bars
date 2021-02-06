@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import { space } from '../../theme/space';
+
 import { useLocale } from '../../i18n/i18n-context';
 import i18n from '../../i18n';
 
@@ -39,9 +41,9 @@ const wrapperStyle = {
   margin: '3rem 0',
 };
 
-const paginationNumberStyle = (t) => ({
+const paginationNumberStyle = {
   height: '2.5rem',
-  margin: `0px ${t.space[1]}`,
+  margin: `0px ${space[1]}`,
   minWidth: '2.5rem',
   textAlign: 'center',
   transition: 'box-shadow .2s',
@@ -49,7 +51,7 @@ const paginationNumberStyle = (t) => ({
     boxShadow: '0 2px 0 0 #5f6368',
     textDecoration: 'none',
   },
-});
+};
 
 const activeStyle = {
   color: '#000',

@@ -13,7 +13,7 @@ const excerptStyle = {
 };
 
 const styleReadMore = {
-  paddingTop: t.space[5],
+  paddingTop: space[5],
   fontSize: fontSizes[0],
 };
 

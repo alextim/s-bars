@@ -1,9 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-const styleWrap = (t) => ({
-  marginBottom: t.space[6],
-});
+import { space } from '../../theme/space';
+
+const styleWrap = {
+  marginBottom: space[6],
+};
+
 const styleContentWrap = {
   display: 'flex',
   flexDirection: 'column',

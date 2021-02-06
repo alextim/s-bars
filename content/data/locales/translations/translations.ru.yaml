@@ -112,3 +112,9 @@
   value: Выходной
 - key: days_off
   value: Выходные
+- key: priceList.name
+  value: Название работ
+- key: priceList.price
+  value: Цена
+- key: priceList.description
+  value: Описание
