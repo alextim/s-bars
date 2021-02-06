@@ -2,21 +2,47 @@ const priceListSection = {
   sectionTitle: {
     type: 'String',
   },
-  tags: {
-    type: '[String]',
+  headInfo: {
+    type: 'PriceListSectionHeadInfo',
   },
-  state: {
+  groups: {
+    type: '[PriceListGroup]',
+  },
+};
+
+const priceListSectionHeadInfo = {
+  name: {
     type: 'String',
   },
-  publishedDate: {
-    type: 'Date',
+  price: {
+    type: 'PriceListPrice',
   },
-  featured: {
-    type: 'Boolean',
+  description: {
+    type: 'String',
+  },
+};
+
+const priceListPrice = {
+  title: {
+    type: 'String',
+  },
+  subtitles: {
+    type: '[String]',
+  },
+};
+
+const priceListGroup = {
+  groupTitle: {
+    type: 'String',
+  },
+  rows: {
+    type: '[[String]]',
   },
 };
 
 module.exports = {
-  generalFrontmatterFields,
-  postFrontmatterFields,
+  priceListSection,
+  priceListGroup,
+  priceListSectionHeadInfo,
+  priceListPrice,
 };

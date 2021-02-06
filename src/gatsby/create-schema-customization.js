@@ -27,6 +27,13 @@ const {
 
 const { generalFrontmatterFields, postFrontmatterFields } = require('./schema-fields/md');
 
+const {
+  priceListSection,
+  priceListGroup,
+  priceListSectionHeadInfo,
+  priceListPrice,
+} = require('./schema-fields/price-list');
+
 module.exports = ({ actions, schema }) => {
   const { createTypes } = actions;
   const typeDefs = [
@@ -60,6 +67,8 @@ module.exports = ({ actions, schema }) => {
         ...socialLinkItem,
         ...address,
         ...contacts,
+
+        ...priceListSection,
         fields: {
           type: 'YamlFields',
         },
@@ -71,6 +80,26 @@ module.exports = ({ actions, schema }) => {
         ...yamlFields,
       },
     }),
+
+    schema.buildObjectType({
+      name: 'PriceListSectionHeadInfo',
+      fields: {
+        ...priceListSectionHeadInfo,
+      },
+    }),
+    schema.buildObjectType({
+      name: 'PriceListPrice',
+      fields: {
+        ...priceListPrice,
+      },
+    }),
+    schema.buildObjectType({
+      name: 'PriceListGroup',
+      fields: {
+        ...priceListGroup,
+      },
+    }),
+
     schema.buildObjectType({
       name: 'ContactPoint',
       fields: {
