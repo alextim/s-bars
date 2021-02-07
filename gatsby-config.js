@@ -192,5 +192,6 @@ module.exports = {
         id: 'portal',
       },
     },
+    'gatsby-plugin-netlify',
   ],
 };
