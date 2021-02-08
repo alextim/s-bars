@@ -25,7 +25,12 @@ const {
   contactPoint,
 } = require('./schema-fields/yaml');
 
-const { generalFrontmatterFields, postFrontmatterFields } = require('./schema-fields/md');
+const {
+  generalFrontmatterFields,
+  postFrontmatterFields,
+  section,
+  sectionItem,
+} = require('./schema-fields/md');
 
 module.exports = ({ actions, schema }) => {
   const { createTypes } = actions;
@@ -144,48 +149,14 @@ module.exports = ({ actions, schema }) => {
     schema.buildObjectType({
       name: 'Section',
       fields: {
-        title: {
-          type: 'String',
-        },
-        subtitle: {
-          type: 'String',
-        },
-        text: {
-          type: 'String',
-        },
-        image: {
-          type: 'Image',
-        },
-        items: {
-          type: '[SectionItem]',
-        },
-        type: {
-          type: 'String',
-        },
+        ...section,
       },
     }),
 
     schema.buildObjectType({
       name: 'SectionItem',
       fields: {
-        title: {
-          type: 'String',
-        },
-        to: {
-          type: 'String',
-        },
-        subtitle: {
-          type: 'String',
-        },
-        text: {
-          type: 'String',
-        },
-        image: {
-          type: 'Image',
-        },
-        icon: {
-          type: 'String',
-        },
+        ...sectionItem,
       },
     }),
 

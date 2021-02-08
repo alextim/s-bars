@@ -52,7 +52,51 @@ const postFrontmatterFields = {
   },
 };
 
+const section = {
+  title: {
+    type: 'String',
+  },
+  subtitle: {
+    type: 'String',
+  },
+  text: {
+    type: 'String',
+  },
+  image: {
+    type: 'Image',
+  },
+  items: {
+    type: '[SectionItem]',
+  },
+  type: {
+    type: 'String',
+  },
+};
+
+const sectionItem = {
+  title: {
+    type: 'String',
+  },
+  to: {
+    type: 'String',
+  },
+  subtitle: {
+    type: 'String',
+  },
+  text: {
+    type: 'String',
+  },
+  image: {
+    type: 'Image',
+  },
+  icon: {
+    type: 'String',
+  },
+};
+
 module.exports = {
   generalFrontmatterFields,
   postFrontmatterFields,
+  section,
+  sectionItem,
 };

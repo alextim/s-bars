@@ -1,15 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayout';
 import Section from '../components/Section';
 
+import SectionSlider from '../components/page-sections/SectionSlider';
 import SectionObjectTypes from '../components/page-sections/SectionObjectTypes';
 import SectionTriptych from '../components/page-sections/SectionTriptych';
 import SectionWorkTypes from '../components/page-sections/SectionWorkTypes';
@@ -41,17 +37,7 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
 
       {sections && (
         <>
-          <Slider dots arrows infinite speed={500} slidesToShow={1} slidesToScroll={1}>
-            {sections[0].items.map(
-              ({ image }) =>
-                image &&
-                image.sm && (
-                  <div key={image.sm.childImageSharp.fluid.src}>
-                    <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
-                  </div>
-                ),
-            )}
-          </Slider>
+          {sections[0].items && <SectionSlider items={sections[0].items} />}
           <Section
             title={sections[1].title}
             subtitle={sections[1].subtitle}

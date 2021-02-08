@@ -9,6 +9,9 @@ template: home
 sections:
   - items:
     - title: МЕХАНИЗИРОВАННАЯ ОЧИСТКА
+      subtitle: Промышленный альпинизм и высотные работы, промальп
+      to: /services
+      text: Узнать больше
       image:
         sm: ./images/s1.jpg
         alt: Lonely bird in the steppe.
@@ -16,6 +19,8 @@ sections:
       image:
         sm: ./images/s2.jpg
         alt: Many wild asses standing still.
+        to: /services
+        text: Узнать больше
     - title: ПРОФФЕССИОНАЛЬНЫЙ ПОДХОД
       image:
         sm: ./images/s3.jpg
