@@ -59,9 +59,9 @@ const Logo = ({ onClick }) => {
         />
       </Link>
       <div css={styleTextWrap}>
-        <a href="/" onClick={onClick} css={styleHomeLink}>
+        <Link to="/" onClick={onClick} css={styleHomeLink}>
           {i18n.locales[locale].siteShortName}
-        </a>
+        </Link>
         <a href={Utils.phoneUrl(phone[0])}>{Utils.formatPhone(phone[0])}</a>
       </div>
     </div>

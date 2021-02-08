@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import SEO from '../components/SEO';
 
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
-import PriceList from '../components/PriceList';
+import PriceList from '../components/PriceList2';
 
 const styleHtml = (t) => ({
   textAlign: 'justify',
