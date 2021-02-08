@@ -3,7 +3,11 @@ import { jsx } from '@emotion/react';
 
 import Img from 'gatsby-image';
 // import Container from '../Container';
+
 import mq from '../../theme/media-queries';
+import { space } from '../../theme/space';
+import colors from '../../theme/colors';
+import { fontSizes } from '../../theme/font-sizes';
 
 import Button from '../Button';
 
@@ -13,8 +17,8 @@ const wrapperStyle = {
   alignItems: 'center',
 };
 
-const styleOverlay = (t) => ({
-  padding: t.space[6],
+const styleOverlay = {
+  padding: space[6],
   margin: '0 auto',
   position: 'absolute',
   left: 0,
@@ -22,7 +26,7 @@ const styleOverlay = (t) => ({
   top: 0,
   bottom: 0,
 
-  color: t.colors.white,
+  color: colors.white,
   textAlign: 'center',
   textTransform: 'uppercase',
   textShadow: '1px 1px 6px rgba(0, 0, 0, 0.7)',
@@ -35,7 +39,7 @@ const styleOverlay = (t) => ({
   [mq.md]: {
     lineHeight: 1.25,
   },
-});
+};
 
 const BgImage = ({ image, height = '100vh', fit = 'cover', position = '50% 50%' }) => {
   if (!image || !image.sm) {
@@ -76,12 +80,16 @@ const styleTitle = {
   /* empty */
 };
 
-const styleSubtitle = (t) => ({
-  fontSize: t.fontSizes[3],
+const styleSubtitle = {
+  fontSize: fontSizes[3],
   [mq.lg]: {
-    fontSize: t.fontSizes[4],
+    fontSize: fontSizes[4],
   },
-});
+};
+
+const styleButton = {
+  marginTop: space[5],
+};
 
 const SliderItem = ({ title, subtitle, text, to, image }) => {
   return (
@@ -91,7 +99,7 @@ const SliderItem = ({ title, subtitle, text, to, image }) => {
         {title && <h2 css={styleTitle}>{title}</h2>}
         {subtitle && <p css={styleSubtitle}>{subtitle}</p>}
         {to && (
-          <Button tag="link" to={to}>
+          <Button tag="link" to={to} overrideCSS={styleButton}>
             {text}
           </Button>
         )}
