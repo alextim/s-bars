@@ -10,7 +10,7 @@ import Logo from '../Logo';
 import { Left, Right } from './styled';
 import Menu from './Menu2';
 
-const Navbar = ({ onCtaClick }) => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = useMainNavItems();
 
@@ -36,12 +36,7 @@ const Navbar = ({ onCtaClick }) => {
       <Left>
         <Logo onClick={close} />
       </Left>
-      <Menu
-        navItems={navItems}
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpenWrap}
-        onCtaClick={onCtaClick}
-      />
+      <Menu navItems={navItems} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpenWrap} />
       <Right>
         <Hamburger open={isMenuOpen} bp={mq.lg} onClick={toggleOpen} />
       </Right>

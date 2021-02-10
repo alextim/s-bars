@@ -31,23 +31,13 @@ const BaseLayout = ({ context, children }) => (
   <AppContextProvider value={context}>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <ContextReadyWrap>{children}</ContextReadyWrap>
+      <div css={rootStyle}>
+        <Header />
+        <main css={mainStyle}>{children}</main>
+        <Footer />
+      </div>
     </ThemeProvider>
   </AppContextProvider>
 );
-
-const ContextReadyWrap = ({ children }) => {
-  // const [InquiryForm, openInquiryForm] = useInquiryForm();
-  // eslint-disable-next-line no-alert
-  const openInquiryForm = () => alert('Sorry. In development');
-  return (
-    <div css={rootStyle}>
-      {/* <InquiryForm /> */}
-      <Header onCtaClick={openInquiryForm} />
-      <main css={mainStyle}>{children}</main>
-      <Footer onCtaClick={openInquiryForm} />
-    </div>
-  );
-};
 
 export default BaseLayout;

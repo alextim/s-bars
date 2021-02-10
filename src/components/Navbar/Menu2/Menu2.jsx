@@ -113,16 +113,13 @@ const menuItemWrapStyle = {
 
 const stripLastSlashes = (path) => (isRoot(path) ? path : removeTrailingSlashes(path));
 
-const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen, onCtaClick }) => {
+const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
   const onClick = () => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
   };
-  const onCTAClick = () => {
-    onClick();
-    onCtaClick();
-  };
+
   return (
     <Location>
       {({ location: { pathname } }) => {
@@ -153,7 +150,7 @@ const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen, onCtaClick }) => {
               })}
             </ul>
             <div css={styleRightWrapper}>
-              <CTAButton onClick={onCTAClick} />
+              <CTAButton onClick={onClick} />
               <LanguageSwitch closeMenu={() => setIsMenuOpen(false)} />
             </div>
           </div>

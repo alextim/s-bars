@@ -17,7 +17,7 @@ const style = {
 const CTAButton = ({ onClick }) => {
   const { t } = useTranslation();
   return (
-    <Button overrideCSS={style} onClick={onClick}>
+    <Button tag="link" overrideCSS={style} onClick={onClick} to="/inquiry">
       {t('nav.inquiry')}
     </Button>
   );

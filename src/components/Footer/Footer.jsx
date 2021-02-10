@@ -96,7 +96,7 @@ const styleInquiryButton = {
   },
 };
 
-const Footer = ({ onCtaClick }) => {
+const Footer = () => {
   const { t } = useTranslation();
   const { email, phone, foundingDate, openingHours } = useOrganization();
   const { address } = useAppContext();
@@ -123,7 +123,7 @@ const Footer = ({ onCtaClick }) => {
           <WidgetWrapper>
             <FooterWidget title={t('footer.inquiry.title')}>
               <div css={styleInquiryText}>{t('footer.inquiry.text')}</div>
-              <Button overrideCSS={styleInquiryButton} onClick={onCtaClick}>
+              <Button tag="link" overrideCSS={styleInquiryButton} to="/inquiry">
                 {t('footer.inquiry.button_title')}
               </Button>
             </FooterWidget>
