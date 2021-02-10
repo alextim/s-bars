@@ -1,3 +1,11 @@
 .slick-dots {
-   bottom: 20px;
- }
+  bottom: 20px;
+}
+
+.slick-next {
+  right: 25px;
+}
+
+.slick-prev {
+  left: 25px;
+}
