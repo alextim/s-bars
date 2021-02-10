@@ -42,7 +42,7 @@ const styleBbodyWrap = {
   marginTop: space[10],
 };
 
-const SectionBase = ({ title, subtitle, text, image, css, small, gray, textLast, children }) => {
+const Section = ({ title, subtitle, text, image, css, small, gray, textLast, children }) => {
   const styles = [styleWrap];
   if (small) {
     styles.push(styleSmall);
@@ -68,4 +68,4 @@ const SectionBase = ({ title, subtitle, text, image, css, small, gray, textLast,
   );
 };
 
-export default SectionBase;
+export default Section;

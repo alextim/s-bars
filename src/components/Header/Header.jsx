@@ -40,10 +40,10 @@ const containerStyle = {
   backgroundColor: 'inherit',
 };
 
-const Header = () => (
+const Header = ({ onCtaClick }) => (
   <header role="navigation" css={headerStyle}>
     <Container css={containerStyle}>
-      <Navbar />
+      <Navbar onCtaClick={onCtaClick} />
     </Container>
   </header>
 );

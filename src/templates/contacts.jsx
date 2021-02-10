@@ -11,7 +11,6 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import Section from '../components/Section';
 
-import ContactForm from '../components/ContactForm';
 import OrganizationOpeningHours from '../components/organization/OrganizationOpeningHours';
 
 const styleContactItemWrap = (t) => ({
@@ -27,6 +26,7 @@ const styleContactItemWrap = (t) => ({
 });
 const styleContactItemTitle = {
   marginBottom: '0.5rem',
+  fontWeight: 'bold',
 };
 const styleAddressWrap = {
   marginBottom: '0.5rem',
@@ -35,7 +35,7 @@ const styleItemSeparator = {
   marginBottom: '0.5rem',
 };
 
-const ContactItemHeading = ({ title }) => <h2 css={styleContactItemTitle}>{title}</h2>;
+const ContactItemHeading = ({ title }) => <div css={styleContactItemTitle}>{title}</div>;
 
 const Address = ({ data }) => {
   const {
@@ -60,7 +60,7 @@ const OpeningHours = ({ data }) => {
   const { t } = useTranslation();
   return (
     <React.Fragment>
-      <h3 css={styleContactItemTitle}>{t('contacts.opening_time')}</h3>
+      <div css={styleContactItemTitle}>{t('contacts.opening_time')}</div>
       <OrganizationOpeningHours openingHours={data} />
     </React.Fragment>
   );
@@ -89,28 +89,11 @@ const ContactPoints = ({ items }) => {
   ));
 };
 
-const Contacts = () => {
-  const { t } = useTranslation();
-  return (
-    <div>
-      <ContactItemHeading title={t('contacts.write_us')} />
-      <ContactForm />
-    </div>
-  );
-};
-
 const styleWrap3 = (t) => ({
   display: 'grid',
   gridGap: t.space[8],
   [t.mq.lg]: {
     gridTemplateColumns: '1fr 1fr 1fr',
-  },
-});
-const styleWrap2 = (t) => ({
-  display: 'grid',
-  gridGap: t.space[8],
-  [t.mq.lg]: {
-    gridTemplateColumns: '1fr 1fr',
   },
 });
 
@@ -147,18 +130,15 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
       </Section>
 
       <Section>
-        <div css={styleWrap2}>
-          <Contacts />
-          <iframe
-            title="Google Maps"
-            src={embedMap}
-            width="100%"
-            height="450"
-            frameBorder="0"
-            allowFullScreen=""
-            aria-hidden="false"
-          />
-        </div>
+        <iframe
+          title="Google Maps"
+          src={embedMap}
+          width="100%"
+          height="450"
+          frameBorder="0"
+          allowFullScreen=""
+          aria-hidden="false"
+        />
       </Section>
     </Layout>
   );

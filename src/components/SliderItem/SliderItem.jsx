@@ -68,7 +68,7 @@ const BgImage = ({ image, height = '100vh', fit = 'cover', position = '50% 50%' 
   const sources = [
     image.sm.childImageSharp.fluid,
     {
-      ...image.sm.childImageSharp.xl,
+      ...image.xl.childImageSharp.fluid,
       media: '(min-width: 480px)',
     },
   ];

@@ -78,6 +78,8 @@
   value: Если вас заинтересовали наши услуги или вы просто хотите проконсльтироваться по любым вопросам связанными с нашими услугами, то Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniamst laborum
 - key: footer.inquiry.button_title
   value: Оформить заявку
+- key: footer.privacyPolicy
+  value: Конфиденциальность
 - key: footer.opening_time
   value: Рабочее время
 - key: footer.our_address

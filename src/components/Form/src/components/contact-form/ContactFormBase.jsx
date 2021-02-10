@@ -31,14 +31,14 @@ async function sendDataMock() {
 }
 */
 
-const ContactFormBase = ({ content, modalContent, actionControl, endPoint, getErrorMessage }) => {
+const ContactFormBase = ({ fields, modalContent, actionControl, endPoint, getErrorMessage }) => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
   const validateName = (x) => {
     const value = x ? x.trim() : x;
     if (!validateNameLength(value)) {
-      return content.name.validationMessage.length;
+      return fields.name.validationMessage.length;
     }
     return '';
   };
@@ -46,10 +46,10 @@ const ContactFormBase = ({ content, modalContent, actionControl, endPoint, getEr
   const validateEmail = (x) => {
     const value = x ? x.trim() : x;
     if (!validateEmailLength(value)) {
-      return content[EMAIL_FIELD].validationMessage.length;
+      return fields[EMAIL_FIELD].validationMessage.length;
     }
     if (!EmailValidator.validate(value)) {
-      return content[EMAIL_FIELD].validationMessage.invalid;
+      return fields[EMAIL_FIELD].validationMessage.invalid;
     }
     return '';
   };
@@ -57,7 +57,7 @@ const ContactFormBase = ({ content, modalContent, actionControl, endPoint, getEr
   const validateMessage = (x) => {
     const value = x ? x.trim() : x;
     if (!validateMessageLength(value)) {
-      return content.message.validationMessage.length;
+      return fields.message.validationMessage.length;
     }
     return '';
   };
@@ -65,19 +65,19 @@ const ContactFormBase = ({ content, modalContent, actionControl, endPoint, getEr
   const validationSchema = {
     email: {},
     name: {
-      required: content.name.validationMessage.required,
+      required: fields.name.validationMessage.required,
       validate: validateName,
       pattern: {
         value: NAME_PATTERN,
-        message: content.name.validationMessage.pattern,
+        message: fields.name.validationMessage.pattern,
       },
     },
     [EMAIL_FIELD]: {
-      required: content[EMAIL_FIELD].validationMessage.required,
+      required: fields[EMAIL_FIELD].validationMessage.required,
       validate: validateEmail,
     },
     message: {
-      required: content.message.validationMessage.required,
+      required: fields.message.validationMessage.required,
       validate: validateMessage,
     },
   };
@@ -127,29 +127,29 @@ const ContactFormBase = ({ content, modalContent, actionControl, endPoint, getEr
       <form onSubmit={handleOnSubmit} noValidate>
         <HoneyPotInput value={values.email} onChange={handleOnChange} />
         <InputControl
-          label={content.name.label}
+          label={fields.name.label}
           name="name"
           required={validationSchema.name.required}
-          placeholder={content.name.placeholder}
+          placeholder={fields.name.placeholder}
           value={values.name}
           error={errors.name}
           onChange={handleOnChange}
         />
         <InputControl
-          label={content[EMAIL_FIELD].label}
+          label={fields[EMAIL_FIELD].label}
           name={EMAIL_FIELD}
           type="email"
           required={validationSchema[EMAIL_FIELD].required}
-          placeholder={content[EMAIL_FIELD].placeholder}
+          placeholder={fields[EMAIL_FIELD].placeholder}
           value={values[EMAIL_FIELD]}
           error={errors[EMAIL_FIELD]}
           onChange={handleOnChange}
         />
         <TextAreaControl
-          label={content.message.label}
+          label={fields.message.label}
           name="message"
           required={validationSchema.message.required}
-          placeholder={content.message.placeholder}
+          placeholder={fields.message.placeholder}
           value={values.message}
           error={errors.message}
           onChange={handleOnChange}

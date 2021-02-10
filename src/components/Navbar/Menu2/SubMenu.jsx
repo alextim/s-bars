@@ -11,7 +11,7 @@ import MenuItem from './MenuItem2';
 const menuItemWrapStyle = {
   [mq.lg]: {
     display: 'flex',
-    alignIitems: 'center',
+    alignItems: 'center',
     position: 'relative',
     height: '100%',
   },

@@ -4,13 +4,16 @@ import { jsx } from '@emotion/react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './slick-styles.css';
 
 import SliderItem from '../SliderItem';
 
 import { space } from '../../theme/space';
 
 const styleWrap = {
-  marginBottom: space[10],
+  minWidth: '320px',
+  // maxWidth: '1280px',
+  margin: `0 auto ${space[10]}`,
 };
 
 const SectionSlider = ({ items }) => (

@@ -1,7 +1,8 @@
+const webSafeFont =
+  'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif';
 const fonts = {
-  body:
-    'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-  heading: 'inherit',
+  body: webSafeFont,
+  heading: `Oswald, ${webSafeFont}`,
   monospace: 'Menlo, monospace',
 };
 

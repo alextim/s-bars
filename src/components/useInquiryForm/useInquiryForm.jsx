@@ -1,9 +1,6 @@
 /** @jsx jsx */
-import React from 'react';
 import { jsx } from '@emotion/react';
-
-import { ContactFormBase } from '../Form';
-import Spinner from '../Spinner';
+import React from 'react';
 
 import {
   EMAIL_FIELD,
@@ -17,13 +14,19 @@ import {
 
 import { useTranslation } from '../../i18n';
 
+import { ContactFormBase } from '../Form';
+import Spinner from '../Spinner';
+
+import useModal from '../Form/src/components/Modal/useModal';
+import { ModalHeader, ModalFooter, ModalBody } from '../Form/src/components/Modal';
+
 import Button from '../Button';
 
 const END_POINT = '/.netlify/functions/contact';
 
 const spinnerStyle = (t) => ({ display: 'block', marginTop: t.space[7] });
 
-const ContactForm = () => {
+const useInquiryForm = () => {
   const { t } = useTranslation();
 
   const NAME_LABEL = t('cf.name');
@@ -133,15 +136,28 @@ const ContactForm = () => {
     },
   };
 
-  return (
-    <ContactFormBase
-      fields={fields}
-      modalContent={modalContent}
-      actionControl={<Button type="submit">{t('form.send_message')}</Button>}
-      endPoint={END_POINT}
-      getErrorMessage={getErrorTranslation}
-    />
+  const [Modal, open, close] = useModal();
+
+  const FormWrap = () => (
+    <Modal>
+      <ModalHeader>Hello</ModalHeader>
+      <ModalBody>
+        <ContactFormBase
+          fields={fields}
+          modalContent={modalContent}
+          actionControl={<Button type="submit">{t('form.send_message')}</Button>}
+          endPoint={END_POINT}
+          getErrorMessage={getErrorTranslation}
+        />
+      </ModalBody>
+      <ModalFooter justify="center">
+        <button type="button" onClick={close}>
+          Close
+        </button>
+      </ModalFooter>
+    </Modal>
   );
+  return [FormWrap, open];
 };
 
-export default ContactForm;
+export default useInquiryForm;

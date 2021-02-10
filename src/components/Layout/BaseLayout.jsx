@@ -7,6 +7,7 @@ import AppContextProvider from '../../context';
 import GlobalStyle from '../GlobalStyle';
 import Header from '../Header/Header';
 import Footer from '../Footer';
+// import useInquiryForm from '../useInquiryForm';
 
 const rootStyle = {
   display: 'flex',
@@ -30,13 +31,23 @@ const BaseLayout = ({ context, children }) => (
   <AppContextProvider value={context}>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <div css={rootStyle}>
-        <Header />
-        <main css={mainStyle}>{children}</main>
-        <Footer />
-      </div>
+      <ContextReadyWrap>{children}</ContextReadyWrap>
     </ThemeProvider>
   </AppContextProvider>
 );
+
+const ContextReadyWrap = ({ children }) => {
+  // const [InquiryForm, openInquiryForm] = useInquiryForm();
+  // eslint-disable-next-line no-alert
+  const openInquiryForm = () => alert('Sorry. In development');
+  return (
+    <div css={rootStyle}>
+      {/* <InquiryForm /> */}
+      <Header onCtaClick={openInquiryForm} />
+      <main css={mainStyle}>{children}</main>
+      <Footer onCtaClick={openInquiryForm} />
+    </div>
+  );
+};
 
 export default BaseLayout;

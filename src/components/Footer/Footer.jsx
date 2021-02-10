@@ -10,6 +10,7 @@ import Container from '../Container';
 import FooterWidget from './FooterWidget';
 import LegalInfo from './LegalInfo';
 import FooterNavigation from './FooterNavigation';
+import Link from '../LocalizedLink';
 
 import { useTranslation } from '../../i18n';
 import { useAppContext } from '../../context';
@@ -65,6 +66,11 @@ const styleColophonBottom = {
   fontSize: fontSizes[0],
 };
 
+const styleColophonBottomInnerWrap = {
+  display: 'inline-flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+};
 const footerStyle = {
   color: colors.footer.text,
   backgroundColor: colors.footer.bg,
@@ -90,7 +96,7 @@ const styleInquiryButton = {
   },
 };
 
-const Footer = () => {
+const Footer = ({ onCtaClick }) => {
   const { t } = useTranslation();
   const { email, phone, foundingDate, openingHours } = useOrganization();
   const { address } = useAppContext();
@@ -117,7 +123,9 @@ const Footer = () => {
           <WidgetWrapper>
             <FooterWidget title={t('footer.inquiry.title')}>
               <div css={styleInquiryText}>{t('footer.inquiry.text')}</div>
-              <Button overrideCSS={styleInquiryButton}>{t('footer.inquiry.button_title')}</Button>
+              <Button overrideCSS={styleInquiryButton} onClick={onCtaClick}>
+                {t('footer.inquiry.button_title')}
+              </Button>
             </FooterWidget>
           </WidgetWrapper>
         </div>
@@ -131,7 +139,10 @@ const Footer = () => {
       </div>
       <div css={styleColophonBottom}>
         <Container>
-          <LegalInfo foundingDate={foundingDate} legalName={address ? address.legalName : null} />
+          <div css={styleColophonBottomInnerWrap}>
+            <LegalInfo foundingDate={foundingDate} legalName={address ? address.legalName : null} />
+            <Link to="/privacy">{t('footer.privacyPolicy')}</Link>
+          </div>
         </Container>
       </div>
     </footer>

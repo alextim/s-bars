@@ -41,7 +41,7 @@ const buttonStyles = {
 
     cursor: 'pointer',
 
-    fontFamily: fonts.heading,
+    fontFamily: fonts.body,
     fontWeight: semibold,
     fontSize: fontSizes[2],
     // lineHeight: 'solid',

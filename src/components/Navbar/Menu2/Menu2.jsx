@@ -42,7 +42,7 @@ const styleWrapper = {
   [mq.lg]: {
     display: 'inline-flex',
     flexDirection: 'row',
-    alignIitems: 'center',
+    alignItems: 'center',
     justifyContent: 'space-between',
 
     position: 'static',
@@ -74,7 +74,8 @@ const styleMenuWrapper = {
   [mq.lg]: {
     display: 'inline-flex',
     flexDirection: 'row',
-    alignIitems: 'center',
+    alignItems: 'center',
+    height: '100%',
   },
 };
 
@@ -106,16 +107,21 @@ const menuItemWrapStyle = {
   [mq.lg]: {
     display: 'inline-flex',
     alignItems: 'center',
+    height: '100%',
   },
 };
 
 const stripLastSlashes = (path) => (isRoot(path) ? path : removeTrailingSlashes(path));
 
-const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
+const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen, onCtaClick }) => {
   const onClick = () => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
+  };
+  const onCTAClick = () => {
+    onClick();
+    onCtaClick();
   };
   return (
     <Location>
@@ -147,7 +153,7 @@ const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
               })}
             </ul>
             <div css={styleRightWrapper}>
-              <CTAButton onClick={onClick} />
+              <CTAButton onClick={onCTAClick} />
               <LanguageSwitch closeMenu={() => setIsMenuOpen(false)} />
             </div>
           </div>

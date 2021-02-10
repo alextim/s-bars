@@ -120,6 +120,13 @@ export const pageQuery = graphql`
                   }
                 }
               }
+              xl {
+                childImageSharp {
+                  fluid(maxWidth: 1920) {
+                    ...GatsbyImageSharpFluid_noBase64
+                  }
+                }
+              }
             }
           }
         }

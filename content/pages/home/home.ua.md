@@ -13,21 +13,25 @@ sections:
       to: /services
       text: Узнать больше
       image:
-        sm: ./images/s1.jpg
+        sm: ./images/s1-sm.jpg
+        xl: ./images/s1.jpg
         alt: Lonely bird in the steppe.
     - title: ПОКРАСКА КРАНОВ
       image:
-        sm: ./images/s2.jpg
+        sm: ./images/s2-sm.jpg
+        xl: ./images/s2.jpg
         alt: Many wild asses standing still.
         to: /services
         text: Узнать больше
     - title: ПРОФФЕССИОНАЛЬНЫЙ ПОДХОД
       image:
-        sm: ./images/s3.jpg
+        sm: ./images/s3-sm.jpg
+        xl: ./images/s3.jpg
         alt: Blue steppe flower.
     - title: МЕХАНИЗИРОВАННАЯ ШПАКЛЕВКА
       image:
-        sm: ./images/s4.jpg
+        sm: ./images/s4-sm.jpg
+        xl: ./images/s4.jpg
         alt: Blue steppe flower.
 
   - title: НАШИ УСЛУГИ ВКЛЮЧАЮТ В СЕБЯ ВЕСЬ ЦИКЛ РАБОТ
