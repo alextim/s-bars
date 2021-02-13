@@ -54,15 +54,11 @@ const InquiryForm = () => {
   const [Modal, openModal, closeModal] = useModal('portal', { onClose });
 
   const onSubmitForm = async (data) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
     const values = { ...data };
     delete values.privacy;
     values.subject = values.other;
     delete values.other;
 
-    // eslint-disable-next-line no-console
-    console.log(values);
     setError('');
     setLoading(true);
     try {
