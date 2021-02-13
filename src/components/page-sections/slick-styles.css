@@ -8,6 +8,7 @@
 
 .slick-prev {
   left: 20px;
+  z-index: 100;
 }
 
 .slick-next:before,
