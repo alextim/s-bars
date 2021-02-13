@@ -6,10 +6,13 @@ import FormLabel from './FormLabel';
 import FormControl from './FormControl';
 import FormErrorMessage from './FormErrorMessage';
 
-const styleInnerWrap = {
+const styleInnerWrap = (t) => ({
   display: 'inline-flex',
-  alignItems: 'center',
-};
+  alignItems: 'baseline',
+  [t.mq.lg]: {
+    alignItems: 'center',
+  },
+});
 
 const CheckBoxControl = ({ name, label, value, required, error, onChange, ...props }) => (
   <FormControl isInvalid={error}>

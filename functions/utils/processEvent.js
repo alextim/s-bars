@@ -6,9 +6,10 @@ const validateOrigin = (event) => !event.headers.origin || event.headers.origin 
 const isSpam = (body) => body.email;
 
 const getSanitizedValues = (body, fields) => {
-  const keys = Object.getKeys();
+  const keys = Object.keys();
+  const n = keys.length;
   const result = {};
-  for (let i = 0; i < keys.length; i++) {
+  for (let i = 0; i < n; i++) {
     const key = keys[i];
     const fieldInfo = fields[key];
     const value = body[key];

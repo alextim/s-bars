@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 
 const getStyle = (t, required, inline, right) => ({
-  margin: `0 ${inline ? '0.25rem' : 0} ${inline ? 0 : '0.25rem'} ${right ? '0.5rem' : 0}`,
+  margin: `0 ${inline ? '0.25rem' : 0} ${inline || right ? 0 : '0.25rem'} ${right ? '0.5rem' : 0}`,
   '&::after': {
     content: `"${required ? '*' : ''}"`,
     color: t.colors.input.required,

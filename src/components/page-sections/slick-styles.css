@@ -3,9 +3,15 @@
 }
 
 .slick-next {
-  right: 25px;
+  right: 20px;
 }
 
 .slick-prev {
-  left: 25px;
+  left: 20px;
 }
+
+.slick-next:before,
+.slick-prev:before {
+  font-size: 2rem;
+}
+

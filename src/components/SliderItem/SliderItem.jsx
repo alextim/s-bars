@@ -77,7 +77,10 @@ const BgImage = ({ image, height = '100vh', fit = 'cover', position = '50% 50%' 
 };
 
 const styleTitle = {
-  /* empty */
+  fontSize: fontSizes[7],
+  [mq.lg]: {
+    fontSize: fontSizes[8],
+  },
 };
 
 const styleSubtitle = {
