@@ -14,3 +14,9 @@ const getPos = (type) => {
 export const getListTitle = (mainNav, type) => mainNav.edges[getPos(type)].node.title;
 
 export const getListItems = (mainNav, type) => mainNav.edges[getPos(type)].node.fields.submenu;
+
+export const getServicesTitle = (mainNav) => getListTitle(mainNav, 'service');
+export const getObjectTypesTitle = (mainNav) => getListTitle(mainNav, 'object-type');
+
+export const getServiceItems = (mainNav) => getListItems(mainNav, 'service');
+export const getObjectTypeItems = (mainNav) => getListItems(mainNav, 'object-type');

@@ -54,14 +54,18 @@
   value: Ошибка сети
 - key: cf.name
   value: Имя
-- key: cf.message
-  value: Сообщение
 - key: cf.your_name
   value: Ваше имя
 - key: cf.your_email
   value: Ваш e-mail
+- key: cf.message
+  value: Сообщение
 - key: cf.your_message
   value: Ваше сообщение
+- key: cf.phone
+  value: Телефон
+- key: cf.your_phone
+  value: Номер вашего телефона
 - key: cf.sorry
   value: Извините. Произошла ошибка во время отправки сообщения.
 - key: cf.try_later
@@ -69,6 +73,40 @@
 - key: cf.thanks
   value: Спасибо за ваше сообщение!
 - key: cf.we_will_response
+  value: Мы ответим вам в ближайшее время.
+- key: if.subject.title
+  value: Тема
+- key: if.subject.description
+  value: Выберите из списка, или свой вариант
+- key: if.other
+  value: Другое
+- key: if.message.title
+  value: Ваш заррос
+- key: if.message.description
+  value: Опишите, пожалуйста, ваши потребности, техничное завдание, дополнительную информацию или задайте вопрос нашим специалистам
+- key: if.vc.title
+  value: Ваша визитка
+- key: if.vc.description
+  value: Оставьте, пожалуйста, ааши контакты
+- key: if.name
+  value: Имя
+- key: if.position
+  value: Должность
+- key: if.company
+  value: Компания
+- key: if.phone
+  value: Телефон
+- key: if.privacy.agree_with
+  value: согласен с
+- key: if.privacy.policy
+  value: политикой конфиденциальности
+- key: if.sorry
+  value: Извините. Произошла ошибка во время отправки вашего запроса.
+- key: if.try_later
+  value: Пожалуйста, повторите вашу попытку позже.
+- key: if.thanks
+  value: Спасибо за ваш запрос!
+- key: if.we_will_response
   value: Мы ответим вам в ближайшее время.
 - key: nav.inquiry
   value: Послать запрос

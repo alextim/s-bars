@@ -29,7 +29,9 @@ const buttonStyles = {
 
     paddingLeft: space[3],
     paddingRight: space[3],
+
     height: '3.5rem',
+    width: 'fit-content',
 
     color: colors.button.primary.text,
     backgroundColor: colors.button.primary.bg,

@@ -1,89 +1,54 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-const styleControlWrap = {
-  display: 'flex',
-  flexDirection: 'column',
-  marginBottom: '1rem',
-};
+import Input, { TextArea } from './inputs';
+import FormLabel from './FormLabel';
+import FormControl from './FormControl';
+import FormErrorMessage from './FormErrorMessage';
 
-const styleError = (t) => ({
-  color: t.colors.error,
-});
-
-const Input = ({ invalid, ...props }) => (
-  <input
-    {...props}
-    css={(t) => ({
-      borderColor: invalid ? t.colors.error : t.colors.body,
-    })}
-  />
-);
-
-const TextArea = ({ invalid, ...props }) => (
-  <textarea
-    {...props}
-    css={(t) => ({
-      borderColor: invalid ? t.colors.error : t.colors.body,
-    })}
-  />
-);
-
-const FormLabel = ({ required, htmlFor, ...props }) => (
-  <label
-    htmlFor={htmlFor}
-    css={(t) => ({
-      marginBottom: '0.25rem',
-      '&::after': {
-        content: `"${required ? '*' : ''}"`,
-        color: t.colors.brand.main,
-        marginLeft: '0.25rem',
-      },
-    })}
-    {...props}
-  />
-);
-
-const InputControl = ({ name, label, type, value, required, error, onChange, ...props }) => (
-  <div css={styleControlWrap}>
-    {label && (
-      <FormLabel htmlFor={name} required={required}>
-        {label}
-      </FormLabel>
-    )}
+const InputControl = ({
+  name,
+  label,
+  type = 'text',
+  value,
+  required,
+  error,
+  onChange,
+  ...props
+}) => (
+  <FormControl isInvalid={error}>
+    <FormLabel htmlFor={name} required={required}>
+      {label}
+    </FormLabel>
     <Input
       id={name}
       name={name}
-      type={type || 'text'}
+      type={type}
       required={required}
       value={value}
-      invalid={error}
       onChange={onChange}
       {...props}
     />
-    {error && <div css={styleError}>{error}</div>}
-  </div>
+    <FormErrorMessage>{error}</FormErrorMessage>
+  </FormControl>
 );
 
 const TextAreaControl = ({ name, label, value, required, error, onChange, ...props }) => (
-  <div css={styleControlWrap}>
-    {label && (
-      <FormLabel htmlFor={name} isrequired={required}>
-        {label}
-      </FormLabel>
-    )}
+  <FormControl isInvalid={error}>
+    <FormLabel htmlFor={name} isrequired={required}>
+      {label}
+    </FormLabel>
     <TextArea
       id={name}
       name={name}
       required={required}
       value={value}
-      invalid={error}
       onChange={onChange}
       rows="10"
       {...props}
     />
-    {error && <div css={styleError}>{error}</div>}
-  </div>
+    <FormErrorMessage>{error}</FormErrorMessage>
+  </FormControl>
 );
 
 export { TextAreaControl };

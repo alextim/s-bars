@@ -107,7 +107,8 @@ const colors = {
   },
 
   input: {
-    focusBoxShadow: 'red',
+    focusBoxShadow: red,
+    required: red,
   },
 
   modal: {

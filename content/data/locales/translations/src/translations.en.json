@@ -28,7 +28,10 @@
   "validation": {
     "required": "{{name}} is required.",
     "length": "{{name}} length should be between {{min}} and {{max}}.",
+    "maxLength": "{{name}} length should be less then {{max}}.",
+    "minLength": "{{name}} length should be more then {{min}}.",
     "only_symbols": "Only symbols and space allowed.",
+    "only_digits": "Only digits allowed",
     "invalid": "Invalid {{name}}."
   },
   "error": {
@@ -40,9 +43,11 @@
   },
   "cf": {
     "name": "Name",
-    "message": "Message",
     "your_name": "Your name",
     "your_email": "Your e-mail",
+    "message": "Message",
+    "phone": "Phone",
+    "your_phone": "Your phone number",
     "your_message": "Your message",
     "sorry": "Sorry. Error happened while your message sending.",
     "try_later": "Please, try again later or reach us in another way.",

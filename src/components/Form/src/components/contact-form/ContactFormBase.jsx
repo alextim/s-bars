@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import * as EmailValidator from 'email-validator';
-import {
-  EMAIL_FIELD,
-  NAME_PATTERN,
-  validateNameLength,
-  validateEmailLength,
-  validateMessageLength,
-} from '../../../../../lib/contact-form-validators';
+
+import fieldsInfo from '../../../../../lib/contact-form-fields';
+import EMAIL_FIELD from '../../../../../lib/email-field';
 
 import useForm from '../../hooks/useForm';
 import sendData from '../../services/send-data';
@@ -31,13 +26,19 @@ async function sendDataMock() {
 }
 */
 
+const styleControlsWrap = (t) => ({
+  display: 'grid',
+  gridGap: t.space[6],
+});
+
 const ContactFormBase = ({ fields, modalContent, actionControl, endPoint, getErrorMessage }) => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
   const validateName = (x) => {
     const value = x ? x.trim() : x;
-    if (!validateNameLength(value)) {
+    const n = value ? value.length : 0;
+    if (n < fieldsInfo.name.minLength || n > fieldsInfo.name.maxLength) {
       return fields.name.validationMessage.length;
     }
     return '';
@@ -45,10 +46,11 @@ const ContactFormBase = ({ fields, modalContent, actionControl, endPoint, getErr
 
   const validateEmail = (x) => {
     const value = x ? x.trim() : x;
-    if (!validateEmailLength(value)) {
+    const n = value ? value.length : 0;
+    if (n < fieldsInfo[EMAIL_FIELD].minLength || n > fieldsInfo[EMAIL_FIELD].maxLength) {
       return fields[EMAIL_FIELD].validationMessage.length;
     }
-    if (!EmailValidator.validate(value)) {
+    if (!fieldsInfo[EMAIL_FIELD].validate(value)) {
       return fields[EMAIL_FIELD].validationMessage.invalid;
     }
     return '';
@@ -56,7 +58,8 @@ const ContactFormBase = ({ fields, modalContent, actionControl, endPoint, getErr
 
   const validateMessage = (x) => {
     const value = x ? x.trim() : x;
-    if (!validateMessageLength(value)) {
+    const n = value ? value.length : 0;
+    if (n < fieldsInfo.message.minLength || n > fieldsInfo.message.maxLength) {
       return fields.message.validationMessage.length;
     }
     return '';
@@ -68,7 +71,7 @@ const ContactFormBase = ({ fields, modalContent, actionControl, endPoint, getErr
       required: fields.name.validationMessage.required,
       validate: validateName,
       pattern: {
-        value: NAME_PATTERN,
+        value: fieldsInfo.name.pattern,
         message: fields.name.validationMessage.pattern,
       },
     },
@@ -126,35 +129,37 @@ const ContactFormBase = ({ fields, modalContent, actionControl, endPoint, getErr
 
       <form onSubmit={handleOnSubmit} noValidate>
         <HoneyPotInput value={values.email} onChange={handleOnChange} />
-        <InputControl
-          label={fields.name.label}
-          name="name"
-          required={validationSchema.name.required}
-          placeholder={fields.name.placeholder}
-          value={values.name}
-          error={errors.name}
-          onChange={handleOnChange}
-        />
-        <InputControl
-          label={fields[EMAIL_FIELD].label}
-          name={EMAIL_FIELD}
-          type="email"
-          required={validationSchema[EMAIL_FIELD].required}
-          placeholder={fields[EMAIL_FIELD].placeholder}
-          value={values[EMAIL_FIELD]}
-          error={errors[EMAIL_FIELD]}
-          onChange={handleOnChange}
-        />
-        <TextAreaControl
-          label={fields.message.label}
-          name="message"
-          required={validationSchema.message.required}
-          placeholder={fields.message.placeholder}
-          value={values.message}
-          error={errors.message}
-          onChange={handleOnChange}
-        />
-        {actionControl}
+        <div css={styleControlsWrap}>
+          <InputControl
+            label={fields.name.label}
+            name="name"
+            required={validationSchema.name.required}
+            placeholder={fields.name.placeholder}
+            value={values.name}
+            error={errors.name}
+            onChange={handleOnChange}
+          />
+          <InputControl
+            label={fields[EMAIL_FIELD].label}
+            name={EMAIL_FIELD}
+            type="email"
+            required={validationSchema[EMAIL_FIELD].required}
+            placeholder={fields[EMAIL_FIELD].placeholder}
+            value={values[EMAIL_FIELD]}
+            error={errors[EMAIL_FIELD]}
+            onChange={handleOnChange}
+          />
+          <TextAreaControl
+            label={fields.message.label}
+            name="message"
+            required={validationSchema.message.required}
+            placeholder={fields.message.placeholder}
+            value={values.message}
+            error={errors.message}
+            onChange={handleOnChange}
+          />
+          {actionControl}
+        </div>
       </form>
     </>
   );

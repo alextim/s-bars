@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import { getListTitle, getListItems } from '../utils/list-info';
+import { getObjectTypesTitle, getObjectTypeItems } from '../utils/list-info';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
@@ -47,10 +47,7 @@ const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
           )}
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
         </div>
-        <AsideButtonList
-          title={getListTitle(mainNav, 'object-type')}
-          items={getListItems(mainNav, 'object-type')}
-        />
+        <AsideButtonList title={getObjectTypesTitle(mainNav)} items={getObjectTypeItems(mainNav)} />
       </div>
     </Layout>
   );

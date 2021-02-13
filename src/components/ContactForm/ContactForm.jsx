@@ -5,15 +5,8 @@ import { jsx } from '@emotion/react';
 import { ContactFormBase } from '../Form';
 import Spinner from '../Spinner';
 
-import {
-  EMAIL_FIELD,
-  NAME_MIN_LENGTH,
-  NAME_MAX_LENGTH,
-  EMAIL_MIN_LENGTH,
-  EMAIL_MAX_LENGTH,
-  MESSAGE_MIN_LENGTH,
-  MESSAGE_MAX_LENGTH,
-} from '../../lib/contact-form-validators';
+import EMAIL_FIELD from '../../lib/email-field';
+import fieldsInfo from '../../lib/contact-form-fields';
 
 import { useTranslation } from '../../i18n';
 
@@ -38,8 +31,8 @@ const ContactForm = () => {
         required: t('validation.required', { name: NAME_LABEL }),
         length: t('validation.length', {
           name: NAME_LABEL,
-          min: NAME_MIN_LENGTH,
-          max: NAME_MAX_LENGTH,
+          min: fieldsInfo.name.minLength,
+          max: fieldsInfo.name.maxLength,
         }),
         pattern: t('validation.only_symbols'),
       },
@@ -51,8 +44,8 @@ const ContactForm = () => {
         required: t('validation.required', { name: EMAIL_LABEL }),
         length: t('validation.length', {
           name: EMAIL_LABEL,
-          min: EMAIL_MIN_LENGTH,
-          max: EMAIL_MAX_LENGTH,
+          min: fieldsInfo[EMAIL_FIELD].minLength,
+          max: fieldsInfo[EMAIL_FIELD].maxLength,
         }),
         invalid: t('validation.invalid', { name: EMAIL_LABEL }),
       },
@@ -64,8 +57,8 @@ const ContactForm = () => {
         required: t('validation.required', { name: MESSAGE_LABEL }),
         length: t('validation.length', {
           name: MESSAGE_LABEL,
-          min: MESSAGE_MIN_LENGTH,
-          max: MESSAGE_MAX_LENGTH,
+          min: fieldsInfo.message.minLength,
+          max: fieldsInfo.message.maxLength,
         }),
       },
     },

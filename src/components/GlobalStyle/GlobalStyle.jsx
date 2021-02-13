@@ -305,19 +305,36 @@ const GlobalStyle = () => (
       }
 
       input,
+      select,
       textarea {
         margin: 0;
+        color: inherit;
+        background-color: transparent;
+      }
+      input:-internal-autofill-selected {
+        background-color: transparent !important;
+      }
+
+      input[type='text'],
+      input[type='email'],
+      input[type='phone'],
+      select,
+      textarea {
         padding: 0.5rem;
         width: 100%;
         min-width: 0;
-        appearance: none;
         border: 1px solid;
         border-radius: 4px;
-        color: inherit;
-        background-color: transparent;
         font-family: ${fonts.body};
         font-size: inherit;
         line-height: inherit;
+      }
+
+      input[type='text'],
+      input[type='email'],
+      input[type='phone'],
+      textarea {
+        appearance: none;
       }
 
       .grid_2-col {

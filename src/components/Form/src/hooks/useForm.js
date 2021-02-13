@@ -89,8 +89,20 @@ function useForm(validationSchema, callback, defaultValues = {}) {
     if (!rules) {
       return '';
     }
-    if (rules.required && (!value || !value.trim())) {
+    if (rules.required && (!value || (typeof value !== 'boolean' && !value.trim()))) {
       return typeof rules.required === 'string' ? rules.required : 'required';
+    }
+    if (value) {
+      if (rules.minLength) {
+        if (value.length < rules.minLength.value) {
+          return rules.minLength.message || `too short: min length is ${rules.minLength.value}`;
+        }
+      }
+      if (rules.maxLength) {
+        if (value.length > rules.maxLength.value) {
+          return rules.minLength.message || `too long: max length is ${rules.maxLength.value}`;
+        }
+      }
     }
     if (rules.pattern) {
       if (!new RegExp(rules.pattern.value).exec(value)) {
@@ -131,7 +143,13 @@ function useForm(validationSchema, callback, defaultValues = {}) {
 
   const handleOnChange = (e) => {
     e.persist();
-    const { name, value } = e.target;
+    let value;
+    if (e.target.type === 'checkbox') {
+      value = e.target.checked;
+    } else {
+      value = e.target.value;
+    }
+    const { name } = e.target;
     const error = validateField(name, value);
 
     setTouched((prev) => ({ ...prev, [name]: initialValues[name] !== value }));
@@ -168,6 +186,7 @@ function useForm(validationSchema, callback, defaultValues = {}) {
   };
 
   return {
+    setValues,
     values,
     errors,
     isValid,
