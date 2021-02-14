@@ -8,15 +8,17 @@ import Layout from '../components/Layout/BaseLayout';
 
 import Section from '../components/Section';
 
-import SectionSlider from '../components/page-sections/SectionSlider';
-import SectionObjectTypes from '../components/page-sections/SectionObjectTypes';
-import SectionTriptych from '../components/page-sections/SectionTriptych';
-import SectionWorkTypes from '../components/page-sections/SectionWorkTypes';
-import SectionRecommended from '../components/page-sections/SectionRecommended';
-import SectionCredo from '../components/page-sections/SectionCredo';
+import {
+  Slider,
+  ObjectTypes,
+  Triptych,
+  WorkTypes,
+  Recommended,
+  Credo,
+} from '../components/home-page-parts';
 
 const styleHtml = {
-  textAlign: 'justify',
+  /* textAlign: 'justify', */
 };
 
 const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
@@ -25,7 +27,6 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
     frontmatter: { title, metaTitle, description, metaDescription, noindex, sections },
     html,
   } = data.page;
-
   const getObjectTypes = () => mainNav.edges[1].node.fields.submenu;
 
   return (
@@ -38,44 +39,34 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
         noindex={noindex}
       />
 
-      {sections && sections[0].items && <SectionSlider items={sections[0].items} />}
       <Container>
         {sections && (
           <>
-            <Section
+            <Slider title={sections[0].title} text={sections[0].text} items={sections[0].items} />
+            <ObjectTypes
               title={sections[1].title}
               subtitle={sections[1].subtitle}
               text={sections[1].text}
+              items={getObjectTypes()}
             />
-            <SectionObjectTypes
+            <Triptych
               title={sections[2].title}
               subtitle={sections[2].subtitle}
               text={sections[2].text}
-              items={getObjectTypes()}
+              items={sections[2].items}
             />
-            <SectionTriptych
-              title={sections[3].title}
-              subtitle={sections[3].subtitle}
-              text={sections[3].text}
-              items={sections[3].items}
-            />
-            <SectionWorkTypes
+            <WorkTypes title={sections[3].title} items={sections[3].items} />
+            <Recommended
               title={sections[4].title}
               subtitle={sections[4].subtitle}
               text={sections[4].text}
               items={sections[4].items}
             />
-            <SectionRecommended
+            <Credo
               title={sections[5].title}
               subtitle={sections[5].subtitle}
               text={sections[5].text}
               items={sections[5].items}
-            />
-            <SectionCredo
-              title={sections[6].title}
-              subtitle={sections[6].subtitle}
-              text={sections[6].text}
-              items={sections[6].items}
             />
           </>
         )}

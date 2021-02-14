@@ -93,14 +93,15 @@ function useForm(validationSchema, callback, defaultValues = {}) {
       return typeof rules.required === 'string' ? rules.required : 'required';
     }
     if (value) {
+      const { length } = value;
       if (rules.minLength) {
-        if (value.length < rules.minLength.value) {
+        if (length < rules.minLength.value) {
           return rules.minLength.message || `too short: min length is ${rules.minLength.value}`;
         }
       }
       if (rules.maxLength) {
-        if (value.length > rules.maxLength.value) {
-          return rules.minLength.message || `too long: max length is ${rules.maxLength.value}`;
+        if (length > rules.maxLength.value) {
+          return rules.maxLength.message || `too long: max length is ${rules.maxLength.value}`;
         }
       }
     }
@@ -141,6 +142,14 @@ function useForm(validationSchema, callback, defaultValues = {}) {
     return !hasErrorInState;
   };
 
+  const setFieldValue = (name, value) => {
+    const error = validateField(name, value);
+
+    setTouched((prev) => ({ ...prev, [name]: initialValues[name] !== value }));
+    setValues((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: error }));
+  };
+
   const handleOnChange = (e) => {
     e.persist();
     let value;
@@ -150,11 +159,8 @@ function useForm(validationSchema, callback, defaultValues = {}) {
       value = e.target.value;
     }
     const { name } = e.target;
-    const error = validateField(name, value);
 
-    setTouched((prev) => ({ ...prev, [name]: initialValues[name] !== value }));
-    setValues((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: error }));
+    setFieldValue(name, value);
   };
 
   const handleOnSubmit = async (e) => {
@@ -186,7 +192,7 @@ function useForm(validationSchema, callback, defaultValues = {}) {
   };
 
   return {
-    setValues,
+    setFieldValue,
     values,
     errors,
     isValid,

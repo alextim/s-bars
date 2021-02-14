@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
+import mq from '../../../theme/media-queries';
+import { space } from '../../../theme/space';
 
-import Section from '../Section';
-import { SectionItemRound as SectionItem } from '../SectionItem';
+import Section from '../../Section';
+import { SectionItemRound as SectionItem } from '../../SectionItem';
 
 const styleWrap = {
   display: 'grid',
@@ -15,7 +15,7 @@ const styleWrap = {
   },
 };
 
-const SectionRecommended = ({ title, subtitle, text, items }) => (
+const Recommended = ({ title, subtitle, text, items }) => (
   <Section title={title} subtitle={subtitle} text={text} textLast>
     <div css={styleWrap}>
       {items && items.map((item, i) => <SectionItem key={i} data={item} />)}
@@ -23,4 +23,4 @@ const SectionRecommended = ({ title, subtitle, text, items }) => (
   </Section>
 );
 
-export default SectionRecommended;
+export default Recommended;

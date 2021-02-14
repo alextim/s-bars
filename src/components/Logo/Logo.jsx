@@ -1,25 +1,33 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import Link from '../LocalizedLink';
-import { useLocale } from '../../i18n/i18n-context';
-import i18n from '../../i18n';
-import useOrganization from '../../hooks/useOrganization';
 import Utils from '../../lib/utils';
+import i18n from '../../i18n';
+import { useLocale } from '../../i18n/i18n-context';
+import useOrganization from '../../hooks/useOrganization';
 
+import Link from '../LocalizedLink';
+
+import mq from '../../theme/media-queries';
 import colors from '../../theme/colors';
 import fontWeights from '../../theme/font-weights';
+import { fontSizes } from '../../theme/font-sizes';
 
 const styleWrap = {
   display: 'inline-flex',
   alignItems: 'center',
-  marginRight: '3rem',
   height: '100%',
+
   a: {
     color: colors.header.nav.item.text,
   },
+
   'a:hover, a:active, a:focus': {
     textDecoration: 'none',
+  },
+
+  [mq.lg]: {
+    marginRight: '3rem',
   },
 };
 
@@ -37,11 +45,16 @@ const styleTextWrap = {
 
 const styleHomeLink = {
   fontWeight: fontWeights.semibold,
+  fontSize: fontSizes[3],
 };
 
 const styleImg = {
-  width: '2.5rem',
-  height: '2.5rem',
+  width: '3rem',
+  height: '3rem',
+  [mq.lg]: {
+    width: '3.7rem',
+    height: '3.7rem',
+  },
 };
 
 const Logo = ({ onClick }) => {

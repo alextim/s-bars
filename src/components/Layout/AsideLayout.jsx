@@ -12,9 +12,9 @@ const containerStyle = {
   display: 'flex',
   flexDirection: 'column',
   marginTop: sizes.header.sm,
-  [mq.xl]: {
+  [mq.lg]: {
     flexDirection: 'row',
-    marginTop: sizes.header.xxl,
+    marginTop: sizes.header.xl,
   },
 };
 
@@ -27,7 +27,7 @@ const asideStyle = {
   [mq.sm]: {
     padding: '0 2rem',
   },
-  [mq.xl]: {
+  [mq.lg]: {
     padding: '0 2rem 0 0',
   },
 };

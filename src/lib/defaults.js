@@ -13,7 +13,7 @@ module.exports = {
   EMAIL_VALIDATOR: (x) => emailValidator.validate(x),
 
   MESSAGE_MIN_LENGTH: 2,
-  MESSAGE_MAX_LENGTH: 256,
+  MESSAGE_MAX_LENGTH: 1024,
 
   PHONE_MIN_LENGTH: 6,
   PHONE_MAX_LENGTH: 15,

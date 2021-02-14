@@ -2,11 +2,11 @@
 import React from 'react';
 import { jsx } from '@emotion/react';
 
-import Section from '../Section';
-import { SectionItemR, SectionItemL, SectionItemImage } from '../SectionItem';
+import Section from '../../Section';
+import { SectionItemR, SectionItemL, SectionItemImage } from '../../SectionItem';
 
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
+import mq from '../../../theme/media-queries';
+import { space } from '../../../theme/space';
 
 const styleWrap = {
   display: 'grid',
@@ -17,7 +17,7 @@ const styleWrap = {
   },
 };
 
-const SectionTriptych = ({ title, subtitle, text, items }) => {
+const Triptych = ({ title, subtitle, text, items }) => {
   return (
     <Section title={title} subtitle={subtitle} text={text} textLast>
       <div css={styleWrap}>
@@ -32,4 +32,4 @@ const SectionTriptych = ({ title, subtitle, text, items }) => {
     </Section>
   );
 };
-export default SectionTriptych;
+export default Triptych;

@@ -21,9 +21,9 @@ const mainStyle = (t) => ({
   flex: '1 1 auto',
   marginTop: t.sizes.header.sm,
   paddingBottom: t.sizes.header.sm,
-  [t.mq.xl]: {
-    marginTop: t.sizes.header.xxl,
-    paddingBottom: t.sizes.header.xxl,
+  [t.mq.lg]: {
+    marginTop: t.sizes.header.xl,
+    paddingBottom: t.sizes.header.xl,
   },
 });
 

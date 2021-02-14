@@ -19,6 +19,7 @@
   "form": {
     "send": "Send",
     "send_message": "Send Message",
+    "has_input_errors": "Form contains input errors",
     "pls_wait": "Please, wait...",
     "cancel": "Cancel",
     "error": "Error",

@@ -67,10 +67,14 @@ const styleColophonBottom = {
 };
 
 const styleColophonBottomInnerWrap = {
-  display: 'inline-flex',
+  fontSize: fontSizes[0],
+  display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
+  [mq.lg]: {
+    justifyContent: 'center',
+  },
 };
+
 const footerStyle = {
   color: colors.footer.text,
   backgroundColor: colors.footer.bg,
@@ -140,7 +144,7 @@ const Footer = () => {
       <div css={styleColophonBottom}>
         <Container>
           <div css={styleColophonBottomInnerWrap}>
-            <LegalInfo foundingDate={foundingDate} legalName={address ? address.legalName : null} />
+            <LegalInfo foundingDate={foundingDate} name={address ? address.legalName : null} />
             <Link to="/privacy">{t('footer.privacyPolicy')}</Link>
           </div>
         </Container>

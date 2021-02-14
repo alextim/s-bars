@@ -27,8 +27,8 @@ const headerStyle = {
   boxShadow: shadows.raised,
   fontSize: fontSizes[1],
   zIndex: 200,
-  [mq.xl]: {
-    height: sizes.header.xxl,
+  [mq.lg]: {
+    height: sizes.header.xl,
   },
 };
 

@@ -19,18 +19,19 @@ const {
 // const validate = (x, min, max, required) => (x ? x.length >= min && x.length <= max : !required);
 
 module.exports = {
-  EMAIL_FIELD,
-
   subject: {
+    humanName: 'Тема',
     required: true,
     maxLength: 40,
   },
 
   message: {
+    humanName: 'Запрос',
     maxLength: MESSAGE_MAX_LENGTH,
   },
 
   name: {
+    humanName: 'Имя',
     required: true,
     minLength: NAME_MIN_LENGTH,
     maxLength: NAME_MAX_LENGTH,
@@ -38,14 +39,17 @@ module.exports = {
   },
 
   position: {
+    humanName: 'Должность',
     maxLength: 40,
   },
 
   company: {
+    humanName: 'Организация',
     maxLength: 40,
   },
 
   phone: {
+    humanName: 'Телефон',
     required: true,
     minLength: PHONE_MIN_LENGTH,
     maxLength: PHONE_MAX_LENGTH,
@@ -53,6 +57,7 @@ module.exports = {
   },
 
   [EMAIL_FIELD]: {
+    humanName: 'E-mail',
     mappingName: 'email',
     minLength: EMAIL_MIN_LENGTH,
     maxLength: EMAIL_MAX_LENGTH,

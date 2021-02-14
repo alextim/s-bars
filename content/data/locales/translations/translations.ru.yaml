@@ -24,6 +24,8 @@
   value: Отправить
 - key: form.send_message
   value: Отправить сообщение
+- key: form.has_input_errors
+  value: Форма содержит ошибки ввода
 - key: form.pls_wait
   value: Пожалуйста, подождите...
 - key: form.cancel
@@ -38,8 +40,14 @@
   value: '{{name}} обязательно.'
 - key: validation.length
   value: Поле "{{name}}" должно быть не меньше {{min}} и не больше {{max}} символов.
+- key: validation.maxLength
+  value: Поле "{{name}}" должно быть не не больше {{max}} символов.
+- key: validation.minLength
+  value: Поле "{{name}}" должно быть не меньше {{min}} символов.
 - key: validation.only_symbols
   value: Допускаются только символы и пробел
+- key: validation.only_digits
+  value: Допускаються только цифры
 - key: validation.invalid
   value: Ошибка в "{{name}}".
 - key: error.err400

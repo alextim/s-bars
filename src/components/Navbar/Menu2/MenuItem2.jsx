@@ -6,6 +6,8 @@ import colors from '../../../theme/colors';
 import mq from '../../../theme/media-queries';
 import fontWeights from '../../../theme/font-weights';
 
+import styleMenuItemLg from './styleMenuItemLg';
+
 const activeStyle = {
   boxShadow: `0 -2px 0 ${colors.header.nav.item.boxShadowColor} inset`,
 };
@@ -56,13 +58,7 @@ const linkStyle = {
   },
 
   [mq.lg]: {
-    justifyContent: 'start',
-    padding: '1rem',
-    borderBottom: 0,
-    height: '100%',
-    '&:first-of-type': {
-      borderTop: 0,
-    },
+    ...styleMenuItemLg,
   },
 };
 

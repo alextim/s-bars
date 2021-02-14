@@ -21,7 +21,7 @@ const styleSubtitle = {
 
 const styleText = {
   marginTop: space[7],
-  textAlign: 'justify',
+  textAlign: 'center',
 };
 
 const styleImg = {
@@ -38,7 +38,7 @@ const styleGgray = {
   backgroundColor: '#d2d1ce',
 };
 
-const styleBbodyWrap = {
+const styleBodyWrap = {
   marginTop: space[10],
 };
 
@@ -62,7 +62,7 @@ const Section = ({ title, subtitle, text, image, css, small, gray, textLast, chi
         <Img css={styleImg} fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
       )}
       {!textLast && text && <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />}
-      {children && <div css={styleBbodyWrap}>{children}</div>}
+      {children && <div css={styleBodyWrap}>{children}</div>}
       {textLast && text && <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />}
     </section>
   );

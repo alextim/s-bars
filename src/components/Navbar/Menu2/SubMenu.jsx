@@ -8,6 +8,8 @@ import colors from '../../../theme/colors';
 
 import MenuItem from './MenuItem2';
 
+import styleMenuItemLg from './styleMenuItemLg';
+
 const menuItemWrapStyle = {
   [mq.lg]: {
     display: 'flex',
@@ -26,7 +28,7 @@ const dropDownWrapStyle = {
   backgroundColor: colors.header.nav.submenu.bg,
   [mq.lg]: {
     position: 'absolute',
-    top: sizes.header.sm,
+    top: sizes.header.xl,
     backgroundColor: colors.header.bg,
     left: 0,
     boxShadow: '2px 2px 15px 0 rgba(0,0,0,.8)',
@@ -46,12 +48,7 @@ const headingWrapStyle = {
 
 const menuItemExtraStyle = {
   [mq.lg]: {
-    justifyContent: 'start',
-    padding: '1rem',
-    borderBottom: 0,
-    ':first-of-type': {
-      borderTop: 0,
-    },
+    ...styleMenuItemLg,
     ':after': {
       display: 'inline-block',
       content: '""',

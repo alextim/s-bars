@@ -14,9 +14,8 @@ const {
 } = require('./defaults');
 
 module.exports = {
-  EMAIL_FIELD,
-
   [EMAIL_FIELD]: {
+    humanName: 'E-mail',
     required: true,
     mappingName: 'email',
     minLength: EMAIL_MIN_LENGTH,
@@ -25,6 +24,7 @@ module.exports = {
   },
 
   name: {
+    humanName: 'Имя',
     required: true,
     minLength: NAME_MIN_LENGTH,
     maxLength: NAME_MAX_LENGTH,
@@ -32,6 +32,7 @@ module.exports = {
   },
 
   message: {
+    humanName: 'Сообщение',
     required: true,
     minLength: MESSAGE_MIN_LENGTH,
     maxLength: MESSAGE_MAX_LENGTH,

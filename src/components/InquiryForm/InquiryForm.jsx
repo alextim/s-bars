@@ -10,7 +10,7 @@ import useModal from '../Form/src/components/Modal/useModal';
 import ModalContent from './ModalContent';
 import Form from './Form';
 
-const AUTOCLOSE_DELAY = 5000; // in milliseconds
+// const AUTOCLOSE_DELAY = 5000; // in milliseconds
 /*
 let timer;
 const timeout = (ms) =>
@@ -71,7 +71,11 @@ const InquiryForm = () => {
       return false;
     } finally {
       setLoading(false);
-      closeModal(AUTOCLOSE_DELAY);
+      /* leave modal open */
+      /**
+       * closeModal(0);               // close immidiatly
+       * closeModal(AUTOCLOSE_DELAY); // auto close with delay
+       */
     }
   };
 

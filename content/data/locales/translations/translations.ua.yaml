@@ -24,6 +24,8 @@
   value: Надіслати
 - key: form.send_message
   value: Надіслати повідомлення
+- key: form.has_input_errors
+  value: Форма містить помилки введення
 - key: form.pls_wait
   value: Будь ласка зачекайте...
 - key: form.cancel
@@ -34,14 +36,18 @@
   value: Відправлення
 - key: form.success
   value: Завершено
-- key: form.
-  value: згода на обробку даних
 - key: validation.required
   value: "{{name}} обов'язково."
 - key: validation.length
   value: Поле "{{name}}" має бути не менше {{min}} і не більше {{max}} символів.
+- key: validation.maxLength
+  value: Поле "{{name}}" має бути не більше {{max}} символів.
+- key: validation.minLength
+  value: Поле "{{name}}" має бути не менше {{min}} символів.
 - key: validation.only_symbols
   value: Допускаються тільки символи і пробіл
+- key: validation.only_digits
+  value: Допускаються тільки цифри
 - key: validation.invalid
   value: Помилка в "{{name}}".
 - key: error.err400

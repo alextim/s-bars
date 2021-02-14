@@ -34,7 +34,7 @@ const styleImg = {
 };
 
 const styleText = {
-  textAlign: 'justify',
+  textAlign: 'center',
 };
 
 const SectionItem = ({ data }) => {
@@ -166,7 +166,7 @@ const styleCircleWrap = {
 };
 
 const styleCredoText = {
-  textAlign: 'justify',
+  /* textAlign: 'justify', */
 };
 
 const styleIcon = {

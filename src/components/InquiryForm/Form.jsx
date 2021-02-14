@@ -12,11 +12,14 @@ import { InputControl, TextAreaControl, HoneyPotInput } from '../Form/src/compon
 import ValueSelectControl from '../Form/src/components/form-controls/ValueSelectControl';
 import CheckBoxControl from '../Form/src/components/form-controls/CheckBoxControl';
 import BoxedInputControl from '../Form/src/components/form-controls/BoxedInputControl';
+import FormErrorMessage from '../Form/src/components/form-controls/FormErrorMessage';
 
 import FormSection from './FormSection';
 
 import EMAIL_FIELD from '../../lib/email-field';
 import fieldsInfo from '../../lib/inquiry-form-fields';
+
+const OTHER_FIELD = 'other';
 
 const styleSections = (t) => ({
   display: 'grid',
@@ -90,7 +93,7 @@ const Form = ({ onSubmit }) => {
       },
     },
 
-    other: {
+    [OTHER_FIELD]: {
       required: t('validation.required', { name: SUBJECT }),
       maxLength: {
         value: fieldsInfo.subject.maxLength,
@@ -124,7 +127,7 @@ const Form = ({ onSubmit }) => {
         value: fieldsInfo.name.minLength,
         message: t('validation.minLength', {
           name: NAME,
-          max: fieldsInfo.name.minLength,
+          min: fieldsInfo.name.minLength,
         }),
       },
       pattern: {
@@ -166,7 +169,7 @@ const Form = ({ onSubmit }) => {
         value: fieldsInfo.phone.minLength,
         message: t('validation.minLength', {
           name: PHONE,
-          max: fieldsInfo.phone.minLength,
+          min: fieldsInfo.phone.minLength,
         }),
       },
       pattern: {
@@ -187,18 +190,23 @@ const Form = ({ onSubmit }) => {
         value: fieldsInfo[EMAIL_FIELD].minLength,
         message: t('validation.minLength', {
           name: EMAIL,
-          max: fieldsInfo[EMAIL_FIELD].minLength,
+          min: fieldsInfo[EMAIL_FIELD].minLength,
         }),
       },
       validate: validateEmail,
     },
   };
 
-  const { setValues, values, errors, handleOnChange, handleOnSubmit /* , disable */ } = useForm(
+  const { setFieldValue, values, errors, handleOnChange, handleOnSubmit /* , disable */ } = useForm(
     validationSchema,
     onSubmit,
-    {},
   );
+
+  const hasErrors = () => {
+    // eslint-disable-next-line no-console
+    console.log(errors);
+    return Object.keys(errors).some((key) => errors[key]);
+  };
 
   const serviceItems = useServiceItems().map(({ title }) => title);
   serviceItems.push(OTHER);
@@ -207,10 +215,7 @@ const Form = ({ onSubmit }) => {
   const isOtherItemSelected = (value) => value === OTHER;
   const onSubjectChange = (e) => {
     handleOnChange(e);
-    setValues((prev) => ({
-      ...prev,
-      other: isOtherItemSelected(e.target.value) ? '' : e.target.value,
-    }));
+    setFieldValue(OTHER_FIELD, isOtherItemSelected(e.target.value) ? '' : e.target.value);
   };
 
   return (
@@ -229,10 +234,10 @@ const Form = ({ onSubmit }) => {
           <div css={{ display: isOtherItemSelected(values.subject) ? 'block' : 'none' }}>
             <InputControl
               label={OTHER}
-              name="other"
+              name={OTHER_FIELD}
               required
-              value={values.other}
-              error={errors.other}
+              value={values[OTHER_FIELD]}
+              error={errors[OTHER_FIELD]}
               onChange={handleOnChange}
             />
           </div>
@@ -301,6 +306,7 @@ const Form = ({ onSubmit }) => {
             <Button type="submit" overrideCSS={styleButton}>
               {t('form.send')}
             </Button>
+            {hasErrors() && <FormErrorMessage>{t('form.has_input_errors')}</FormErrorMessage>}
           </div>
         </div>
       </div>

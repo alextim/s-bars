@@ -1,13 +1,14 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import colors from '../../theme/colors';
-import links from '../../theme/links';
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
+import colors from '../../../theme/colors';
+import links from '../../../theme/links';
+import mq from '../../../theme/media-queries';
+import { space } from '../../../theme/space';
+import { fontSizes } from '../../../theme/font-sizes';
 
-import FaCheck from '../../assets/fa/solid/check.svg';
-import Section from '../Section';
+import FaCheck from '../../../assets/fa/solid/check.svg';
+import Section from '../../Section';
 
 const ncols = 3;
 
@@ -49,16 +50,25 @@ const styleText = {
   marginTop: space[7],
   [mq.lg]: {
     textTransform: 'uppercase',
+    fontSize: fontSizes[3],
   },
 };
 
-const SectionObjectTypes = ({ title, subtitle, text, items }) => (
+const styleLink = {
+  [mq.lg]: {
+    color: 'rgb(156, 0, 26)',
+  },
+};
+
+const ObjectTypes = ({ title, subtitle, text, items }) => (
   <Section title={title} subtitle={subtitle}>
     <div css={styleWrap}>
       {items.map(({ title: itemTitle, to }, i) => (
         <div key={i} css={styleCell}>
           <FaCheck css={styleIcon} />
-          <a href={to}>{itemTitle}</a>
+          <a css={styleLink} href={to}>
+            {itemTitle}
+          </a>
         </div>
       ))}
     </div>
@@ -66,4 +76,4 @@ const SectionObjectTypes = ({ title, subtitle, text, items }) => (
   </Section>
 );
 
-export default SectionObjectTypes;
+export default ObjectTypes;
