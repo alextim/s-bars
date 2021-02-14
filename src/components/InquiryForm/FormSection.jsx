@@ -12,13 +12,13 @@ const styleWrap = (t) => ({
 });
 
 const styleTitle = (t) => ({
+  margin: 0,
   [t.mq.lg]: {
     gridColumn: 2,
     grdRow: 1,
     textAlign: 'center',
     paddingLeft: t.space[4],
     paddingBottom: t.space[2],
-    margin: 0,
     borderLeft: `1px ${t.colors.brand.main} solid`,
   },
 });

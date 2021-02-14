@@ -1,14 +1,25 @@
+/* eslint-disable no-console */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './slick-styles.css';
+// https://swiperjs.com/react
+// import Swiper core and required modules
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+
+import './swiper-styles.scss';
 
 import SliderItem from '../SliderItem';
-
 import { space } from '../../theme/space';
+
+// install Swiper modules
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const styleWrap = {
   minWidth: '320px',
@@ -18,11 +29,13 @@ const styleWrap = {
 
 const SectionSlider = ({ items }) => (
   <div css={styleWrap}>
-    <Slider dots arrows infinite speed={500} slidesToShow={1} slidesToScroll={1}>
+    <Swiper slidesPerView={1} spaceBetween={0} navigation pagination={{ clickable: true }} autoplay>
       {items.map(({ title, subtitle, image, to, text }, i) => (
-        <SliderItem key={i} title={title} subtitle={subtitle} to={to} text={text} image={image} />
+        <SwiperSlide key={i}>
+          <SliderItem title={title} subtitle={subtitle} to={to} text={text} image={image} />
+        </SwiperSlide>
       ))}
-    </Slider>
+    </Swiper>
   </div>
 );
 
