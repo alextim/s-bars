@@ -17,19 +17,18 @@ const styleWrap = {
   },
 };
 
-const Triptych = ({ title, subtitle, text, items }) => {
-  return (
-    <Section title={title} subtitle={subtitle} text={text} textLast textAlign="center">
-      <div css={styleWrap}>
-        {items && items.length > 2 && (
-          <React.Fragment>
-            <SectionItemL data={items[0]} />
-            <SectionItemImage data={items[1]} />
-            <SectionItemR data={items[2]} />
-          </React.Fragment>
-        )}
-      </div>
-    </Section>
-  );
-};
+const Triptych = ({ title, subtitle, text, items }) => (
+  <Section title={title} subtitle={subtitle} text={text} textLast textAlign="center">
+    <div css={styleWrap}>
+      {items && items.length > 2 && (
+        <React.Fragment>
+          <SectionItemL data={items[0]} />
+          <SectionItemImage data={items[1]} />
+          <SectionItemR data={items[2]} />
+        </React.Fragment>
+      )}
+    </div>
+  </Section>
+);
+
 export default Triptych;

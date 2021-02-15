@@ -16,7 +16,7 @@ const getSanitizedValues = (body, fields) => {
     if (!validateField(value, fieldInfo)) {
       return false;
     }
-    result[fieldInfo.mappingName || key] = sanitizeField(value);
+    result[key] = sanitizeField(value);
   }
   return result;
 };

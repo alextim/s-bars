@@ -58,7 +58,6 @@ module.exports = {
 
   [EMAIL_FIELD]: {
     humanName: 'E-mail',
-    mappingName: 'email',
     minLength: EMAIL_MIN_LENGTH,
     maxLength: EMAIL_MAX_LENGTH,
     validate: EMAIL_VALIDATOR,
