@@ -203,8 +203,6 @@ const Form = ({ onSubmit }) => {
   );
 
   const hasErrors = () => {
-    // eslint-disable-next-line no-console
-    console.log(errors);
     return Object.keys(errors).some((key) => errors[key]);
   };
 

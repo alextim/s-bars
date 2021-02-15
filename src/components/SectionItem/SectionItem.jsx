@@ -55,6 +55,8 @@ const styleWrapL = {
   textAlign: 'center',
   [mq.lg]: {
     textAlign: 'right',
+    paddingRight: space[4],
+    borderRight: `1px ${colors.brand.main} solid`,
   },
 };
 
@@ -85,6 +87,8 @@ const styleWrapR = {
     flexDirection: 'column-reverse',
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
+    paddingLeft: space[4],
+    borderLeft: `1px ${colors.brand.main} solid`,
   },
 };
 

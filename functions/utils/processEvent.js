@@ -58,7 +58,8 @@ const processEvent = async (sgMail, event, fields, subject) => {
   }
 
   const aBody = Object.keys(sanitized).map((k) => {
-    return `${fields[k].humanName || k}: ${sanitized[k]}`;
+    const name = (fields[k] ? fields[k].humanName : undefined) || k;
+    return `${name}: ${sanitized[k]}`;
   });
 
   const html = aBody.join('<br><br>');

@@ -57,6 +57,7 @@ const styleText = {
 const styleLink = {
   [mq.lg]: {
     color: 'rgb(156, 0, 26)',
+    letterSpacing: '1px',
   },
 };
 
