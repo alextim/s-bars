@@ -89,7 +89,6 @@
     "@emotion/eslint-plugin": "^11.2.0",
     "@hot-loader/react-dom": "^17.0.1",
     "@testing-library/react-hooks": "^5.0.3",
-    "audit-ci": "^3.1.1",
     "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.3",
     "eslint": "7.20.0",
@@ -104,14 +103,17 @@
     "gatsby-plugin-eslint": "^3.0.0",
     "gatsby-plugin-react-svg": "^3.0.0",
     "husky": "^5.0.9",
-    "license-checker": "^25.0.1",
     "lint-staged": "^10.5.4",
-    "netlify-cli": "^3.8.0",
+    "netlify-cli": "^3.8.1",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "preval.macro": "^5.0.0",
     "stylelint": "^13.10.0",
-    "stylelint-config-standard": "^20.0.0",
-    "// gatsby-plugin-webpack-bundle-analyser-v2": ""
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "comments": {
+    "audit-ci": "",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "",
+    "license-checker": ""
   }
 }

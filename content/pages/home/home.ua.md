@@ -16,7 +16,7 @@ sections:
       image:
         sm: ./images/s2.jpg
         alt: 
-    - title: ПРОФФЕССИОНАЛЬНЫЙ ПОДХОД
+    - title: ПРОФЕССИОНАЛЬНЫЙ ПОДХОД
       image:
         sm: ./images/arenda-i-prodazha-oborudovaniya-m.jpg
         alt: 
