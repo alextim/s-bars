@@ -30,6 +30,8 @@
   value: Будь ласка зачекайте...
 - key: form.cancel
   value: Скасувати
+- key: form.close
+  value: Закрити
 - key: form.error
   value: Помилка
 - key: form.sending

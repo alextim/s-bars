@@ -44,7 +44,7 @@ const styleTextWrap = {
 };
 
 const styleHomeLink = {
-  fontWeight: fontWeights.semibold,
+  fontWeight: fontWeights.bold,
   fontSize: fontSizes[3],
 };
 

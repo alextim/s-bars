@@ -19,7 +19,7 @@ const styleWrap = {
 
 const Triptych = ({ title, subtitle, text, items }) => {
   return (
-    <Section title={title} subtitle={subtitle} text={text} textLast>
+    <Section title={title} subtitle={subtitle} text={text} textLast textAlign="center">
       <div css={styleWrap}>
         {items && items.length > 2 && (
           <React.Fragment>

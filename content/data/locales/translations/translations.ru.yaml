@@ -30,6 +30,8 @@
   value: Пожалуйста, подождите...
 - key: form.cancel
   value: Отменить
+- key: form.close
+  value: Закрыть
 - key: form.error
   value: Ошибка
 - key: form.sending

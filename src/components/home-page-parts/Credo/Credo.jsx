@@ -16,7 +16,7 @@ const styleWrap = {
 };
 
 const Credo = ({ title, subtitle, text, items }) => (
-  <Section title={title} subtitle={subtitle} text={text}>
+  <Section title={title} subtitle={subtitle} text={text} textAlign="center">
     <div css={styleWrap}>
       {items && items.map((item, i) => <SectionItem key={i} data={item} />)}
     </div>

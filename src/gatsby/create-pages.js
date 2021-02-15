@@ -48,6 +48,8 @@ const getTemplate = (template) => {
   return null;
 };
 
+const slug2template = (slug) => i18n.purePath(slug).substring(1);
+
 const compString = (a, b) => {
   if (a > b) {
     return 1;
@@ -190,7 +192,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
           console.log('pagepath=', slug);
           createPage({
             path: slug,
-            component: getTemplate(template || slug.substring(1)) || pageDefaultTemplate,
+            component: getTemplate(template || slug2template(slug)) || pageDefaultTemplate,
             context: {
               id,
               locale,
@@ -217,14 +219,13 @@ module.exports = async ({ graphql, actions, reporter }) => {
         ({
           node: {
             id,
-            frontmatter: { template },
             fields: { slug },
           },
         }) => {
           console.log('pagepath=', slug);
           createPage({
             path: slug,
-            component: getTemplate(template || slug.substring(1)) || serviceDefaultTemplate,
+            component: serviceDefaultTemplate,
             context: {
               id,
               locale,
@@ -251,14 +252,13 @@ module.exports = async ({ graphql, actions, reporter }) => {
         ({
           node: {
             id,
-            frontmatter: { template },
             fields: { slug },
           },
         }) => {
           console.log('pagepath=', slug);
           createPage({
             path: slug,
-            component: getTemplate(template || slug.substring(1)) || objectTypeDefaultTemplate,
+            component: objectTypeDefaultTemplate,
             context: {
               id,
               locale,
@@ -289,7 +289,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         ({
           node: {
             id,
-            frontmatter: { category, tags, template },
+            frontmatter: { category, tags },
             fields: { slug, year },
           },
         }) => {
@@ -324,7 +324,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
           console.log('pagepath=', slug);
           createPage({
             path: slug,
-            component: getTemplate(template || slug.substring(1)) || postDefaultTemplate,
+            component: postDefaultTemplate,
             context: {
               id,
               locale,

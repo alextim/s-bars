@@ -19,9 +19,8 @@ const styleSubtitle = {
   textAlign: 'center',
 };
 
-const styleText = {
+const styleTextDefault = {
   marginTop: space[7],
-  textAlign: 'center',
 };
 
 const styleImg = {
@@ -42,7 +41,18 @@ const styleBodyWrap = {
   marginTop: space[10],
 };
 
-const Section = ({ title, subtitle, text, image, css, small, gray, textLast, children }) => {
+const Section = ({
+  title,
+  subtitle,
+  text,
+  image,
+  css,
+  small,
+  gray,
+  textLast,
+  textAlign = 'match-parent',
+  children,
+}) => {
   const styles = [styleWrap];
   if (small) {
     styles.push(styleSmall);
@@ -53,6 +63,11 @@ const Section = ({ title, subtitle, text, image, css, small, gray, textLast, chi
   if (css) {
     styles.push(css);
   }
+
+  const styleText = {
+    ...styleTextDefault,
+    textAlign,
+  };
 
   return (
     <section css={styles}>

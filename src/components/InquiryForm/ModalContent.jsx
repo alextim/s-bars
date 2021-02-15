@@ -9,7 +9,7 @@ import Message from '../Form/src/components/Message';
 import Spinner from '../Spinner';
 import Button from '../Button';
 
-const spinnerStyle = (t) => ({ display: 'block', marginTop: t.space[7] });
+const spinnerStyle = (t) => ({ display: 'block', marginTop: t.space[8] });
 
 const ModalContent = ({ loading, cancel, error }) => {
   const { t } = useTranslation();
@@ -20,11 +20,16 @@ const ModalContent = ({ loading, cancel, error }) => {
         <ModalHeader>{t('form.error')}</ModalHeader>
         <ModalBody>
           <Message type="error">
-            <b>{error}</b>
+            <p>
+              <b>{error}</b>
+            </p>
             <p>{t('if.sorry')}</p>
-            <p>{t('if.try_later')}</p>
+            <div>{t('if.try_later')}</div>
           </Message>
         </ModalBody>
+        <ModalFooter justify="center">
+          <Button onClick={cancel}>{t('form.close')}</Button>
+        </ModalFooter>
       </React.Fragment>
     );
   }
@@ -61,9 +66,12 @@ const ModalContent = ({ loading, cancel, error }) => {
         <Message type="success">
           {' '}
           <p>{t('if.thanks')}</p>
-          <p>{t('if.we_will_response')}</p>
+          <div>{t('if.we_will_response')}</div>
         </Message>
       </ModalBody>
+      <ModalFooter justify="center">
+        <Button onClick={cancel}>{t('form.close')}</Button>
+      </ModalFooter>
     </React.Fragment>
   );
 };
