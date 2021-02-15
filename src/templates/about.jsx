@@ -4,7 +4,7 @@ import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
 import Sections from '../components/Sections';
-import SectionTriptych from '../components/page-sections/SectionTriptych';
+import Triptych from '../components/home-page-parts/Triptych';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
@@ -30,7 +30,7 @@ const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
       />
       {sections && (
         <React.Fragment>
-          <SectionTriptych
+          <Triptych
             title={sections[0].title}
             subtitle={sections[0].subtitle}
             text={sections[0].text}
