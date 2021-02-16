@@ -1,11 +1,8 @@
 /* eslint-disable no-console */
-const _ = require('lodash');
-
+/**
+ * const _ = require('lodash');
+ */
 const TEMPLATES_DIR = '../templates/';
-
-const CREATE_TAG_PAGES = false;
-const CREATE_CATEGORY_PAGES = false;
-const CREATE_YEAR_PAGES = false;
 
 const { POSTS_PER_PAGE, POSTS_PATH } = require('../../config/website');
 
@@ -20,6 +17,14 @@ const objectTypeDefaultTemplate = require.resolve(`${TEMPLATES_DIR}object-type.j
 const postListTemplate = require.resolve(`${TEMPLATES_DIR}post-list.jsx`);
 const postDefaultTemplate = require.resolve(`${TEMPLATES_DIR}post.jsx`);
 
+/**
+ * keep it!
+ */
+/*
+const CREATE_TAG_PAGES = false;
+const CREATE_CATEGORY_PAGES = false;
+const CREATE_YEAR_PAGES = false;
+
 const categoryTemplate = require.resolve(`${TEMPLATES_DIR}category.jsx`);
 const tagTemplate = require.resolve(`${TEMPLATES_DIR}tags.jsx`);
 const yearTemplate = require.resolve(`${TEMPLATES_DIR}years.jsx`);
@@ -27,28 +32,6 @@ const yearTemplate = require.resolve(`${TEMPLATES_DIR}years.jsx`);
 const categoryListTemplate = require.resolve(`${TEMPLATES_DIR}category-list.jsx`);
 const tagListTemplate = require.resolve(`${TEMPLATES_DIR}tag-list.jsx`);
 const yearListTemplate = require.resolve(`${TEMPLATES_DIR}year-list.jsx`);
-
-const wrapper = (promise) =>
-  promise.then((result) => {
-    if (result.errors) {
-      throw result.errors;
-    }
-    return result;
-  });
-
-const getTemplate = (template) => {
-  if (template) {
-    const path = `${TEMPLATES_DIR}${template}.jsx`;
-    try {
-      return require.resolve(path);
-    } catch {
-      console.warn(`template "${path}" is not exist`);
-    }
-  }
-  return null;
-};
-
-const slug2template = (slug) => i18n.purePath(slug).substring(1);
 
 const compString = (a, b) => {
   if (a > b) {
@@ -74,6 +57,30 @@ const map2Object = (m, comp, prefix, locale) =>
       };
       return acc;
     }, {});
+
+*/
+
+const wrapper = (promise) =>
+  promise.then((result) => {
+    if (result.errors) {
+      throw result.errors;
+    }
+    return result;
+  });
+
+const getTemplate = (template) => {
+  if (template) {
+    const path = `${TEMPLATES_DIR}${template}.jsx`;
+    try {
+      return require.resolve(path);
+    } catch {
+      console.warn(`template "${path}" is not exist`);
+    }
+  }
+  return null;
+};
+
+const slug2template = (slug) => i18n.purePath(slug).substring(1);
 
 module.exports = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -279,9 +286,14 @@ module.exports = async ({ graphql, actions, reporter }) => {
     if (posts.length === 0) {
       console.warn('\nNo posts');
     } else {
+      /**
+       * keep it
+       * */
+      /*
       const tagMap = new Map();
       const categoryMap = new Map();
       const yearMap = new Map();
+      */
 
       console.log(`\nMd post: ${posts.length}`);
       console.log('---------------');
@@ -289,10 +301,20 @@ module.exports = async ({ graphql, actions, reporter }) => {
         ({
           node: {
             id,
+            /**
+             * keep it
+             * */
+            /*
             frontmatter: { category, tags },
             fields: { slug, year },
+            */
+            fields: { slug },
           },
         }) => {
+          /**
+           * keep it
+           *  */
+          /*
           if (CREATE_TAG_PAGES && tags) {
             tags.forEach((tag) => {
               if (tagMap.get(tag)) {
@@ -320,6 +342,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
               yearMap.set(year, 1);
             }
           }
+          */
 
           console.log('pagepath=', slug);
           createPage({
@@ -333,11 +356,18 @@ module.exports = async ({ graphql, actions, reporter }) => {
         },
       );
 
+      /**
+       *  keep it
+       *
+       * */
+      /*
       const categories = map2Object(categoryMap, compString, 'category', locale);
       const tags = map2Object(tagMap, compString, 'tags', locale);
       const years = map2Object(yearMap, compNum, 'years', locale);
-
       let numPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+      */
+
+      const numPages = Math.ceil(posts.length / POSTS_PER_PAGE);
 
       console.log(`\nPost List: numPages=${numPages}`);
       console.log('---------------');
@@ -353,13 +383,23 @@ module.exports = async ({ graphql, actions, reporter }) => {
             skip: i * POSTS_PER_PAGE,
             numPages,
             currentPage: i + 1,
+            /**
+             *  keep it
+             *
+             * */
+            /*
             categories,
             tags,
             years,
+            */
           },
         });
       }
 
+      /**
+       * keep it!
+       */
+      /*
       if (CREATE_CATEGORY_PAGES) {
         console.log('\n');
         console.log('Category List: pagepath=', i18n.localizePath('/category', locale));
@@ -488,6 +528,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
           }
         });
       }
+      */
     }
   });
 };

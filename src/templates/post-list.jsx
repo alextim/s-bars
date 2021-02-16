@@ -18,7 +18,12 @@ const htmlStyle = (t) => ({
 const PostList = ({
   path,
   data,
-  // pageContext: { locale, currentPage, numPages, categories, tags, years },
+  /**
+   * keep it
+   */
+  /*
+  pageContext: { locale, currentPage, numPages, categories, tags, years },
+  */
   pageContext: { locale, currentPage, numPages },
 }) => {
   const { translations, address, mainNav, footerNav, socialLinks, page } = data;

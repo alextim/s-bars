@@ -21,23 +21,32 @@
 Технология JAMStack в комлексе с бессерверными вычислениями позволяют не разворачивать собственный сервер, избежать затрат на хостинг и обслуживание. Статический сайт безопасен, устойчив к атакам и вирусам, обладает хорошим быстродействием.
 
 ### Лимиты бесплатных сервисов (на 1 марта 2021 г).
+
 #### Netlify
+
 ##### Хостинг
+
 Время на построение сайта (build time) - 300 минут в месяц.
 /* В среднем этот сайт из 8 страниц, 9 услуг, 6 типов объектов и 30 постов строится менее, чем за 4 минуты. Итого вы можете обновить такого объема сайт около 80 раз в месяц или 2-3 раза в сутки.
+
 ##### Функции
+
 - До 125000 вызовов функций в месяц
 - До 100 часов времени исполнения в месяц
+- 
 #### SendGrid
+
 Посылка 40000 писем за первые 30 дней после регистрации, затем 100 писем в день.
 
 ### Лицензия
+
 MIT
 
 
 ## Инсталляция
 
 ### Предварительные условия
+
 1. Учетная запись на [SendGrid](https://sendgrid.com). Вы должны получить API key и верифицировать ваш e-mail.
 1. Учетная запись на [GitHub](https://github.com).
 1. Учетная запись на  [Netlify](https://netlify.com).
@@ -46,7 +55,9 @@ MIT
 1. Графический редактор.
 
 ### Пошаговая инструкция
+
 #### Создание fork из репозитория-источника и клонирование на локальный компьютер
+
 1. Зайдите в вашу учетную запись на [GitHub](https://github.com).
 1. Откройте браузером репозиторий-источник [здесь](https://github.com/alextim/s-bars).
 1. Создайте fork из репозитория-источника - нажмите **Fork** кнопку  (правый верхний угол страницы).
@@ -63,6 +74,7 @@ git clone https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ/s-bar
 ```
 
 #### Подключение вашего репозитория к хостингу и построение сайта
+
 1. Зайдите в вашу учетную запись на [Netlify](https://netlify.com).
 2. Нажмите кнопку **New site from Git**.
 3. Нажмите кнопку **GitHub** на следующем экране.
@@ -305,9 +317,11 @@ More convenient way to edit translations.
   It fires script which transform json-source to yaml.
 
 ## Social Links
+
 If you need them, please, add source files to folder `[PROJECT_DIR]\content\data\locales\social-links`.  
 They will be displayed in footer.  
 Valid file names:
+
 ```
 social-links.en.yaml
 social-links.ru.yaml
@@ -315,6 +329,7 @@ social-links.uk.yaml
 ```
 
 File content sample:
+
 ```yaml
 - code: facebook
   to:  https://www.facebook.com/your-facebook-address
@@ -323,6 +338,7 @@ File content sample:
   to:  https://www.instagram.com/your-facebook-address
   title: Follow us on Instagram
 ```
+
 ## Pages
 
 Pages are located in the folder: **[PROJECT_DIR]\src\pages**.
@@ -536,3 +552,10 @@ GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES
 
 - Contact Form
   TextArea font has a bit smaller look, despite the same fontSize and fontFamily.
+Special Pages
+category
+category-list
+tag
+tag-list
+years
+year-list
