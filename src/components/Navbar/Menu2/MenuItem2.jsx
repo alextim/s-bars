@@ -24,7 +24,11 @@ const linkStyle = {
   // height: '100%',
   whiteSpace: 'nowrap',
   cursor: 'pointer',
-  touchAction: 'none',
+  /**
+   * scrolling doesn't work in mobile due
+   * touchAction: 'none
+   */
+  // touchAction: 'none',
   opacity: 1,
   textDecoration: 'none',
   textTransform: 'uppercase',

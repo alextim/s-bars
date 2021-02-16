@@ -41,8 +41,8 @@ const ObjectTypes = ({ title, subtitle, text, items }) => (
           key={i}
           title={itemTitle}
           to={to}
-          lastRow={i >= items.length - ncols}
-          lastCol={(i + 1) % ncols === 0}
+          firstRow={i < ncols}
+          firstCol={i % ncols === 0}
         />
       ))}
     </div>

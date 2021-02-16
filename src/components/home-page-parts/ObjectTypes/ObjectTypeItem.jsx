@@ -27,7 +27,7 @@ const styleLink = {
 
 const border = `1px solid ${colors.brand.main}`;
 
-const ObjectTypeItem = ({ title, to, lastRow, lastCol }) => {
+const ObjectTypeItem = ({ title, to, firstRow, firstCol }) => {
   const styleCell = {
     display: 'inline-flex',
     alignItems: 'center',
@@ -36,8 +36,8 @@ const ObjectTypeItem = ({ title, to, lastRow, lastCol }) => {
       textAlign: 'center',
       justifyContent: 'center',
       textTransform: 'uppercase',
-      borderBottom: lastRow ? 'none' : border,
-      borderRight: lastCol ? 'none' : border,
+      borderTop: firstRow ? 'none' : border,
+      borderLeft: firstCol ? 'none' : border,
     },
   };
 

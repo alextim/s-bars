@@ -24,7 +24,8 @@ const styleWrapper = {
   /* no scrolling: no drop-down submenu or few items */
   // overflow: 'hidden',
   /* scrolling: has dropdown submenu or many items */
-  overflowY: 'auto',
+  overflowY: 'scroll',
+  // overflowY: 'auto',
 
   transition: 'transform 0.5s linear',
   willChange: 'transform',

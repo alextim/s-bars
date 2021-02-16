@@ -13,6 +13,8 @@ import colors from '../../theme/colors';
 import fontWeights from '../../theme/font-weights';
 import { fontSizes } from '../../theme/font-sizes';
 
+const SITE_LOGO = '/assets/logo.svg';
+
 const styleWrap = {
   display: 'inline-flex',
   alignItems: 'center',
@@ -64,10 +66,10 @@ const Logo = ({ onClick }) => {
     <div css={styleWrap}>
       <Link css={styleImageLink} to="/" onClick={onClick}>
         <img
-          src="/assets/logo-s-bars.svg"
+          src={SITE_LOGO}
           alt={i18n.locales[locale].siteTitle}
-          height="40"
-          width="40"
+          height="48"
+          width="48"
           css={styleImg}
         />
       </Link>

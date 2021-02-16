@@ -1,224 +1,258 @@
 # Снежный барс
 ## Ввведение
 ### Особенности
+Сайт сделан по технологии [JAMStack](https://jamstack.org/).
 
-- i18n (Украинский, Русский)
-- Кофигурация сайта и переводы во внеших файлах в формате Yaml
-- SEO (мета и языковые тэги, карта сайта, Twitter, Open Graph & schema.org)
+Для хранения данных используются форматы [YAML](https://yaml.org/) и [Markdown](https://daringfireball.net/projects/markdown/).
 
-### Используемые технологии
+Исходные файлы сайта создаются, хранятся и редактируются на локальном компьютере.
+Изменения данных отслеживаются распределенной системой контроля версий [Git](https://git-scm.com/).
 
-- Yaml + Markdown + Gatsby.js
-- CSS-in-JS (Emotion) стили и темизация
-- preval.macro
-- ESLint (airbnb) + Prettier
-- Netlify: хостинг и облачные функции
-- SendGrid: почтовый сервер 
-  
-### Лицензия
+По команде пользователя система контроля версий [Git](https://git-scm.com/) синхронизирует изменения данных на локальном компьютере с облачным репозиторием [GitHub](https://github.com/).
 
-MIT
+Облачный репозиторий [GitHub](https://github.com/) связан с облачным провайдером [Netlify](https://netlify.com), который подписан на изменения в вашем репозитории.
+
+После каждого изменения провайдер автоматически скачивает обновленные данные из вашего репозитория себе, запускает генератор статических сайтов [Gatsby](https://www.gatsbyjs.com/), компилирует и публикует обновленную версию сайта.
+
+
+Для обработки форм и отправки почты используются [бессерверные функции](https://docs.netlify.com/functions/overview/) провайдера и облачный почтовый сервер [SendGrid](https://sendgrid.com/).
+
+
+Технология JAMStack в комлексе с бессерверными вычислениями позволяют не разворачивать собственный сервер, избежать затрат на хостинг и обслуживание. Статический сайт безопасен, устойчив к атакам и вирусам, обладает хорошим быстродействием.
 
 ### Лимиты бесплатных сервисов (на 1 марта 2021 г).
 #### Netlify
 ##### Хостинг
 Время на построение сайта (build time) - 300 минут в месяц.
-/* В среднем сайт из 8 страниц, 9 услуг, 6 типов объектов и 30 постов строится менее, чем за 4 минуты. Итого вы можете обновить такого объема сайт около 80 раз в месяц или 2-3 раза в сутки.
+/* В среднем этот сайт из 8 страниц, 9 услуг, 6 типов объектов и 30 постов строится менее, чем за 4 минуты. Итого вы можете обновить такого объема сайт около 80 раз в месяц или 2-3 раза в сутки.
 ##### Функции
 - До 125000 вызовов функций в месяц
 - До 100 часов времени исполнения в месяц
 #### SendGrid
 Посылка 40000 писем за первые 30 дней после регистрации, затем 100 писем в день.
 
+### Лицензия
+MIT
+
+
 ## Инсталляция
 
-### Требования
-1. Have [SendGrid](https://sendgrid.com) account.
-   You need API key and verified e-mail.
-1. Быть зарегистрированыым на [GitHub](https://github.com).
-1. Быть зарегистрированыым на  [Netlify](https://netlify.com) account.
-1. Have installed **Git** on your local computer. You could download it from [here](https://git-scm.com/download).
+### Предварительные условия
+1. Учетная запись на [SendGrid](https://sendgrid.com). Вы должны получить API key и верифицировать ваш e-mail.
+1. Учетная запись на [GitHub](https://github.com).
+1. Учетная запись на  [Netlify](https://netlify.com).
+1. Инсталлировать **Git** на ваш локальный компьютер. Вы можете загрузить его [отсюда](https://git-scm.com/download).
+1. Текстовый редактор. Рекомендуется Visual Studio Code (VSC). Ссылка для [скачивания](https://code.visualstudio.com/download). Желательно дополнительно установить расширения для VSC: "YAML Language Support by Red Hat", "Markdown Preview Enhanced", "markdownlint
+1. Графический редактор.
 
-### Steps
-#### Fork Source Repository and clone it on local computer
-1. Login to your [GitHub account](https://github.com).
-1. Open the source repository from [here](https://github.com/alextim/tarutino-steppe) in a browser.
-1. Create fork from source repository - click **Fork** button  (in the right upper corner of window).
-1. After process finish click button **Code**.
-1. Copy your repository URL.  
-   It should be like this: `https://github.com/your-account-name/tarutino-steppe.git`.
-1. Lanch command prompt on your computer.  
-   For Windows it will be: `Start` -> `Windows System` -> `Command Prompt`.
-2. Select desired folder with `cd` (change directory) command.
-3. Clone source repository to selected folder with the next command:
+### Пошаговая инструкция
+#### Создание fork из репозитория-источника и клонирование на локальный компьютер
+1. Зайдите в вашу учетную запись на [GitHub](https://github.com).
+1. Откройте браузером репозиторий-источник [здесь](https://github.com/alextim/s-bars).
+1. Создайте fork из репозитория-источника - нажмите **Fork** кнопку  (правый верхний угол страницы).
+1. После завершения процесса нажмите кнопку **Code**.
+1. Скопируйте URL вашего репозитория.  
+   Адрес должен будет выглядеть как здесь: `https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ/s-bars.git`.
+1. Запустите коммандную строку на вашем компьютере.  
+   Для Windows это будет так: `Start` -> `Windows System` -> `Command Prompt`.
+1. Перейдите в желаемую папку при помощи `cd` (change directory) комманды.
+1. Клонируйте dваш репозиторий-fork в выбранную папку следующей командой:
 
+```cmd
+git clone https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ/s-bars.git
 ```
-git clone https://github.com/your-account-name/tarutino-steppe.git
-```
 
-#### Connect your repository to hosting and build site
-1. Login to [Netlify](https://netlify.com).
-1. Click **New site from Git** button
-1. Click **GitHub** button on the next screen.
-1. Authorise Netlify to access GitHub in few steps.
-   - Click **Authorize Application** button.
-   - Click **Install** on next dialog screen.
-   - Enter your GitHub password.
-1. Then select repository `your-repository-name`.
-1. Check **Site settings**.  
-   These fields should to be set as follow:
+#### Подключение вашего репозитория к хостингу и построение сайта
+1. Зайдите в вашу учетную запись на [Netlify](https://netlify.com).
+2. Нажмите кнопку **New site from Git**.
+3. Нажмите кнопку **GitHub** на следующем экране.
+4. Авторизуйте Netlify для доступа к GitHub в несколько шагов.
+   - Нажмите кнопку  **Authorize Application**.
+   - Нажмите кнопку  **Install** в последующем диалоговом окне.
+   - Введите ваш GitHub пароль.
+5. Выберите репозиторий `s-bars`.
+6. Проверьте **Site settings**.  
+   Следующие поля должны содержать такие значения:
    - **Build command**: `yarn build`
-   - **Publish directoty**: `www/public`
-1. Go to **Environment variables**.  
-   Add following vars:
+   - **Publish directoty**: `public`
+7. Перейдите в раздел **Environment variables**.  
+   Добавьте переменные:
    |  Key              | Value
    |---                |---
-   | SENDGRID_API_KEY  | your SendGrid API key 
-   | SENDGRID_TO_EMAIL | your e-mail verified by SendGrid
+   | SENDGRID_API_KEY  | ваш SendGrid API ключ 
+   | SENDGRID_TO_EMAIL | ваш e-mail, верифицированный SendGrid
    | WARNINGS          | true
 
 
-2. Click **Deploy site** button.  
-   In few minutes your site will be live!
+8. Нажмите кнопку **Deploy site**.
+   Netlify начнет компиляцию сайта. Через несколько минут ваш сайт будет on-line!
 
-## Edit
+## Публикация изменений
 
-1. Edit your site locally with your favorite editor.
-2. Lanch command prompt on your computer.
-3. Goto repository folder with `cd` command.
-4. Commit your work and push changes to remote repository.
-   Run the following commands in sequence:
+1. Правьте данные сайта на локальном компьютере выбранной программой редактирования.
+2. Запустите командную строку.
+3. Перейдите в папку, где хранятся ваши файлы и репозитория при помощи команды `cd`.
+4. Commit результаты редактирования на локальном компьютере и push изменения из локального репозитория в удаленный репозиторий.
+   Запустите последовательно следующие комманды:
 
 ```
 git add .
-git commit -m 'your message'
+git commit -m 'ВАШ КОММЕНТАРИЙ'
 git push
 ```
 
-Your site will be rebuilt automatically after push.
-## Build & Deploy Troubleshooting
-1. Login to [Netlify](https://netlify.com).
-2. Select your site
-3. Click **Production deploys**
-4. Click **Trigger deploy**
-5. Choose **Clear cache and deploy site**
+Ваш сайт будет обновлен и опубликован облачным провайдером автоматически после команды push.
+
+## Разрешение проблем построения сайта
+
+### Сайт не обновляется
+
+1. Зайдите в вашу учетную запись на [Netlify](https://netlify.com).
+2. Нажмите **Sites**
+3. Выберите ваш сайт
+4. Нажмите **Deploys**
+Вы попадете на страницу со списком асех компиляций вашего сайта, отсортированный по времени в порядке убывания.
 
 
-## File Naming Convention
+Если последняя компиляция в статусе **Published** (зеленая метка) 
 
-- self explanatory names
-- only English alphabet
-- all symbols in lower case
-- no spaces
-- no transliterations
-- use hyphen `-` for word separation
-- no dots, underscores or special symbols
+1. Нажмите кнопку **Trigger deploy**
+1. Выберите **Clear cache and deploy site**
+1. Очистите кеш браузера, сайт должен обновиться.
 
-good:
 
-```
-weekend-with-family.jpg
-my-awesome-file.png
-```
+Если последняя компиляция в статусе **Failed** (красная метка) 
 
-bad:
+1. Нажмите на стрелочку `>` справа для перехода на страницу **Deploy details**
+2. Просмотрите содержимое окна **Deploy log** и найдите описание ошибки. Ошибка будет подсвечена красным.
+Скорее всего у вас не правильно оформлен файл Markdown или Yaml. В логе это будет отражено название файла и место, где неправильно оформлено. Если это так, то исправьте ошибки оформления на локальной машине, сделайте commit и push. Сайт будет построен автоматически.
 
-```
-asdasda-casd.jpg
-мой-красивый-файл.jpg
-MyAwesomeFile.jpg
-moi-prijatnii-fail-.jpg
-my_awesome_file.jpg
-my.awesome.file.jpg
-```
+Если причина другая, то потребуется помощь специалиста.
+
+## Правила именования файлов
+
+- самообъясняющие имена
+- только English алфавит
+- все символы в нижнем регистре
+- без пробелов
+- не использовать транслитерацию
+- используйте дефис `-` для разделения слов
+- без точек, подчеркивание или специальных символов
+
+хорошо:
+
+- `weekend-with-family.jpg`
+- `my-awesome-file.png`
+
+плохо:
+
+- `asdasda-cajjqq1sd.jpg` - непонятное имя
+- `мой-красивый-файл.jpg`- не английский алфавит
+- `MyAwesomeFile.jpg` - заглавные буквы
+- `moi-prijatnii-fail.jpg` - транслитерация
+- `my_awesome_file.jpg` - подчеркивания
+- `my.awesome.file.jpg` - точки
+
 
 ## SEO
 
-| Frontmatter Field | Recommended Length  | More Info                                                                                                                                                                       | Note                                                                |
+| Поле из Frontmatter | Рекомендованая длина  | Подробнее                                                                                                                                                                       | Комментарий                                                                |
 | ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| metaTitle         | up to 60 chars      | [What is a meta title tag?](https://moz.com/learn/seo/title-tag), [Create good titles and snippets in Search Results](https://support.google.com/webmasters/answer/35624?hl=en) | If no **metaTitle** provided the **title** will be used             |
-| metaDescription   | 50-160 chars        | [What is a meta description?](https://moz.com/learn/seo/meta-description), [How to create the right meta description](https://yoast.com/meta-descriptions/)                     | If no **metaDescription** provided the **description** will be used |
-| alt               | less then 125 chars | [What is Alt Text?](https://moz.com/learn/seo/alt-text)                                                                                                                         | images                                                              |
+| metaTitle         | до 60 сиволов      | [What is a meta title tag?](https://moz.com/learn/seo/title-tag), [Create good titles and snippets in Search Results](https://support.google.com/webmasters/answer/35624?hl=en) | Если **metaTitle** отсутствует, то поле **title** будет использовано          |
+| metaDescription   | 50-160 символов        | [What is a meta description?](https://moz.com/learn/seo/meta-description), [How to create the right meta description](https://yoast.com/meta-descriptions/)                     | Если **metaDescription** отсутствует, то поле **description** будет использовано |
+| alt               | до 125 символов | [What is Alt Text?](https://moz.com/learn/seo/alt-text)                                                                                                                         | images                                                              |
 
-_In case of neither **metaDescription** nor **description** the **site description** will be used._
+***В случае, если отсутствуют и **metaDescription** и **description**, то будет использовано содержимое поля **siteDescription** из `[PROJECT_DIR]/config/locales.json`.*
 
-Page content should to be at least 300 words.
+Для поисковика содержимое страницы должно быть по меньшей мере 300 слов.
 
-Sources: [The Beginner's Guide to SEO](https://moz.com/beginners-guide-to-seo)
+Источник: [The Beginner's Guide to SEO](https://moz.com/beginners-guide-to-seo)
 
-## Special Images
+## Специальные изображения
 
-| Porpouse    | File Name                       | Folder                          | Ratio    | Dimenation, px          | Qty            | Note                                          |
-| ----------- | ------------------------------- | ------------------------------- | -------- | ----------------------- | -------------- | --------------------------------------------- |
-| Site        | favicon.ico                     | [PROJECT_DIR]/static            | 1 x 1    | 16 x 16                 | 1              | [Wiki](https://en.wikipedia.org/wiki/Favicon) |
-| Site        | default-banner.jpg              | [PROJECT_DIR]/content/assets    | 16 x 8.1 | 1920 x 972              |
-| OpenGraph   | og-banner-{locale}.jpg          | [PROJECT_DIR]/static/assets     | 1.9 x 1  | 1200 x 630 or 600 x 315 | 1 per language | any awesome picture + logo                    |
-| Twitter     | twitter-banner-2x1-{locale}.jpg | [PROJECT_DIR]/static/assets     | 2 x 1    | 600 x 300               | 1 per language | any awesome picture + logo                    |
-| Twitter     | twitter-banner-1x1-{locale}.jpg | [PROJECT_DIR]/static/assets     | 1 x 1    | 450 x 450               | 1 per language | any awesome picture + logo                    |
-| schema.org  | business-photo.jpg              | [PROJECT_DIR]/static/assets     |          |                         | 1              | photo to present your business                |
-| schema.org  | logo.svg                        | [PROJECT_DIR]/static/assets     |          |                         | 1              |
-| webmainfest | icon.png                        | [PROJECT_DIR]/src/assets/images | 1 x 1    | > 512 x 512             |
+| Назначение  | Имя файла                       | Папка                           | Пропорции   | Размер, px              | Количество     | Комментарий                                   |
+| ----------- | ------------------------------- | ------------------------------- | ----------- | ----------------------- | -------------- | --------------------------------------------- |
+| Site        | favicon.ico                     | [PROJECT_DIR]/static            | 1 x 1       | 16 x 16                 | 1              | [Wiki](https://en.wikipedia.org/wiki/Favicon) |
+| Site        | default-banner.jpg              | [PROJECT_DIR]/content/assets    | 16 x 8.1    | 1920 x 972              |
+| OpenGraph   | og-banner-{locale}.jpg          | [PROJECT_DIR]/static/assets     | 1.9 x 1     | 1200 x 630 or 600 x 315 | 1 на 1 язык    | красивая картинка с наложенным лого           |
+| Twitter     | twitter-banner-2x1-{locale}.jpg | [PROJECT_DIR]/static/assets     | 2 x 1       | 600 x 300               | 1 на 1 язык    | красивая картинка с наложенным лого           |
+| Twitter     | twitter-banner-1x1-{locale}.jpg | [PROJECT_DIR]/static/assets     | 1 x 1       | 450 x 450               | 1 на 1 язык    | красивая картинка с наложенным лого           |
+| schema.org  | business-photo.jpg              | [PROJECT_DIR]/static/assets     |             |                         | 1-3            | фото презентующее ваш бизнес                  |
+| schema.org  | logo.svg                        | [PROJECT_DIR]/static/assets     |             |                         | 1              |
+| webmainfest | icon.png                        | [PROJECT_DIR]/src/assets/images | 1 x 1       | > 512 x 512             | 1
 
-_Set OpenGraph and Twitter Image Sizes in `website.js`_
+*Установите, если надо, свои размеры изображений для OpenGraph и Twitter в файле `[PROJECT_DIR]/config/website.js`*
 
-## Security Recomendations
+**{locale} = язык, `ua` или `ru`*
 
-Links to _external sites_ are potentialy unsafe.
-To protect our site and improve your SEO always add `rel="nofollow noreferrer noopener"` attribute to anchor tags.
-With `target="_blank"` browser will open external site in new tab.
 
-bad:
+## Ссылки
 
-```html
-<a href="https://frumushika.com/living.html">frumushika.com</a>
-```
+Ссылки на _внешние сайты_ потенциально не безопасны и ухудшают SEO.
+Чтобы защитить ваш сайт и улучшите ваше SEO всегда добавляйте аттрибут `rel="nofollow noreferrer noopener"` к ссылке на внешний сайт.
+А добавление аттрибута `target="_blank"` заставит бровсер открыть сторонний сайт в новой вкладке, а не просто уведет пользовотеля с вашего сайта.
 
-good:
+плохо:
 
 ```html
-<a href="https://frumushika.com/living.html" target="_blank" rel="nofollow noreferrer noopener"
-  >frumushika.com</a
->
+<a href="http://rada.com.ua/rus/catalog/62609/">Компания "Снежный Барс"</a>
 ```
 
-## Settings
+хорошо:
+
+```html
+<a href="http://rada.com.ua/rus/catalog/62609/" target="_blank" rel="nofollow noreferrer noopener">Компания "Снежный Барс"</a>
+```
+
+## Настройки
 
 ### General
 
 File: `[PROJECT_DIR]\src\config\website.js`
 Obligue values:
+
 - siteUrl
-Change it from `https://tarutino-steppe.netlify.app` to your actual site address (NO TRAILING SLASH!).
+Change it from `https://s-bars.netlify.app` to your actual site address (NO TRAILING SLASH!).
+
+
 Leave these vars as `it is` if you are not using:
-- googleAnalyticsID
-- fbAppID
-- twitterSite
-- twitterCreator
+
+- `googleAnalyticsID`
+- `fbAppID`
+- `twitterSite`
+- `twitterCreator`
+
 ## Language
 
 File: `[PROJECT_DIR]\src\config\locales.json`
+
 ## Indexing
+
 File: `[PROJECT_DIR]\static\robots.txt`
 By default indexing is prohibited.
-```
+
+```env
 User-agent: *
 Disallow: /
 
-sitemap: https://tarutino-steppe.netlify.app/sitemap.xml
+sitemap: https://s-bars.netlify.app/sitemap.xml
 ```
+
 if you want your site to be indexed by **Google** edit it:
-```
+
+```env
 User-agent: *
 Disallow:
 
 sitemap: https://your-actual-site-address/sitemap.xml
 ```
+
 ### Development Mode
 
 Program uses the `LOCALES` entry in file `[PROJECT_DIR]\.env.development`.
 Avalable languages present as a space separated list.
 
-```js
+```env
 LOCALES = uk;
 ```
 
@@ -258,10 +292,8 @@ const meta = {
 | Social Links |                                         | social-links.yaml     | Facebook, Intagram etc          |
 | Contacts     |                                         | contacts.yaml         | Phone, Skype, Viber, E-mail etc |
 | Address      | [PROJECT_DIR]\content\data\address      | address.uk.yaml       | Company Name, Legal Address     |
-|              |                                         | address.en.yaml       |
 |              |                                         | address.ru.yaml       |
 | Translations | [PROJECT_DIR]\content\data\translations | translations.uk.yaml  |
-|              |                                         | translations.en.yaml  |
 |              |                                         | translations.ru.yaml  |
 
 ### Translations
