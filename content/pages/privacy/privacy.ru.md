@@ -17,7 +17,7 @@ This Privacy Policy Statement was updated on Feb 10, 2021
 - [5.  Your rights regarding the personal data processing](#5-your-rights-regarding-the-personal-data-processing)
 - [6.  Contact details](#6-contact-details)
 
-On our website ([s-bars.com](https://s-bars.com/), hereinafter – “Site”) we can collect your personal data in the manner and for the purposes described below.
+On our website ([s-bars.com](/ru/), hereinafter – “Site”) we can collect your personal data in the manner and for the purposes described below.
 
 We highly appreciate the confidentiality of the Site visitors, so we provide for the safe storage and use of a visitor’s data in accordance with the requirements of the Law of Ukraine “On Personal Data Protection”, as well as the European General Data Protection Regulation ("GDPR").
 
@@ -40,14 +40,14 @@ As further detailed in Section 2 below, we will use the data collected on this S
 
 The company SNEJNIJ BARS (or "we, "us" or "our") is the controller of your personal data (within the meaning of the GDPR), which are collected on and processed through this Site.
 
-SNEJNIJ BARS 
+SNEJNIJ BARS
 
 Ukraine, Vinnitsa
-wqdqdqwd 
+wqdqdqwd
 aadasdas
 +380 111111111
 
-[s-bars.com](https://s-bars.com/)
+[s-bars.com](/ru/)
 
 ## **2\.  What kind of data we collect for which purposes/on which legal basis**
 
