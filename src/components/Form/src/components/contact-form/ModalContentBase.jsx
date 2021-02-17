@@ -18,7 +18,7 @@ const ModalContentBase = ({ content, loading, cancel, error }) => {
       <>
         <ModalHeader>{content.error.heading}</ModalHeader>
         <ModalBody>
-          <Message type="error">{content.error.body(error)}</Message>
+          <Message variant="error">{content.error.body(error)}</Message>
         </ModalBody>
       </>
     );
@@ -28,7 +28,7 @@ const ModalContentBase = ({ content, loading, cancel, error }) => {
     <>
       <ModalHeader>{content.success.heading}</ModalHeader>
       <ModalBody>
-        <Message type="success">{content.success.body}</Message>
+        <Message variant="success">{content.success.body}</Message>
       </ModalBody>
     </>
   );

@@ -174,7 +174,7 @@ git push
 | metaDescription   | 50-160 символов        | [What is a meta description?](https://moz.com/learn/seo/meta-description), [How to create the right meta description](https://yoast.com/meta-descriptions/)                     | Если **metaDescription** отсутствует, то поле **description** будет использовано |
 | alt               | до 125 символов | [What is Alt Text?](https://moz.com/learn/seo/alt-text)                                                                                                                         | images                                                              |
 
-***В случае, если отсутствуют и **metaDescription** и **description**, то будет использовано содержимое поля **siteDescription** из `[PROJECT_DIR]/config/locales.json`.*
+***В случае, если отсутствуют и **metaDescription** и **description**, то будет использовано содержимое поля **siteDescription** из `[PROJECT_DIR]/config/locales.js`.*
 
 Для поисковика содержимое страницы должно быть по меньшей мере 300 слов.
 
@@ -200,9 +200,9 @@ git push
 
 ## Ссылки
 
-Ссылки на _внешние сайты_ потенциально не безопасны и ухудшают SEO.
-Чтобы защитить ваш сайт и улучшите ваше SEO всегда добавляйте аттрибут `rel="nofollow noreferrer noopener"` к ссылке на внешний сайт.
-А добавление аттрибута `target="_blank"` заставит бровсер открыть сторонний сайт в новой вкладке, а не просто уведет пользовотеля с вашего сайта.
+Ссылки на _внешние сайты_ потенциально небезопасны и ухудшают SEO.
+Чтобы защитить ваш сайт и улучшите ваш SEO всегда добавляйте атрибут `rel="nofollow noreferrer noopener"` к ссылке на внешний сайт.
+А добавление аттрибута `target="_blank"` заставит браузер открыть сторонний сайт в новой вкладке, а не просто уведет пользовотеля с вашего сайта.
 
 плохо:
 
@@ -218,30 +218,37 @@ git push
 
 ## Настройки
 
-### General
+Настройки сайта находятся в двух JavaScript-файлах:
 
-File: `[PROJECT_DIR]\src\config\website.js`
-Obligue values:
+- `[PROJECT_DIR]\config\locales.js`
+- `[PROJECT_DIR]\config\website.js`
+
+Для настройки привлекайте программиста!
+
+### Общие
+
+Файл: `[PROJECT_DIR]\config\website.js`
+Обязательные поля:
 
 - siteUrl
-Change it from `https://s-bars.netlify.app` to your actual site address (NO TRAILING SLASH!).
+Измените это `https://s-bars.netlify.app` на действительный адрес сайта (БЕЗ СЛЭША В КОНЦЕ!).
 
 
-Leave these vars as `it is` if you are not using:
+Оставьте значения переменных пустыми, если вы не используете или Google Analytics или Facebook App или Twitter:
 
 - `googleAnalyticsID`
 - `fbAppID`
 - `twitterSite`
 - `twitterCreator`
 
-## Language
+### Язык
 
-File: `[PROJECT_DIR]\src\config\locales.json`
+Файл: `[PROJECT_DIR]\src\config\locales.js`
 
-## Indexing
+### Индексирование
 
-File: `[PROJECT_DIR]\static\robots.txt`
-By default indexing is prohibited.
+Файл: `[PROJECT_DIR]\static\robots.txt`
+По умолчанию индексирование поисковиками запрещено.
 
 ```env
 User-agent: *
@@ -250,7 +257,7 @@ Disallow: /
 sitemap: https://s-bars.netlify.app/sitemap.xml
 ```
 
-if you want your site to be indexed by **Google** edit it:
+Если вы хотите, что бы ваш сайт был проиндексирован **Google** уберите бэк-слэш после Disallow:
 
 ```env
 User-agent: *
@@ -259,43 +266,113 @@ Disallow:
 sitemap: https://your-actual-site-address/sitemap.xml
 ```
 
-### Development Mode
 
-Program uses the `LOCALES` entry in file `[PROJECT_DIR]\.env.development`.
-Avalable languages present as a space separated list.
+### Компиляция
+
+#### Режим разработки
+
+Компилятор в режиме разработки использует файл переменных окружения `[PROJECT_DIR]\.env.development`.
+
+
+В файле хранятся три переменных:
 
 ```env
-LOCALES = uk;
+LOCALES = ua ru
+ONLY = / /inquiry
+WARNINGS = true
 ```
 
-Then the list will be checked against all avalable locales from `[PROJECT_DIR]\src\config\locales.json`.
-Thus it's possible to use only one or few languages to speed up development time.
+В `LOCALES` указываются языки для которых будет генерироваться сайт.
+Переменная `ONLY` позволяет ограничить количество создаваемых страниц.
+`WARNINGS` выдает или подавляет сообщения во время генерации страниц.
+Формат `LOCALES` и `ONLY` список значений, в качестве разделителя используется пробел.
+`WARNINGS` - логическая: `true` или `false`.
 
-### Production Mode
 
-Program simply uses all locales from file `[PROJECT_DIR]\src\config\locales.json`.
+Для указанной выше конфигурации окружения сайт будет скомпилирован для двух языков `ua` и `ru`. Будут созданы четыре страницы с адресами `/`, `/inquiry`, `/ru/`, `/ru/inquiry`. Во время генерации будут отображаться предупреждения, если есть.
 
-The default locale marked with `default = true`.
-If no `default = true` found the first entry will be default locale.
 
-## Modal Form
+Список языков `LOCALES` будет сопоставлен со списком доступных языков из `[PROJECT_DIR]\config\locales.js`.
 
-File: [PROJECT_DIR]\src\components\pages\contact\ContactForm.jsx
+#### Режим продакшн
 
-```js
-const AUTOCLOSE_DELAY = 5000; // in millisecs
+Во время компиляции будут созданы страницы для всех языков согласно списка из `[PROJECT_DIR]\config\locales.js`.
+
+Язык по умолчанию должен иметь свойство `default = true`.
+Если не найдено свойство `default = true` ни для одного языка, то первый язык из списка будет принят как язвк по умолчанию.
+
+## Содержимое сайта
+
+Все исходные данные сайта находятся в папке [PROJECT_DIR]\content.
+
+
+Вспомогательные данные хранятся в формате YAML в папке `[PROJECT_DIR]\content\data`. Из вспомогательных данных генерируются элементы страниц: меню, списки телефонов, переводы, адрес и тп.
+
+
+Исходные данные для создания самих страниц храняться в формате Markdown.
+Каждый файл Markdown в начале имеет область, которая называется frontmatter. Frontmatter отделяется от остальной части документа тремя тире в начале и в конце. Frontmatter хранит внутри себя структурированные данные в формате YAML. После замыкающих трех тире идет текст. В зависимости от назначения файла структура содержимого frontmatter будет отличаться.
+
+### Правила формирования путей
+
+Во время компиляции сайта применяется слкдующий алгоритм формрования пути:
+
+1. frontmatter содержит поле **slug**  -> **slug** будет использован в качестве пути
+2. frontmatter не содержит поле **slug** и имя самого файла не начинается со слова **index** -> имя файла будет использовано в качестве пути
+3. frontmatter не содержит поле **slug**, а имя файла начинается со слова **index** -> название родительской папки будет использовано в качестве пути
+
+### Описание общей части frontmatter для всех документов сайта
+
+```md
+---
+title: Заголовок страницы. Обязательное поле. По возможности в одно короткое предложение.
+description: Описание страницы. Необязательное поле. 1-2 предложения.
+metaTitle: для SEO, до 60 сиволов. Если отсутствует, то поле "title" будет использовано.
+metaDescription: for SEO, до 50-160 сиволов. Если отсутствует, то поле "description" будет использовано.
+
+cover:
+  sm: ФАЙЛ-ИЗОБРАЖЕНИЯ-ДЛЯ-ВАШЕГО-ДОКУМЕНТА.jpg
+  xl: НЕОБЯЗАТЕЛЬНЫЙ-ФАЙЛ-ИЗОБРАЖЕНИЯ-ДЛЯ-БОЛЬШИХ-ЭКРАНОВ.jpg
+  alt: для SEO, до 125 символов. Текстовая информация отображается при отключенной загрузке графики в браузере.
+
+
+slug: путь на латиннице, начинающийся с обратного слэша
+template: имя JavaScript-файла без расширения, который используется, как шаблон во время компиляции сайта
+noindex: "true" или "false" - показать или спрятать документ для поисковых роботов
+---
 ```
 
-### Site URL
+### Услуги
 
-```js
-const meta = {
-  ...
-  siteUrl: 'https://www.example.com', // No trailing slash!
-};
+Папка `[PROJECT_DIR]\content\services`
+
+### Типов объектов
+
+Папка `[PROJECT_DIR]\content\object-types`
+
+
+### Посты
+
+Папка `[PROJECT_DIR]\content\posts`
+
+В frontmatter появляются два дополнительных поля
+
+```md
+---
+
+
+publishedDate: 2019-05-01T16:22:00Z
+state: published    
+---
 ```
 
-### Site Data
+Необязательное поле **publishedDate** c датой и временем публикации поста в формате ISO 8601. Посты сортируются в порядке убывания даты публикации, т.е. сначала показываются более новые.
+
+
+Необязательное поле **state**. Если поле отсутствует или значение отлично от `published`, то пост будет исключен из сайта.
+
+Формируются из первого и второго пункта главного меню соответственно.
+
+### Структурированные данные
 
 | What         | Folder                                  | File Name             | Note                            |
 | ------------ | --------------------------------------- | --------------------- | ------------------------------- |

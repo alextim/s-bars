@@ -68,9 +68,6 @@ const section = {
   items: {
     type: '[SectionItem]',
   },
-  type: {
-    type: 'String',
-  },
 };
 
 const sectionItem = {

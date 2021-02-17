@@ -5,7 +5,7 @@
  * Array to Yaml
  */
 const fs = require('fs');
-const locales = require('../config/locales.json');
+const locales = require('../config/locales');
 
 const FILE_NAME = 'translations';
 const FOLDER_NAME = 'content/data/locales/translations/';

@@ -19,7 +19,7 @@ const ModalContent = ({ loading, cancel, error }) => {
       <React.Fragment>
         <ModalHeader>{t('form.error')}</ModalHeader>
         <ModalBody>
-          <Message type="error">
+          <Message variant="error">
             <p>
               <b>{error}</b>
             </p>
@@ -63,7 +63,7 @@ const ModalContent = ({ loading, cancel, error }) => {
     <React.Fragment>
       <ModalHeader>{t('form.success')}</ModalHeader>
       <ModalBody>
-        <Message type="success">
+        <Message variant="success">
           {' '}
           <p>{t('if.thanks')}</p>
           <div>{t('if.we_will_response')}</div>

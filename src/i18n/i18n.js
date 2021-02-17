@@ -1,4 +1,4 @@
-const allLocales = require('../../config/locales.json');
+const allLocales = require('../../config/locales');
 
 // Only allow languages defined in the LOCALES env variable.
 // This allows us to compile only languages that are "complete" or test only

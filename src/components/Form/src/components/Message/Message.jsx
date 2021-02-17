@@ -21,9 +21,9 @@ const styleWtap = {
   display: 'flex',
 };
 
-const Message = ({ type, children }) => {
+const Message = ({ variant, children }) => {
   let icon = null;
-  switch (type) {
+  switch (variant) {
     case 'error':
       icon = <Icon name="exclamationTriangle" css={styleExclamationIcon} />;
       break;

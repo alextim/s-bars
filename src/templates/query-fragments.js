@@ -39,7 +39,6 @@ export const pageFragment = graphql`
           }
           alt
         }
-        type
         items {
           title
           to
