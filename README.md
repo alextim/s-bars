@@ -303,26 +303,42 @@ WARNINGS = true
 
 ## Содержимое сайта
 
-Все исходные данные сайта находятся в папке [PROJECT_DIR]\content.
-
+Все исходные данные сайта находятся в папке `[PROJECT_DIR]\content`.
 
 Вспомогательные данные хранятся в формате YAML в папке `[PROJECT_DIR]\content\data`. Из вспомогательных данных генерируются элементы страниц: меню, списки телефонов, переводы, адрес и тп.
 
+Исходные данные для создания самих страниц храняться в файлах с расширением `.md` Markdown.
 
-Исходные данные для создания самих страниц храняться в формате Markdown.
-Каждый файл Markdown в начале имеет область, которая называется frontmatter. Frontmatter отделяется от остальной части документа тремя тире в начале и в конце. Frontmatter хранит внутри себя структурированные данные в формате YAML. После замыкающих трех тире идет текст. В зависимости от назначения файла структура содержимого frontmatter будет отличаться.
+Предлагается следующая организация хранения файлов.
+Для каждой страницы создается отдельная папка. В ней файлы с содержимым страниц. Подпапка `\images` для хранения изображений.
 
-### Правила формирования путей
+Шаблон имени:
+`{ИМЯ-ФАЙЛА}.{ЯЗЫК}.md`
 
-Во время компиляции сайта применяется слкдующий алгоритм формрования пути:
+ИМЯ-ФАЙЛА: английский алфавит в нижнем регистре, без пробелов, точек или подчеркиваний.
+Специальное имя **index** (объяснение в разделе **Правила формирования путей**) .
 
-1. frontmatter содержит поле **slug**  -> **slug** будет использован в качестве пути
-2. frontmatter не содержит поле **slug** и имя самого файла не начинается со слова **index** -> имя файла будет использовано в качестве пути
-3. frontmatter не содержит поле **slug**, а имя файла начинается со слова **index** -> название родительской папки будет использовано в качестве пути
+ЯЗЫК: **uk** или **ru**.
 
-### Описание общей части frontmatter для всех документов сайта
+Пример правильно именованных файлов:
 
-```md
+```
+index.ru.md
+home.uk.md
+```
+
+## Устройство файла
+
+Внутри файл состоит из двух главных компонентов:
+
+1. Frontmatter - начальная область, обрамленная тремя тире в начале и в конце. Frontmatter хранит внутри себя структурированные данные в формате YAML. В зависимости от назначения файла структура содержимого frontmatter будет отличаться.
+2. После замыкающих трех тире идет собственно основной текст в формате Markdown.
+
+### Описание frontmatter
+
+Представленные ниже поля frontmatter являются общими для всех документов сайта
+
+```yaml
 ---
 title: Заголовок страницы. Обязательное поле. По возможности в одно короткое предложение.
 description: Описание страницы. Необязательное поле. 1-2 предложения.
@@ -341,24 +357,31 @@ noindex: "true" или "false" - показать или спрятать док
 ---
 ```
 
+### Правила формирования путей
+
+Во время компиляции сайта применяется следующий алгоритм формрования пути:
+
+1. Frontmatter содержит поле **slug**  -> **slug** будет использован в качестве пути
+2. Frontmatter не содержит поле **slug** и имя самого файла не начинается со слова **index** -> имя файла будет использовано в качестве пути
+3. Frontmatter не содержит поле **slug**, а имя файла начинается со слова **index** -> название родительской папки будет использовано в качестве пути
+
 ### Услуги
 
 Папка `[PROJECT_DIR]\content\services`
 
 ### Типов объектов
 
-Папка `[PROJECT_DIR]\content\object-types`
+Папка: `[PROJECT_DIR]\content\object-types`
 
 
 ### Посты
 
-Папка `[PROJECT_DIR]\content\posts`
+Папка: `[PROJECT_DIR]\content\posts`
 
 В frontmatter появляются два дополнительных поля
 
-```md
+```yaml
 ---
-
 
 publishedDate: 2019-05-01T16:22:00Z
 state: published    
@@ -370,9 +393,48 @@ state: published
 
 Необязательное поле **state**. Если поле отсутствует или значение отлично от `published`, то пост будет исключен из сайта.
 
+### Страницы
+
+Папка: `[PROJECT_DIR]\content\pages`
+
+Страницы имеют индивидуальное оформление. Для решения этой задачи содержимое страницы разбито на секции. Каждая секция состоит из заголовка, подзаголовка, текста, изображения и массива элементов. В свою очередь элемент может состоять из заголовка, подзаголовка, текста, изображения, имени иконки и адреса ссылки. Эта структура хранится в frontmatter. 
+
+Для каждого типа страниц на javaScript написан индивидуальный шаблон для вывода этих структурированных данных на экран.
+
+```yaml
+---
+title: Заголовок страницы
+description: Описание страницы
+metaTitle: Заголовок для поисковика
+metaDescription: Описание для поисковика
+
+sections:
+  
+  - title: Заголовок секции 1
+    subtitle: Подзаголовок секции 1
+    text: Текст 1. Может содержать в себе разметку HTML
+    
+    items:
+      - title: Заголовок элемента 1
+        subtitle: Подзаголовок элемента 1
+        text: Текст элемента 1. Может содержать в себе разметку HTML
+        to: Ссылка 
+        icon: Имя иконки 
+      - image:
+          sm: ИЗОБРАЖЕНИЕ.jpg
+          xl: ИЗОБРАЖЕНИЕ-ДЛЯ-БОЛЬШОГО-ЭКРНА.jpg
+          alt: альтернативный текст
+
+      - title: Заголовок элемента 2
+         ...
+
+  - title: Заголовок секции 2
+         ...
+```
+
 Формируются из первого и второго пункта главного меню соответственно.
 
-### Структурированные данные
+### Вспомогательные данные
 
 | What         | Folder                                  | File Name             | Note                            |
 | ------------ | --------------------------------------- | --------------------- | ------------------------------- |
@@ -393,153 +455,15 @@ More convenient way to edit translations.
 - Run command `npm run translations:j2y`.
   It fires script which transform json-source to yaml.
 
-## Social Links
 
-If you need them, please, add source files to folder `[PROJECT_DIR]\content\data\locales\social-links`.  
-They will be displayed in footer.  
-Valid file names:
 
-```
-social-links.en.yaml
-social-links.ru.yaml
-social-links.uk.yaml
-```
-
-File content sample:
-
-```yaml
-- code: facebook
-  to:  https://www.facebook.com/your-facebook-address
-  title: Follow us on Facebook
-- code: instagram
-  to:  https://www.instagram.com/your-facebook-address
-  title: Follow us on Instagram
-```
-
-## Pages
-
-Pages are located in the folder: **[PROJECT_DIR]\src\pages**.
-
-Each page occupies one subfolder here.
-
-Name pattern:
-`{file name}.{locale}.md`
-
-File name: in English alpahaber, no spaces, dots. Only letters in lower case.
-Special name is **index** (explanation in **Routes**) .
-
-Locale: **uk**, **en** or **ru**.
-
-Sample for valid file names:
-
-```
-index.ru.md
-home.uk.md
-```
-
-### Routes
-
-In a build time the routes will be created on the following algorithm:
-
-1. source file contains field **slug** in frontmatter -> **slug** will be used
-1. frontmatter hasn't field **slug** and source file name doesn't start from **index** word -> file name will be used
-1. source file name starts from **index** -> parent folder name will be used
-
-### Page Content
-
-In general page file consists of two main components:
-
-1. Frontmatter
-2. Body
-
-#### Frontmatter
-
-It looks like
-
-```md
----
-title: Page Title
-description: Second Line in page header
-metaTitle: for SEO. If it's omitted the "title" will be used
-metaDescription: for SEO. If it's omitted the "description"will be used
-
-cover:
-  default: your-special-banner.jpg
-  mobile: your-special-banner-used-on-small-screens.jpg
-  alt: for SEO, alternate text for image
-  author: image author name
-
-slug: used to create the page route during build
-template: name of the template used during build
-noindex: "true" or "false" - show/hide page from crawler robots
-
-...other page specific parts
----
-```
-
-Recommended cover image sizes:
 
 | View    | Ratio    | Size in px |
 | ------- | -------- | ---------- |
-| Desktop | 16 x 8.1 | 1920 x 972 |
+| Слайдер | 16 x 8.1 | 1240 x 450 |
 | Mobile  | 1 x 1    | 600 x 600  |
 
-#### Body
 
-Any HTML and markdown tags.
-
-## Page "Home"
-
-Page folder: **[PROJECT_DIR]\src\pages\home**
-
-File name: **home.[supported language code].md**
-
-Expected file names:
-
-```
-home.uk.md
-home.en.md
-home.ru.md
-```
-
-Recommeded image sizes:
-Section Name | Ratio | Size in px | Note
---- | --- | --- | ---
-Here you can | 1 x 1 | 400 x 400 | displayed in circle
-Our wild inhabitants | 4 x 3 | 400 x 300 |
-
-## Page "Services"
-
-Page folder: **[PROJECT_DIR]\src\pages\services**
-
-File name: **services.[supported language code].md**
-
-Expected file names:
-
-```
-services.uk.md
-services.en.md
-services.ru.md
-```
-
-Recommeded image sizes:
-Name | Ratio | Size in px  
---- | --- | ---  
-Service Item | 4 x 3 | 400 x 300
-
-## Page "Gallery"
-
-Page folder: **[PROJECT_DIR]\src\pages\gallery**
-
-File name: **gallery.[supported language code].md**
-
-Expected file names:
-
-```
-gallery.uk.md
-gallery.en.md
-gallery.ru.md
-```
 
 Videos and extra text could be inserted to body part.
 
@@ -548,42 +472,6 @@ Sample how to embed video:
 ```
 <iframe src="https://www.youtube.com/embed/2Y-LqBD2HN8" width="600" height="400"></iframe>
 ```
-
-\*Pay attention: you need word **"embed"** in url, not **"watch"**.
-
-Gallery source structure sample:
-
-```yaml
-sections:
-  - text: Some text to preface the gallery
-
-  - items:
-    - title: picture caption to display
-      image:
-        src: valid file name
-        alt: picture description in one sentence (for Google Search Engine).
-        author: picture's author (if exists)
-
-    - title: My Awesome Picture #1
-      image:
-        src: my-awesome-picture-1.jpg
-        alt: My first very special picture
-        author: John Smith
-
-    - title: My Awesome Picture #2
-      image:
-        src: my-awesome-picture-2.jpg
-        alt: My decond very special picture
-    ...
-
-    - title: My Awesome Picture #100
-      image:
-        src: my-awesome-picture-100.jpg
-        alt: My hundreds very special picture
-        author: Bob Nad
-```
-
-_Remark: picture #2 has no author_
 
 ## TO-DO
 
