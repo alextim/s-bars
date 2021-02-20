@@ -20,6 +20,8 @@
   value: Этот сайт использует куки для оптимизации, анализа трафика и сохранения ваших настроек.
 - key: cookie_warning.details
   value: Подробнее
+- key: home.cusomer
+  value: Замовник
 - key: form.send
   value: Надіслати
 - key: form.send_message
