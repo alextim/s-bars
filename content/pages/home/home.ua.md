@@ -93,6 +93,21 @@ sections:
   - title: НАС РЕКОМЕНДУЮТ
     subtitle: Наша компания известна десяткам крупных предприятий, как добросовестный и надежный подрядчик.
     items:         
+      - title: Customer 1
+        text: bla-bla-bla<br>bla-bla-blabla-bla-blabla-bla-bla
+        image:
+          sm: ./images/s1.jpg
+          alt:
+      - title: Customer 2
+        text: bhfhghhhghghghghghggh hhghhghghghghghghla-bla-bla<br>bla-bla-blabla-bla-blabla-bla-bla
+        image:
+          sm: ./images/s2.jpg
+          alt:
+      - title: Customer 3
+        text: wewqeqwe eww effwwefebla-bla-bla<br>bla-bla-blabla-bla-blabla-bla-bla
+        image:
+          sm: ./images/s3.jpg
+          alt:
 
   - title: НАШЕ КРЕДО
     text: |

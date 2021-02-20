@@ -2,109 +2,116 @@
 import { jsx } from '@emotion/react';
 
 import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
 import colors from '../../theme/colors';
 
 import { useTranslation } from '../../i18n';
 
 const styleWrap = {
+  display: 'flex',
+  flexDirection: 'column',
   width: '100%',
-  borderCollapse: 'collapse',
-  '> tbody, > thead': {
-    display: 'table-row-group!important',
-  },
-  td: {
-    borderWidth: '1px 0 1px 0',
-    borderColor: '#ced5d9',
-  },
-};
-
-const styleCell = {
-  padding: '1.5rem 0.6rem',
-  border: '0 solid #ccc',
+  margin: 0,
+  padding: 0,
+  listStyleType: 'none',
 };
 
 const styleHeadRow = {
   backgroundColor: colors.tables.head,
+  borderTop: 'none',
+  borderBottom: `1px solid ${colors.black}`,
 };
 
 const styleRow = {
-  ':nth-of-type(even)': {
-    backgroundColor: colors.tables.even,
+  display: 'grid',
+  gridTemplateColumns: '1fr 5rem',
+  gridTemplateRows: 'auto 1fr',
+  borderTop: '1px solid #ccc',
+  borderBottom: '1px solid #ccc',
+  padding: '1.5rem 0',
+  marginBottom: 0,
+  [mq.lg]: {
+    gridTemplateColumns: '35% 10rem auto',
+    gridTemplateRows: 'auto',
   },
-  ':nth-of-type(odd)': {
-    backgroundColor: colors.tables.odd,
-  },
+};
+
+const styleCellDefault = {
+  padding: '0 0.6rem',
 };
 
 const styleName = {
-  marginBottom: space[2],
+  ...styleCellDefault,
+};
+
+const stylePrice = {
+  display: 'flex',
+  ...styleCellDefault,
+  gridColumn: 2,
+  gridRow: '1 / span 2',
+  alignItems: 'center',
+  // justifyContent: 'center',
   [mq.lg]: {
-    marginBottom: 0,
+    display: 'block',
+    gridRow: 1,
   },
 };
 
-const styleVisibleMobile = {
+const styleDescription = {
+  ...styleCellDefault,
+  fontStyle: 'italic',
+  paddingLeft: '1.25rem',
   [mq.lg]: {
-    display: 'none',
+    ...styleCellDefault,
   },
 };
 
-const styleDescriptionCol = {
+const Row = ({ children, overrideCSS = {} }) => (
+  <li css={{ ...styleRow, ...overrideCSS }}>{children}</li>
+);
+
+const styleHeading = {
+  fontWeight: 'bold',
+  fontStyle: 'unset',
+};
+
+const styleDescriptionHeading = {
   display: 'none',
   [mq.lg]: {
-    display: 'table-cell',
+    display: 'block',
   },
 };
-
-const Row = ({ children, overrideCSS }) => <tr css={overrideCSS || styleRow}>{children}</tr>;
-const Cell = ({ children, extraStyle = {} }) => (
-  <td css={{ ...styleCell, ...extraStyle }}>{children}</td>
+const Name = ({ children, overrideCSS = [] }) => (
+  <div css={[styleName, ...overrideCSS]}>{children}</div>
 );
-
-const styleHead = {
-  borderWidth: '0 0 1px 0',
-  borderColor: colors.black,
-};
-const THead = ({ children, extraStyle = {} }) => (
-  <th css={{ ...styleCell, ...styleHead, ...extraStyle }}>{children}</th>
+const Price = ({ children, overrideCSS = [] }) => (
+  <div css={[stylePrice, ...overrideCSS]}>{children}</div>
 );
-
-const NameHead = ({ children }) => <THead>{children}</THead>;
-const PriceHead = ({ children }) => <THead>{children}</THead>;
-const DescriptionHead = ({ children }) => (
-  <THead extraStyle={styleDescriptionCol}>{children}</THead>
+const Description = ({ children, overrideCSS = [] }) => (
+  <div css={[styleDescription, ...overrideCSS]}>{children}</div>
 );
-
-const NameCell = ({ children }) => <Cell>{children}</Cell>;
-const PriceCell = ({ children }) => <Cell>{children}</Cell>;
-const DescriptionCell = ({ children }) => <Cell extraStyle={styleDescriptionCol}>{children}</Cell>;
 
 const PriceList = ({ items }) => {
   const { t } = useTranslation();
   return (
-    <table css={styleWrap}>
-      <thead>
-        <Row overrideCSS={styleHeadRow}>
-          <NameHead>{t('priceList.name')}</NameHead>
-          <PriceHead>{t('priceList.price')}</PriceHead>
-          <DescriptionHead>{t('priceList.description')}</DescriptionHead>
+    <ul css={styleWrap}>
+      <Row overrideCSS={styleHeadRow}>
+        <Name overrideCSS={[styleHeading]}>{t('priceList.name')}</Name>
+        <Price overrideCSS={[styleHeading]}>{t('priceList.price')}</Price>
+        <Description overrideCSS={[styleHeading, styleDescriptionHeading]}>
+          {t('priceList.description')}
+        </Description>
+      </Row>
+      {items.map(({ title: name, subtitle: price, text: description }, i) => (
+        <Row
+          key={i}
+          overrideCSS={{ backgroundColor: i % 2 ? colors.tables.odd : colors.tables.even }}
+        >
+          <Name>{name}</Name>
+          <Price>{price}</Price>
+          <Description>{description}</Description>
         </Row>
-      </thead>
-      <tbody>
-        {items.map(({ title: name, subtitle: price, text: description }, i) => (
-          <Row key={i}>
-            <NameCell>
-              <div css={styleName}>{name}</div>
-              <div css={styleVisibleMobile}>{description}</div>
-            </NameCell>
-
-            <PriceCell>{price}</PriceCell>
-            <DescriptionCell>{description}</DescriptionCell>
-          </Row>
-        ))}
-      </tbody>
-    </table>
+      ))}
+    </ul>
   );
 };
 

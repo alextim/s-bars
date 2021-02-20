@@ -46,7 +46,7 @@ const Section = ({
   subtitle,
   text,
   image,
-  css,
+  overrideCSS,
   small,
   gray,
   textLast,
@@ -60,8 +60,8 @@ const Section = ({
   if (gray) {
     styles.push(styleGgray);
   }
-  if (css) {
-    styles.push(css);
+  if (overrideCSS) {
+    styles.push(overrideCSS);
   }
 
   const styleText = {

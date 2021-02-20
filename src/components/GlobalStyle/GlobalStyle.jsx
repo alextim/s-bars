@@ -358,6 +358,40 @@ const GlobalStyle = () => (
         width: 100%;
       }
 
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        > tbody, > thead {
+          display: table-row-group !important;
+        }
+        td {
+          border-width: 1px 0 1px 0;
+          border-color: #ced5d9;
+        }
+        td, th {
+          padding: 1.5rem 0.6rem;
+          border: 0 solid #ccc';
+        }
+        th {
+          border-width: 0 0 1px 0;
+          border-color: ${colors.black};
+        }
+        tr {
+          &:nth-of-type(even) {
+            background-color: ${colors.tables.even};
+          }
+          &:nth-of-type(odd) {
+            background-color: ${colors.tables.odd};
+          }
+        }
+        tr {
+          &:first-of-type {
+            border-width: 0 0 1px 0;
+            border-color: ${colors.black};
+          }
+        }
+      }
+
       /**
       * https://google-webfonts-helper.herokuapp.com/fonts
       */

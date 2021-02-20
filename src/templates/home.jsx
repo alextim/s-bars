@@ -13,7 +13,7 @@ import {
   ObjectTypes,
   Triptych,
   WorkTypes,
-  Recommended,
+  Carousel,
   Credo,
 } from '../components/home-page-parts';
 
@@ -56,7 +56,7 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
               items={sections[2].items}
             />
             <WorkTypes title={sections[3].title} items={sections[3].items} />
-            <Recommended
+            <Carousel
               title={sections[4].title}
               subtitle={sections[4].subtitle}
               text={sections[4].text}
@@ -95,7 +95,6 @@ export const pageQuery = graphql`
           title
           subtitle
           text
-          type
           items {
             title
             to

@@ -5,20 +5,40 @@ module.exports = {
   /* Meta */
   siteUrl,
 
-  /* Schema org */
+  /**
+   * Schema org
+   *
+   * folder: /static/assets
+   *  */
   siteBusinessPhoto: `${siteUrl}/assets/business-photo.jpg`, // or array maximum 3 images
   siteLogo: `${siteUrl}/assets/logo.svg`,
 
-  // Open Graph Image
-  // meta property="og:image
+  /**
+   * Open Graph Image
+   *
+   * meta property="og:image
+   * one image per locale
+   *
+   * Sample file name: og-banner-ru.jpg
+   *
+   * folder: /static/assets
+   * */
   ogImage: {
     src: `${siteUrl}/assets/og-banner-`,
     width: 1200,
     height: 630,
   },
 
-  // Twitter Image
-  // meta name="twitter:image
+  /**
+   * Twitter Image
+   *
+   * meta name="twitter:image
+   * one image per locale
+   *
+   * Sample file name: twitter-banner-2x1-ru.jpg
+   *
+   * folder: /static/assets
+   *  */
   twitterImage: {
     src: `${siteUrl}/assets/twitter-banner-2x1-`,
     width: 600,
@@ -27,19 +47,28 @@ module.exports = {
 
   // meta property="fb:app_id
   fbAppID: '',
-  // Twitter URL
-  // meta name="twitter:site"
+
+  /**
+   * Twitter URL
+   *
+   * meta name="twitter:site"
+   *  */
   twitterSite: '',
-  // Twitter Id
-  // meta name="twitter:creator"
+
+  /**
+   * Twitter Id
+   *
+   * meta name="twitter:creator"
+   *  */
   twitterCreator: '',
 
   googleAnalyticsID: '',
 
-  // webmanifest
+  /**
+   * webmanifest
+   *  */
   // meta name="theme-color"
   themeColor: '#3498DB',
-  // webmanifest
   backgroundColor: '#2e3246',
 
   POSTS_PATH: '/blog',
