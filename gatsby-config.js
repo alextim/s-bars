@@ -193,7 +193,7 @@ module.exports = {
     },
     'gatsby-plugin-netlify',
     // 'gatsby-plugin-sass',
-    // 'gatsby-plugin-remove-generator',
+    'gatsby-plugin-remove-generator',
     // 'gatsby-plugin-webpack-bundle-analyser-v2',
   ],
 };
