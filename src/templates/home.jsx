@@ -105,15 +105,8 @@ export const pageQuery = graphql`
               alt
               sm {
                 childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid_noBase64
-                  }
-                }
-              }
-              xl {
-                childImageSharp {
-                  fluid(maxWidth: 1920) {
-                    ...GatsbyImageSharpFluid_noBase64
+                  fluid(maxWidth: 1216) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                   }
                 }
               }

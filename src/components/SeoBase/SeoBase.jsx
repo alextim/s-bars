@@ -26,9 +26,9 @@ const SeoBase = ({
 
   const URL = `${config.siteUrl}${removeTrailingSlash(pathname)}`;
   const homeURL = i18n ? `${config.siteUrl}${i18n.localizePath('/', locale)}` : URL;
-  const isRoot = URL === homeURL;
 
   const purePath = i18n ? i18n.purePath(pathname) : pathname;
+  const isRoot = purePath === '/';
 
   const ogImage = { ...config.ogImage, src: `${config.ogImage.src}${locale}.jpg` };
   const twitterImage = { ...config.twitterImage, src: `${config.twitterImage.src}${locale}.jpg` };

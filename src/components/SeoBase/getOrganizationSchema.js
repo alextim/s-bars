@@ -1,3 +1,5 @@
+import Utils from '../../lib/utils';
+
 const getOpeningHours = (openingHours, dows) => {
   const parseDow = (s) => {
     if (!s) {
@@ -74,7 +76,10 @@ const getOrganizationSchema = ({
         contactType,
       };
       if (telephone) {
-        o.telephone = telephone.join();
+        o.telephone = telephone.reduce(
+          (acc, curr) => `${acc}${acc ? ', ' : ''}${Utils.formatPhone(curr)}`,
+          '',
+        );
       }
       if (email) {
         o.email = email.join();
