@@ -4,6 +4,7 @@ import { jsx } from '@emotion/react';
 import Img from 'gatsby-image';
 
 import mq from '../../../theme/media-queries';
+import { space } from '../../../theme/space';
 import { fontSizes } from '../../../theme/font-sizes';
 import fontWeights from '../../../theme/font-weights';
 
@@ -31,8 +32,10 @@ const styleDescription = {
 };
 
 const styleCustomerWrap = {
+  marginTop: space[1],
   textAlign: 'center',
   [mq.lg]: {
+    marginTop: 0,
     marginLeft: 'auto',
     textAlign: 'right',
   },
@@ -53,6 +56,7 @@ const styleSpacer = {
   marginRight: 'auto',
   visibility: 'hidden',
 };
+
 const Carouseltem = ({ heading, customer, description, image }) => {
   return (
     <div css={styleWrap}>

@@ -10,7 +10,7 @@
 git diff --diff-filter=d --cached --name-only | grep "\.js.\?$" | xargs ./node_modules/.bin/eslint
 */
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -18,6 +18,11 @@ module.exports = {
     ecmaVersion: 2019,
     sourceType: 'module',
     allowImportExportEverywhere: true,
+    requireConfigFile: false,
+    babelOptions: {
+      // plugins: ['@babel/plugin-proposal-class-properties'],
+      presets: ['@babel/preset-react'],
+    },
   },
   settings: {
     react: {
@@ -31,15 +36,15 @@ module.exports = {
     jest: true,
     node: true,
   },
-  plugins: ['prettier', '@emotion', 'react', 'react-hooks', 'import', 'jsx-a11y'],
+  plugins: ['@emotion', 'import', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
+    // 'plugin:react-hooks/recommended',
     'prettier',
     'airbnb',
     'airbnb/hooks',
-    'prettier/react',
+    // 'prettier/react',
     'plugin:prettier/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:import/errors',

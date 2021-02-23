@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import { graphql /* , Link */ } from 'gatsby';
-import Img from 'gatsby-image';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
@@ -10,17 +9,7 @@ import AsideServices from '../components/AsideServices';
 import AsideFeaturedPosts from '../components/AsideFeaturedPosts';
 // import AsideRecentPosts from '../components/AsideRecentPosts';
 
-const styleWrap = (t) => ({
-  display: 'grid',
-  gridGap: t.space[8],
-  [t.mq.lg]: {
-    gridTemplateColumns: '3fr 1fr',
-  },
-});
-
-const styleImg = (t) => ({
-  marginBottom: t.space[4],
-});
+import InnerAsideLayout from '../components/InnerAsideLayout';
 
 const styleWidgetArea = {
   display: 'flex',
@@ -46,19 +35,13 @@ const PostTemplate = ({ path, data, pageContext: { locale } }) => {
         pathname={path}
         noindex={noindex}
       />
-      <div css={styleWrap}>
-        <div>
-          {cover && cover.sm && (
-            <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} css={styleImg} />
-          )}
-          {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-        </div>
+      <InnerAsideLayout cover={cover} html={html}>
         <aside css={styleWidgetArea}>
           <AsideServices mainNav={mainNav} />
           <AsideFeaturedPosts items={data.featuredPosts.edges} />
           {/* <AsideRecentPosts items={data.recentPosts.edges} /> */}
         </aside>
-      </div>
+      </InnerAsideLayout>
     </Layout>
   );
 };

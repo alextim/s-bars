@@ -1,22 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import AsideServices from '../components/AsideServices';
 
-const styleWrap = (t) => ({
-  display: 'grid',
-  gridGap: t.space[8],
-  [t.mq.lg]: {
-    gridTemplateColumns: '3fr 1fr',
-  },
-});
-
-const styleImg = (t) => ({
-  marginBottom: t.space[4],
-});
+import InnerAsideLayout from '../components/InnerAsideLayout';
 
 const ServicePageTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
@@ -38,15 +27,9 @@ const ServicePageTemplate = ({ path, data, pageContext: { locale } }) => {
         pathname={path}
         noindex={noindex}
       />
-      <div css={styleWrap}>
-        <div>
-          {cover && cover.sm && (
-            <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} css={styleImg} />
-          )}
-          {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-        </div>
+      <InnerAsideLayout cover={cover} html={html}>
         <AsideServices mainNav={mainNav} />
-      </div>
+      </InnerAsideLayout>
     </Layout>
   );
 };
