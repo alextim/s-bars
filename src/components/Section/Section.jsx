@@ -38,7 +38,7 @@ const styleGgray = {
 };
 
 const styleBodyWrap = {
-  marginTop: space[10],
+  marginTop: space[4],
 };
 
 const Section = ({

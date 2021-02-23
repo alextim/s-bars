@@ -167,6 +167,7 @@ git push
 
 плохо:
 
+- `weekend-with-family.JPG` - расширение имени файла в верхнем регистре
 - `asdasda-cajjqq1sd.jpg` - непонятное имя
 - `мой-красивый-файл.jpg`- не английский алфавит
 - `MyAwesomeFile.jpg` - заглавные буквы

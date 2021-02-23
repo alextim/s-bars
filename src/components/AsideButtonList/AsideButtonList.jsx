@@ -12,10 +12,21 @@ const styleButton = {
   justifyContent: 'center',
 };
 
+const overrideCSS = {
+  textTransform: 'unset',
+};
+
 const AsideButtonList = ({ title: heading, items }) => (
   <AsideWidget title={heading}>
     {items.map(({ to, title }) => (
-      <Button key={to} tag="link" variant="outlined" to={to} css={styleButton}>
+      <Button
+        key={to}
+        tag="link"
+        variant="default"
+        to={to}
+        css={styleButton}
+        overrideCSS={overrideCSS}
+      >
         {title}
       </Button>
     ))}
