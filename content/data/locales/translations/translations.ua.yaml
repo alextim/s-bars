@@ -1,5 +1,5 @@
 - key: post.minToRead
-  value: 11122222хв читання
+  value: хв читання
 - key: post.readMore
   value: Читати далі...
 - key: post.widget.category
@@ -20,7 +20,7 @@
   value: Этот сайт использует куки для оптимизации, анализа трафика и сохранения ваших настроек.
 - key: cookie_warning.details
   value: Подробнее
-- key: home.cusomer
+- key: home.customer
   value: Замовник
 - key: form.send
   value: Надіслати

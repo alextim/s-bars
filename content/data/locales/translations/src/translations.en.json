@@ -93,6 +93,6 @@
   "priceList": {
     "name": "Name",
     "price": "Price",
-    "description": "Description",
+    "description": "Description"
   }
 }
