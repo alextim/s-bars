@@ -49,12 +49,12 @@
     }
   },
   "lint-staged": {
-    "{src/**/*.{js,jsx}": [
+    "src/**/*.{js,jsx}": [
       "eslint --fix",
       "prettier-eslint --write",
       "git add"
     ],
-    "{content/data/locales/translations/src/*.json}": [
+    "content/data/locales/translations/src/*.json": [
       "yarn translations:json2yaml",
       "git add"
     ]
