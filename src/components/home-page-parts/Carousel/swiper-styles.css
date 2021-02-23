@@ -7,5 +7,5 @@
 .aaa>.swiper-button-next,
 .aaa> .swiper-button-prev {
   position: absolute;
-  top: calc(50% - 2rem);
+  top: calc(50% - 2.5rem);
 }
