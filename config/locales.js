@@ -5,7 +5,7 @@
  * Site Title    - Logo.jsx:         siteShortName
  */
 module.exports = {
-  ua: {
+  uk: {
     default: true,
 
     htmlLang: 'uk', // uk-ua
