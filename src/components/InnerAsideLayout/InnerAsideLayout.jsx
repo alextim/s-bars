@@ -9,8 +9,14 @@ const styleWrap = (t) => ({
   [t.mq.lg]: {
     display: 'grid',
     gridGap: t.space[8],
-    gridTemplateColumns: '1fr 3fr',
-    gridTemplateRows: 'minmax(100px, 400px) auto',
+    grid: 'auto 1fr/1fr 3fr',
+  },
+});
+
+const styleImg = (t) => ({
+  marginBottom: t.space[8],
+  [t.mq.lg]: {
+    marginBottom: 0,
   },
 });
 
@@ -18,7 +24,7 @@ const styleHtmlWrap = (t) => ({
   marginBottom: t.space[8],
   [t.mq.lg]: {
     gridColumn: 2,
-    gridRow: '1 / span 2',
+    gridRow: 'auto/span 2',
     marginBottom: 0,
   },
 });
@@ -26,16 +32,6 @@ const styleHtmlWrap = (t) => ({
 const styleAsideWrap = (t) => ({
   [t.mq.lg]: {
     gridColumn: 1,
-    gridRow: 2,
-  },
-});
-
-const styleImg = (t) => ({
-  marginBottom: t.space[8],
-  [t.mq.lg]: {
-    gridColumn: 1,
-    gridRow: 1,
-    marginBottom: 0,
   },
 });
 

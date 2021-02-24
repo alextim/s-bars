@@ -6,7 +6,6 @@ import Img from 'gatsby-image';
 import mq from '../../../theme/media-queries';
 import { space } from '../../../theme/space';
 import { fontSizes } from '../../../theme/font-sizes';
-import fontWeights from '../../../theme/font-weights';
 
 const styleWrap = {
   display: 'flex',
@@ -31,10 +30,8 @@ const styleTextWrap = {
 
 const styleDescription = {
   textAlign: 'center',
-  fontSize: fontSizes[0],
   [mq.lg]: {
     gridColumnStart: 2,
-    fontSize: fontSizes[1],
   },
 };
 
@@ -48,19 +45,16 @@ const styleCustomerWrap = {
     textAlign: 'right',
   },
 };
+
 const styleCustomerHeading = {
-  fontSize: fontSizes[0],
   ':after': {
     content: '":"',
-  },
-  [mq.lg]: {
-    fontSize: fontSizes[1],
   },
 };
 
 const styleCustomerName = {
   textTransform: 'uppercase',
-  fontWeight: fontWeights.bold,
+  fontSize: fontSizes[3],
 };
 
 const Carouseltem = ({ heading, customer, description, image }) => {

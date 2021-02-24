@@ -20,8 +20,7 @@ const styleTitle = {
 };
 
 const styleTitleRound = {
-  marginTop: space[6],
-  marginBottom: space[2],
+  marginBottom: space[4],
   textAlign: 'center',
 };
 
@@ -120,9 +119,9 @@ export const SectionItemImage = ({ data }) => {
 };
 const styleImageRound = {
   borderRadius: '50%',
-  height: '18rem',
-  width: '18rem',
-  marginBottom: space[4],
+  height: '12.5rem',
+  width: '12.5rem',
+  marginBottom: space[6],
 };
 
 const styleWrapRound = {

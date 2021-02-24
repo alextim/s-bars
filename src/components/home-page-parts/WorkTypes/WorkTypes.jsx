@@ -8,6 +8,7 @@ import Section from '../../Section';
 import { SectionItemRound as SectionItem } from '../../SectionItem';
 
 const styleWrap = {
+  marginTop: space[9],
   display: 'grid',
   gridGap: space[10],
   [mq.lg]: {

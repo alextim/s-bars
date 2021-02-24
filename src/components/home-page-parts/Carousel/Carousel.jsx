@@ -3,23 +3,31 @@ import { jsx } from '@emotion/react';
 
 // https://swiperjs.com/react
 // import Swiper core and required modules
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useTranslation } from '../../../i18n';
 import Section from '../../Section';
 import CarouselItem from './CarouselItem';
 
-import './swiper-styles.css';
+import './carousel.css';
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const Carousel = ({ title, subtitle, text, items }) => {
   const { t } = useTranslation();
   const heading = t('home.customer');
   return (
     <Section title={title} subtitle={subtitle} text={text}>
-      <Swiper className="aaa" slidesPerView={1} spaceBetween={0} navigation pagination loop>
+      <Swiper
+        className="sb_carousel"
+        slidesPerView={1}
+        spaceBetween={0}
+        navigation
+        pagination
+        autoplay
+        loop
+      >
         {items &&
           items.map(({ title: customer, image, text: description }, i) => (
             <SwiperSlide key={i}>

@@ -291,7 +291,7 @@ const GlobalStyle = () => (
       }
 
       h2 {
-        font-size: ${fontSizes[5]};
+        font-size: ${fontSizes[6]};
         margin-bottom: ${space[4]};
         ${mq.lg} {
           font-size: ${fontSizes[6]};
@@ -299,7 +299,7 @@ const GlobalStyle = () => (
       }
 
       h3 {
-        font-size: ${fontSizes[4]};
+        font-size: ${fontSizes[5]};
         margin-bottom: ${space[2]};
         ${mq.lg} {
           font-size: ${fontSizes[5]};
