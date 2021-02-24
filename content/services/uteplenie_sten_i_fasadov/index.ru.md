@@ -54,9 +54,12 @@ _Большая экономия энергоресурсов._
 8.  2й слой покраски
 
 <div class="grid_3-col">
-  <img src="assets/fasad-1.jpg" alt="" />
-  <img src="assets/fasad-2.jpg" alt="" />
-  <img src="assets/fasad-3.jpg" alt="" />
+  <img src="assets/images/fasad-1.jpg" alt="" />
+  <img src="assets/images/fasad-2.jpg" alt="" />
+  <img src="assets/images/fasad-3.jpg" alt="" />
 </div>
-<br/>
+
+
+
+
 На все выполненные работы по утеплению **_«Снежный Барс»_** предоставляет трёхлетнюю гарантию. Мы поддерживаем постоянную связь с клиентами. Ведь нет лучшей награды для Мастера, чем уверенность в том, что каждый человек остаётся доволен его работой!

@@ -10,8 +10,8 @@ module.exports = {
    *
    * folder: /static/assets
    *  */
-  siteBusinessPhoto: `${siteUrl}/assets/business-photo.jpg`, // or array maximum 3 images
-  siteLogo: `${siteUrl}/assets/logo.svg`,
+  siteBusinessPhoto: `${siteUrl}/assets/images/business-photo.jpg`, // or array maximum 3 images
+  siteLogo: `${siteUrl}/assets/images/logo.svg`,
 
   /**
    * Open Graph Image
@@ -21,10 +21,10 @@ module.exports = {
    *
    * Sample file name: og-banner-ru.jpg
    *
-   * folder: /static/assets
+   * folder: /static/assets/images
    * */
   ogImage: {
-    src: `${siteUrl}/assets/og-banner-`,
+    src: `${siteUrl}/assets/images/og-banner-`,
     width: 1200,
     height: 630,
   },
@@ -37,10 +37,10 @@ module.exports = {
    *
    * Sample file name: twitter-banner-2x1-ru.jpg
    *
-   * folder: /static/assets
+   * folder: /static/assets/images
    *  */
   twitterImage: {
-    src: `${siteUrl}/assets/twitter-banner-2x1-`,
+    src: `${siteUrl}/assets/images/twitter-banner-2x1-`,
     width: 600,
     height: 300,
   },

@@ -6,10 +6,7 @@ import colors from '../../theme/colors';
 import { space } from '../../theme/space';
 
 const styleTitle = {
-  fontSize: '2rem',
-  [mq.lg]: {
-    fontSize: '2.5rem',
-  },
+  /* empty */
 };
 
 const styleSubtitle = {
@@ -23,11 +20,11 @@ const styleSubtitle = {
 const innerWrapperStyle = {
   color: colors.black,
   margin: `${space[7]} auto`,
-  paddingLeft: space[6],
-  paddingRight: space[6],
   textTransform: 'uppercase',
   textAlign: 'center',
   [mq.md]: {
+    paddingLeft: space[6],
+    paddingRight: space[6],
     lineHeight: 1.25,
   },
 };

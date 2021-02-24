@@ -13,7 +13,7 @@ import colors from '../../theme/colors';
 import fontWeights from '../../theme/font-weights';
 import { fontSizes } from '../../theme/font-sizes';
 
-const SITE_LOGO = '/assets/logo.svg';
+const SITE_LOGO = '/assets/images/logo.svg';
 
 const styleWrap = {
   display: 'inline-flex',
