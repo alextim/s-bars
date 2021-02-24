@@ -57,19 +57,17 @@ const styleCustomerName = {
   fontSize: fontSizes[3],
 };
 
-const Carouseltem = ({ heading, customer, description, image }) => {
-  return (
-    <div css={styleWrap}>
-      {image && image.sm && <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} />}
-      <div css={styleTextWrap}>
-        <div css={styleDescription} dangerouslySetInnerHTML={{ __html: description }} />
-        <div css={styleCustomerWrap}>
-          <div css={styleCustomerHeading}>{heading}</div>
-          <div css={styleCustomerName}>{customer}</div>
-        </div>
+const Carouseltem = ({ heading, customer, description, image }) => (
+  <div css={styleWrap}>
+    {image && image.sm && <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} />}
+    <div css={styleTextWrap}>
+      <div css={styleDescription} dangerouslySetInnerHTML={{ __html: description }} />
+      <div css={styleCustomerWrap}>
+        <div css={styleCustomerHeading}>{heading}</div>
+        <div css={styleCustomerName}>{customer}</div>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default Carouseltem;
