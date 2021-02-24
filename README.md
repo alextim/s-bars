@@ -852,6 +852,14 @@ sections:
 
 Файлы: `privacy.uk.md` и `privacy.ru.md`
 
+#### Cтраница "Послать запрос"
+
+Папка: `[PROJECT_DIR]\content\pages\inquiry`
+
+Файлы: `inquiry.uk.md` и `inquiry.ru.md`
+
+Формируется полностью программно.
+
 #### Cтраница "404"
 
 Папка: `[PROJECT_DIR]\content\pages\404`
