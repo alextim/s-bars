@@ -26,9 +26,7 @@ import './swiper-styles.css';
 import SliderItem from './SliderItem';
 
 import { space } from '../../../theme/space';
-import fonts from '../../../theme/fonts';
 import { fontSizes } from '../../../theme/font-sizes';
-import fontWeights from '../../../theme/font-weights';
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Autoplay]);
@@ -39,9 +37,9 @@ const styleWrap = {
 
 const styleTitle = {
   marginTop: space[2],
-  fontFamily: fonts.body,
+  fontFamily: 'inherit',
   fontSize: fontSizes[3],
-  fontWeight: fontWeights.body,
+  fontWeight: 'inherit',
   textAlign: 'center',
 };
 
