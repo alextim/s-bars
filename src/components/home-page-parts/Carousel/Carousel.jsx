@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useTranslation } from '../../../i18n';
 import Section from '../../Section';
-import Carouseltem from './Carouseltem';
+import CarouselItem from './CarouselItem';
 
 import './swiper-styles.css';
 
@@ -23,7 +23,7 @@ const Carousel = ({ title, subtitle, text, items }) => {
         {items &&
           items.map(({ title: customer, image, text: description }, i) => (
             <SwiperSlide key={i}>
-              <Carouseltem
+              <CarouselItem
                 heading={heading}
                 customer={customer}
                 description={description}

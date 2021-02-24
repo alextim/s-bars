@@ -27,16 +27,6 @@ const styleImg = {
   marginTop: space[2],
 };
 
-const styleSmall = {
-  margin: `${space[8]} 0`,
-};
-
-const styleGgray = {
-  margin: 0,
-  padding: `${space[8]} 0`,
-  backgroundColor: '#d2d1ce',
-};
-
 const styleBodyWrap = {
   marginTop: space[4],
 };
@@ -46,38 +36,24 @@ const Section = ({
   subtitle,
   text,
   image,
-  overrideCSS,
-  small,
-  gray,
   textLast,
   textAlign = 'match-parent',
   children,
 }) => {
-  const styles = [styleWrap];
-  if (small) {
-    styles.push(styleSmall);
-  }
-  if (gray) {
-    styles.push(styleGgray);
-  }
-  if (overrideCSS) {
-    styles.push(overrideCSS);
-  }
-
   const styleText = {
     ...styleTextDefault,
     textAlign,
   };
 
   return (
-    <section css={styles}>
+    <section css={styleWrap}>
       {title && <h2 css={styleTitle}>{title}</h2>}
       {subtitle && <div css={styleSubtitle}>{subtitle}</div>}
       {image && image.sm && (
         <Img css={styleImg} fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
       )}
       {!textLast && text && <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />}
-      {children && <div css={styleBodyWrap}>{children}</div>}
+      <div css={styleBodyWrap}>{children}</div>
       {textLast && text && <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />}
     </section>
   );

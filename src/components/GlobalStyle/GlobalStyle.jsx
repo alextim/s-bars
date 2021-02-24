@@ -48,7 +48,7 @@ const GlobalStyle = () => (
       /* oswald-700 - cyrillic */
       @font-face {
         font-family: 'Oswald';
-        font-display: optional;
+        font-display: swap;
         font-style: normal;
         font-weight: 700;
         src: local('Oswald'), url('/assets/fonts/oswald-v36-cyrillic-700.woff2') format('woff2'); // Chrome 26+, Opera 23+, Firefox 39+
@@ -58,7 +58,7 @@ const GlobalStyle = () => (
       /* open-sans-regular - latin_cyrillic */
       @font-face {
         font-family: 'Open Sans';
-        font-display: optional;
+        font-display: fallback;
         font-style: normal;
         font-weight: 400;
         src: local(''),
@@ -69,7 +69,7 @@ const GlobalStyle = () => (
       /* open-sans-italic - latin_cyrillic */
       @font-face {
         font-family: 'Open Sans';
-        font-display: optional;
+        font-display: fallback;
         font-style: italic;
         font-weight: 400;
         src: local(''),
@@ -80,7 +80,7 @@ const GlobalStyle = () => (
       /* open-sans-700 - latin_cyrillic */
       @font-face {
         font-family: 'Open Sans';
-        font-display: optional;
+        font-display: fallback;
         font-style: normal;
         font-weight: 700;
         src: local(''), url('/assets/fonts/open-sans-v18-latin_cyrillic-700.woff2') format('woff2'); // Chrome 26+, Opera 23+, Firefox 39+

@@ -8,7 +8,7 @@ module.exports = {
   ua: {
     default: true,
 
-    htmlLang: 'uk',
+    htmlLang: 'uk', // uk-ua
     formatLocale: 'ua-UA',
     ogLocale: 'uk_UA',
     name: 'Ukranian',
@@ -26,7 +26,7 @@ module.exports = {
   },
 
   ru: {
-    htmlLang: 'ru',
+    htmlLang: 'ru', // ru-UA
     formatLocale: 'ru-UA',
     ogLocale: 'ru_UA',
     name: 'Russian',
