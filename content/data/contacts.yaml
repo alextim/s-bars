@@ -6,10 +6,7 @@ hasMap: "https://www.google.com/maps/place/%D0%9F%D1%80%D0%BE%D0%BC%D1%8B%D1%88%
 
 embedMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2605.2160827083967!2d28.447259316468088!3d49.23439227932624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472d5b6afddf5ffb%3A0x8906a33b7ca4a566!2z0J_RgNC-0LzRi9GI0LvQtdC90L3Ri9C5INCw0LvRjNC_0LjQvdC40LfQvCAi0KHQvdC10LbQvdGL0Lkg0JHQsNGA0YEi!5e0!3m2!1sru!2sua!4v1612028807248!5m2!1sru!2sua"
 
-phone:
-  - 380965553092
-  - 380979705376
-  - 380432573695
+phone: [380965553092, 380979705376, 380432573695]
 
 #voice:
 #skype: sample,
@@ -19,9 +16,7 @@ phone:
 
 #fax:
 
-email:
-  - promalp.s.bars@gmail.com
-  - andrey.karpenko7@gmail.com
+email: [promalp.s.bars@gmail.com, andrey.karpenko7@gmail.com]
 
 openingHours:
   - ['mo-sa', '09:00', '18:00']
