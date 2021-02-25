@@ -7,6 +7,7 @@ const IconLink = ({ children, to, icon, title, css = {}, ...props }) => {
   const styleWrap = {
     display: 'inline-flex',
     alignItems: 'center',
+    justifyContent: 'start',
     ...css,
   };
   const styleLink = {
