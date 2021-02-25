@@ -894,6 +894,7 @@ sections:
 Список типов объектов из папки `[PROJECT_DIR]\content\object-types` в соответствии с подменю второго пункта Главного меню.
 
 
+
 #### Cтраница "Прайс"
 
 Папка: `[PROJECT_DIR]\content\pages\price-list`
@@ -901,7 +902,8 @@ sections:
 Файлы: `price-list.uk.md` и `price-list.ru.md`
 
 
-Содержит одну секцию.
+Содержит одну секцию со списком позиций прайс-листа.
+
 
 
 #### Cтраница "Блог"
@@ -912,6 +914,7 @@ sections:
 
 
 Список постов из папки `[PROJECT_DIR]\content\posts` со статусом **published** и отсортированный по дате публикации `publishedDate`.
+
 
 
 #### Cтраница "О нас"
@@ -931,6 +934,7 @@ sections:
 | 1         | Триптих                   |  1.85 : 1            | 592 x 320
 
 
+
 #### Cтраница "Контакты"
 
 Папка: `[PROJECT_DIR]\content\pages\contacts`
@@ -944,11 +948,14 @@ sections:
 - `address.{ЯЗЫК}.yaml`
 
 
+
 #### Cтраница "Конфиденциальность"
 
 Папка: `[PROJECT_DIR]\content\pages\privacy`
 
 Файлы: `privacy.uk.md` и `privacy.ru.md`
+
+
 
 #### Cтраница "Послать запрос"
 
@@ -957,6 +964,8 @@ sections:
 Файлы: `inquiry.uk.md` и `inquiry.ru.md`
 
 Формируется полностью программно.
+
+
 
 #### Cтраница "404"
 
@@ -972,11 +981,17 @@ sections:
 
 *Файл с редиректами: `[PROJECT_DIR]\static\_redirects`*
 
+
+
 #### Cтраница "Услуги для частного клиента"
 
 Папка: `[PROJECT_DIR]\content\pages\services-for-private-clients`
 
 Файлы: `services-for-private-clients.uk.md` и `services-for-private-clients.ru.md`
+
+Перейти на эту страницу можно по ссылке со страницы "Услуги"
+
+
 
 
 ## Данные для формирования элементов сайта
@@ -998,7 +1013,7 @@ sections:
 | e-mail       | футер и SEO                   | список, разделитель элементов `,`
 | openingHours | страница "Контакты" и SEO     | [рабочее время](https://schema.org/openingHours)
 | priceRange   | SEO                           | [диапазон цен](https://schema.org/priceRange), валидные значения: `$`, `$$`, `$$$`, `$$$$`
-| foundingDate | футера и SEO                  | [дата основания](https://schema.org/foundingDate) в формате ISO 8601
+| foundingDate | футер и SEO                   | [дата основания](https://schema.org/foundingDate) в формате ISO 8601
 
 :bulb: Номер телефона допускает только цифры, без плюса спереди, без пробелов, скобок и прочих символов.
 
