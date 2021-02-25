@@ -984,8 +984,8 @@ sections:
 |   Поле       | Назначение                    | Описание
 |---           |---                            |---
 | geo          | SEO                           | [географические координаты](https://schema.org/geo)
-| hasMap       | SEO                           | [ссылка на Google карты](https://schema.org/hasMap)
-| embedMap     | страница "Контакты"           | ссылка на Google карты
+| hasMap       | SEO                           | [ссылка на Google-карты](https://schema.org/hasMap)
+| embedMap     | страница "Контакты"           | ссылка на Google-карты для вставки в страницу
 | phone        | футер и SEO                   | список цифровых значений, разделитель элементов `,`.
 | e-mail       | футер и SEO                   | список, разделитель элементов `,`.
 | openingHours | страница "Контакты" и SEO     | [рабочее время](https://schema.org/openingHours)
