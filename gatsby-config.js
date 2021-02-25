@@ -8,6 +8,9 @@ const config = require('./config/website');
 
 const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
+// const content = 'content';
+const content = 's-bars.content';
+
 module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl,
@@ -17,35 +20,35 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
-        path: `${__dirname}/content/data`,
+        path: `${__dirname}/${content}/data`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
-        path: `${__dirname}/content/pages`,
+        path: `${__dirname}/${content}/pages`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'object-types',
-        path: `${__dirname}/content/object-types`,
+        path: `${__dirname}/${content}/object-types`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'services',
-        path: `${__dirname}/content/services`,
+        path: `${__dirname}/${content}/services`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: `${__dirname}/content/posts`,
+        path: `${__dirname}/${content}/posts`,
       },
     },
     {

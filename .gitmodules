@@ -1,0 +1,3 @@
+[submodule "s-bars.content"]
+	path = s-bars.content
+	url = https://github.com/alextim/s-bars.content.git
