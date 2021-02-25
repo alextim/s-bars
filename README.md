@@ -989,8 +989,8 @@ sections:
 | phone        | футер и SEO                   | список цифровых значений, разделитель элементов `,`.
 | e-mail       | футер и SEO                   | список, разделитель элементов `,`.
 | openingHours | страница "Контакты" и SEO     | [рабочее время](https://schema.org/openingHours)
-| priceRange   | SEO                           | [диапазон цен](https://schema.org/priceRange)
-| foundingDate | футера и SEO                  | [дата основания](https://schema.org/foundingDate)
+| priceRange   | SEO                           | [диапазон цен](https://schema.org/priceRange), валидные значения: `$`, `$$`, `$$$`, `$$$$`
+| foundingDate | футера и SEO                  | [дата основания](https://schema.org/foundingDate) в формате ISO 8601
 
 :bulb: Номер телефона допускает только цифры, без плюса спереди, без пробелов, скобок и прочих символов.
 
