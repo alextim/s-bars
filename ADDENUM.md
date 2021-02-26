@@ -1,13 +1,5 @@
 # Addenum
 
-
-| View    | Ratio    | Size in px |
-| ------- | -------- | ---------- |
-| Слайдер | 16 x 8.1 | 1240 x 450 |
-| Mobile  | 1 x 1    | 600 x 600  |
-
-
-
 ## TO-DO
 
 - [ ] detect language

@@ -1,4 +1,7 @@
 /**
+ * https://simonhearne.com/2021/layout-shifts-webfonts/
+ * https://meowni.ca/font-style-matcher/
+ *
  * Microsoft
  * Segoe UI,SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif
  *
@@ -9,12 +12,12 @@
  * BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif
  *
  * wordpress.com
- * -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif
+ * -apple-system,BlinkMacSystemFont,"Segoe UI", Roboto,"Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif
  */
-const webSafeFont = 'BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif';
+// const webSafeFont = 'BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif';
 const fonts = {
-  body: `"Open Sans", ${webSafeFont}`,
-  heading: `Oswald, ${webSafeFont}`,
+  body: '"Open Sans", fallback-body-font, sans-serif',
+  heading: 'Oswald, fallback-heading-font, sans-serif',
   monospace: 'Menlo, monospace',
 };
 

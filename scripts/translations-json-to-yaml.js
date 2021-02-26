@@ -7,8 +7,10 @@
 const fs = require('fs');
 const locales = require('../config/locales');
 
+const { content } = require('../config/website');
+
 const FILE_NAME = 'translations';
-const FOLDER_NAME = 'content/data/locales/translations/';
+const FOLDER_NAME = `../${content}/data/locales/translations/`;
 
 const sanitize = (key, value) => {
   if (!value) {

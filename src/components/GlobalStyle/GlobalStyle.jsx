@@ -52,8 +52,7 @@ const GlobalStyle = () => (
         font-style: normal;
         font-weight: 700;
         src: local('Oswald Bold'), local('Oswald-Bold'), local('OswaldBold'),
-          url('/assets/fonts/oswald-v36-cyrillic-700.woff2') format('woff2'); // Chrome 26+, Opera 23+, Firefox 39+
-        // url('/assets/fonts/oswald-v36-cyrillic-700.woff') format('woff'); // Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+
+          url('/assets/fonts/oswald-v36-cyrillic-700.woff2') format('woff2');
       }
 
       // open-sans-regular - latin_cyrillic
@@ -63,32 +62,20 @@ const GlobalStyle = () => (
         font-style: normal;
         font-weight: 400;
         src: local('Open Sans'), local('OpenSans'), local('Open Sans Regular'), local('OpenSans-Regular'), local('OpenSansRegular'),
-          url('/assets/fonts/open-sans-v18-latin_cyrillic-regular.woff2') format('woff2'); // Chrome 26+, Opera 23+, Firefox 39+
-        // url('/assets/fonts/open-sans-v18-latin_cyrillic-regular.woff') format('woff'); // Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+
-      }
-      /*
-      // open-sans-italic - latin_cyrillic
-      @font-face {
-        font-family: 'Open Sans';
-        font-display: optional;
-        font-style: italic;
-        font-weight: 400;
-        src: local('Open Sans Italic'), local('OpenSans-Italic'), local('OpenSansItalic'),
-          url('/assets/fonts/open-sans-v18-latin_cyrillic-italic.woff2') format('woff2'); // Chrome 26+, Opera 23+, Firefox 39+
-        // url('/assets/fonts/open-sans-v18-latin_cyrillic-italic.woff') format('woff'); // Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+
+          url('/assets/fonts/open-sans-v18-latin_cyrillic-regular.woff2') format('woff2');
       }
 
-      // open-sans-700 - latin_cyrillic
       @font-face {
-        font-family: 'Open Sans';
-        font-display: optional;
-        font-style: normal;
-        font-weight: 700;
-        src: local('Open Sans Bold'), local('OpenSans-Bold'), local('OpenSansBold'),
-          url('/assets/fonts/open-sans-v18-latin_cyrillic-700.woff2') format('woff2'); // Chrome 26+, Opera 23+, Firefox 39+
-        // url('/assets/fonts/open-sans-v18-latin_cyrillic-700.woff') format('woff'); // Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+
+        font-family: 'fallback-heading-font';
+        advance-override: -0.125; // Letter spacing: -2px
+        src: local('Arial');
       }
-      */
+
+      @font-face {
+        font-family: 'fallback-body-font';
+        advance-override: 0.03125; // Letter spacing: -0.5px
+        src: local('Arial');
+      }
       body {
         margin: 0;
         font-family: ${fonts.body};
