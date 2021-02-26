@@ -54,7 +54,12 @@ const GlobalStyle = () => (
         src: local('Oswald Bold'), local('Oswald-Bold'), local('OswaldBold'),
           url('/assets/fonts/oswald-v36-cyrillic-700.woff2') format('woff2');
       }
-
+      @font-face {
+        font-family: 'fallback-heading-font';
+        advance-override: -0.0923828125; // Letter spacing: -1.5px
+        src: local('Arial');
+      }
+      /*
       // open-sans-regular - latin_cyrillic
       @font-face {
         font-family: 'Open Sans';
@@ -66,16 +71,11 @@ const GlobalStyle = () => (
       }
 
       @font-face {
-        font-family: 'fallback-heading-font';
-        advance-override: -0.125; // Letter spacing: -2px
-        src: local('Arial');
-      }
-
-      @font-face {
         font-family: 'fallback-body-font';
-        advance-override: 0.03125; // Letter spacing: -0.5px
+        advance-override: 0.021875; // 0.35 / 16, Letter spacing: 0.35px
         src: local('Arial');
       }
+      */
       body {
         margin: 0;
         font-family: ${fonts.body};

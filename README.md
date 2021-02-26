@@ -131,7 +131,8 @@
 - Умение пользоваться командной строкой.
 - Умение пользоваться текстовым и графическим редакторами.
 - Базовые знания форматов HTML, Markdown и YAML.
-
+- Понимание SEO.
+  
 В сети есть много ресурсов об устройстве этих форматов. Ниже несколько ссылок для ознакомления.
 
 HTML:
@@ -146,6 +147,7 @@ Markdown:
 YAML:
 
 - [Wiki](https://ru.wikipedia.org/wiki/YAML)
+- [Работа в YAML](https://starkovden.github.io/working-in-YAML.html)
 - [YAML Ain’t Markup Language (YAML™) Version 1.2](https://yaml.org/spec/1.2/spec.html)
 
 
