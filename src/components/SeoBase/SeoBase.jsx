@@ -20,8 +20,8 @@ const SeoBase = ({
   organization,
   i18n,
   dows,
+  article,
 }) => {
-  const article = false;
   const isBlog = false;
 
   const URL = `${config.siteUrl}${removeTrailingSlash(pathname)}`;
@@ -37,7 +37,7 @@ const SeoBase = ({
 
   const schemaWebPage = {
     '@context': 'http://schema.org',
-    '@type': isBlog ? 'Blog' : 'WebPage',
+    '@type': isBlog ? 'Blog' : 'WebPage', // WebSite Article
     url: URL,
     headline: siteHeadline,
     inLanguage: htmlLang,
@@ -87,9 +87,7 @@ const SeoBase = ({
           .map((code) => (
             <meta key={code} property="og:locale:alternate" content={i18n.locales[code].ogLocale} />
           ))}
-      {socialLinks && socialLinks.facebook && (
-        <meta property="og:site_name" content={socialLinks.facebook.to} />
-      )}
+      <meta property="og:site_name" content={i18n.locales[locale].siteShortName} />
       <meta property="og:url" content={URL} />
       <meta property="og:type" content={article ? 'article' : 'website'} />
       <meta property="og:title" content={metaTitle} />

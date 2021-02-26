@@ -8,7 +8,16 @@ import { useAppContext } from '../../context';
 import useSocialLinks from '../../hooks/useSocialLinks';
 import useOrganization from '../../hooks/useOrganization';
 
-const SEO = ({ title, description, locale, pathname, canonical, noindex = false, metas = [] }) => {
+const SEO = ({
+  title,
+  description,
+  locale,
+  pathname,
+  canonical = true,
+  noindex = false,
+  article = true,
+  metas = [],
+}) => {
   const socialLinks = useSocialLinks();
   const { address, translations } = useAppContext();
   const organization = useOrganization();
@@ -43,6 +52,7 @@ const SEO = ({ title, description, locale, pathname, canonical, noindex = false,
       organization={organization}
       i18n={i18n}
       dows={dows}
+      article={article}
     />
   );
 };

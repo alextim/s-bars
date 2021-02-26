@@ -1,5 +1,20 @@
 # Addenum
 
+## Useful Links
+
+[Mozilla Observatory](https://observatory.mozilla.org/)
+[Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=en)
+[gtmetrix.com](https://gtmetrix.com/)
+[Website Speed Test](https://tools.keycdn.com/speed)
+https://www.site24x7.com/check-website-availability.html
+https://www.webpagetest.org/
+
+for images
+the BEST!!!!!
+https://www.dareboost.com/
+
+
+https://ogp.me/#types
 ## TO-DO
 
 - [ ] detect language

@@ -37,6 +37,7 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
         description={metaDescription || description}
         pathname={path}
         noindex={noindex}
+        article={false}
       />
 
       <Container>

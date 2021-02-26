@@ -50,7 +50,12 @@ module.exports = {
     height: 300,
   },
 
-  // meta property="fb:app_id
+  /**
+   * In order to use Facebook Insights you must add the app ID to your page.
+   * Insights lets you view analytics for traffic to your site from Facebook.
+   *
+   * meta property="fb:app_id
+   */
   fbAppID: '',
 
   /**
