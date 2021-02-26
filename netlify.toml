@@ -11,3 +11,9 @@
   for = "/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+
+[[headers]]
+  for = "/404.html"
+  [headers.values]
+    Cache-Control = "max-age=300"
