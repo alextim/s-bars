@@ -6,6 +6,11 @@ module.exports = {
   siteUrl,
 
   /**
+   * name of content folder
+   */
+  content: 's-bars.content',
+
+  /**
    * Schema org
    *
    * folder: /static/assets

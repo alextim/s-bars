@@ -8,8 +8,7 @@ const config = require('./config/website');
 
 const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
-// const content = 'content';
-const content = 's-bars.content';
+const { content } = config;
 
 module.exports = {
   siteMetadata: {

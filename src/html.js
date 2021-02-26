@@ -19,18 +19,19 @@ export default function HTML(props) {
 
         <link
           rel="preload"
-          href="/assets/fonts/oswald-v36-cyrillic-700.woff2"
+          href="/assets/fonts/open-sans-v18-latin_cyrillic-regular.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/assets/fonts/open-sans-v18-latin_cyrillic-regular.woff2"
+          href="/assets/fonts/oswald-v36-cyrillic-700.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        {/*
         <link
           rel="preload"
           href="/assets/fonts/open-sans-v18-latin_cyrillic-italic.woff2"
@@ -45,7 +46,7 @@ export default function HTML(props) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-
+        */}
         {headComponents}
       </head>
 
