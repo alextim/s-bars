@@ -193,7 +193,18 @@ module.exports = {
         id: 'portal',
       },
     },
-    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        allPageHeaders: [
+          "Content-Security-Policy: default-src 'self'; prefetch-src 'self'; connect-src 'self' *.google-analytics.com; manifest-src 'self'; style-src 'self' 'unsafe-inline'; base-uri 'none'; frame-src https://www.youtube.com *.google.com; frame-ancestors 'none'; form-action 'none'; script-src 'self' *.google-analytics.com maps.googleapis.com 'unsafe-inline';img-src data: 'self' *.google-analytics.com maps.gstatic.com *.googleapis.com *.ggpht *.ytimg.com;object-src 'none'",
+        ],
+        headers: {
+          '/assets/*': ['Cache-Control = public, max-age=31536000, immutable'],
+          '/404.html': ['Cache-Control = max-age=300'],
+        },
+      },
+    },
     // 'gatsby-plugin-sass',
     'gatsby-plugin-remove-generator',
     // 'gatsby-plugin-webpack-bundle-analyser-v2',

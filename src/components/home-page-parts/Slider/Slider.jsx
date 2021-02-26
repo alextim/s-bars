@@ -51,14 +51,7 @@ const styleText = {
 const Slider = ({ title, text, items }) => {
   return (
     <section css={styleWrap}>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={0}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay
-        loop
-      >
+      <Swiper slidesPerView={1} spaceBetween={0} navigation pagination autoplay loop>
         {items &&
           items.map(
             ({ title: itemTitle, subtitle: itemSubtitle, image, to, text: itemText }, i) => (
