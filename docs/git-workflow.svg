@@ -3,7 +3,7 @@
 <!-- Создано Microsoft Visio, экспорт SVG git-workflow.svg Page-1 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
 		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="11.6929in" height="8.26772in"
-		viewBox="0 0 841.89 595.276" xml:space="preserve" color-interpolation-filters="sRGB" class="st18">
+		viewBox="0 0 841.89 595.276" xml:space="preserve" color-interpolation-filters="sRGB" class="st19">
 	<v:documentProperties v:langID="1049" v:metric="true" v:viewMarkup="false">
 		<v:userDefs>
 			<v:ud v:nameU="msvSubprocessMaster" v:prompt="" v:val="VT4(Rectangle)"/>
@@ -28,9 +28,10 @@
 		.st13 {fill:#5b9bd5;fill-opacity:1;stroke:#5b9bd5;stroke-opacity:1;stroke-width:0.28409090909091}
 		.st14 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
 		.st15 {fill:#4f87bb;font-family:Calibri;font-size:1.16666em}
-		.st16 {fill:#000000;font-family:Calibri;font-size:1.00001em}
-		.st17 {stroke:#5b9bd5;stroke-width:0.75}
-		.st18 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+		.st16 {fill:#ffffff;stroke:none;stroke-linecap:butt}
+		.st17 {fill:#000000;font-family:Calibri;font-size:1.00001em}
+		.st18 {stroke:#5b9bd5;stroke-width:0.75}
+		.st19 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
 
@@ -192,7 +193,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="87.3102" cy="588.098" width="70" height="24.8035"/>
 			<path d="M0 588.28 L79.37 588.28 L79.37 588.1 L167.76 588.1" class="st12"/>
-			<rect v:rectContext="textBkgnd" x="64.7107" y="579.698" width="45.1989" height="16.8" class="st14"/>
+			<rect v:rectContext="textBkgnd" x="64.7107" y="579.698" width="45.1989" height="16.8" class="st16"/>
 			<text x="64.71" y="592.3" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>git push</text>		</g>
 		<g id="shape23-78" v:mID="23" v:groupContext="shape" v:layerMember="0" transform="translate(597.638,-342.702)">
 			<title>Динамическая соединительная линия.23</title>
@@ -200,7 +201,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="-114.991" cy="677.638" width="189.87" height="24.8035"/>
 			<path d="M0 595.28 L0 677.64 L-252.76 677.64 L-252.76 730.19" class="st12"/>
-			<rect v:rectContext="textBkgnd" x="-204.34" y="669.239" width="178.697" height="16.8" class="st14"/>
+			<rect v:rectContext="textBkgnd" x="-204.34" y="669.239" width="178.697" height="16.8" class="st16"/>
 			<text x="-204.34" y="681.84" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>git submodule update --remote</text>		</g>
 		<g id="shape24-85" v:mID="24" v:groupContext="shape" v:layerMember="0" transform="translate(385.039,-116.051)">
 			<title>Динамическая соединительная линия.24</title>
@@ -252,7 +253,7 @@
 			<text x="17.57" y="542.18" class="st4" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Файлы с кодом</text>		</g>
 		<g id="shape33-113" v:mID="33" v:groupContext="shape" v:layerMember="0" transform="translate(342.52,-416.929)">
 			<title>Динамическая соединительная линия.33</title>
-			<path d="M0 589.37 L0 562.54 L-250.12 562.54 L-250.12 579.97" class="st12"/>
+			<path d="M0 589.37 L0 543.74 L-250.12 543.74 L-250.12 579.97" class="st12"/>
 		</g>
 		<g id="shape34-118" v:mID="34" v:groupContext="shape" v:layerMember="0" transform="translate(137.75,-375.591)">
 			<title>Динамическая соединительная линия.34</title>
@@ -260,7 +261,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="82.306" cy="588.189" width="110.97" height="41.6033"/>
 			<path d="M0 588.19 L157.57 588.19" class="st12"/>
-			<rect v:rectContext="textBkgnd" x="30.8233" y="571.389" width="99.7971" height="33.5998" class="st14"/>
+			<rect v:rectContext="textBkgnd" x="30.8233" y="571.389" width="99.7971" height="33.5998" class="st16"/>
 			<text x="30.82" y="583.99" class="st15" v:langID="1033"><v:paragraph/><v:tabList/>git add .<v:newlineChar/><tspan
 						x="30.82" dy="1.2em" class="st5">git commit </tspan>–m ‘1’</text>		</g>
 		<g id="shape35-126" v:mID="35" v:groupContext="shape" v:layerMember="0" transform="translate(140.112,-115.711)">
@@ -274,49 +275,51 @@
 						x="30.82" dy="1.2em" class="st5">git commit </tspan>–m ‘2’</text>		</g>
 		<g id="shape36-134" v:mID="36" v:groupContext="shape" v:layerMember="0" transform="translate(344.882,-200.751)">
 			<title>Динамическая соединительная линия.36</title>
-			<path d="M0 595.28 L0 568.51 L-250.12 568.51 L-250.12 609.5" class="st12"/>
+			<path d="M0 595.28 L0 551.35 L-250.12 551.35 L-250.12 609.5" class="st12"/>
 		</g>
-		<g id="shape40-139" v:mID="40" v:groupContext="shape" transform="translate(396.85,-496.063)">
+		<g id="shape40-139" v:mID="40" v:groupContext="shape" transform="translate(391.717,-510.236)">
 			<title>Лист.40</title>
-			<desc>Шаг 1 Получение свежих данных</desc>
+			<desc>Шаг 1 Получение свежих данных из удаленного репозитория</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="76" cy="585.276" width="152" height="20"/>
 			<rect x="0" y="575.276" width="152" height="20" class="st6"/>
-			<text x="61.45" y="581.68" class="st16" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 1<v:lf/><tspan
-						x="7.78" dy="1.2em" class="st5">Получение свежих данных</tspan></text>		</g>
-		<g id="shape42-143" v:mID="42" v:groupContext="shape" transform="translate(146.891,-412.835)">
+			<text x="61.45" y="574.48" class="st17" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 1<v:lf/><tspan
+						x="7.78" dy="1.2em" class="st5">Получение свежих данных </tspan><tspan x="4.77" dy="1.2em" class="st5">из удаленного репозитория</tspan></text>		</g>
+		<g id="shape42-144" v:mID="42" v:groupContext="shape" transform="translate(146.891,-419.37)">
 			<title>Лист.42</title>
-			<desc>Шаг 2 Сохранение в лок.репозиторий</desc>
+			<desc>Шаг 2 Сохранение в локальный репозиторий после редактирования</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="76" cy="585.276" width="152" height="20"/>
 			<rect x="0" y="575.276" width="152" height="20" class="st6"/>
-			<text x="61.45" y="574.48" class="st16" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 2<v:lf/><tspan
-						x="41.15" dy="1.2em" class="st5">Сохранение в </tspan><tspan x="32.15" dy="1.2em" class="st5">лок</tspan>.репозиторий</text>		</g>
-		<g id="shape43-148" v:mID="43" v:groupContext="shape" transform="translate(399.816,-402.835)">
+			<text x="61.45" y="567.28" class="st17" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 2<v:lf/><tspan
+						x="11.58" dy="1.2em" class="st5">Сохранение в локальный </tspan><tspan x="26.44" dy="1.2em" class="st5">репозиторий после </tspan><tspan
+						x="33.93" dy="1.2em" class="st5">редактирования</tspan></text>		</g>
+		<g id="shape43-150" v:mID="43" v:groupContext="shape" transform="translate(399.816,-402.835)">
 			<title>Лист.43</title>
-			<desc>Шаг 3 Синхронизация с удал.репозиторием</desc>
+			<desc>Шаг 3 Обновление защищенного репозитория с данными</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="76" cy="585.276" width="152" height="20"/>
 			<rect x="0" y="575.276" width="152" height="20" class="st6"/>
-			<text x="61.45" y="574.48" class="st16" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 3<v:lf/><tspan
-						x="32.34" dy="1.2em" class="st5">Синхронизация с </tspan><tspan x="25.35" dy="1.2em" class="st5">удал</tspan>.репозиторием</text>		</g>
-		<g id="shape69-153" v:mID="69" v:groupContext="shape" transform="translate(405.89,-290.924)">
+			<text x="61.45" y="574.48" class="st17" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 3<v:lf/><tspan
+						x="7.3" dy="1.2em" class="st5">Обновление защищенного </tspan><tspan x="13.88" dy="1.2em" class="st5">репозитория с данными</tspan></text>		</g>
+		<g id="shape69-155" v:mID="69" v:groupContext="shape" transform="translate(405.89,-303.605)">
 			<title>Лист.69</title>
-			<desc>Шаг 4 Обновление данных в репозитории с кодом</desc>
+			<desc>Шаг 4 Синхронизация данных в локальном репозитории с защищенным</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="76" cy="595.164" width="152" height="0.223788"/>
 			<rect x="0" y="595.052" width="152" height="0.223788" class="st6"/>
-			<text x="61.45" y="584.36" class="st16" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 4<v:lf/><tspan
-						x="19.28" dy="1.2em" class="st5">Обновление данных в </tspan><tspan x="20.9" dy="1.2em" class="st5">репозитории с кодом</tspan></text>		</g>
-		<g id="shape70-158" v:mID="70" v:groupContext="shape" transform="translate(141.732,-155.318)">
+			<text x="61.45" y="577.16" class="st17" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 4<v:lf/><tspan
+						x="11.41" dy="1.2em" class="st5">Синхронизация данных в </tspan><tspan x="9.23" dy="1.2em" class="st5">локальном репозитории с </tspan><tspan
+						x="40.9" dy="1.2em" class="st5">защищенным</tspan></text>		</g>
+		<g id="shape70-161" v:mID="70" v:groupContext="shape" transform="translate(149.253,-150.079)">
 			<title>Лист.70</title>
-			<desc>Шаг 5 Обновление данных в репозитории с кодом</desc>
+			<desc>Шаг 5 Обновление данных в локальном репозитории</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="76" cy="585.276" width="152" height="20"/>
 			<rect x="0" y="575.276" width="152" height="20" class="st6"/>
-			<text x="61.45" y="574.48" class="st16" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 5 <v:newlineChar/><tspan
-						x="19.28" dy="1.2em" class="st5">Обновление данных в </tspan><tspan x="20.9" dy="1.2em" class="st5">репозитории с кодом</tspan></text>		</g>
-		<g id="shape71-163" v:mID="71" v:groupContext="shape" transform="translate(42.5197,-66.1052)">
+			<text x="61.45" y="567.28" class="st17" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 5 <v:newlineChar/><tspan
+						x="19.28" dy="1.2em" class="st5">Обновление данных в </tspan><tspan x="13.12" dy="1.2em" class="st5">локальном репозитории </tspan> <v:newlineChar/></text>		</g>
+		<g id="shape71-166" v:mID="71" v:groupContext="shape" transform="translate(42.5197,-66.1052)">
 			<title>Эллипс.71</title>
 			<desc>Копия данных (только для чтения)</desc>
 			<v:userDefs>
@@ -324,22 +327,22 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="47.4213" cy="573.11" width="82.99" height="38.7894"/>
-			<g id="shadow71-164" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
+			<g id="shadow71-167" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
 					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
 				<path d="M0 573.11 A47.4213 22.1654 0 1 1 94.84 573.11 A47.4213 22.1654 0 0 1 0 573.11 Z" class="st2"/>
 			</g>
 			<path d="M0 573.11 A47.4213 22.1654 0 1 1 94.84 573.11 A47.4213 22.1654 0 0 1 0 573.11 Z" class="st3"/>
 			<text x="17.24" y="564.11" class="st9" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Копия данных <tspan
 						x="22.63" dy="1.2em" class="st5">(</tspan>только для <tspan x="31.39" dy="1.2em" class="st5">чтения</tspan>)</text>		</g>
-		<g id="shape72-171" v:mID="72" v:groupContext="shape" transform="translate(396.031,-145.318)">
+		<g id="shape72-174" v:mID="72" v:groupContext="shape" transform="translate(396.031,-145.318)">
 			<title>Лист.72</title>
 			<desc>Шаг 6 Обновление публичного репозитория с кодом</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="76" cy="585.276" width="152" height="20"/>
 			<rect x="0" y="575.276" width="152" height="20" class="st6"/>
-			<text x="61.45" y="574.48" class="st16" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 6<v:newlineChar/><tspan
+			<text x="61.45" y="574.48" class="st17" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Шаг 6<v:newlineChar/><tspan
 						x="12.98" dy="1.2em" class="st5">Обновление публичного </tspan><tspan x="21.3" dy="1.2em" class="st5">репозитория с кодом</tspan></text>		</g>
-		<g id="shape73-176" v:mID="73" v:groupContext="shape" transform="translate(701.069,-67.0276)">
+		<g id="shape73-179" v:mID="73" v:groupContext="shape" transform="translate(701.069,-67.0276)">
 			<title>Круг.73</title>
 			<desc>Netlify</desc>
 			<v:userDefs>
@@ -347,15 +350,15 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="56.6929" cy="538.583" width="99.22" height="85.0394"/>
-			<g id="shadow73-177" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
+			<g id="shadow73-180" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
 					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
 				<path d="M0 538.58 A56.6929 56.6929 0 0 1 113.39 538.58 A56.6929 56.6929 0 1 1 0 538.58 Z" class="st2"/>
 			</g>
 			<path d="M0 538.58 A56.6929 56.6929 0 0 1 113.39 538.58 A56.6929 56.6929 0 1 1 0 538.58 Z" class="st10"/>
 			<text x="24.36" y="545.78" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Netlify</text>		</g>
-		<g id="shape39-182" v:mID="39" v:groupContext="shape" v:layerMember="1" transform="translate(690.059,-217.913)">
+		<g id="shape39-185" v:mID="39" v:groupContext="shape" v:layerMember="1" transform="translate(685.537,-226.772)">
 			<title>Ортогональная</title>
-			<desc>Netlify сам отслеживает все изменения в репозитории и автомат...</desc>
+			<desc>Netlify сам отслеживает все изменения в публичном репозитории...</desc>
 			<v:userDefs>
 				<v:ud v:nameU="BackFillColor" v:prompt="" v:val="VT5(#96afcf)"/>
 				<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#1f477d)"/>
@@ -378,17 +381,18 @@
 				<v:ud v:nameU="BackLineColor" v:prompt="" v:val="VT5(#eaeff7)"/>
 				<v:ud v:nameU="BackCharColor" v:prompt="" v:val="VT5(#5b9bd5)"/>
 				<v:ud v:nameU="DarkerColor" v:prompt="" v:val="VT5(#5b9bd5)"/>
-				<v:ud v:nameU="LeaderEnd" v:prompt="" v:val="VT7(PNT(-0.23622047244095,-1.3103131845361)):40"/>
+				<v:ud v:nameU="LeaderEnd" v:prompt="" v:val="VT7(PNT(-0.23622047244095,-1.4615031673672)):40"/>
 				<v:ud v:nameU="WHBoxIntersection" v:prompt="" v:val="VT7(PNT(0,0)):40"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="540" width="113.39" height="108.804"/>
-			<path d="M0 595.28 L-17.01 689.62" class="st17"/>
-			<path d="M0 591.02 L0 595.28 L113.39 595.28 L113.39 591.02" class="st17"/>
-			<text x="29.7" y="500.4" class="st16" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Netlify <tspan
+			<v:textRect cx="56.6929" cy="533.622" width="113.39" height="123.204"/>
+			<path d="M0 595.28 L-17.01 700.5" class="st18"/>
+			<path d="M0 591.02 L0 595.28 L113.39 595.28 L113.39 591.02" class="st18"/>
+			<text x="29.7" y="486.82" class="st17" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Netlify <tspan
 						class="st5" v:langID="1049">сам </tspan><tspan x="14.43" dy="1.2em" class="st5" v:langID="1049">отслеживает все </tspan><tspan
-						x="24.15" dy="1.2em" class="st5" v:langID="1049">изменения в </tspan><tspan x="18.76" dy="1.2em"
-						class="st5" v:langID="1049">репозитории и </tspan><tspan x="18.6" dy="1.2em" class="st5" v:langID="1049">автоматически </tspan><tspan
-						x="17.54" dy="1.2em" class="st5" v:langID="1049">обновляет сайт</tspan><v:newlineChar/></text>		</g>
+						x="24.15" dy="1.2em" class="st5" v:langID="1049">изменения в </tspan><tspan x="28.11" dy="1.2em"
+						class="st5" v:langID="1049">публичном </tspan><tspan x="18.76" dy="1.2em" class="st5" v:langID="1049">репозитории и </tspan><tspan
+						x="18.6" dy="1.2em" class="st5" v:langID="1049">автоматически </tspan><tspan x="17.54" dy="1.2em"
+						class="st5" v:langID="1049">обновляет сайт</tspan><v:newlineChar/></text>		</g>
 	</g>
 </svg>
