@@ -418,13 +418,13 @@ netlify отслеживает все изменения в удаленном �
 Пути указаны относительно папки `[PROJECT_DIR]`.
 
 | Назначение  | Имя файла                       | Папка                                  | Пропорции   | Размер, px              | Количество                                  |
-| ----------- | ------------------------------- | -------------------------------        | ----------- | ----------------------- | -------------- | --------------------------------------------- |
+| ----------- | ------------------------------- | -------------------------------        | ----------- | ----------------------- | --------------
 | Site        | favicon.ico                     | ./static                   | 1 x 1       | 16 x 16                 | 1              | [Wiki](https://en.wikipedia.org/wiki/Favicon) |
-| OpenGraph   | og-banner-`{locale}`.jpg          | ./static/assets/images     | 1.9 x 1     | 1200 x 630<br>600 x 315 | 1 на каждый язык    
-| Twitter     | twitter-banner-2x1-`{locale}`.jpg | ./static/assets/images     | 2 x 1       | 600 x 300               | 1 на каждый язык    
-| Twitter     | twitter-banner-1x1-`{locale}`.jpg | ./static/assets/images     | 1 x 1       | 450 x 450               | 1 на каждый язык    
-| schema.org  | business-photo.jpg              | ./static/assets/images     |             |                         | 1-3            |                
-| schema.org  | logo.svg                        | ./static/assets/images     |             |                         | 1              |
+| OpenGraph   | og-banner-`{locale}`.jpg          | ./static/assets/images     | 1.9 x 1     | 1200 x 630<br>600 x 315 | 1 на каждый язык 
+| Twitter     | twitter-banner-2x1-`{locale}`.jpg | ./static/assets/images     | 2 x 1       | 600 x 300               | 1 на каждый язык
+| Twitter     | twitter-banner-1x1-`{locale}`.jpg | ./static/assets/images     | 1 x 1       | 450 x 450               | 1 на каждый язык
+| schema.org  | business-photo.jpg              | ./static/assets/images     |             |                         | 1-3
+| schema.org  | logo.svg                        | ./static/assets/images     |             |                         | 1
 | webmainfest | icon.png                        | ./src/assets/images        | 1 x 1       | > 512 x 512             | 1
 
 *О **favicon.ico** можно почитать [здесь](https://en.wikipedia.org/wiki/Favicon).
