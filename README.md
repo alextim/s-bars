@@ -643,7 +643,8 @@ services.ru.md
 :heavy_check_mark: хорошо:
 
 ```md
-![ALT текст для изображения](./images/your-image.jpg "Необязательный текст для всплывающей подсказки")
+![ALT текст для изображения](./images/your-image.jpg 
+  "Необязательный текст для всплывающей подсказки")
 
 ![ALT текст для изображения](./images/your-image.jpg)
 ```
@@ -664,7 +665,11 @@ services.ru.md
 :heavy_check_mark: хорошо:
 
 ```html
-<img src="assets/images/your-image.jpg" alt="ALT текст для изображения" title="Необязательный текст для всплывающей подсказки"/>
+<img 
+  src="assets/images/your-image.jpg" 
+  alt="ALT текст для изображения" 
+  title="Необязательный текст для всплывающей подсказки"
+/>
 
 <img src="assets/images/your-image.jpg" alt="ALT текст для изображения" />
 ```
