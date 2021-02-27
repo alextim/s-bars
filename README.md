@@ -456,7 +456,10 @@ _О назначении **favicon.ico** можно почитать [здесь
 :heavy_check_mark: хорошо:
 
 ```html
-<a href="http://rada.com.ua/rus/catalog/62609/" target="_blank" rel="nofollow noreferrer noopener">Компания "Снежный Барс"</a>
+<a href="http://rada.com.ua/rus/catalog/62609/"
+  target="_blank" rel="nofollow noreferrer noopener">
+  Компания "Снежный Барс"
+</a>
 ```
 
 ### Внутренние ссылки
