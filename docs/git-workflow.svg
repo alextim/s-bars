@@ -193,7 +193,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="87.3102" cy="588.098" width="70" height="24.8035"/>
 			<path d="M0 588.28 L79.37 588.28 L79.37 588.1 L167.76 588.1" class="st12"/>
-			<rect v:rectContext="textBkgnd" x="64.7107" y="579.698" width="45.1989" height="16.8" class="st16"/>
+			<rect v:rectContext="textBkgnd" x="64.7107" y="579.698" width="45.1989" height="16.8" class="st14"/>
 			<text x="64.71" y="592.3" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>git push</text>		</g>
 		<g id="shape23-78" v:mID="23" v:groupContext="shape" v:layerMember="0" transform="translate(597.638,-342.702)">
 			<title>Динамическая соединительная линия.23</title>
@@ -201,7 +201,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="-114.991" cy="677.638" width="189.87" height="24.8035"/>
 			<path d="M0 595.28 L0 677.64 L-252.76 677.64 L-252.76 730.19" class="st12"/>
-			<rect v:rectContext="textBkgnd" x="-204.34" y="669.239" width="178.697" height="16.8" class="st16"/>
+			<rect v:rectContext="textBkgnd" x="-204.34" y="669.239" width="178.697" height="16.8" class="st14"/>
 			<text x="-204.34" y="681.84" class="st15" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>git submodule update --remote</text>		</g>
 		<g id="shape24-85" v:mID="24" v:groupContext="shape" v:layerMember="0" transform="translate(385.039,-116.051)">
 			<title>Динамическая соединительная линия.24</title>
@@ -356,7 +356,15 @@
 			</g>
 			<path d="M0 538.58 A56.6929 56.6929 0 0 1 113.39 538.58 A56.6929 56.6929 0 1 1 0 538.58 Z" class="st10"/>
 			<text x="24.36" y="545.78" class="st11" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Netlify</text>		</g>
-		<g id="shape39-185" v:mID="39" v:groupContext="shape" v:layerMember="1" transform="translate(685.537,-226.772)">
+		<g id="shape74-185" v:mID="74" v:groupContext="shape" v:layerMember="0" transform="translate(35.703,-382.677)">
+			<title>Динамическая соединительная линия.74</title>
+			<desc>Редактирование</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="38.7064" cy="689.933" width="109.54" height="24.8035"/>
+			<path d="M0 595.28 L-16.3 595.28 L-16.3 689.93 L98.94 689.93 L98.94 658.55 L45.35 658.55 L45.35 644.84" class="st12"/>
+			<rect v:rectContext="textBkgnd" x="-10.4779" y="681.533" width="98.3688" height="16.8" class="st14"/>
+			<text x="-10.48" y="694.13" class="st15" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Редактирование</text>		</g>
+		<g id="shape39-192" v:mID="39" v:groupContext="shape" v:layerMember="1" transform="translate(685.537,-226.772)">
 			<title>Ортогональная</title>
 			<desc>Netlify сам отслеживает все изменения в публичном репозитории...</desc>
 			<v:userDefs>
