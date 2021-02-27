@@ -427,7 +427,7 @@ netlify отслеживает все изменения в удаленном �
 | schema.org  | logo.svg                        | ./static/assets/images     |             |                         | 1
 | webmainfest | icon.png                        | ./src/assets/images        | 1 x 1       | > 512 x 512             | 1
 
-*О **favicon.ico** можно почитать [здесь](https://en.wikipedia.org/wiki/Favicon).
+*Об **favicon.ico** можно почитать [здесь](https://en.wikipedia.org/wiki/Favicon).
 
 *Установите, если надо, свои размеры изображений для OpenGraph и Twitter в файле `[PROJECT_DIR]/config/website.js`*
 
