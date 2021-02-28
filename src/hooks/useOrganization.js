@@ -4,6 +4,7 @@ const useOrganization = () => {
   const data = useStaticQuery(graphql`
     query OrganizationQuery {
       organization: yaml(fields: { type: { eq: "contacts" } }) {
+        organizationType
         email
         geo {
           latitude

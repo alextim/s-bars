@@ -146,6 +146,7 @@ export const addressFragment = graphql`
     postalAddress {
       streetAddress
       addressLocality
+      addressRegion
       postalCode
       addressCountry
     }
@@ -153,6 +154,7 @@ export const addressFragment = graphql`
       name
       description
       contactType
+      areaServed
       telephone
       email
     }

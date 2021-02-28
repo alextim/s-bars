@@ -77,6 +77,7 @@ const SeoBase = ({
       <meta name="description" content={metaDescription} />
       {canonical && pathname && <link rel="canonical" href={pathname} />}
       <meta name="theme-color" content={config.themeColor} />
+
       {metas &&
         Object.keys(metas).map((name) => <meta key={name} name={name} content={metas[name]} />)}
       {config.fbAppID && <meta property="fb:app_id" content={config.fbAppID} />}
@@ -107,13 +108,16 @@ const SeoBase = ({
           <meta name="twitter:creator" content={config.twitterCreator || config.twitterSite} />
         </>
       )}
+
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={twitterImage.src} />
       <meta name="twitter:image:alt" content={metaDescription} />
       <meta name="twitter:image:width" content={twitterImage.width} />
       <meta name="twitter:image:height" content={twitterImage.height} />
+
       <link type="text/plain" href={`${config.siteUrl}/humans.txt`} rel="author" />
+
       <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
       {isRoot && (
         <script type="application/ld+json">

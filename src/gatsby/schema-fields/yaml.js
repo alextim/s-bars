@@ -60,6 +60,9 @@ const postalAddress = {
   addressLocality: {
     type: 'String',
   },
+  addressRegion: {
+    type: 'String',
+  },
   postalCode: {
     type: 'Int',
   },
@@ -93,6 +96,9 @@ const voice = {
 };
 
 const contacts = {
+  organizationType: {
+    type: 'String',
+  },
   phone: {
     type: '[String]',
   },
@@ -146,6 +152,9 @@ const contactPoint = {
   },
   email: {
     type: '[String]',
+  },
+  areaServed: {
+    type: 'String',
   },
 };
 
