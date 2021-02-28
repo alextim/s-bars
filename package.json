@@ -99,7 +99,7 @@
     "@hot-loader/react-dom": "^17.0.1",
     "@testing-library/react-hooks": "^5.0.3",
     "cross-env": "^7.0.3",
-    "eslint": "7.20.0",
+    "eslint": "7.21.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^8.1.0",
