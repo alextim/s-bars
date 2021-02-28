@@ -29,6 +29,7 @@ const SeoBase = ({
 
   const purePath = i18n ? i18n.purePath(pathname) : pathname;
   const isRoot = purePath === '/';
+  const isContacts = purePath === config.contactsSlug;
 
   const ogImage = { ...config.ogImage, src: `${config.ogImage.src}${locale}.jpg` };
   const twitterImage = { ...config.twitterImage, src: `${config.twitterImage.src}${locale}.jpg` };
@@ -119,7 +120,7 @@ const SeoBase = ({
       <link type="text/plain" href={`${config.siteUrl}/humans.txt`} rel="author" />
 
       <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
-      {isRoot && (
+      {(isRoot || isContacts) && (
         <script type="application/ld+json">
           {JSON.stringify(
             getOrganizationSchema({

@@ -5,11 +5,12 @@ const weekDays = {
   tu: 'Tuesday',
   we: 'Wednesday',
   th: 'Thursday',
-  fr: 'Fryday',
+  fr: 'Friday',
   sa: 'Saturday',
   su: 'Sunday',
 };
 
+/*
 const getOpeningHours = (openingHours, dows) => {
   const parseDow = (s) => {
     if (!s) {
@@ -28,7 +29,7 @@ const getOpeningHours = (openingHours, dows) => {
   );
   return a.length === 1 ? a[0] : a;
 };
-
+*/
 const getOpeningHoursSpecification = (openingHours) => {
   const parseDow = (s) => {
     if (!s) {
@@ -37,8 +38,8 @@ const getOpeningHoursSpecification = (openingHours) => {
 
     let dow = s.split('-');
     if (dow.length > 1) {
-      const d1 = dow[0];
-      const d2 = dow[1];
+      const d1 = dow[0].trim();
+      const d2 = dow[1].trim();
       const keys = Object.keys(weekDays);
       const a = [];
       let first = false;
@@ -59,9 +60,9 @@ const getOpeningHoursSpecification = (openingHours) => {
 
     dow = s.split(',');
     if (dow.length > 1) {
-      return dow.map((d) => weekDays[d]);
+      return dow.map((d) => weekDays[d.trim()]);
     }
-    return weekDays[s];
+    return weekDays[s.trim()];
   };
 
   return openingHours.map(([dow, timeStart, timeFinish]) => ({
@@ -77,7 +78,7 @@ const getOrganizationSchema = ({
   address = {},
   siteMeta,
   config,
-  dows,
+  /* dows,  */
   homeURL,
   socialLinks,
 }) => {
@@ -192,9 +193,11 @@ const getOrganizationSchema = ({
   }
 
   if (Array.isArray(openingHours)) {
+    /*
     if (dows) {
       schema.openingHours = getOpeningHours(openingHours, dows);
     }
+    */
     schema.OpeningHoursSpecification = getOpeningHoursSpecification(openingHours);
   }
 
