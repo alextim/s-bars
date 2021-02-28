@@ -435,13 +435,6 @@ _О назначении **favicon.ico** можно почитать [здесь
 
 А добавление аттрибута `target="_blank"` заставит браузер открыть сторонний сайт в новой вкладке, а не просто уведет пользователя с вашего сайта. [Рекомендации](https://developers.google.com/style/links-external) от Google.
 
-:x: плохо:
-
-```html
-[Компания "Снежный Барс"](http://rada.com.ua/rus/catalog/62609/)
-<a href="http://rada.com.ua/rus/catalog/62609/">Компания "Снежный Барс"</a>
-```
-
 :heavy_check_mark: хорошо:
 
 ```html
@@ -449,6 +442,13 @@ _О назначении **favicon.ico** можно почитать [здесь
   target="_blank" rel="nofollow noreferrer noopener">
   Компания "Снежный Барс"
 </a>
+```
+
+:x: плохо:
+
+```html
+[Компания "Снежный Барс"](http://rada.com.ua/rus/catalog/62609/)
+<a href="http://rada.com.ua/rus/catalog/62609/">Компания "Снежный Барс"</a>
 ```
 
 ### Внутренние ссылки
