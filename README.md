@@ -1312,9 +1312,10 @@ sections:
 
 |   Поле              | Назначение                   | Organization | LocalBusiness | Описание
 |---                  |---                            |---|---|---
+| organizationType    | SEO                           |  |  | [Organization](https://schema.org/Organization), [LocalBusiness](https://schema.org/LocalBusiness)
 | geo                 | SEO                           | нет | да | [географические координаты](https://schema.org/geo)
 | hasMap              | SEO                           | нет | да | [ссылка на Google-карты](https://schema.org/hasMap)
-| embedMap            | страница "Контакты"           | нет | нет | ссылка на Google-карты для вставки в страницу
+| embedMap            | страница "Контакты"           |  |  | ссылка на Google-карты для вставки в страницу "Контакты"
 | phone               | футер и SEO                   | да | да | [телефон](https://schema.org/telephone) список цифровых значений, разделитель элементов `,`
 | e-mail              | футер и SEO                   | да | да | [почта](https://schema.org/email) список, разделитель элементов `,`
 | openingHours        | страница "Контакты" и SEO     | да | да | [рабочее время](https://schema.org/openingHours), преобразуется в `OpeningHoursSpecification`
@@ -1323,7 +1324,7 @@ sections:
 | paymentAccepted     | SEO                           | нет | да | [способы оплаты](https://schema.org/paymentAccepted)
 | foundingDate        | футер и SEO                   | да | да | [дата основания](https://schema.org/foundingDate) в формате ISO 8601
 
-Поля **e-mail** и **phone** участвуют в структурированных данных для Organization или LocalBusiness. Используется только первый элемент массива.
+Поля **e-mail** и **phone** участвуют в структурированных данных для **Organization** или **LocalBusiness**. Используется только первый элемент массива.
 
 
 :bulb: Номер телефона допускает только цифры, без плюса спереди, без пробелов, скобок и прочих символов.

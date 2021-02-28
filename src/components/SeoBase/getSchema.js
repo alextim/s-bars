@@ -17,10 +17,11 @@ const getSchema = ({
   datePublished,
   pageType,
 }) => {
-  const webSiteId = `${homeURL}/#website`;
-  const organizationId = `${homeURL}/#organization`;
+  const webSiteId = `${homeURL}#website`;
+  const organizationId = `${homeURL}#organization`;
   const webPageId = `${URL}/#webpage`;
   let primaryImageId;
+
   const a = [
     {
       '@type': organization.organizationType,
