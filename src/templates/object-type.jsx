@@ -28,6 +28,7 @@ const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
         description={metaDescription || description}
         pathname={path}
         noindex={noindex}
+        pageType="Article"
       />
       <InnerAsideLayout cover={cover} html={html}>
         <AsideButtonList title={getObjectTypesTitle(mainNav)} items={getObjectTypeItems(mainNav)} />

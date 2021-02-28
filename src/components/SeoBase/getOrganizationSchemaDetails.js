@@ -73,33 +73,36 @@ const getOpeningHoursSpecification = (openingHours) => {
   }));
 };
 
-const getOrganizationSchema = ({
+const getOrganizationSchemaDetails = ({
   organization,
   address = {},
-  siteMeta,
   config,
   /* dows,  */
   homeURL,
   socialLinks,
 }) => {
   const {
-    organizationType,
     geo,
     openingHours,
+    phone: organizationPhone,
+    email: organizationEmail,
     hasMap,
     priceRange,
     currenciesAccepted,
     paymentAccepted,
   } = organization;
-  const { legalName, postalAddress, contactPoint } = address;
-  const { siteTitle, siteTitleAlt, siteDescription } = siteMeta;
+  const {
+    name: organizationName,
+    legalName,
+    alternateName,
+    description,
+    postalAddress,
+    contactPoint,
+  } = address;
 
   const schema = {
-    '@context': 'http://schema.org',
-    '@type': organizationType,
-    name: siteTitle,
-    alternateName: siteTitleAlt,
-    description: siteDescription,
+    name: organizationName,
+    description,
     url: homeURL,
     logo: config.siteLogo,
   };
@@ -121,22 +124,15 @@ const getOrganizationSchema = ({
   if (legalName) {
     schema.legalName = legalName;
   }
+  if (alternateName) {
+    schema.alternateName = alternateName;
+  }
 
-  if (postalAddressObj || geo) {
-    schema.place = {
-      '@type': 'Place',
-    };
-
-    if (address) {
-      schema.place.address = postalAddressObj;
-    }
-
-    if (geo) {
-      schema.place.geo = {
-        '@type': 'GeoCoordinates',
-        ...geo,
-      };
-    }
+  if (organizationPhone) {
+    schema.telephone = `+${organizationPhone[0]}`;
+  }
+  if (organizationEmail) {
+    schema.email = `mailto:${organizationEmail[0]}`;
   }
 
   if (geo) {
@@ -208,4 +204,4 @@ const getOrganizationSchema = ({
   return schema;
 };
 
-export default getOrganizationSchema;
+export default getOrganizationSchemaDetails;

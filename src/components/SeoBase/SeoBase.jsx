@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import getOrganizationSchema from './getOrganizationSchema';
+import getSchema from './getSchema';
 
 const removeTrailingSlash = (s) => s.replace(/\/$/, '');
 
@@ -19,37 +19,21 @@ const SeoBase = ({
   address,
   organization,
   i18n,
-  dows,
-  article,
+  pageType,
+  imgURL,
+  datePublished,
 }) => {
-  const isBlog = false;
-
   const URL = `${config.siteUrl}${removeTrailingSlash(pathname)}`;
   const homeURL = i18n ? `${config.siteUrl}${i18n.localizePath('/', locale)}` : URL;
 
   const purePath = i18n ? i18n.purePath(pathname) : pathname;
-  const isRoot = purePath === '/';
-  const isContacts = purePath === config.contactsSlug;
 
   const ogImage = { ...config.ogImage, src: `${config.ogImage.src}${locale}.jpg` };
   const twitterImage = { ...config.twitterImage, src: `${config.twitterImage.src}${locale}.jpg` };
 
-  const { htmlLang, ogLocale, siteTitle, siteDescription, siteHeadline } = siteMeta;
+  const { htmlLang, ogLocale, siteTitle, siteDescription } = siteMeta;
 
-  const schemaWebPage = {
-    '@context': 'http://schema.org',
-    '@type': isBlog ? 'Blog' : 'WebPage', // WebSite Article
-    url: URL,
-    headline: siteHeadline,
-    inLanguage: htmlLang,
-    mainEntityOfPage: URL,
-    description: siteDescription,
-    name: siteTitle,
-    image: {
-      '@type': 'ImageObject',
-      url: ogImage.src,
-    },
-  };
+  const isArticle = pageType === 'Article' || pageType === 'BlogPosting';
 
   const metaTitle = title || siteTitle;
   const metaDescription = description || siteDescription;
@@ -78,7 +62,6 @@ const SeoBase = ({
       <meta name="description" content={metaDescription} />
       {canonical && pathname && <link rel="canonical" href={pathname} />}
       <meta name="theme-color" content={config.themeColor} />
-
       {metas &&
         Object.keys(metas).map((name) => <meta key={name} name={name} content={metas[name]} />)}
       {config.fbAppID && <meta property="fb:app_id" content={config.fbAppID} />}
@@ -90,8 +73,11 @@ const SeoBase = ({
             <meta key={code} property="og:locale:alternate" content={i18n.locales[code].ogLocale} />
           ))}
       <meta property="og:site_name" content={i18n.locales[locale].siteShortName} />
+      {socialLinks && socialLinks.facebook && (
+        <meta property="article:publisher" content={socialLinks.facebook.to} />
+      )}
       <meta property="og:url" content={URL} />
-      <meta property="og:type" content={article ? 'article' : 'website'} />
+      <meta property="og:type" content={isArticle ? 'article' : 'website'} />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={ogImage.src} />
@@ -109,32 +95,33 @@ const SeoBase = ({
           <meta name="twitter:creator" content={config.twitterCreator || config.twitterSite} />
         </>
       )}
-
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={twitterImage.src} />
       <meta name="twitter:image:alt" content={metaDescription} />
       <meta name="twitter:image:width" content={twitterImage.width} />
       <meta name="twitter:image:height" content={twitterImage.height} />
-
       <link type="text/plain" href={`${config.siteUrl}/humans.txt`} rel="author" />
-
-      <script type="application/ld+json">{JSON.stringify(schemaWebPage)}</script>
-      {(isRoot || isContacts) && (
-        <script type="application/ld+json">
-          {JSON.stringify(
-            getOrganizationSchema({
-              organization,
-              address,
-              siteMeta,
-              config,
-              dows,
-              homeURL,
-              socialLinks,
-            }),
-          )}
-        </script>
-      )}
+      <script type="application/ld+json">
+        {JSON.stringify(
+          getSchema({
+            URL,
+            homeURL,
+            organization,
+            address,
+            config,
+            socialLinks,
+            siteTitle,
+            siteDescription,
+            htmlLang,
+            metaTitle,
+            metaDescription,
+            imgURL,
+            datePublished,
+            pageType,
+          }),
+        )}
+      </script>
     </Helmet>
   );
 };

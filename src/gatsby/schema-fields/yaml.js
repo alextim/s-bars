@@ -42,7 +42,16 @@ const socialLinkItem = {
 };
 
 const address = {
+  name: {
+    type: 'String',
+  },
+  alternateName: {
+    type: 'String',
+  },
   legalName: {
+    type: 'String',
+  },
+  description: {
     type: 'String',
   },
   contactPoint: {

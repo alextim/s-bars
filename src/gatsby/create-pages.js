@@ -137,7 +137,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         posts: allMarkdownRemark(
           limit: 1000
           filter: { frontmatter: { state: { eq: "published" } }, fields: { type: { eq: "post" } } }
-          sort: { fields: [frontmatter___publishedDate], order: DESC }
+          sort: { fields: [frontmatter___datePublished], order: DESC }
         ) {
           edges {
             node {

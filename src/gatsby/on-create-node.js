@@ -149,8 +149,8 @@ const onMdNode = (node, actions, getNode) => {
   });
 
   if (isPost) {
-    const { publishedDate } = frontmatter;
-    const year = publishedDate ? new Date(publishedDate).getFullYear() : null;
+    const { datePublished } = frontmatter;
+    const year = datePublished ? new Date(datePublished).getFullYear() : null;
     createNodeField({
       name: 'year',
       node,

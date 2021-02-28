@@ -91,6 +91,7 @@ const ObjectTypeServiceList = ({ path, data, locale, type }) => {
         description={metaDescription || description}
         pathname={path}
         noindex={noindex}
+        pageType="Article"
       />
       <Cards items={items} />
       {html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}

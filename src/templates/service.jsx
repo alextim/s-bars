@@ -26,6 +26,7 @@ const ServicePageTemplate = ({ path, data, pageContext: { locale } }) => {
         description={metaDescription || description}
         pathname={path}
         noindex={noindex}
+        pageType="Article"
       />
       <InnerAsideLayout cover={cover} html={html}>
         <AsideServices mainNav={mainNav} />

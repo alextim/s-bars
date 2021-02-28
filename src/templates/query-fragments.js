@@ -78,6 +78,7 @@ export const postFragment = graphql`
           }
         }
         sm {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 480) {
               ...GatsbyImageSharpFluid_noBase64
@@ -88,7 +89,7 @@ export const postFragment = graphql`
       }
       category
       tags
-      publishedDate
+      datePublished
       state
       noindex
     }
@@ -117,7 +118,7 @@ export const postCardFragment = graphql`
       }
       category
       tags
-      publishedDate
+      datePublished
       noindex
     }
     fields {
@@ -142,7 +143,10 @@ export const postShortInfoFragment = graphql`
 
 export const addressFragment = graphql`
   fragment AddressFragment on Yaml {
+    name
     legalName
+    alternateName
+    description
     postalAddress {
       streetAddress
       addressLocality

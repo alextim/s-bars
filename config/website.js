@@ -5,8 +5,6 @@ module.exports = {
   /* Meta */
   siteUrl,
 
-  contactsSlug: '/contacts',
-
   /**
    * name of content folder
    */

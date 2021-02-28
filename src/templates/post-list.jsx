@@ -37,7 +37,7 @@ const PostList = ({
       category: node.frontmatter.category,
       cover: node.frontmatter.cover,
       title: node.frontmatter.title,
-      publishedDate: node.frontmatter.publishedDate,
+      datePublished: node.frontmatter.datePublished,
       timeToRead: node.timeToRead,
       excerpt: node.excerpt,
     });
@@ -60,6 +60,7 @@ const PostList = ({
         description={metaDescription || description}
         pathname={path}
         noindex={noindex}
+        pageType="Blog"
       />
       {/*
       <CategoryWidget items={categories} />
@@ -86,7 +87,7 @@ export const pageQuery = graphql`
       ...PageFragment
     }
     posts: allMarkdownRemark(
-      sort: { fields: [frontmatter___publishedDate], order: DESC }
+      sort: { fields: [frontmatter___datePublished], order: DESC }
       limit: $limit
       skip: $skip
       filter: {

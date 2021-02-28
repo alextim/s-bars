@@ -15,14 +15,17 @@ const SEO = ({
   pathname,
   canonical = true,
   noindex = false,
-  article = true,
+  pageType,
+  imgURL,
+  datePublished,
   metas = [],
 }) => {
   const socialLinks = useSocialLinks();
-  const { address, translations } = useAppContext();
+  const { address /* , translations */ } = useAppContext();
   const organization = useOrganization();
   const siteMeta = i18n.locales[locale];
 
+  /*
   let dows;
   if (organization.openingHours) {
     const KEY_START = 'dow.d2.';
@@ -35,7 +38,7 @@ const SEO = ({
         return acc;
       }, {});
   }
-
+  */
   return (
     <SeoBase
       title={title}
@@ -51,8 +54,9 @@ const SEO = ({
       socialLinks={socialLinks}
       organization={organization}
       i18n={i18n}
-      dows={dows}
-      article={article}
+      pageType={pageType}
+      imgURL={imgURL}
+      datePublished={datePublished}
     />
   );
 };

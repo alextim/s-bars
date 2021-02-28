@@ -1,7 +1,7 @@
 /**
  * webmanifest   - gatsby-config.js: htmlLang, siteTitle, siteDescription, siteShortName
  * SEO           - SeoBase.jsx:      htmlLang, siteTitle, siteDescription, siteHeadline, ogLocale
- * publishedDate - PostInfo.jsx:     formatLocale
+ * datePublished - PostInfo.jsx:     formatLocale
  * Site Title    - Logo.jsx:         siteShortName
  */
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
 
     siteTitle: 'КОМПАНІЯ «СНІЖНИЙ БАРС»',
     siteDescription:
-      'Услуги промышленного альпинизма по Украине, заказывайте строительные работы на высоте ☎+38 (096) 555-30-92 от компании Снежный Барс.',
+      'Мы предлагаем широкий спектр услуг в сфере промальпа, заказывайте строительные работы на высоте от компании Снежный Барс.',
     siteHeadline: 'Промышленный альпинизм и высотные работы, промальп | Снежный Барс',
     siteShortName: 'СНІЖНИЙ БАРС',
   },
@@ -38,7 +38,7 @@ module.exports = {
 
     siteTitle: 'КОМПАНИЯ «СНЕЖНЫЙ БАРС»',
     siteDescription:
-      'Услуги промышленного альпинизма по Украине, заказывайте строительные работы на высоте ☎+38 (096) 555-30-92 от компании Снежный Барс.',
+      'Мы предлагаем широкий спектр услуг в сфере промальпа, заказывайте строительные работы на высоте от компании Снежный Барс.',
     siteHeadline: 'Промышленный альпинизм и высотные работы, промальп | Снежный Барс',
     siteShortName: 'СНЕЖНЫЙ БАРС',
   },

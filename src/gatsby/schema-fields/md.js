@@ -44,7 +44,7 @@ const postFrontmatterFields = {
   state: {
     type: 'String',
   },
-  publishedDate: {
+  datePublished: {
     type: 'Date',
   },
   featured: {

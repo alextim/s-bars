@@ -19,7 +19,7 @@ const styleWidgetArea = {
 const PostTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
   const {
-    frontmatter: { title, metaTitle, description, metaDescription, cover, noindex },
+    frontmatter: { title, metaTitle, description, metaDescription, cover, noindex, datePublished },
     html,
   } = data.post;
   return (
@@ -34,6 +34,9 @@ const PostTemplate = ({ path, data, pageContext: { locale } }) => {
         description={metaDescription || description}
         pathname={path}
         noindex={noindex}
+        datePublished={datePublished}
+        pageType="BlogPosting"
+        imgURL={cover && cover.sm ? cover.sm.publicURL : undefined}
       />
       <InnerAsideLayout cover={cover} html={html}>
         <aside css={styleWidgetArea}>
@@ -54,7 +57,7 @@ export const postQuery = graphql`
       ...PostFragment
     }
     recentPosts: allMarkdownRemark(
-      sort: { fields: [frontmatter___publishedDate], order: DESC }
+      sort: { fields: [frontmatter___datePublished], order: DESC }
       limit: 10
       filter: {
         frontmatter: { state: { eq: "published" } }
@@ -68,7 +71,7 @@ export const postQuery = graphql`
       }
     }
     featuredPosts: allMarkdownRemark(
-      sort: { fields: [frontmatter___publishedDate], order: DESC }
+      sort: { fields: [frontmatter___datePublished], order: DESC }
       limit: 10
       filter: {
         frontmatter: { state: { eq: "published" }, featured: { eq: true } }
