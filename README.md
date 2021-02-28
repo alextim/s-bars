@@ -1331,6 +1331,8 @@ sections:
 Пример содержимого:
 
 ```yaml
+organizationType: LocalBusiness
+
 geo:
   latitude: 49.23454640153842
   longitude: 28.449501642271482
