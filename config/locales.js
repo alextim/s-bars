@@ -1,6 +1,6 @@
 /**
  * webmanifest   - gatsby-config.js: htmlLang, siteTitle, siteDescription, siteShortName
- * SEO           - SeoBase.jsx:      htmlLang, siteTitle, siteDescription, siteHeadline, ogLocale
+ * SEO           - SeoBase.jsx:      htmlLang, siteTitle, siteDescription, ogLocale
  * datePublished - PostInfo.jsx:     formatLocale
  * Site Title    - Logo.jsx:         siteShortName
  */
@@ -21,7 +21,6 @@ module.exports = {
     siteTitle: 'КОМПАНІЯ «СНІЖНИЙ БАРС»',
     siteDescription:
       'Мы предлагаем широкий спектр услуг в сфере промальпа, заказывайте строительные работы на высоте от компании Снежный Барс.',
-    siteHeadline: 'Промышленный альпинизм и высотные работы, промальп | Снежный Барс',
     siteShortName: 'СНІЖНИЙ БАРС',
   },
 
@@ -39,7 +38,6 @@ module.exports = {
     siteTitle: 'КОМПАНИЯ «СНЕЖНЫЙ БАРС»',
     siteDescription:
       'Мы предлагаем широкий спектр услуг в сфере промальпа, заказывайте строительные работы на высоте от компании Снежный Барс.',
-    siteHeadline: 'Промышленный альпинизм и высотные работы, промальп | Снежный Барс',
     siteShortName: 'СНЕЖНЫЙ БАРС',
   },
 };

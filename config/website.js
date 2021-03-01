@@ -15,7 +15,11 @@ module.exports = {
    *
    * folder: /static/assets
    *  */
-  siteBusinessPhoto: `${siteUrl}/assets/images/business-photo.jpg`, // or array maximum 3 images
+  siteBusinessPhoto: [
+    `${siteUrl}/assets/images/organization/1x1/business-photo.jpg`,
+    `${siteUrl}/assets/images/organization/4x3/business-photo.jpg`,
+    `${siteUrl}/assets/images/organization/16x9/business-photo.jpg`,
+  ],
   siteLogo: `${siteUrl}/assets/images/logo.svg`,
 
   /**
@@ -24,12 +28,12 @@ module.exports = {
    * meta property="og:image
    * one image per locale
    *
-   * Sample file name: og-banner-ru.jpg
+   * Sample file name: banner-ru.jpg
    *
    * folder: /static/assets/images
    * */
   ogImage: {
-    src: `${siteUrl}/assets/images/og-banner-`,
+    src: `${siteUrl}/assets/images/og/banner-`,
     width: 1200,
     height: 630,
   },
@@ -40,12 +44,12 @@ module.exports = {
    * meta name="twitter:image
    * one image per locale
    *
-   * Sample file name: twitter-banner-2x1-ru.jpg
+   * Sample file name: banner-ru.jpg
    *
    * folder: /static/assets/images
    *  */
   twitterImage: {
-    src: `${siteUrl}/assets/images/twitter-banner-2x1-`,
+    src: `${siteUrl}/assets/images/twitter/2x1/banner-`,
     width: 600,
     height: 300,
   },

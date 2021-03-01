@@ -407,23 +407,25 @@ Netlify отслеживает все изменения в удаленном �
 
 Пути указаны относительно папки `[PROJECT_DIR]`.
 
-| Назначение  | Имя файла                       | Папка                                  | Пропорции   | Размер, px              | Количество                                  |
-| ----------- | ------------------------------- | -------------------------------        | ----------- | ----------------------- | --------------
-| Site        | favicon.ico                     | ./static                   | 1 x 1       | 16 x 16                 | 1              | [Wiki](https://en.wikipedia.org/wiki/Favicon) |
-| OpenGraph   | og-banner-`{locale}`.jpg          | ./static/assets/images     | 1.9 x 1     | 1200 x 630<br>600 x 315 | 1 на каждый язык
-| Twitter     | twitter-banner-2x1-`{locale}`.jpg | ./static/assets/images     | 2 x 1       | 600 x 300               | 1 на каждый язык
-| Twitter     | twitter-banner-1x1-`{locale}`.jpg | ./static/assets/images     | 1 x 1       | 450 x 450               | 1 на каждый язык
-| schema.org  | business-photo.jpg              | ./static/assets/images     |             |                         | 1-3
-| schema.org  | logo.svg                        | ./static/assets/images     |             |                         | 1
-| webmainfest | icon.png                        | ./src/assets/images        | 1 x 1       | > 512 x 512             | 1
+| № | Назначение  | Имя файла             | Папка                                     | Пропорции | Размер, px                  | Количество
+|---|-----------  |---------------------- |-------------------------------            |---------- |-----------------------      | ------------
+| 1 | Site        | favicon.ico           | ./static                                  | 1 x 1     | 16 x 16                     | 1
+| 2 | OpenGraph   | banner-`{locale}`.jpg | ./static/assets/images/og/                | 1.9 x 1   | **1200 x 630**<br>600 x 315 | 1 на `locale`
+| 3 | Twitter     | banner-`{locale}`.jpg | ./static/assets/images/twitter/1x1/       | 1 x 1     | 450 x 450                   | 1 на `locale`
+| 4 |             | banner-`{locale}`.jpg | ./static/assets/images/twitter/2x1/       | 2 x 1     | **600 x 300**               | 1 на `locale`
+| 5 | schema.org  | business-photo.jpg    | ./static/assets/images/organization/1x1/  | 1 x 1     | >  696 x 696                | 1
+| 6 |             | business-photo.jpg    | ./static/assets/images/organization/4x3/  | 4 x 3     | > 1000 x 750                | 1
+| 7 |             | business-photo.jpg    | ./static/assets/images/organization/16x9/ | 16 x 9    | > 1200 x 675                | 1
+| 8 | schema.org  | logo.svg              | ./static/assets/images                    |           |                             | 1
+| 9 | webmainfest | icon.png              | ./src/assets/images                       | 1 x 1     | > 512 x 512                 | 1
 
 _О назначении **favicon.ico** можно почитать [здесь](https://en.wikipedia.org/wiki/Favicon)._
 
 *Установите, если надо, свои размеры изображений для OpenGraph и Twitter в файле `[PROJECT_DIR]/config/website.js`*
 
-*Для OpenGraph и Twitter рекомендуется любое красивое фото с наложенным поверх лого.*
+*Для Facebook OpenGraph и Twitter рекомендуется любое красивое фото с наложенным поверх лого.*
 
-*business-photo.jpg  - изображение презентующее ваш бизнес.*
+*business-photo.jpg  - изображение презентующее ваш бизнес, отображается в поиске Google. Описание [здесь](https://developers.google.com/search/docs/data-types/local-business?hl=en).*
 
 ## Ссылки
 
