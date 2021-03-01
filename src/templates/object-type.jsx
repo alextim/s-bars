@@ -29,6 +29,7 @@ const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
         pathname={path}
         noindex={noindex}
         pageType="Article"
+        imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
       />
       <InnerAsideLayout cover={cover} html={html}>
         <AsideButtonList title={getObjectTypesTitle(mainNav)} items={getObjectTypeItems(mainNav)} />

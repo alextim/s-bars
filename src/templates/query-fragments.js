@@ -108,6 +108,7 @@ export const postCardFragment = graphql`
       metaDescription
       cover {
         sm {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 480) {
               ...GatsbyImageSharpFluid_noBase64
@@ -119,14 +120,12 @@ export const postCardFragment = graphql`
       category
       tags
       datePublished
-      noindex
     }
     fields {
       slug
     }
     excerpt(pruneLength: 180)
     timeToRead
-    html
   }
 `;
 

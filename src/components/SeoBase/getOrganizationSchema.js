@@ -73,15 +73,15 @@ const getOpeningHoursSpecification = (openingHours) => {
   }));
 };
 
-const getOrganizationSchemaDetails = ({
+const getOrganizationSchema = ({
   organization,
   address = {},
   config,
   /* dows,  */
-  homeURL,
   socialLinks,
 }) => {
   const {
+    organizationType,
     geo,
     openingHours,
     phone: organizationPhone,
@@ -101,9 +101,12 @@ const getOrganizationSchemaDetails = ({
   } = address;
 
   const schema = {
+    '@context': 'https://schema.org',
+    '@type': organizationType,
+    '@id': config.siteUrl,
     name: organizationName,
     description,
-    url: homeURL,
+    url: config.siteUrl,
     logo: config.siteLogo,
   };
   if (config.siteBusinessPhoto) {
@@ -204,4 +207,4 @@ const getOrganizationSchemaDetails = ({
   return schema;
 };
 
-export default getOrganizationSchemaDetails;
+export default getOrganizationSchema;

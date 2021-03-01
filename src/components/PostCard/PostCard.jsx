@@ -8,6 +8,8 @@ import { fontSizes } from '../../theme/font-sizes';
 
 import { useTranslation } from '../../i18n';
 
+import getCardSchema from '../SeoBase/getCardSchema';
+
 const excerptStyle = {
   paddingTop: space[2],
 };
@@ -17,11 +19,26 @@ const styleReadMore = {
   fontSize: fontSizes[0],
 };
 
-const PostCard = ({ data: { path: to, cover, title, excerpt } }) => {
+const PostCard = ({
+  data: { path: to, cover, title, excerpt, description, metaDescription, datePublished },
+}) => {
   const { t } = useTranslation();
 
   return (
     <article css={card.wrap}>
+      <script type="application/ld+json">
+        {JSON.stringify(
+          getCardSchema({
+            to,
+            title,
+            description: description || metaDescription,
+            cover,
+            datePublished,
+            pageType: 'BlogPosting',
+          }),
+        )}
+      </script>
+
       {cover && cover.sm && (
         <a href={to}>
           <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} />

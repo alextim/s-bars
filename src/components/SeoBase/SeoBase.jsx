@@ -1,7 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import getSchema from './getSchema';
+import getWebSiteSchema from './getWebSiteSchema';
+import getPageSchema from './getPageSchema';
+import getOrganizationSchema from './getOrganizationSchema';
 
 const removeTrailingSlash = (s) => s.replace(/\/$/, '');
 
@@ -20,11 +22,18 @@ const SeoBase = ({
   organization,
   i18n,
   pageType,
-  imgURL,
+  imgPath,
   datePublished,
 }) => {
+  const isRoot = pathname === '/';
+
   const URL = `${config.siteUrl}${removeTrailingSlash(pathname)}`;
   const homeURL = i18n ? `${config.siteUrl}${i18n.localizePath('/', locale)}` : URL;
+
+  let imgURL;
+  if (imgPath) {
+    imgURL = `${config.siteUrl}${imgPath}`;
+  }
 
   const purePath = i18n ? i18n.purePath(pathname) : pathname;
 
@@ -104,24 +113,43 @@ const SeoBase = ({
       <link type="text/plain" href={`${config.siteUrl}/humans.txt`} rel="author" />
       <script type="application/ld+json">
         {JSON.stringify(
-          getSchema({
-            URL,
-            homeURL,
-            organization,
-            address,
-            config,
-            socialLinks,
+          getWebSiteSchema({
+            siteUrl: config.siteUrl,
             siteTitle,
             siteDescription,
             htmlLang,
+          }),
+        )}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(
+          getPageSchema({
+            organizationName: organization.name,
+            siteUrl: config.siteUrl,
+            siteLogo: config.siteLogo,
+            URL,
             metaTitle,
             metaDescription,
+            htmlLang,
             imgURL,
             datePublished,
             pageType,
           }),
         )}
       </script>
+      {isRoot && (
+        <script type="application/ld+json">
+          {JSON.stringify(
+            getOrganizationSchema({
+              organization,
+              address,
+              config,
+              homeURL,
+              socialLinks,
+            }),
+          )}
+        </script>
+      )}
     </Helmet>
   );
 };

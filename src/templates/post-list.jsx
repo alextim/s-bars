@@ -37,6 +37,8 @@ const PostList = ({
       category: node.frontmatter.category,
       cover: node.frontmatter.cover,
       title: node.frontmatter.title,
+      description: node.frontmatter.title,
+      metaDescription: node.frontmatter.metaDescription,
       datePublished: node.frontmatter.datePublished,
       timeToRead: node.timeToRead,
       excerpt: node.excerpt,

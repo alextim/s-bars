@@ -36,7 +36,7 @@ const PostTemplate = ({ path, data, pageContext: { locale } }) => {
         noindex={noindex}
         datePublished={datePublished}
         pageType="BlogPosting"
-        imgURL={cover && cover.sm ? cover.sm.publicURL : undefined}
+        imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
       />
       <InnerAsideLayout cover={cover} html={html}>
         <aside css={styleWidgetArea}>

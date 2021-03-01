@@ -16,7 +16,7 @@ const SEO = ({
   canonical = true,
   noindex = false,
   pageType,
-  imgURL,
+  imgPath,
   datePublished,
   metas = [],
 }) => {
@@ -55,7 +55,7 @@ const SEO = ({
       organization={organization}
       i18n={i18n}
       pageType={pageType}
-      imgURL={imgURL}
+      imgPath={imgPath}
       datePublished={datePublished}
     />
   );

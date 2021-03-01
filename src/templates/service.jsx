@@ -27,6 +27,7 @@ const ServicePageTemplate = ({ path, data, pageContext: { locale } }) => {
         pathname={path}
         noindex={noindex}
         pageType="Article"
+        imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
       />
       <InnerAsideLayout cover={cover} html={html}>
         <AsideServices mainNav={mainNav} />

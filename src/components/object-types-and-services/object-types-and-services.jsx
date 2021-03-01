@@ -8,7 +8,7 @@ import { space } from '../../theme/space';
 
 import Layout from '../Layout/SimpleLayoutWithHeader';
 import SEO from '../SEO';
-
+import getCardSchema from '../SeoBase/getCardSchema';
 import { getListItems } from '../../utils/list-info';
 
 const htmlStyle = {
@@ -28,8 +28,18 @@ const styleItemsWrap = {
 const Cards = ({ items }) => {
   return (
     <div css={styleItemsWrap}>
-      {items.map(({ title, to, cover }, i) => (
-        <div key={i} css={card.wrap}>
+      {items.map(({ title, to, cover, description, metaDescription }, i) => (
+        <article key={i} css={card.wrap}>
+          <script type="application/ld+json">
+            {JSON.stringify(
+              getCardSchema({
+                to,
+                title,
+                description: description || metaDescription,
+                cover,
+              }),
+            )}
+          </script>
           {cover && cover.sm && (
             <a href={to}>
               <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} />
@@ -42,7 +52,7 @@ const Cards = ({ items }) => {
               </a>
             </h2>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   );
@@ -69,6 +79,8 @@ const ObjectTypeServiceList = ({ path, data, locale, type }) => {
     if (edge) {
       acc.push({
         title: edge.node.frontmatter.title,
+        description: edge.node.frontmatter.description,
+        metaDescription: edge.node.frontmatter.metaDescription,
         to: edge.node.fields.slug,
         cover:
           edge.node.frontmatter.cover && edge.node.frontmatter.cover.sm
