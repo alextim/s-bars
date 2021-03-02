@@ -120,18 +120,18 @@ module.exports = {
             })),
       },
     },
+    /*
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        /*
         trackingId: config.googleAnalyticsID,
         anonymize: true,
         allowLinker: true,
         head: false,
         respectDNT: false,
-        */
       },
     },
+        */
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -211,5 +211,11 @@ module.exports = {
     // 'gatsby-plugin-sass',
     'gatsby-plugin-remove-generator',
     // 'gatsby-plugin-webpack-bundle-analyser-v2',
+    {
+      resolve: 'at-image-sitemap',
+      options: {
+        ignoreImagesWithoutAlt: false,
+      },
+    },
   ],
 };

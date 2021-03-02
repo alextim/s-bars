@@ -2,6 +2,8 @@
 /**
  * const _ = require('lodash');
  */
+const wrapper = require('./promise-wrapper');
+
 const TEMPLATES_DIR = '../templates/';
 
 const { POSTS_PER_PAGE, POSTS_PATH } = require('../../config/website');
@@ -59,14 +61,6 @@ const map2Object = (m, comp, prefix, locale) =>
     }, {});
 
 */
-
-const wrapper = (promise) =>
-  promise.then((result) => {
-    if (result.errors) {
-      throw result.errors;
-    }
-    return result;
-  });
 
 const getTemplate = (template) => {
   if (template) {

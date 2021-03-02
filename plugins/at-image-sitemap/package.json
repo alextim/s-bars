@@ -1,0 +1,32 @@
+{
+  "name": "at-image-sitemap",
+  "description": "Images SiteMap",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Oleksii Tymoshenko <buildmnt@gmail.com>",
+  "keywords": [
+    "gatsby",
+    "gatsbyjs"
+  ],
+  "main": "n/a",
+  "homepage": "https://github.com/alextim/s-bars",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alextim/s-bars.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alextim/s-bars/issues"
+  },
+  "scripts": {
+  },
+  "dependencies": {
+    "sitemap": "^6.4.0"
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+    "gatsby": ">=3.0.0",
+    "react": ">=17.0.1"
+  }
+}

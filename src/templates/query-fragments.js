@@ -9,6 +9,7 @@ export const pageFragment = graphql`
       metaDescription
       cover {
         xl {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 1200) {
               ...GatsbyImageSharpFluid_noBase64
@@ -16,6 +17,7 @@ export const pageFragment = graphql`
           }
         }
         sm {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 480) {
               ...GatsbyImageSharpFluid_noBase64
@@ -71,6 +73,7 @@ export const postFragment = graphql`
       metaDescription
       cover {
         xl {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 1200) {
               ...GatsbyImageSharpFluid_noBase64
