@@ -4,7 +4,7 @@ import { jsx } from '@emotion/react';
 // https://swiperjs.com/react
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, Autoplay } from 'swiper/react';
 
 /**
  *
@@ -29,7 +29,7 @@ import { space } from '../../../theme/space';
 import { fontSizes } from '../../../theme/font-sizes';
 
 // install Swiper modules
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const styleWrap = {
   marginBottom: space[10],
@@ -51,7 +51,7 @@ const styleText = {
 const Slider = ({ title, text, items }) => {
   return (
     <section css={styleWrap}>
-      <Swiper slidesPerView={1} spaceBetween={0} navigation pagination>
+      <Swiper slidesPerView={1} spaceBetween={0} navigation pagination autoplay loop>
         {items &&
           items.map(
             ({ title: itemTitle, subtitle: itemSubtitle, image, to, text: itemText }, i) => (
