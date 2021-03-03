@@ -5,6 +5,7 @@ require('dotenv').config({
 
 const i18n = require('./src/i18n/i18n');
 const config = require('./config/website');
+const locales = require('./config/locales');
 
 const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
@@ -13,6 +14,7 @@ const { content } = config;
 module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl,
+    locales: Object.keys(locales).map((code) => ({ code, ...locales[code] })),
   },
   plugins: [
     {
@@ -81,45 +83,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        // exclude: [],
-        /**
-         *
-         * Fix to exclude all 404 pages
-         *
-         * gatsby-plugin-sitemap ^2.4.7 excludes only default /404
-         *
-         * not working
-         * exclude: ['/en/404', '/ru/404']
-         * exclude: ['/ * /404']
-         * exclude: ['*404*']
-         *
-         *  */
-        // https://www.digitalocean.com/community/tutorials/building-a-custom-sitemap-for-your-gatsbyjs-site
-        query: `{
-          site {
-            siteMetadata {
-              siteUrl
-            }
-          }
-          allSitePage {
-            nodes {
-              path
-            }
-          }
-        }`,
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.nodes
-            .filter((node) => !node.path.includes('404'))
-            .map((node) => ({
-              url: `${site.siteMetadata.siteUrl}${node.path}`,
-              changefreq: 'daily',
-              priority: 0.7,
-            })),
-      },
-    },
     /*
     {
       resolve: 'gatsby-plugin-google-analytics',
@@ -212,7 +175,7 @@ module.exports = {
     'gatsby-plugin-remove-generator',
     // 'gatsby-plugin-webpack-bundle-analyser-v2',
     {
-      resolve: 'at-image-sitemap',
+      resolve: 'at-sitemap',
       options: {
         ignoreImagesWithoutAlt: false,
       },

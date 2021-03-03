@@ -1,6 +1,6 @@
 {
-  "name": "at-image-sitemap",
-  "description": "Images SiteMap",
+  "name": "at-sitemap",
+  "description": "Replacement for gatsby-plugin-sitemap. Serves: images and posts with state 'published'",
   "private": true,
   "version": "0.0.1",
   "license": "MIT",

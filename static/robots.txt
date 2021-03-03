@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /
 
-sitemap: https://tarutino-steppe.netlify.app/sitemap.xml
+sitemap: https://s-bars.app/sitemap.xml
+sitemap: https://s-bars.app/image-sitemap.xml
