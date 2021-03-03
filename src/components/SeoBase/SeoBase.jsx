@@ -69,7 +69,7 @@ const SeoBase = ({
       )}
       <meta httpEquiv="content-language" content={locale} />
       <meta name="description" content={metaDescription} />
-      {canonical && pathname && <link rel="canonical" href={pathname} />}
+      {canonical && pathname && <link rel="canonical" href={URL} />}
       <meta name="theme-color" content={config.themeColor} />
       {metas &&
         Object.keys(metas).map((name) => <meta key={name} name={name} content={metas[name]} />)}
