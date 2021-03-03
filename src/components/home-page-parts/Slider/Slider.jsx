@@ -4,7 +4,7 @@ import { jsx } from '@emotion/react';
 // https://swiperjs.com/react
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide, Autoplay } from 'swiper/react';
+import { Swiper, SwiperSlide, AutoPlay } from 'swiper/react';
 
 /**
  *
@@ -29,7 +29,7 @@ import { space } from '../../../theme/space';
 import { fontSizes } from '../../../theme/font-sizes';
 
 // install Swiper modules
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+SwiperCore.use([Navigation, Pagination, AutoPlay]);
 
 const styleWrap = {
   marginBottom: space[10],
