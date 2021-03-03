@@ -580,6 +580,13 @@ Disallow:
 sitemap: https://your-actual-site-address/sitemap.xml
 ```
 
+Файл: `[PROJECT_DIR]\gatsby-config.js`
+
+В настройках плагина **gatsby-plugin-netlify** надо удалить или закомментировать строку
+
+```javascript
+'X-Robots-Tag: googlebot: noindex, nofollow',
+```
 
 ### Компиляция
 
