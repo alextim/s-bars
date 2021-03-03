@@ -1185,10 +1185,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@gatsbyjs/reach-router@^1.3.5":
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/@gatsbyjs/reach-router/-/reach-router-1.3.5.tgz"
-  integrity sha512-O7sTZajwCtbjuuUYwjEZdSw7CmAxA6ugDaXtw4hfKoTfj4RZUAB8nYRlecUVuNAQbgHiXJSx2jKfu1hmE9mggA==
+"@gatsbyjs/reach-router@^1.3.6":
+  version "1.3.6"
+  resolved "https://registry.yarnpkg.com/@gatsbyjs/reach-router/-/reach-router-1.3.6.tgz#4e8225836959be247890b66f21a3198a0589e34d"
+  integrity sha512-RW9ZBir9kqtw4IWm+Z+DLWGOeoJxoaTvNVrnR5fV9zD8EmfAhbBN/hS6i6VnTMFZ7rdd6mnpx2/XtnMvYfsaVQ==
   dependencies:
     invariant "^2.2.3"
     prop-types "^15.6.1"
@@ -3674,6 +3674,11 @@ babel-eslint@^10.0.1:
     "@babel/types" "^7.7.0"
     eslint-visitor-keys "^1.0.0"
     resolve "^1.12.0"
+
+babel-jsx-utils@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/babel-jsx-utils/-/babel-jsx-utils-1.0.1.tgz#f2d171cba526594e7d69e9893d634502cf950f07"
+  integrity sha512-Qph/atlQiSvfmkoIZ9VA+t8dA0ex2TwL37rkhLT9YLJdhaTMZ2HSM2QGzbqjLWanKA+I3wRQJjjhtuIEgesuLw==
 
 babel-loader@^8.2.2:
   version "8.2.2"
@@ -7920,15 +7925,6 @@ gatsby-graphiql-explorer@^1.0.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-gatsby-image@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.11.0.tgz"
-  integrity sha512-H1va64RgXizYXONhoqB3rAdSqALZi0hkBYqEsc0peVEYzb2maRhEwOchg65hKvp3HT/ahnfrik59epRguYvi/g==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    object-fit-images "^3.2.4"
-    prop-types "^15.7.2"
-
 gatsby-legacy-polyfills@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-legacy-polyfills/-/gatsby-legacy-polyfills-1.0.0.tgz"
@@ -7979,6 +7975,23 @@ gatsby-plugin-google-analytics@^3.0.0:
   dependencies:
     "@babel/runtime" "^7.12.5"
     minimatch "3.0.4"
+
+gatsby-plugin-image@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.0.0.tgz#100ab670549c1b4b742034d09944c19b6a5cd4ee"
+  integrity sha512-qPfydip7atF+rlESv1HLDmbwmmQvC8aU7W6GwO62hWcuGcIFJD3lcn6B8xF55f4rxE99vxbO5gUwRUwj+fUH1A==
+  dependencies:
+    "@babel/parser" "^7.12.5"
+    "@babel/traverse" "^7.12.5"
+    babel-jsx-utils "^1.0.1"
+    babel-plugin-remove-graphql-queries "^3.0.0"
+    camelcase "^5.3.1"
+    chokidar "^3.5.1"
+    common-tags "^1.8.0"
+    fs-extra "^8.1.0"
+    gatsby-core-utils "^2.0.0"
+    objectFitPolyfill "^2.3.0"
+    prop-types "^15.7.2"
 
 gatsby-plugin-manifest@^3.0.0:
   version "3.0.0"
@@ -8277,10 +8290,10 @@ gatsby-transformer-yaml@^3.0.0:
     lodash "^4.17.20"
     unist-util-select "^1.5.0"
 
-gatsby@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.0.0.tgz"
-  integrity sha512-UVVtg2VBwfa2XW3VZFHAN2htJujg5bIU7wOVk+eZYISQrF0ljLYUqZxaq1pWSvFdUvfPbPhh7QyvFfNkWYB8ZQ==
+gatsby@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.0.1.tgz#5dd4cf2bcfd07b965b8605a99d54e7a834bfb598"
+  integrity sha512-ap9gbjPrk9ft1SY+fsAKfOpHWfUS+wb5kkeRxOunsQvvizoCUqCcxlRbuNpw1EKmPoHGbHN5D1vVEh1RXAwM6g==
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/core" "^7.12.3"
@@ -8289,7 +8302,7 @@ gatsby@^3.0.0:
     "@babel/runtime" "^7.12.5"
     "@babel/traverse" "^7.12.5"
     "@babel/types" "^7.12.6"
-    "@gatsbyjs/reach-router" "^1.3.5"
+    "@gatsbyjs/reach-router" "^1.3.6"
     "@gatsbyjs/webpack-hot-middleware" "^2.25.2"
     "@hapi/joi" "^15.1.1"
     "@mikaelkristiansson/domready" "^1.0.10"
@@ -12051,10 +12064,10 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-netlify-cli@^3.10.3:
-  version "3.10.3"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-3.10.3.tgz"
-  integrity sha512-M0kE34XWuuWs8CzosiegHkzgAeeHcGYbSjb+zvbhsIbWcJmuVDepXHDTuIe6nOsWWi70cc4UmdatvmeMReHquQ==
+netlify-cli@^3.10.4:
+  version "3.10.4"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-3.10.4.tgz#f3f4da62eb3c355426728bad6cb11bd4d1dbd11d"
+  integrity sha512-THMSTm8kXIn3uOMRhxI/2NOLG31PnkHemDV2smte/KMtgg0U9wl+Czs/GeTJN8EMQo/TGCqC1On3ocXk3idKdg==
   dependencies:
     "@netlify/build" "^9.6.0"
     "@netlify/config" "^4.0.2"
@@ -12439,11 +12452,6 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-fit-images@^3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/object-fit-images/-/object-fit-images-3.2.4.tgz"
-  integrity sha512-G+7LzpYfTfqUyrZlfrou/PLLLAPNC52FTy5y1CBywX+1/FkxIloOyQXBmZ3Zxa2AWO+lMF0JTuvqbr7G5e5CWg==
-
 object-inspect@^1.8.0, object-inspect@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.9.0.tgz"
@@ -12534,6 +12542,11 @@ object.values@^1.1.0, object.values@^1.1.1:
     define-properties "^1.1.3"
     es-abstract "^1.18.0-next.2"
     has "^1.0.3"
+
+objectFitPolyfill@^2.3.0:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/objectFitPolyfill/-/objectFitPolyfill-2.3.5.tgz#be8c83064aabfa4e88780f776c2013c48ce1f745"
+  integrity sha512-8Quz071ZmGi0QWEG4xB3Bv5Lpw6K0Uca87FLoLMKMWjB6qIq9IyBegP3b/VLNxv2WYvIMGoeUQ+c6ibUkNa8TA==
 
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"

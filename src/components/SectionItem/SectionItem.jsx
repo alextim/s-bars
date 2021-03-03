@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Icon from '../Icon';
 
@@ -43,7 +43,11 @@ const SectionItem = ({ data }) => {
       {title && <h3 css={styleTitle}>{title}</h3>}
       {subtitle && <div css={styleSubtitle}>{subtitle}</div>}
       {image && image.sm && (
-        <Img css={styleImg} fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
+        <GatsbyImage
+          css={styleImg}
+          image={image.sm.childImageSharp.gatsbyImageData}
+          alt={image.alt}
+        />
       )}
       {text && <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />}
     </div>
@@ -114,7 +118,13 @@ export const SectionItemImage = ({ data }) => {
   const { image } = data;
   return (
     image &&
-    image.sm && <Img css={styleImg} fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
+    image.sm && (
+      <GatsbyImage
+        css={styleImg}
+        image={image.sm.childImageSharp.gatsbyImageData}
+        alt={image.alt}
+      />
+    )
   );
 };
 const styleImageRound = {
@@ -133,7 +143,11 @@ export const SectionItemRound = ({ data }) => {
   return (
     <div css={styleWrapRound}>
       {image && image.sm && (
-        <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} css={styleImageRound} />
+        <GatsbyImage
+          image={image.sm.childImageSharp.gatsbyImageData}
+          alt={image.alt}
+          css={styleImageRound}
+        />
       )}
       <h3 css={styleTitleRound}>{title}</h3>
       {subtitle && <div css={styleSubtitle}>{subtitle}</div>}

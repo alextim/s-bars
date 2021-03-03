@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { space } from '../../theme/space';
 
@@ -50,7 +50,11 @@ const Section = ({
       {title && <h2 css={styleTitle}>{title}</h2>}
       {subtitle && <div css={styleSubtitle}>{subtitle}</div>}
       {image && image.sm && (
-        <Img css={styleImg} fluid={image.sm.childImageSharp.fluid} alt={image.alt} />
+        <GatsbyImage
+          css={styleImg}
+          image={image.sm.childImageSharp.gatsbyImageData}
+          alt={image.alt}
+        />
       )}
       {!textLast && text && <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />}
       <div css={styleBodyWrap}>{children}</div>

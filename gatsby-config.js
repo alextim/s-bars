@@ -17,6 +17,7 @@ module.exports = {
     locales: Object.keys(locales).map((code) => ({ code, ...locales[code] })),
   },
   plugins: [
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

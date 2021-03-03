@@ -106,9 +106,7 @@ export const pageQuery = graphql`
               alt
               sm {
                 childImageSharp {
-                  fluid(maxWidth: 1216) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                  }
+                  gatsbyImageData(layout: FULL_WIDTH)
                 }
               }
             }

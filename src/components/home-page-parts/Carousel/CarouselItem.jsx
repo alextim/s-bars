@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import mq from '../../../theme/media-queries';
 import { space } from '../../../theme/space';
@@ -59,7 +59,9 @@ const styleCustomerName = {
 
 const Carouseltem = ({ heading, customer, description, image }) => (
   <div css={styleWrap}>
-    {image && image.sm && <Img fluid={image.sm.childImageSharp.fluid} alt={image.alt} />}
+    {image && image.sm && (
+      <GatsbyImage image={image.sm.childImageSharp.gatsbyImageData} alt={image.alt} />
+    )}
     <div css={styleTextWrap}>
       <div css={styleDescription} dangerouslySetInnerHTML={{ __html: description }} />
       <div css={styleCustomerWrap}>

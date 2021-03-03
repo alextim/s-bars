@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import card from '../../theme/card';
 import mq from '../../theme/media-queries';
@@ -42,7 +42,7 @@ const Cards = ({ items }) => {
           </script>
           {cover && cover.sm && (
             <a href={to}>
-              <Img fluid={cover.sm.childImageSharp.fluid} alt={cover.alt} />
+              <GatsbyImage image={cover.sm.childImageSharp.gatsbyImageData} alt={cover.alt} />
             </a>
           )}
           <div css={card.textWrap}>

@@ -8,20 +8,11 @@ export const pageFragment = graphql`
       metaTitle
       metaDescription
       cover {
-        xl {
-          publicURL
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
-        }
         sm {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 480) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
+            # fluid(maxWidth: 480)
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
         alt
@@ -34,9 +25,8 @@ export const pageFragment = graphql`
         image {
           sm {
             childImageSharp {
-              fluid(maxWidth: 480) {
-                ...GatsbyImageSharpFluid_noBase64
-              }
+              # fluid(maxWidth: 480)
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
           alt
@@ -50,9 +40,8 @@ export const pageFragment = graphql`
           image {
             sm {
               childImageSharp {
-                fluid(maxWidth: 480) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
+                # fluid(maxWidth: 480)
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
             alt
@@ -72,20 +61,11 @@ export const postFragment = graphql`
       metaTitle
       metaDescription
       cover {
-        xl {
-          publicURL
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
-        }
         sm {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 480) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
+            # fluid(maxWidth: 480)
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
         alt
@@ -113,9 +93,8 @@ export const postCardFragment = graphql`
         sm {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 480) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
+            # fluid(maxWidth: 480)
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
         alt

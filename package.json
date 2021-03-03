@@ -30,7 +30,7 @@
     "dev": "gatsby develop -o",
     "clean": "gatsby clean",
     "serve": "gatsby serve -o",
-    "lint": "eslint --debug src/",
+    "lint": "eslint src/",
     "lint:write": "eslint --debug src/ --fix",
     "prettier": "prettier --write src/**/*.js",
     "stylelint": "stylelint --syntax css-in-js src/**/*.{js,jsx,ts,tsx,css,scss}",
@@ -42,7 +42,7 @@
     "testbuild": "yarn test && yarn build",
     "ncu": "ncu -u -x husky --timeout 150000 ",
     "translations:json2yaml": "node scripts/translations-json-to-yaml",
-    "postinstall": "cd plugins/at-image-sitemap/ && yarn"
+    "postinstall": "cd plugins/at-sitemap/ && yarn"
   },
   "husky": {
     "hooks": {
@@ -68,10 +68,10 @@
     "dotenv": "^8.2.0",
     "email-validator": "^2.0.4",
     "emotion-theming": "^11.0.0",
-    "gatsby": "^3.0.0",
-    "gatsby-image": "^2.11.0",
+    "gatsby": "^3.0.1",
     "gatsby-plugin-emotion": "^6.0.0",
     "gatsby-plugin-google-analytics": "^3.0.0",
+    "gatsby-plugin-image": "^1.0.0",
     "gatsby-plugin-manifest": "^3.0.0",
     "gatsby-plugin-netlify": "^3.0.0",
     "gatsby-plugin-portal": "^1.0.7",
@@ -114,7 +114,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "husky": "^4.3.8 ",
     "lint-staged": "^10.5.4",
-    "netlify-cli": "^3.10.3",
+    "netlify-cli": "^3.10.4",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "prettier-eslint-cli": "^5.0.0",

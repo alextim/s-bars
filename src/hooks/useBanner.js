@@ -5,21 +5,21 @@ const useBanner = (cover) => {
 
   let img;
   if (cover.xl) {
-    img = [cover.sm.childImageSharp.fluid, cover.xl.childImageSharp.fluid];
+    img = [cover.sm.childImageSharp.gatsbyImageData, cover.xl.childImageSharp.gatsbyImageData];
     /*
     img = [
       {
-        ...cover.mobile.childImageSharp.fluid,
+        ...cover.mobile.childImageSharp.gatsbyImageData,
         media: '(max-width: 1023px)',
       },
       {
-        ...cover.default.childImageSharp.fluid,
+        ...cover.default.childImageSharp.gatsbyImageData,
         media: '(min-width: 1024px)',
       },
     ];
     */
   } else {
-    img = cover.sm.childImageSharp.fluid;
+    img = cover.sm.childImageSharp.gatsbyImageData;
   }
   return {
     img,
