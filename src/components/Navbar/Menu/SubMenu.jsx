@@ -6,7 +6,7 @@ import mq from '../../../theme/media-queries';
 import sizes from '../../../theme/sizes';
 import colors from '../../../theme/colors';
 
-import MenuItem from './MenuItem2';
+import MenuItem from './MenuItem';
 
 import styleMenuItemLg from './styleMenuItemLg';
 

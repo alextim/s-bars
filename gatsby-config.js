@@ -11,6 +11,26 @@ const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
 const { content } = config;
 
+const CSP = {
+  'default-src': "'self'",
+  'prefetch-src': "'self'",
+  'connect-src': "'self' *.google-analytics.com",
+  'manifest-src': "'self'",
+  'style-src': "'self' 'unsafe-inline'",
+  'font-src': "'self' data:",
+  'base-uri': "'none'",
+  'frame-src': 'https://www.youtube.com *.google.com',
+  'frame-ancestors': "'none'",
+  'form-action': "'none'",
+  'script-src': "'self' *.google-analytics.com maps.googleapis.com 'unsafe-inline'",
+  'img-src':
+    "data: 'self' *.google-analytics.com maps.gstatic.com *.googleapis.com *.ggpht *.ytimg.com",
+  'object-src': "'none'",
+};
+
+const getContentSecurityPolicy = () =>
+  Object.keys(CSP).reduce((acc, curr) => `${acc}${acc ? '; ' : ''}${curr} ${CSP[curr]}`, '');
+
 module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl,
@@ -164,7 +184,7 @@ module.exports = {
         mergeCachingHeaders: true,
         headers: {
           '/*': [
-            "Content-Security-Policy: default-src 'self'; prefetch-src 'self'; connect-src 'self' *.google-analytics.com; manifest-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'none'; frame-src https://www.youtube.com *.google.com; frame-ancestors 'none'; form-action 'none'; script-src 'self' *.google-analytics.com maps.googleapis.com 'unsafe-inline';img-src data: 'self' *.google-analytics.com maps.gstatic.com *.googleapis.com *.ggpht *.ytimg.com;object-src 'none'",
+            `Content-Security-Policy: ${getContentSecurityPolicy()}`,
             'X-Robots-Tag: googlebot: noindex, nofollow',
           ],
           '/assets/*': ['Cache-Control: public, max-age=31536000, immutable'],

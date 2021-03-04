@@ -61,15 +61,20 @@ const activeStyle = {
 const PostPagination = ({ currentPage, numPages, subpath }) => {
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const prevPage = currentPage - 1 === 1 ? '/' : `/${(currentPage - 1).toString()}`;
-  const nextPage = `/${(currentPage + 1).toString()}`;
+
   const pages = pagination(currentPage, numPages);
 
   const { locale } = useLocale();
+
   return (
     <div css={wrapperStyle}>
       {!isFirst && (
-        <Link to={i18n.localizePath(`${subpath}${prevPage}`, locale)} rel="prev">
+        <Link
+          to={i18n.localizePath(
+            `${subpath}/${currentPage - 1 === 1 ? '' : `${currentPage - 1}/`}`,
+            locale,
+          )}
+        >
           {'<'}
         </Link>
       )}
@@ -80,7 +85,7 @@ const PostPagination = ({ currentPage, numPages, subpath }) => {
         return (
           <Link
             key={`pagination-number${page}`}
-            to={i18n.localizePath(`${subpath}${page === 1 ? '' : `/${page}`}`, locale)}
+            to={i18n.localizePath(`${subpath}/${page === 1 ? '' : `${page}/`}`, locale)}
             css={{
               ...paginationNumberStyle,
               ...(page === currentPage ? activeStyle : {}),
@@ -92,8 +97,7 @@ const PostPagination = ({ currentPage, numPages, subpath }) => {
       })}
       {!isLast && (
         <Link
-          to={i18n.localizePath(`${subpath}${nextPage}`, locale)}
-          rel="next"
+          to={i18n.localizePath(`${subpath}/${currentPage + 1}/`, locale)}
           css={paginationNumberStyle}
         >
           {'>'}

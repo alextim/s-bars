@@ -1,3 +1,5 @@
+import { formatUrl } from '../lib/utils';
+
 const SERVICES_ITEM_MENU_POSITION = 0;
 const OBJECT_TYPES_ITEM_MENU_POSITION = 1;
 
@@ -20,3 +22,8 @@ export const getObjectTypesTitle = (mainNav) => getListTitle(mainNav, 'object-ty
 
 export const getServiceItems = (mainNav) => getListItems(mainNav, 'service');
 export const getObjectTypeItems = (mainNav) => getListItems(mainNav, 'object-type');
+
+export const getFormattedServiceItems = (mainNav) =>
+  getServiceItems(mainNav).map(({ title, to }) => ({ title, to: formatUrl(to) }));
+export const getFormattedObjectTypeItems = (mainNav) =>
+  getObjectTypeItems(mainNav).map(({ title, to }) => ({ title, to: formatUrl(to) }));

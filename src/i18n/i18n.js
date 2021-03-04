@@ -3,7 +3,7 @@ const allLocales = require('../../config/locales');
 // Only allow languages defined in the LOCALES env variable.
 // This allows us to compile only languages that are "complete" or test only
 // a single language
-function getLanguages() {
+const getLanguages = () => {
   if (!process.env.LOCALES) {
     return allLocales;
   }
@@ -25,7 +25,7 @@ function getLanguages() {
     locales[code] = locale;
   });
   return locales;
-}
+};
 
 const locales = getLanguages();
 const localeCodes = Object.keys(locales);

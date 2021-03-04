@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import { Location } from '@reach/router';
@@ -6,7 +7,7 @@ import mq from '../../../theme/media-queries';
 import sizes from '../../../theme/sizes';
 
 import CTAButton from './CTAButton';
-import MenuItem from './MenuItem2';
+import MenuItem from './MenuItem';
 import SubMenu from './SubMenu';
 
 const styleWrapper = {
@@ -98,11 +99,6 @@ const styleWrapperOpened = {
   transform: 'unset',
 };
 
-const isRoot = (path) => path === '/';
-
-// Removes one or more trailing slashes from URL
-const removeTrailingSlashes = (url) => url.replace(/\/+$/, '');
-
 const menuItemWrapStyle = {
   margin: 0,
   [mq.lg]: {
@@ -112,9 +108,7 @@ const menuItemWrapStyle = {
   },
 };
 
-const stripLastSlashes = (path) => (isRoot(path) ? path : removeTrailingSlashes(path));
-
-const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
+const Menu = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
   const onClick = () => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
@@ -124,26 +118,25 @@ const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
   return (
     <Location>
       {({ location: { pathname } }) => {
-        const path = stripLastSlashes(pathname);
         return (
           <div css={{ ...styleWrapper, ...(isMenuOpen ? styleWrapperOpened : {}) }}>
             <ul css={styleMenuWrapper}>
               {navItems.map(({ title, to, submenu }, i) => {
-                if (submenu && Array.isArray(submenu)) {
+                if (submenu) {
                   return (
                     <SubMenu
                       key={i}
                       to={to}
                       title={title}
                       items={submenu}
-                      path={path}
+                      path={pathname}
                       onClick={onClick}
                     />
                   );
                 }
                 return (
                   <li key={i} css={menuItemWrapStyle}>
-                    <MenuItem to={to} isActive={to === path} onClick={onClick}>
+                    <MenuItem to={to} isActive={to === pathname} onClick={onClick}>
                       {title}
                     </MenuItem>
                   </li>
@@ -161,4 +154,4 @@ const Menu2 = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
   );
 };
 
-export default Menu2;
+export default Menu;

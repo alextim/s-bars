@@ -2,6 +2,8 @@
 import { jsx } from '@emotion/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
+import Utils from '../../lib/utils';
+
 import card from '../../theme/card';
 import mq from '../../theme/media-queries';
 import { space } from '../../theme/space';
@@ -81,7 +83,7 @@ const ObjectTypeServiceList = ({ path, data, locale, type }) => {
         title: edge.node.frontmatter.title,
         description: edge.node.frontmatter.description,
         metaDescription: edge.node.frontmatter.metaDescription,
-        to: edge.node.fields.slug,
+        to: Utils.formatUrl(edge.node.fields.slug),
         cover:
           edge.node.frontmatter.cover && edge.node.frontmatter.cover.sm
             ? { ...edge.node.frontmatter.cover }

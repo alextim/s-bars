@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import fieldsInfo from '../../../../../lib/contact-form-fields';
-import EMAIL_FIELD from '../../../../../lib/email-field';
+import fieldsInfo from '../../../../../lib/form/contact-form-fields';
+import EMAIL_FIELD from '../../../../../lib/form/email-field';
 
 import useForm from '../../hooks/useForm';
 import sendData from '../../services/send-data';

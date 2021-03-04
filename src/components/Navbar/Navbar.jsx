@@ -8,7 +8,7 @@ import Hamburger from '../Hamburger';
 import Logo from '../Logo';
 
 import { Left, Right } from './styled';
-import Menu from './Menu2';
+import Menu from './Menu';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

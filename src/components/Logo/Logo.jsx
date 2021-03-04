@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
+import { Link } from 'gatsby';
 
 import Utils from '../../lib/utils';
 import i18n from '../../i18n';
 import { useLocale } from '../../i18n/i18n-context';
 import useOrganization from '../../hooks/useOrganization';
-
-import Link from '../LocalizedLink';
 
 import mq from '../../theme/media-queries';
 import colors from '../../theme/colors';
@@ -62,9 +61,10 @@ const styleImg = {
 const Logo = ({ onClick }) => {
   const { locale } = useLocale();
   const { phone } = useOrganization();
+  const to = Utils.formatUrl(i18n.localizePath('/', locale));
   return (
     <div css={styleWrap}>
-      <Link css={styleImageLink} to="/" onClick={onClick}>
+      <Link css={styleImageLink} to={to} onClick={onClick}>
         <img
           src={SITE_LOGO}
           alt={i18n.locales[locale].siteTitle}
@@ -74,7 +74,7 @@ const Logo = ({ onClick }) => {
         />
       </Link>
       <div css={styleTextWrap}>
-        <Link to="/" onClick={onClick} css={styleHomeLink}>
+        <Link to={to} onClick={onClick} css={styleHomeLink}>
           {i18n.locales[locale].siteShortName}
         </Link>
         <a href={Utils.phoneUrl(phone[0])}>{Utils.formatPhone(phone[0])}</a>

@@ -1,4 +1,5 @@
 const writeSiteMap = require('./write-sitemap');
+const { formatUrl } = require('../../../src/lib/utils');
 
 const getPureSlug = (slug, localeCodes) => {
   const a = slug.split('/');
@@ -37,12 +38,12 @@ module.exports = (allPages, reporter, options, siteUrl, allLocales) => {
           }) => getPureSlug(linkSlug, localeCodes) === pureSlug,
         )
         .map(({ node: { fields: { slug: linkSlug, locale: linkLocale } } }) => ({
-          url: siteUrl + linkSlug,
+          url: siteUrl + formatUrl(linkSlug),
           lang: locales[linkLocale],
         }));
 
       const result = {
-        url: siteUrl + slug,
+        url: siteUrl + formatUrl(slug),
         changefreq: 'daily',
         priority: 0.7,
       };

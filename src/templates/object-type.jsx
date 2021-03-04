@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { getObjectTypesTitle, getObjectTypeItems } from '../utils/list-info';
+import { getObjectTypesTitle, getFormattedObjectTypeItems } from '../utils/list-info';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
@@ -32,7 +32,10 @@ const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
         imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
       />
       <InnerAsideLayout cover={cover} html={html}>
-        <AsideButtonList title={getObjectTypesTitle(mainNav)} items={getObjectTypeItems(mainNav)} />
+        <AsideButtonList
+          title={getObjectTypesTitle(mainNav)}
+          items={getFormattedObjectTypeItems(mainNav)}
+        />
       </InnerAsideLayout>
     </Layout>
   );

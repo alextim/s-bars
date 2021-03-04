@@ -12,7 +12,7 @@ module.exports = {
     formatLocale: 'ua-UA',
     ogLocale: 'uk_UA',
     name: 'Ukranian',
-    shortName: 'Ukr',
+    shortName: 'Укр',
     localName: 'Український',
     shortLocalName: 'Укр',
 

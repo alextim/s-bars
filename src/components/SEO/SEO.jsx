@@ -13,11 +13,11 @@ const SEO = ({
   description,
   locale,
   pathname,
-  canonical = true,
-  noindex = false,
   pageType,
   imgPath,
   datePublished,
+  canonical = true,
+  noindex = false,
   metas = [],
 }) => {
   const socialLinks = useSocialLinks();
@@ -41,22 +41,22 @@ const SEO = ({
   */
   return (
     <SeoBase
+      config={config}
+      siteMeta={siteMeta}
+      i18n={i18n}
+      organization={organization}
+      address={address}
+      socialLinks={socialLinks}
       title={title}
       description={description}
       locale={locale}
       pathname={pathname}
-      canonical={canonical}
-      noindex={noindex}
-      metas={metas}
-      config={config}
-      address={address}
-      siteMeta={siteMeta}
-      socialLinks={socialLinks}
-      organization={organization}
-      i18n={i18n}
       pageType={pageType}
       imgPath={imgPath}
       datePublished={datePublished}
+      canonical={canonical}
+      noindex={noindex}
+      metas={metas}
     />
   );
 };

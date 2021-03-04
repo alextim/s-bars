@@ -6,22 +6,38 @@ import colors from '../../../theme/colors';
 import mq from '../../../theme/media-queries';
 import fontWeights from '../../../theme/font-weights';
 
-const style = {
+import styleMenuItemLg from './styleMenuItemLg';
+
+const activeStyle = {
+  boxShadow: `0 -2px 0 ${colors.header.nav.item.boxShadowColor} inset`,
+};
+
+const linkStyle = {
   display: 'inline-flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
+
+  // position: 'relative',
   padding: '1rem 2rem',
+
+  width: '100%',
+  // height: '100%',
   whiteSpace: 'nowrap',
   cursor: 'pointer',
-  touchAction: 'none',
+  /**
+   * scrolling doesn't work in mobile due
+   * touchAction: 'none
+   */
+  // touchAction: 'none',
   opacity: 1,
   textDecoration: 'none',
   textTransform: 'uppercase',
   fontWeight: fontWeights.semibold,
 
   color: colors.header.nav.item.text,
+
   borderBottom: '1px solid',
   borderBottomColor: colors.header.nav.item.borderColor,
-
   '&:first-of-type': {
     borderTop: '1px solid',
     borderTopColor: colors.header.nav.item.borderColor,
@@ -46,22 +62,18 @@ const style = {
   },
 
   [mq.lg]: {
-    padding: '0 1rem',
-    borderBottom: 0,
-    '&:first-of-type': {
-      borderTop: 0,
-    },
+    ...styleMenuItemLg,
   },
 };
 
-const activeStyle = {
-  boxShadow: `0 -2px 0 ${colors.header.nav.item.boxShadowColor} inset`,
-};
-
-const MenuItem1 = ({ children, to, isActive, onClick }) => (
-  <Link css={{ ...style, ...(isActive ? activeStyle : {}) }} to={to} onClick={onClick}>
+const MenuItem = ({ children, to, isActive, onClick, extraStyle = {} }) => (
+  <Link
+    css={{ ...linkStyle, ...extraStyle, ...(isActive ? activeStyle : {}) }}
+    to={to}
+    onClick={onClick}
+  >
     {children}
   </Link>
 );
 
-export default MenuItem1;
+export default MenuItem;

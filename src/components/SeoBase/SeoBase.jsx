@@ -5,29 +5,27 @@ import getWebSiteSchema from './getWebSiteSchema';
 import getPageSchema from './getPageSchema';
 import getOrganizationSchema from './getOrganizationSchema';
 
-const removeTrailingSlash = (s) => s.replace(/\/$/, '');
-
 const SeoBase = ({
+  config,
+  siteMeta,
+  i18n,
+  organization,
+  address,
+  socialLinks,
   title,
   description,
   locale,
   pathname,
-  canonical,
-  noindex,
-  metas,
-  siteMeta,
-  config,
-  socialLinks,
-  address,
-  organization,
-  i18n,
   pageType,
   imgPath,
   datePublished,
+  canonical,
+  noindex,
+  metas,
 }) => {
   const isRoot = pathname === '/';
 
-  const URL = `${config.siteUrl}${removeTrailingSlash(pathname)}`;
+  const URL = `${config.siteUrl}${pathname}`;
   const homeURL = i18n ? `${config.siteUrl}${i18n.localizePath('/', locale)}` : URL;
 
   let imgURL;
@@ -49,7 +47,7 @@ const SeoBase = ({
   return (
     <Helmet>
       <html lang={htmlLang} />
-      {noindex && <meta name="robots" content="noindex" />}
+      <meta name="robots" content={`${noindex ? 'no' : ''}index, follow`} />
       <title>{metaTitle}</title>
       {i18n &&
         i18n.localeCodes.map((code) => (
@@ -69,7 +67,7 @@ const SeoBase = ({
       )}
       <meta httpEquiv="content-language" content={locale} />
       <meta name="description" content={metaDescription} />
-      {canonical && pathname && <link rel="canonical" href={URL} />}
+      {canonical && <link rel="canonical" href={URL} />}
       <meta name="theme-color" content={config.themeColor} />
       {metas &&
         Object.keys(metas).map((name) => <meta key={name} name={name} content={metas[name]} />)}

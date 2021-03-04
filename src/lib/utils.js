@@ -1,47 +1,69 @@
 const isSSR = () => typeof window === 'undefined';
 
-const Utils = {
-  upperFirst: (s) => s[0].toUpperCase() + s.substring(1),
+const upperFirst = (s) => s[0].toUpperCase() + s.substring(1);
 
-  // https://stackoverflow.com/questions/8498592/extract-hostname-name-from-string
-  extractHostname: (url) => {
-    let hostname;
-    // find & remove protocol (http, ftp, etc.) and get hostname
+// https://stackoverflow.com/questions/8498592/extract-hostname-name-from-string
+const extractHostname = (url) => {
+  let hostname;
+  // find & remove protocol (http, ftp, etc.) and get hostname
 
-    if (url.includes('//')) {
-      [, , hostname] = url.split('/');
-    } else {
-      [hostname] = url.split('/');
+  if (url.includes('//')) {
+    [, , hostname] = url.split('/');
+  } else {
+    [hostname] = url.split('/');
+  }
+
+  // find & remove port number
+  [hostname] = hostname.split(':');
+  // find & remove "?"
+  [hostname] = hostname.split('?');
+
+  return hostname;
+};
+
+const formatUrl = (url) => {
+  if (url === '/') {
+    return url;
+  }
+  const urlParts = url.split('/');
+  let result = '';
+  for (let i = 0; i < urlParts.length; i++) {
+    if (i === urlParts.length - 1) {
+      if (urlParts[i].indexOf('.') > -1) {
+        // trailing slash not required
+        result = url;
+      } else if (urlParts[i].indexOf('#') > -1) {
+        // trailing slash not required
+        result = url;
+      } else {
+        // Assume this is a folder and add a slash
+        result = `${url}/`;
+      }
     }
+  }
+  return result;
+};
 
-    // find & remove port number
-    [hostname] = hostname.split(':');
-    // find & remove "?"
-    [hostname] = hostname.split('?');
+const formatPhone = (phone) => {
+  switch (phone.length) {
+    case 7:
+      return `${phone.substr(0, 3)}-${phone.substr(3, 2)}-${phone.substr(5, 2)}`;
+    case 10:
+      return `${phone.substr(0, 1)} ${phone.substr(1, 3)}-${phone.substr(4, 3)}-${phone.substr(
+        7,
+        3,
+      )}`;
+    default:
+      return `+${phone.substr(0, 2)} (${phone.substr(2, 3)}) ${phone.substr(5, 3)}-${phone.substr(
+        7,
+        2,
+      )}-${phone.substr(10, 2)}`;
+  }
+};
 
-    return hostname;
-  },
-
-  formatPhone: (phone) => {
-    switch (phone.length) {
-      case 7:
-        return `${phone.substr(0, 3)}-${phone.substr(3, 2)}-${phone.substr(5, 2)}`;
-      case 10:
-        return `${phone.substr(0, 1)} ${phone.substr(1, 3)}-${phone.substr(4, 3)}-${phone.substr(
-          7,
-          3,
-        )}`;
-      default:
-        return `+${phone.substr(0, 2)} (${phone.substr(2, 3)}) ${phone.substr(5, 3)}-${phone.substr(
-          7,
-          2,
-        )}-${phone.substr(10, 2)}`;
-    }
-  },
-
-  isMobile: () =>
-    isSSR() ? undefined : /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent),
-  /** **
+const isMobile = () =>
+  isSSR() ? undefined : /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+/** **
   *
   *   https://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
 
@@ -57,10 +79,19 @@ const Utils = {
       return check;
     },
 */
-  phoneUrl: (phone) => `tel:${phone.length > 10 ? `+${phone}` : phone}`,
-  whatsappUrl: (whatsapp) => `https://wa.me/${whatsapp}`,
-  telegramUrl: (telegram) => `tg://resolve?domain=${telegram}`,
-  viberUrl: (viber) => `viber://add?number=${Utils.isMobile() ? '+' : ''}${viber}`,
-};
+const phoneUrl = (phone) => `tel:${phone.length > 10 ? `+${phone}` : phone}`;
+const whatsappUrl = (whatsapp) => `https://wa.me/${whatsapp}`;
+const telegramUrl = (telegram) => `tg://resolve?domain=${telegram}`;
+const viberUrl = (viber) => `viber://add?number=${isMobile() ? '+' : ''}${viber}`;
 
-export default Utils;
+module.exports = {
+  upperFirst,
+  extractHostname,
+  formatUrl,
+  formatPhone,
+  isMobile,
+  phoneUrl,
+  whatsappUrl,
+  telegramUrl,
+  viberUrl,
+};

@@ -4,6 +4,8 @@
  */
 const wrapper = require('./promise-wrapper');
 
+const { formatUrl } = require('../lib/utils');
+
 const TEMPLATES_DIR = '../templates/';
 
 const { POSTS_PER_PAGE, POSTS_PATH } = require('../../config/website');
@@ -192,7 +194,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         }) => {
           console.log('pagepath=', slug);
           createPage({
-            path: slug,
+            path: formatUrl(slug),
             component: getTemplate(template || slug2template(slug)) || pageDefaultTemplate,
             context: {
               id,
@@ -225,7 +227,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         }) => {
           console.log('pagepath=', slug);
           createPage({
-            path: slug,
+            path: formatUrl(slug),
             component: serviceDefaultTemplate,
             context: {
               id,
@@ -258,7 +260,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         }) => {
           console.log('pagepath=', slug);
           createPage({
-            path: slug,
+            path: formatUrl(slug),
             component: objectTypeDefaultTemplate,
             context: {
               id,
@@ -340,7 +342,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
 
           console.log('pagepath=', slug);
           createPage({
-            path: slug,
+            path: formatUrl(slug),
             component: postDefaultTemplate,
             context: {
               id,
@@ -369,7 +371,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         const path = i18n.localizePath(i === 0 ? POSTS_PATH : `${POSTS_PATH}/${i + 1}`, locale);
         console.log('pagepath=', path);
         createPage({
-          path,
+          path: formatUrl(path),
           component: postListTemplate,
           context: {
             locale,
@@ -398,7 +400,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         console.log('\n');
         console.log('Category List: pagepath=', i18n.localizePath('/category', locale));
         createPage({
-          path: i18n.localizePath('/category', locale),
+          path: i18n.localizePath('/category/', locale),
           component: categoryListTemplate,
           context: {
             locale,
@@ -410,7 +412,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
       if (CREATE_TAG_PAGES) {
         console.log('Tag List: pagepath=', i18n.localizePath('/tags', locale));
         createPage({
-          path: i18n.localizePath('/tags', locale),
+          path: i18n.localizePath('/tags/', locale),
           component: tagListTemplate,
           context: {
             locale,
@@ -422,7 +424,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
       if (CREATE_YEAR_PAGES) {
         console.log('Year List: pagepath=', i18n.localizePath('/years', locale));
         createPage({
-          path: i18n.localizePath('/years', locale),
+          path: i18n.localizePath('/years/', locale),
           component: yearListTemplate,
           context: {
             locale,
@@ -445,7 +447,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
             );
             console.log('pagepath=', path);
             createPage({
-              path,
+              path: formatUrl(path),
               component: categoryTemplate,
               context: {
                 locale,
@@ -475,7 +477,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
             );
             console.log('pagepath=', path);
             createPage({
-              path,
+              path: formatUrl(path),
               component: tagTemplate,
               context: {
                 locale,
@@ -505,7 +507,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
             );
             console.log('pagepath=', path);
             createPage({
-              path,
+              path: formatUrl(path),
               component: yearTemplate,
               context: {
                 locale,

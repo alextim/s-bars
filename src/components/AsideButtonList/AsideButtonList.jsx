@@ -21,7 +21,7 @@ const AsideButtonList = ({ title: heading, items }) => (
     {items.map(({ to, title }) => (
       <Button
         key={to}
-        tag="link"
+        tag="href"
         variant="default"
         to={to}
         css={styleButton}

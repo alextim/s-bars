@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { getServicesTitle, getServiceItems } from '../../utils/list-info';
+import { getServicesTitle, getFormattedServiceItems } from '../../utils/list-info';
 import AsideButtonList from '../AsideButtonList';
 
 const AsideServices = ({ mainNav }) => {
-  return <AsideButtonList title={getServicesTitle(mainNav)} items={getServiceItems(mainNav)} />;
+  return (
+    <AsideButtonList title={getServicesTitle(mainNav)} items={getFormattedServiceItems(mainNav)} />
+  );
 };
 
 export default AsideServices;

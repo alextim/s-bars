@@ -127,7 +127,7 @@ const Footer = () => {
           <WidgetWrapper>
             <FooterWidget title={t('footer.inquiry.title')}>
               <div css={styleInquiryText}>{t('footer.inquiry.text')}</div>
-              <Button tag="link" overrideCSS={styleInquiryButton} to="/inquiry">
+              <Button tag="link" overrideCSS={styleInquiryButton} to="/inquiry/">
                 {t('footer.inquiry.button_title')}
               </Button>
             </FooterWidget>
@@ -145,7 +145,7 @@ const Footer = () => {
         <Container>
           <div css={styleColophonBottomInnerWrap}>
             <LegalInfo foundingDate={foundingDate} name={address ? address.legalName : null} />
-            <Link to="/privacy">{t('footer.privacyPolicy')}</Link>
+            <Link to="/privacy/">{t('footer.privacyPolicy')}</Link>
           </div>
         </Container>
       </div>

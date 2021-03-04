@@ -3,6 +3,7 @@ import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
 import { POSTS_PATH } from '../../config/website';
+import Utils from '../lib/utils';
 
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import PostCardList from '../components/PostCardList';
@@ -32,7 +33,7 @@ const PostList = ({
   const postList = [];
   data.posts.edges.forEach(({ node }) => {
     postList.push({
-      path: node.fields.slug,
+      path: Utils.formatUrl(node.fields.slug),
       tags: node.frontmatter.tags,
       category: node.frontmatter.category,
       cover: node.frontmatter.cover,
@@ -49,6 +50,16 @@ const PostList = ({
     html,
     frontmatter: { title, metaTitle, description, metaDescription, noindex },
   } = page;
+
+  /*
+  let metas;
+
+  if (!isFirstPage) {
+    metas = {
+      robots: 'noindex, follow',
+    };
+  }
+  */
 
   return (
     <Layout
