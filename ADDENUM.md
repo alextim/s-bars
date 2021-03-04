@@ -1,6 +1,16 @@
 # Addenum
+### Оживить блог
 
 ## Useful Links
+
+
+[Repo](https://dotlayer.com/how-to-use-a-private-github-repo-as-a-dependency-with-yarn-npm/)
+https://technicalseo.com/
+
+
+!!!!
+https://sitechecker.pro/
+
 
 [Mozilla Observatory](https://observatory.mozilla.org/)
 [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=en)

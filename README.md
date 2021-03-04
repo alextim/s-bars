@@ -81,6 +81,7 @@
     - [Адрес](#адрес)
     - [Переводы](#переводы)
 - [TO-DO](#to-do)
+  - [Заказать SEO-аудит у сторонней компании](#заказать-seo-аудит-у-сторонней-компании)
   - [Оживить блог](#оживить-блог)
   - [Хлебные крошки](#хлебные-крошки)
 
@@ -1654,7 +1655,8 @@ contactPoint:
 
 ## TO-DO
 
-[ ] - настроить nofollow для блога
+### Заказать SEO-аудит у сторонней компании
+
 
 ### Оживить блог
 
@@ -1681,11 +1683,3 @@ contactPoint:
     - Блог: `home / blog / category / article-name`.
   - Структурированные данные Breadcrumbs (SEO для Google).
   - Редиректы на хостинге.
-
-
-[Repo](https://dotlayer.com/how-to-use-a-private-github-repo-as-a-dependency-with-yarn-npm/)
-https://technicalseo.com/
-
-
-!!!!
-https://sitechecker.pro/

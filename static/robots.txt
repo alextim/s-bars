@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /
+Disallow:
 
 sitemap: https://s-bars.netlify.app/sitemap.xml
 sitemap: https://s-bars.netlify.app/image-sitemap.xml

@@ -65,7 +65,14 @@ const SeoBase = ({
           href={`${config.siteUrl}${i18n.localizePath(purePath, i18n.defaultLang)}`}
         />
       )}
-      <meta httpEquiv="content-language" content={locale} />
+      {/** *
+       * https://developer.mozilla.org/ru/docs/Web/HTTP/Headers/Content-Language
+       *
+       * Не  используйте этот мета элемент как здесь для констатирования языка документа:
+       *
+       * <meta httpEquiv="content-language" content={htmlLang} />
+       *
+       *  */}
       <meta name="description" content={metaDescription} />
       {canonical && <link rel="canonical" href={URL} />}
       <meta name="theme-color" content={config.themeColor} />

@@ -185,7 +185,7 @@ module.exports = {
         headers: {
           '/*': [
             `Content-Security-Policy: ${getContentSecurityPolicy()}`,
-            'X-Robots-Tag: googlebot: noindex, nofollow',
+            // 'X-Robots-Tag: googlebot: noindex, nofollow',
           ],
           '/assets/*': ['Cache-Control: public, max-age=31536000, immutable'],
           '/404.html': ['Cache-Control: max-age=300'],
@@ -196,6 +196,73 @@ module.exports = {
     // 'gatsby-plugin-sass',
     'gatsby-plugin-remove-generator',
     // 'gatsby-plugin-webpack-bundle-analyser-v2',
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({
+              query: {
+                site: {
+                  siteMetadata: { siteUrl },
+                },
+                allMarkdownRemark,
+              },
+            }) => {
+              return allMarkdownRemark.edges.map(
+                ({ node: { frontmatter, excerpt, html, fields } }) => {
+                  return {
+                    ...frontmatter,
+                    description: excerpt,
+                    date: frontmatter.datePublished,
+                    url: siteUrl + fields.slug,
+                    guid: siteUrl + fields.slug,
+                    custom_elements: [{ 'content:encoded': html }],
+                  };
+                },
+              );
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  limit: 30,
+                  sort: { order: DESC, fields: [frontmatter___datePublished] },
+                  filter: { frontmatter: { state: { eq: "published" } } }
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields {
+                        slug,
+                      }
+                      frontmatter {
+                        title
+                        datePublished
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'S-Bars RSS Feed',
+          },
+        ],
+      },
+    },
     {
       resolve: 'at-sitemap',
       options: {
