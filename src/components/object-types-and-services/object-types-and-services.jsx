@@ -1,63 +1,19 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Utils from '../../lib/utils';
+import { getListItems } from '../../utils/list-info';
 
-import card from '../../theme/card';
-import mq from '../../theme/media-queries';
 import { space } from '../../theme/space';
 
 import Layout from '../Layout/SimpleLayoutWithHeader';
 import SEO from '../SEO';
-import getCardSchema from '../SeoBase/getCardSchema';
-import { getListItems } from '../../utils/list-info';
+
+import CardList from './CardList';
 
 const htmlStyle = {
   marginTop: space[6],
   marginBottom: space[10],
-};
-
-const styleItemsWrap = {
-  display: 'grid',
-  gridGap: space[7],
-  // gridTemplateColumns: '1fr',
-  [mq.lg]: {
-    gridTemplateColumns: '1fr 1fr 1fr',
-  },
-};
-
-const Cards = ({ items }) => {
-  return (
-    <div css={styleItemsWrap}>
-      {items.map(({ title, to, cover, description, metaDescription }, i) => (
-        <article key={i} css={card.wrap}>
-          <script type="application/ld+json">
-            {JSON.stringify(
-              getCardSchema({
-                to,
-                title,
-                description: description || metaDescription,
-                cover,
-              }),
-            )}
-          </script>
-          {cover && cover.sm && (
-            <a href={to}>
-              <GatsbyImage image={cover.sm.childImageSharp.gatsbyImageData} alt={cover.alt} />
-            </a>
-          )}
-          <div css={card.textWrap}>
-            <h2 css={card.heading}>
-              <a href={to} css={card.link}>
-                {title}
-              </a>
-            </h2>
-          </div>
-        </article>
-      ))}
-    </div>
-  );
 };
 
 const ObjectTypeServiceList = ({ path, data, locale, type }) => {
@@ -84,10 +40,7 @@ const ObjectTypeServiceList = ({ path, data, locale, type }) => {
         description: edge.node.frontmatter.description,
         metaDescription: edge.node.frontmatter.metaDescription,
         to: Utils.formatUrl(edge.node.fields.slug),
-        cover:
-          edge.node.frontmatter.cover && edge.node.frontmatter.cover.sm
-            ? { ...edge.node.frontmatter.cover }
-            : null,
+        cover: edge.node.frontmatter.cover,
       });
     }
     return acc;
@@ -107,7 +60,7 @@ const ObjectTypeServiceList = ({ path, data, locale, type }) => {
         noindex={noindex}
         pageType="Article"
       />
-      <Cards items={items} />
+      <CardList items={items} />
       {html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
     </Layout>
   );

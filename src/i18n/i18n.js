@@ -81,21 +81,17 @@ const langFromPath = (path) => {
   return lang;
 };
 
-const removeTrailingSlash = (s) => s.replace(/\/$/, '');
-
 const purePath = (path) => {
   if (path === '/') {
     return '/';
   }
-  const s = removeTrailingSlash(path);
-  const i = s.indexOf('/', 1);
-  if (i === -1 && s.length === 3) {
-    return '/';
+  const a = path.split('/');
+  const locale = a[1];
+  const isLocalized = localeCodes.some((el) => locale === el);
+  if (!isLocalized) {
+    return path;
   }
-  if (i === 3) {
-    return s.length === 3 ? '/' : s.substring(3);
-  }
-  return s;
+  return `/${a.slice(2).join('/')}`;
 };
 
 module.exports = {

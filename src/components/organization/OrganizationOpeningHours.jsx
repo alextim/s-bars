@@ -30,15 +30,15 @@ const OrganizationOpeningHours = ({ openingHours }) => {
 
     let dow = s.split('-');
     if (dow.length > 1) {
-      return `${t(`dow.d2.${dow[0]}`)}-${t(`dow.d2.${dow[1]}`)}`;
+      return `${t(`dow.d2.${dow[0].trim()}`)}-${t(`dow.d2.${dow[1].trim()}`)}`;
     }
 
     dow = s.split(',');
     if (dow.length > 1) {
-      return dow.reduce((acc, cur) => acc + (acc ? ', ' : '') + t(`dow.d2.${cur}`), '');
+      return dow.reduce((acc, cur) => acc + (acc ? ', ' : '') + t(`dow.d2.${cur.trim()}`), '');
     }
 
-    return t(`dow.d2.${s}`);
+    return t(`dow.d2.${s.trim()}`);
   };
 
   return (

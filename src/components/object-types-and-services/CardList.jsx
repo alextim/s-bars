@@ -3,12 +3,11 @@ import { jsx } from '@emotion/react';
 
 import mq from '../../theme/media-queries';
 import { space } from '../../theme/space';
-
-import PostCard from '../PostCard';
-// import loadable from '@loadable/component';
 import card from '../../theme/card';
 
-const wrapStyle = {
+import Card from './Card';
+
+const styleItemsWrap = {
   display: 'grid',
   gridGap: space[7],
   [mq.md]: {
@@ -21,15 +20,19 @@ const wrapStyle = {
   },
 };
 
-const PostCardList = ({ posts }) => {
-  // const PostCard = loadable(() => import('../PostCard'));
-  return (
-    <div css={wrapStyle}>
-      {posts.map((post) => (
-        <PostCard data={post} key={post.title} />
-      ))}
-    </div>
-  );
-};
+const CardList = ({ items }) => (
+  <div css={styleItemsWrap}>
+    {items.map(({ title, to, cover, description, metaDescription }) => (
+      <Card
+        key={to}
+        title={title}
+        to={to}
+        cover={cover}
+        description={description}
+        metaDescription={metaDescription}
+      />
+    ))}
+  </div>
+);
 
-export default PostCardList;
+export default CardList;

@@ -18,7 +18,8 @@ const SEO = ({
   datePublished,
   canonical = true,
   noindex = false,
-  metas = [],
+  metas,
+  links,
 }) => {
   const socialLinks = useSocialLinks();
   const { address /* , translations */ } = useAppContext();
@@ -57,6 +58,7 @@ const SEO = ({
       canonical={canonical}
       noindex={noindex}
       metas={metas}
+      links={links}
     />
   );
 };

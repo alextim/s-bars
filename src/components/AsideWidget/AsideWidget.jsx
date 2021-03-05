@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/react';
 
 import { space } from '../../theme/space';
+import fonts from '../../theme/fonts';
 
 const styleWrap = {
   marginBottom: space[6],
@@ -10,6 +11,7 @@ const styleWrap = {
 const styleTitle = {
   textTransform: 'uppercase',
   textAlign: 'center',
+  fontFamily: fonts.body,
 };
 
 const styleContentWrap = {

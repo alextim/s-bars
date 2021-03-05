@@ -22,6 +22,7 @@ const SeoBase = ({
   canonical,
   noindex,
   metas,
+  links,
 }) => {
   const isRoot = pathname === '/';
 
@@ -75,6 +76,7 @@ const SeoBase = ({
        *  */}
       <meta name="description" content={metaDescription} />
       {canonical && <link rel="canonical" href={URL} />}
+      {links && links.map(({ rel, href }) => <link key={href} rel={rel} href={href} />)}
       <meta name="theme-color" content={config.themeColor} />
       {metas &&
         Object.keys(metas).map((name) => <meta key={name} name={name} content={metas[name]} />)}

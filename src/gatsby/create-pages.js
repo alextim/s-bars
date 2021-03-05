@@ -8,7 +8,7 @@ const { formatUrl } = require('../lib/utils');
 
 const TEMPLATES_DIR = '../templates/';
 
-const { POSTS_PER_PAGE, POSTS_PATH } = require('../../config/website');
+const { CARDS_PER_PAGE, POSTS_PATH } = require('../../config/website');
 
 // const { createTagPages, createCategoryPages, createYearPages } = require('./create-pages-utils');
 const i18n = require('../i18n/i18n');
@@ -360,10 +360,10 @@ module.exports = async ({ graphql, actions, reporter }) => {
       const categories = map2Object(categoryMap, compString, 'category', locale);
       const tags = map2Object(tagMap, compString, 'tags', locale);
       const years = map2Object(yearMap, compNum, 'years', locale);
-      let numPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+      let numPages = Math.ceil(posts.length / CARDS_PER_PAGE);
       */
 
-      const numPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+      const numPages = Math.ceil(posts.length / CARDS_PER_PAGE);
 
       console.log(`\nPost List: numPages=${numPages}`);
       console.log('---------------');
@@ -375,8 +375,8 @@ module.exports = async ({ graphql, actions, reporter }) => {
           component: postListTemplate,
           context: {
             locale,
-            limit: POSTS_PER_PAGE,
-            skip: i * POSTS_PER_PAGE,
+            limit: CARDS_PER_PAGE,
+            skip: i * CARDS_PER_PAGE,
             numPages,
             currentPage: i + 1,
             /**
@@ -437,7 +437,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         console.log('\nCategory pages');
         console.log('---------------');
         categoryMap.forEach((count, category) => {
-          numPages = Math.ceil(count / POSTS_PER_PAGE);
+          numPages = Math.ceil(count / CARDS_PER_PAGE);
           for (let i = 0; i < numPages; i += 1) {
             const path = i18n.localizePath(
               i === 0
@@ -452,8 +452,8 @@ module.exports = async ({ graphql, actions, reporter }) => {
               context: {
                 locale,
                 category,
-                limit: POSTS_PER_PAGE,
-                skip: i * POSTS_PER_PAGE,
+                limit: CARDS_PER_PAGE,
+                skip: i * CARDS_PER_PAGE,
                 numPages,
                 currentPage: i + 1,
                 categories,
@@ -469,7 +469,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         console.log('\nTag pages');
         console.log('---------------');
         tagMap.forEach((count, tag) => {
-          numPages = Math.ceil(count / POSTS_PER_PAGE);
+          numPages = Math.ceil(count / CARDS_PER_PAGE);
           for (let i = 0; i < numPages; i += 1) {
             const path = i18n.localizePath(
               i === 0 ? `/tags/${_.kebabCase(tag)}` : `/tags/${_.kebabCase(tag)}/${i + 1}`,
@@ -482,8 +482,8 @@ module.exports = async ({ graphql, actions, reporter }) => {
               context: {
                 locale,
                 tag,
-                limit: POSTS_PER_PAGE,
-                skip: i * POSTS_PER_PAGE,
+                limit: CARDS_PER_PAGE,
+                skip: i * CARDS_PER_PAGE,
                 numPages,
                 currentPage: i + 1,
                 categories,
@@ -499,7 +499,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         console.log('\nYear pages');
         console.log('---------------');
         yearMap.forEach((count, year) => {
-          numPages = Math.ceil(count / POSTS_PER_PAGE);
+          numPages = Math.ceil(count / CARDS_PER_PAGE);
           for (let i = 0; i < numPages; i += 1) {
             const path = i18n.localizePath(
               i === 0 ? `/years/${_.kebabCase(year)}` : `/years/${_.kebabCase(year)}/${i + 1}`,
@@ -512,8 +512,8 @@ module.exports = async ({ graphql, actions, reporter }) => {
               context: {
                 locale,
                 year,
-                limit: POSTS_PER_PAGE,
-                skip: i * POSTS_PER_PAGE,
+                limit: CARDS_PER_PAGE,
+                skip: i * CARDS_PER_PAGE,
                 numPages,
                 currentPage: i + 1,
                 categories,

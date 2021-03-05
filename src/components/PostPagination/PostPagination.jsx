@@ -4,7 +4,8 @@ import { Link } from 'gatsby';
 import { space } from '../../theme/space';
 
 import { useLocale } from '../../i18n/i18n-context';
-import i18n from '../../i18n';
+
+import { currentLink, prevLink, nextLink } from '../../utils/pagination';
 
 // https://gist.github.com/kottenator/9d936eb3e4e3c3e02598
 function pagination(currentPage, pageCount, delta = 2) {
@@ -59,33 +60,27 @@ const activeStyle = {
 };
 
 const PostPagination = ({ currentPage, numPages, subpath }) => {
+  const { locale } = useLocale();
+
+  if (numPages <= 1) {
+    return null;
+  }
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
 
   const pages = pagination(currentPage, numPages);
 
-  const { locale } = useLocale();
-
   return (
     <div css={wrapperStyle}>
-      {!isFirst && (
-        <Link
-          to={i18n.localizePath(
-            `${subpath}/${currentPage - 1 === 1 ? '' : `${currentPage - 1}/`}`,
-            locale,
-          )}
-        >
-          {'<'}
-        </Link>
-      )}
+      {!isFirst && <Link to={prevLink(currentPage, subpath, locale)}>{'<'}</Link>}
       {pages.map((page) => {
         if (typeof page !== 'number') {
           return <span key="ellipsis">{page}</span>;
         }
         return (
           <Link
-            key={`pagination-number${page}`}
-            to={i18n.localizePath(`${subpath}/${page === 1 ? '' : `${page}/`}`, locale)}
+            key={page}
+            to={currentLink(page, subpath, locale)}
             css={{
               ...paginationNumberStyle,
               ...(page === currentPage ? activeStyle : {}),
@@ -96,10 +91,7 @@ const PostPagination = ({ currentPage, numPages, subpath }) => {
         );
       })}
       {!isLast && (
-        <Link
-          to={i18n.localizePath(`${subpath}/${currentPage + 1}/`, locale)}
-          css={paginationNumberStyle}
-        >
+        <Link to={nextLink(currentPage, subpath, locale)} css={paginationNumberStyle}>
           {'>'}
         </Link>
       )}

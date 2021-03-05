@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -34,7 +33,7 @@ const getContentSecurityPolicy = () =>
 module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl,
-    locales: Object.keys(locales).map((code) => ({ code, ...locales[code] })),
+    locales: i18n.localeCodes.map((code) => ({ code, ...locales[code] })),
   },
   plugins: [
     'gatsby-plugin-image',
@@ -185,7 +184,7 @@ module.exports = {
         headers: {
           '/*': [
             `Content-Security-Policy: ${getContentSecurityPolicy()}`,
-            // 'X-Robots-Tag: googlebot: noindex, nofollow',
+            // 'X-Robots-Tag: noindex, nofollow',
           ],
           '/assets/*': ['Cache-Control: public, max-age=31536000, immutable'],
           '/404.html': ['Cache-Control: max-age=300'],

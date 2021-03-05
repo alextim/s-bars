@@ -3,6 +3,7 @@
 
 ## Useful Links
 
+https://technicalseo.com/tools/rss-parser/
 
 [Repo](https://dotlayer.com/how-to-use-a-private-github-repo-as-a-dependency-with-yarn-npm/)
 https://technicalseo.com/

@@ -2,8 +2,9 @@
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import { POSTS_PATH } from '../../config/website';
+import { POSTS_PATH, siteUrl } from '../../config/website';
 import Utils from '../lib/utils';
+import { prevLink, nextLink } from '../utils/pagination';
 
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import PostCardList from '../components/PostCardList';
@@ -20,7 +21,7 @@ const PostList = ({
   path,
   data,
   /**
-   * keep it
+   * keep it fot the future!
    */
   /*
   pageContext: { locale, currentPage, numPages, categories, tags, years },
@@ -28,23 +29,41 @@ const PostList = ({
   pageContext: { locale, currentPage, numPages },
 }) => {
   const { translations, address, mainNav, footerNav, socialLinks, page } = data;
-  const isFirstPage = currentPage === 1;
 
-  const postList = [];
-  data.posts.edges.forEach(({ node }) => {
-    postList.push({
-      path: Utils.formatUrl(node.fields.slug),
-      tags: node.frontmatter.tags,
-      category: node.frontmatter.category,
-      cover: node.frontmatter.cover,
-      title: node.frontmatter.title,
-      description: node.frontmatter.title,
-      metaDescription: node.frontmatter.metaDescription,
-      datePublished: node.frontmatter.datePublished,
-      timeToRead: node.timeToRead,
-      excerpt: node.excerpt,
-    });
-  });
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === numPages;
+
+  const links = [];
+
+  if (numPages > 1) {
+    if (!isFirst) {
+      links.push({
+        rel: 'prev',
+        href: siteUrl + prevLink(currentPage, POSTS_PATH, locale),
+      });
+    }
+    if (!isLast) {
+      links.push({
+        rel: 'next',
+        href: siteUrl + nextLink(currentPage, POSTS_PATH, locale),
+      });
+    }
+  }
+
+  const postList = data.posts.edges.map(
+    ({ node: { frontmatter, timeToRead, excerpt, fields } }) => ({
+      path: Utils.formatUrl(fields.slug),
+      tags: frontmatter.tags,
+      category: frontmatter.category,
+      cover: frontmatter.cover,
+      title: frontmatter.title,
+      description: frontmatter.title,
+      metaDescription: frontmatter.metaDescription,
+      datePublished: frontmatter.datePublished,
+      timeToRead,
+      excerpt,
+    }),
+  );
 
   const {
     html,
@@ -54,7 +73,7 @@ const PostList = ({
   /*
   let metas;
 
-  if (!isFirstPage) {
+  if (!isFirst) {
     metas = {
       robots: 'noindex, follow',
     };
@@ -74,6 +93,7 @@ const PostList = ({
         pathname={path}
         noindex={noindex}
         pageType="Blog"
+        links={links}
       />
       {/*
       <CategoryWidget items={categories} />
@@ -81,7 +101,7 @@ const PostList = ({
       <YearsWidget items={years} />
       */}
 
-      {html && isFirstPage && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
+      {isFirst && html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
       <PostCardList posts={postList} />
       <PostPagination currentPage={currentPage} numPages={numPages} subpath={POSTS_PATH} />
     </Layout>
