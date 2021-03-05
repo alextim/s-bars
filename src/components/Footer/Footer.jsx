@@ -144,7 +144,7 @@ const Footer = () => {
       <div css={styleColophonBottom}>
         <Container>
           <div css={styleColophonBottomInnerWrap}>
-            <LegalInfo foundingDate={foundingDate} name={address?.name} />
+            <LegalInfo foundingDate={foundingDate} name={address ? address.name : undefined} />
             <Link to="/privacy/">{t('footer.privacyPolicy')}</Link>
           </div>
         </Container>
