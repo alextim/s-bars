@@ -23,9 +23,6 @@ const gray40 = '#dcdcdc';
 
 const red = 'red';
 
-const davisGrey = '#5c5a58';
-const jet = '#343332';
-
 // const quickSilver = '#a5a39d';
 const nickel = '#7F7D76';
 const nickelDark = '#454440';
@@ -36,7 +33,7 @@ const nickelDark = '#454440';
 // const yaleBlue = '#004E98';
 
 const brand = {
-  main: 'rgb(206, 235, 250)',
+  main: 'rgb(210, 231, 250)',
   secondLight: 'rgb(58, 118, 150)',
   secondLightDarker: 'rgb(28, 88, 120)',
   secondDark: 'rgb(58, 118, 150)',
@@ -64,10 +61,10 @@ const colors = {
   brand,
 
   brands: {
-    // skype:    'rgb(0, 175, 240)',
-    viber: '#bcaec7',
-    whatsapp: '#25d366',
-    telegram: '#0088cc',
+    // skype: 'rgb(0, 175, 240)',
+    // viber: '#bcaec7',
+    // whatsapp: '#25d366',
+    // telegram: '#0088cc',
   },
 
   header: {
@@ -94,14 +91,14 @@ const colors = {
 
   footer: {
     text: lightWhite,
-    bg: nickel,
-    highlight: brand.secondLight,
+    bg: 'rgb(106,116,125)',
+    highlight: white,
     colophon: {
       top: {
-        bg: davisGrey,
+        bg: 'rgb(65, 76, 87)',
       },
       bottom: {
-        bg: jet,
+        bg: 'rgb(32, 39, 44)',
       },
     },
   },
