@@ -1,5 +1,4 @@
 import { useAppContext } from '../context';
-import Utils from '../lib/utils';
 
 const useMainNavtems = () => {
   const { mainNav } = useAppContext();
@@ -12,10 +11,10 @@ const useMainNavtems = () => {
     }) => {
       const o = {
         title,
-        to: Utils.formatUrl(to),
+        to,
       };
       if (submenu) {
-        o.submenu = submenu.map((el) => ({ title: el.title, to: Utils.formatUrl(el.to) }));
+        o.submenu = submenu.map((el) => ({ title: el.title, to: el.to }));
       }
       return o;
     },

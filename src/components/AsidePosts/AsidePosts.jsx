@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import { formatUrl } from '../../lib/utils';
 import AsideWidget from '../AsideWidget';
 
 const styleLink = {
@@ -59,7 +58,7 @@ const AsidePosts = ({ title, items }) => {
       <ul css={styleWrap}>
         {items.map(({ node: { frontmatter: { title: itemTitle }, fields: { slug: to } } }) => (
           <li key={to} css={styleItem}>
-            <a href={formatUrl(to)} css={styleLink}>
+            <a href={to} css={styleLink}>
               {itemTitle}
             </a>
           </li>

@@ -61,7 +61,7 @@ const styleImg = {
 const Logo = ({ onClick }) => {
   const { locale } = useLocale();
   const { phone } = useOrganization();
-  const to = Utils.formatUrl(i18n.localizePath('/', locale));
+  const to = i18n.localizePath('/', locale);
   return (
     <div css={styleWrap}>
       <Link css={styleImageLink} to={to} onClick={onClick}>

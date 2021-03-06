@@ -4,7 +4,6 @@ import { jsx } from '@emotion/react';
 import { Location } from '@reach/router';
 import { Link } from 'gatsby';
 
-import { formatUrl } from '../../lib/utils';
 import colors from '../../theme/colors';
 
 import { localizePath, i18nEnabled, locales, localeCodes } from '../../i18n/i18n';
@@ -81,7 +80,7 @@ const LanguageSwitch = ({ closeMenu }) => {
                     ...itemStyle,
                     ...(isCurrent ? activeItemStyle : nonActiveItemStyle),
                   }}
-                  to={formatUrl(localizePath(`/${toPage(pathname)}`, code))}
+                  to={localizePath(`/${toPage(pathname)}`, code)}
                   onClick={closeMenu}
                 >
                   {isCurrent ? shortLocalName : shortName}

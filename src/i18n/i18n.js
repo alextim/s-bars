@@ -81,6 +81,19 @@ const langFromPath = (path) => {
   return lang;
 };
 
+const pureSlug = (slug) => {
+  if (slug === '/') {
+    return '/';
+  }
+  const a = slug.split('/');
+  const locale = a[1];
+  const isLocalized = localeCodes.some((el) => locale === el);
+  if (!isLocalized) {
+    return slug;
+  }
+  return a.slice(2);
+};
+
 const purePath = (path) => {
   if (path === '/') {
     return '/';
@@ -102,6 +115,7 @@ module.exports = {
   isValidLang,
   localizePath,
   purePath,
+  pureSlug,
   locales,
   localeCodes,
   langFromPath,

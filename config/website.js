@@ -85,6 +85,6 @@ module.exports = {
   themeColor: '#3498DB',
   backgroundColor: '#2e3246',
 
-  POSTS_PATH: '/blog',
+  POSTS_PATH: '/blog/',
   CARDS_PER_PAGE: 12,
 };

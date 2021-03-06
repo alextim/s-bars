@@ -4,8 +4,6 @@
  */
 const wrapper = require('./promise-wrapper');
 
-const { formatUrl } = require('../lib/utils');
-
 const TEMPLATES_DIR = '../templates/';
 
 const { CARDS_PER_PAGE, POSTS_PATH } = require('../../config/website');
@@ -70,13 +68,16 @@ const getTemplate = (template) => {
     try {
       return require.resolve(path);
     } catch {
-      console.warn(`template "${path}" is not exist`);
+      console.warn(`Template "${path}" is not exist`);
     }
   }
   return null;
 };
 
-const slug2template = (slug) => i18n.purePath(slug).substring(1);
+const slug2template = (slug) => {
+  const pureSlug = i18n.pureSlug(slug);
+  return pureSlug === '/' ? undefined : slug;
+};
 
 module.exports = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -194,7 +195,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         }) => {
           console.log('pagepath=', slug);
           createPage({
-            path: formatUrl(slug),
+            path: slug,
             component: getTemplate(template || slug2template(slug)) || pageDefaultTemplate,
             context: {
               id,
@@ -227,7 +228,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         }) => {
           console.log('pagepath=', slug);
           createPage({
-            path: formatUrl(slug),
+            path: slug,
             component: serviceDefaultTemplate,
             context: {
               id,
@@ -260,7 +261,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
         }) => {
           console.log('pagepath=', slug);
           createPage({
-            path: formatUrl(slug),
+            path: slug,
             component: objectTypeDefaultTemplate,
             context: {
               id,
@@ -342,7 +343,7 @@ module.exports = async ({ graphql, actions, reporter }) => {
 
           console.log('pagepath=', slug);
           createPage({
-            path: formatUrl(slug),
+            path: slug,
             component: postDefaultTemplate,
             context: {
               id,
@@ -368,10 +369,10 @@ module.exports = async ({ graphql, actions, reporter }) => {
       console.log(`\nPost List: numPages=${numPages}`);
       console.log('---------------');
       for (let i = 0; i < numPages; i += 1) {
-        const path = i18n.localizePath(i === 0 ? POSTS_PATH : `${POSTS_PATH}/${i + 1}`, locale);
+        const path = i18n.localizePath(i === 0 ? POSTS_PATH : `${POSTS_PATH}${i + 1}/`, locale);
         console.log('pagepath=', path);
         createPage({
-          path: formatUrl(path),
+          path,
           component: postListTemplate,
           context: {
             locale,
@@ -441,13 +442,13 @@ module.exports = async ({ graphql, actions, reporter }) => {
           for (let i = 0; i < numPages; i += 1) {
             const path = i18n.localizePath(
               i === 0
-                ? `/category/${_.kebabCase(category)}`
-                : `/category/${_.kebabCase(category)}/${i + 1}`,
+                ? `/category/${_.kebabCase(category)}/`
+                : `/category/${_.kebabCase(category)}/${i + 1}/`,
               locale,
             );
             console.log('pagepath=', path);
             createPage({
-              path: formatUrl(path),
+              path,
               component: categoryTemplate,
               context: {
                 locale,
@@ -472,12 +473,12 @@ module.exports = async ({ graphql, actions, reporter }) => {
           numPages = Math.ceil(count / CARDS_PER_PAGE);
           for (let i = 0; i < numPages; i += 1) {
             const path = i18n.localizePath(
-              i === 0 ? `/tags/${_.kebabCase(tag)}` : `/tags/${_.kebabCase(tag)}/${i + 1}`,
+              i === 0 ? `/tags/${_.kebabCase(tag)}/` : `/tags/${_.kebabCase(tag)}/${i + 1}/`,
               locale,
             );
             console.log('pagepath=', path);
             createPage({
-              path: formatUrl(path),
+              path,
               component: tagTemplate,
               context: {
                 locale,
@@ -502,12 +503,12 @@ module.exports = async ({ graphql, actions, reporter }) => {
           numPages = Math.ceil(count / CARDS_PER_PAGE);
           for (let i = 0; i < numPages; i += 1) {
             const path = i18n.localizePath(
-              i === 0 ? `/years/${_.kebabCase(year)}` : `/years/${_.kebabCase(year)}/${i + 1}`,
+              i === 0 ? `/years/${_.kebabCase(year)}/` : `/years/${_.kebabCase(year)}/${i + 1}/`,
               locale,
             );
             console.log('pagepath=', path);
             createPage({
-              path: formatUrl(path),
+              path,
               component: yearTemplate,
               context: {
                 locale,

@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import Utils from '../../lib/utils';
 import { getListItems } from '../../utils/list-info';
 
 import { space } from '../../theme/space';
@@ -39,7 +38,7 @@ const ObjectTypeServiceList = ({ path, data, locale, type }) => {
         title: edge.node.frontmatter.title,
         description: edge.node.frontmatter.description,
         metaDescription: edge.node.frontmatter.metaDescription,
-        to: Utils.formatUrl(edge.node.fields.slug),
+        to: edge.node.fields.slug,
         cover: edge.node.frontmatter.cover,
       });
     }

@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
 import { POSTS_PATH, siteUrl } from '../../config/website';
-import Utils from '../lib/utils';
+
 import { prevLink, nextLink } from '../utils/pagination';
 
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
@@ -52,7 +52,7 @@ const PostList = ({
 
   const postList = data.posts.edges.map(
     ({ node: { frontmatter, timeToRead, excerpt, fields } }) => ({
-      path: Utils.formatUrl(fields.slug),
+      path: fields.slug,
       tags: frontmatter.tags,
       category: frontmatter.category,
       cover: frontmatter.cover,

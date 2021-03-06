@@ -88,6 +88,10 @@ const onMdNode = (node, actions, getNode) => {
   if (!isPage && !isPost && !isServicePage && !isObjectTypePage) {
     return;
   }
+  const { frontmatter } = node;
+  if (!frontmatter) {
+    throw new Error('Frontmatter is absent!');
+  }
 
   const { createNodeField } = actions;
 
@@ -96,16 +100,18 @@ const onMdNode = (node, actions, getNode) => {
 
   const [slugFileName, locale] = name.split('.');
 
-  const { frontmatter } = node;
-  if (!frontmatter) {
-    throw new Error('Frontmatter is absent!');
-  }
+  let slug;
 
-  let { slug } = frontmatter;
-  if (!slug) {
-    slug = `/${slugFileName === 'index' ? dir : slugFileName}`;
+  if (slugFileName === 'home') {
+    slug = '/';
+  } else {
+    slug = frontmatter.slug;
+    if (slug) {
+      slug = `/${slug}`;
+    } else {
+      slug = `/${slugFileName === 'index' ? dir : slugFileName}`;
+    }
   }
-
   if (process.env.ONLY && !process.env.ONLY.split(' ').some((p) => p === slug)) {
     if (process.env.WARNINGS) {
       console.warn(`Path "${slug}" is excluded from build. process.env.ONLY=${process.env.ONLY}`);
@@ -118,6 +124,10 @@ const onMdNode = (node, actions, getNode) => {
   }
 
   slug = i18n.localizePath(slug, locale);
+
+  if (slug !== '/') {
+    slug = `${slug}/`;
+  }
 
   let type;
   if (isPage) {
