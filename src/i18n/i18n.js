@@ -63,7 +63,7 @@ const localizePath = (path, lang) => {
     return path;
   }
   if (path === '/') {
-    return `/${lang}`;
+    return `/${lang}/`;
   }
   return `/${lang}${path}`;
 };
@@ -88,10 +88,7 @@ const pureSlug = (slug) => {
   const a = slug.split('/');
   const locale = a[1];
   const isLocalized = localeCodes.some((el) => locale === el);
-  if (!isLocalized) {
-    return slug;
-  }
-  return a.slice(2);
+  return isLocalized ? a.slice(2) : a.slice(-1, 1).join('/');
 };
 
 const purePath = (path) => {
