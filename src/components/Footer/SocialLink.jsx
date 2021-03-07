@@ -12,10 +12,10 @@ const style = (t) => ({
   margin: '0 0.625rem',
   border: '0.125rem solid',
   borderColor: t.colors.footer.text,
-  borderRadius: '100%',
+  borderRadius: '4px',
 
   ':hover': {
-    // color: t.colors.footer.text,
+    color: t.colors.footer.bg,
     backgroundColor: t.colors.footer.highlight,
     border: '0.125rem solid transparent',
     transition: 'all 0.4s ease-out 0s',

@@ -88,7 +88,15 @@ const pureSlug = (slug) => {
   const a = slug.split('/');
   const locale = a[1];
   const isLocalized = localeCodes.some((el) => locale === el);
-  return isLocalized ? a.slice(2) : a.slice(-1, 1).join('/');
+  if (isLocalized) {
+    return a
+      .slice(0, a.length - 1)
+      .slice(2)
+      .join('/');
+  }
+  a.shift();
+  a.pop();
+  return a.join('/');
 };
 
 const purePath = (path) => {

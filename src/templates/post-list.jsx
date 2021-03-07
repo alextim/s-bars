@@ -116,7 +116,7 @@ export const pageQuery = graphql`
     # POSTS_PATH
     # regex: "/blog$/"
     #
-    page: markdownRemark(fields: { slug: { regex: "/blog$/" }, locale: { eq: $locale } }) {
+    page: markdownRemark(fields: { slug: { regex: "//blog//" }, locale: { eq: $locale } }) {
       ...PageFragment
     }
     posts: allMarkdownRemark(

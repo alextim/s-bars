@@ -76,7 +76,7 @@ const getTemplate = (template) => {
 
 const slug2template = (slug) => {
   const pureSlug = i18n.pureSlug(slug);
-  return pureSlug === '/' ? undefined : slug;
+  return pureSlug === '/' ? undefined : pureSlug.toString();
 };
 
 module.exports = async ({ graphql, actions, reporter }) => {

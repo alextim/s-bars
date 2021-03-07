@@ -3,6 +3,8 @@ import { fontSizes } from './font-sizes';
 import fonts from './fonts';
 import { space } from './space';
 
+const borderRadius = '4px';
+
 const card = {
   perRow: {
     md: 2,
@@ -10,8 +12,13 @@ const card = {
   },
   wrap: {
     backgroundColor: colors.secondaryBackground,
+    borderRadius,
     ':hover': {
       boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+    },
+    img: {
+      borderTopLeftRadius: borderRadius,
+      borderTopRightRadius: borderRadius,
     },
   },
   heading: {

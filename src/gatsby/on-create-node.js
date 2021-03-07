@@ -102,7 +102,9 @@ const onMdNode = (node, actions, getNode) => {
 
   let slug;
 
+  let isHome = false;
   if (slugFileName === 'home') {
+    isHome = true;
     slug = '/';
   } else {
     slug = frontmatter.slug;
@@ -125,7 +127,7 @@ const onMdNode = (node, actions, getNode) => {
 
   slug = i18n.localizePath(slug, locale);
 
-  if (slug !== '/') {
+  if (!isHome) {
     slug = `${slug}/`;
   }
 
