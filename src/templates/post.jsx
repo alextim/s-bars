@@ -19,7 +19,16 @@ const styleWidgetArea = {
 const PostTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
   const {
-    frontmatter: { title, metaTitle, description, metaDescription, cover, noindex, datePublished },
+    frontmatter: {
+      title,
+      metaTitle,
+      description,
+      metaDescription,
+      cover,
+      noindex,
+      datePublished,
+      dateModified,
+    },
     html,
   } = data.post;
   return (
@@ -35,6 +44,7 @@ const PostTemplate = ({ path, data, pageContext: { locale } }) => {
         pathname={path}
         noindex={noindex}
         datePublished={datePublished}
+        dateModified={dateModified}
         pageType="BlogPosting"
         imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
       />

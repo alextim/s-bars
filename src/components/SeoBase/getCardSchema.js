@@ -8,7 +8,15 @@ import useOrganization from '../../hooks/useOrganization';
 
 import getPageSchema from './getPageSchema';
 
-const getCardSchema = ({ to, title, description, cover, datePublished, pageType = 'Article' }) => {
+const getCardSchema = ({
+  to,
+  title,
+  description,
+  cover,
+  datePublished,
+  dateModified,
+  pageType = 'Article',
+}) => {
   const { locale } = useLocale();
   const { name: organizationName } = useOrganization();
 
@@ -36,6 +44,7 @@ const getCardSchema = ({ to, title, description, cover, datePublished, pageType 
     htmlLang,
     imgURL,
     datePublished,
+    dateModified,
     pageType,
   });
 };

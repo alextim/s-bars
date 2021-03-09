@@ -19,6 +19,7 @@ const SeoBase = ({
   pageType,
   imgPath,
   datePublished,
+  dateModified,
   canonical,
   noindex,
   metas,
@@ -140,6 +141,7 @@ const SeoBase = ({
             htmlLang,
             imgURL,
             datePublished,
+            dateModified,
             pageType,
           }),
         )}

@@ -38,7 +38,7 @@ const buttonStyles = {
     borderColor: colors.button.primary.border,
 
     borderRadius: '5px',
-    borderWidth: 0,
+    borderWidth: '1px',
     borderStyle: 'solid',
 
     cursor: 'pointer',

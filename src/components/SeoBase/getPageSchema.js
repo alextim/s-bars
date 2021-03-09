@@ -8,6 +8,7 @@ const getPageSchema = ({
   htmlLang,
   imgURL,
   datePublished,
+  dateModified,
   pageType,
 }) => {
   const type =
@@ -40,6 +41,9 @@ const getPageSchema = ({
     o.headline = description;
     if (datePublished) {
       o.datePublished = datePublished;
+    }
+    if (dateModified) {
+      o.dateModified = dateModified;
     }
   } else {
     o.url = URL;

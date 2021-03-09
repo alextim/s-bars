@@ -15,39 +15,19 @@ const generalFrontmatterFields = {
   metaDescription: {
     type: 'String',
   },
-
+  state: {
+    type: 'String',
+  },
   cover: {
     type: 'Image',
   },
   slug: {
-    type: 'String!',
+    type: 'String',
   },
   template: {
     type: 'String',
   },
   noindex: {
-    type: 'Boolean',
-  },
-};
-
-/**
- * Post
- *
- */
-const postFrontmatterFields = {
-  category: {
-    type: '[String]',
-  },
-  tags: {
-    type: '[String]',
-  },
-  state: {
-    type: 'String',
-  },
-  datePublished: {
-    type: 'Date',
-  },
-  featured: {
     type: 'Boolean',
   },
 };
@@ -93,7 +73,6 @@ const sectionItem = {
 
 module.exports = {
   generalFrontmatterFields,
-  postFrontmatterFields,
   section,
   sectionItem,
 };

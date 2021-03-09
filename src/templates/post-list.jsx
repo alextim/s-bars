@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import { POSTS_PATH, siteUrl } from '../../config/website';
+import { blogPath, siteUrl } from '../../config/website';
 
 import { prevLink, nextLink } from '../utils/pagination';
 
@@ -39,13 +39,13 @@ const PostList = ({
     if (!isFirst) {
       links.push({
         rel: 'prev',
-        href: siteUrl + prevLink(currentPage, POSTS_PATH, locale),
+        href: siteUrl + prevLink(currentPage, blogPath, locale),
       });
     }
     if (!isLast) {
       links.push({
         rel: 'next',
-        href: siteUrl + nextLink(currentPage, POSTS_PATH, locale),
+        href: siteUrl + nextLink(currentPage, blogPath, locale),
       });
     }
   }
@@ -103,7 +103,7 @@ const PostList = ({
 
       {isFirst && html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
       <PostCardList posts={postList} />
-      <PostPagination currentPage={currentPage} numPages={numPages} subpath={POSTS_PATH} />
+      <PostPagination currentPage={currentPage} numPages={numPages} subpath={blogPath} />
     </Layout>
   );
 };
@@ -113,7 +113,7 @@ export default PostList;
 export const pageQuery = graphql`
   query PostListQuery($locale: String!, $skip: Int!, $limit: Int!) {
     #
-    # POSTS_PATH
+    # blogPath
     # regex: "/blog$/"
     #
     page: markdownRemark(fields: { slug: { regex: "//blog//" }, locale: { eq: $locale } }) {

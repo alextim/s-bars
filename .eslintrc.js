@@ -21,7 +21,7 @@ module.exports = {
     requireConfigFile: false,
     babelOptions: {
       // plugins: ['@babel/plugin-proposal-class-properties'],
-      presets: ['@babel/preset-react'],
+      presets: ['babel-preset-gatsby'],
     },
   },
   settings: {

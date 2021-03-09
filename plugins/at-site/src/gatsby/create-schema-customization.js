@@ -25,12 +25,7 @@ const {
   contactPoint,
 } = require('./schema-fields/yaml');
 
-const {
-  generalFrontmatterFields,
-  postFrontmatterFields,
-  section,
-  sectionItem,
-} = require('./schema-fields/md');
+const { generalFrontmatterFields, section, sectionItem } = require('./schema-fields/md');
 
 module.exports = ({ actions, schema }) => {
   const { createTypes } = actions;
@@ -118,17 +113,6 @@ module.exports = ({ actions, schema }) => {
         frontmatter: {
           type: 'Frontmatter',
         },
-        /*
-        html: {
-          type: 'String',
-        },
-        timeToRead: {
-          type: 'Int',
-        },
-        excerpt: {
-          type: 'String',
-        },
-        */
         fields: {
           type: 'MarkdownRemarkFields',
         },
@@ -139,7 +123,6 @@ module.exports = ({ actions, schema }) => {
       name: 'Frontmatter',
       fields: {
         ...generalFrontmatterFields,
-        ...postFrontmatterFields,
         sections: {
           type: '[Section]',
         },
@@ -171,9 +154,6 @@ module.exports = ({ actions, schema }) => {
         },
         slug: {
           type: 'String',
-        },
-        year: {
-          type: 'Int',
         },
       },
     }),

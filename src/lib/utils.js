@@ -84,6 +84,35 @@ const whatsappUrl = (whatsapp) => `https://wa.me/${whatsapp}`;
 const telegramUrl = (telegram) => `tg://resolve?domain=${telegram}`;
 const viberUrl = (viber) => `viber://add?number=${isMobile() ? '+' : ''}${viber}`;
 
+const toUnicode = (str) => {
+  return str
+    .split('')
+    .map((value) => {
+      const temp = value.charCodeAt(0).toString(16).toUpperCase();
+      if (temp.length > 2) {
+        return `\\u${temp}`;
+      }
+      return value;
+    })
+    .join('');
+};
+
+const obfuscate = (x) => {
+  if (!x) {
+    return x;
+  }
+  /*
+  const n = x.length;
+  let s = '';
+  for (let i = 0; i < n; i++) {
+    s += `&#${x.charCodeAt(i)};`;
+  }
+
+  return s;
+  */
+  return toUnicode(x);
+};
+
 module.exports = {
   upperFirst,
   extractHostname,
@@ -94,4 +123,5 @@ module.exports = {
   whatsappUrl,
   telegramUrl,
   viberUrl,
+  obfuscate,
 };

@@ -16,6 +16,7 @@ const SEO = ({
   pageType,
   imgPath,
   datePublished,
+  dateModified,
   canonical = true,
   noindex = false,
   metas,
@@ -55,6 +56,7 @@ const SEO = ({
       pageType={pageType}
       imgPath={imgPath}
       datePublished={datePublished}
+      dateModified={dateModified}
       canonical={canonical}
       noindex={noindex}
       metas={metas}

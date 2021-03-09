@@ -2,7 +2,7 @@ const defaultOptions = require('./default-options');
 const createSiteMap = require('./createSiteMap');
 const createImageSiteMap = require('./createImageSiteMap');
 
-const wrapper = require('../../../src/gatsby/promise-wrapper');
+const wrapper = require('../../at-site/src/gatsby/helpers/promise-wrapper');
 
 module.exports = async ({ graphql, reporter }, pluginOptions) => {
   const options = {
@@ -22,7 +22,7 @@ module.exports = async ({ graphql, reporter }, pluginOptions) => {
             }
           }
         }
-        allMarkdownRemark {
+        allMarkdownRemark(filter: { frontmatter: { state: { ne: "draft" } } }) {
           edges {
             node {
               fields {
@@ -77,17 +77,15 @@ module.exports = async ({ graphql, reporter }, pluginOptions) => {
   }
   const { siteUrl, locales } = result.data.site.siteMetadata;
 
-  const isPublished = (type, state) => type !== 'post' || state === 'published';
-  const inExcludPaths = (slug) =>
+  const inExcludedPaths = (slug) =>
     options.excludePaths.some((exPath) => slug.indexOf(exPath) !== -1);
 
   const allPages = result.data.allMarkdownRemark.edges.filter(
     ({
       node: {
-        fields: { slug, type },
-        frontmatter: { state },
+        fields: { slug },
       },
-    }) => !inExcludPaths(slug) && isPublished(type, state),
+    }) => !inExcludedPaths(slug),
   );
   reporter.info(`Generating sitemap for ${allPages.length} pages...`);
 

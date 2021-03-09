@@ -265,16 +265,24 @@ const GlobalStyle = () => (
       h4,
       h5,
       h6 {
-        font-family: ${fonts.heading};
         line-height: ${lineHeights.heading};
         font-weight: ${fontWeights.heading};
       }
 
       h1 {
+        font-family: ${fonts.body};
         font-size: ${fontSizes[6]};
         ${mq.lg} {
           font-size: ${fontSizes[7]};
         }
+      }
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: ${fonts.heading};
       }
 
       h2 {

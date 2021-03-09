@@ -35,8 +35,7 @@ const nickelDark = '#454440';
 const brand = {
   main: 'rgb(210, 231, 250)',
   secondLight: 'rgb(58, 118, 150)',
-  secondLightDarker: 'rgb(28, 88, 120)',
-  secondDark: 'rgb(58, 118, 150)',
+  secondDark: 'rgb(111,152,209)',
 };
 
 const text = grey90;
@@ -49,8 +48,8 @@ const colors = {
   background,
   secondaryBackground,
 
-  primary: brand.secondLight,
-  primaryDark: brand.secondLightDarker,
+  primary: brand.main,
+  primaryDark: brand.secondDark,
   secondary: nickel,
   secondaryDark: nickelDark,
   muted: lightGray,
@@ -104,7 +103,7 @@ const colors = {
   },
 
   input: {
-    focusBoxShadow: red,
+    focusBoxShadow: brand.secondDark,
     required: red,
   },
 
@@ -130,7 +129,7 @@ colors.button = {
     text: white,
     bg: colors.primary,
     border: colors.primary,
-    hoverBg: colors.primaryDark,
+    hoverBg: colors.primary,
     hoverBorder: colors.primaryDark,
   },
   secondary: {

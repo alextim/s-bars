@@ -1,5 +1,5 @@
 import colors from './colors';
-import styles from './styles';
+// import styles from './styles';
 import { breakpointsArray as breakpoints } from './breakpoints';
 import mq from './media-queries';
 import { fontSizes, fontSizesPx, fontSizesRaw } from './font-sizes';
@@ -27,6 +27,7 @@ const theme = {
   fontWeights,
   lineHeights,
   colors,
+  /*
   text: {
     heading: {
       fontFamily: 'heading',
@@ -41,6 +42,7 @@ const theme = {
     },
   },
   styles,
+  */
   sizes,
   links,
   buttons,

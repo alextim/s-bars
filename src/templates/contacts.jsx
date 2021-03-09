@@ -66,6 +66,11 @@ const OpeningHours = ({ data }) => {
   );
 };
 
+const EmailLink = ({ email }) => {
+  const e = Utils.obfuscate(email);
+  return <a href={`mailto:${e}`}>{e}</a>;
+};
+
 const ContactPoints = ({ items }) => {
   if (!items) {
     return null;
@@ -81,9 +86,7 @@ const ContactPoints = ({ items }) => {
         </a>
       ))}
       {email.map((em) => (
-        <a key={em} href={`mailto:${em}`}>
-          {em}
-        </a>
+        <EmailLink key={em} email={em} />
       ))}
     </div>
   ));

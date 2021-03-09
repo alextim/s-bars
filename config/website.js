@@ -8,7 +8,7 @@ module.exports = {
   /**
    * name of content folder
    */
-  content: 's-bars.content',
+  contentDir: 's-bars.content',
 
   /**
    * Schema org
@@ -85,6 +85,8 @@ module.exports = {
   themeColor: '#3498DB',
   backgroundColor: '#2e3246',
 
-  POSTS_PATH: '/blog/',
-  CARDS_PER_PAGE: 12,
+  blogPath: '/blog/',
+  cardsPerPage: 12,
+
+  templatesDir: '/templates/',
 };

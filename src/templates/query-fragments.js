@@ -72,8 +72,8 @@ export const postFragment = graphql`
       }
       category
       tags
+      dateModified
       datePublished
-      state
       noindex
     }
     timeToRead
@@ -101,6 +101,7 @@ export const postCardFragment = graphql`
       }
       category
       tags
+      dateModified
       datePublished
     }
     fields {

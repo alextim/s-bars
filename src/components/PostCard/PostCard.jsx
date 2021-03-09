@@ -20,7 +20,16 @@ const styleReadMore = {
 };
 
 const PostCard = ({
-  data: { path: to, cover, title, excerpt, description, metaDescription, datePublished },
+  data: {
+    path: to,
+    cover,
+    title,
+    excerpt,
+    description,
+    metaDescription,
+    datePublished,
+    dateModified,
+  },
 }) => {
   const { t } = useTranslation();
 
@@ -34,6 +43,7 @@ const PostCard = ({
             description: description || metaDescription,
             cover,
             datePublished,
+            dateModified,
             pageType: 'BlogPosting',
           }),
         )}

@@ -8,7 +8,7 @@ const locales = require('./config/locales');
 
 const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
-const { content } = config;
+const { contentDir } = config;
 
 const CSP = {
   'default-src': "'self'",
@@ -34,6 +34,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl,
     locales: i18n.localeCodes.map((code) => ({ code, ...locales[code] })),
+    defaultLang: i18n.defaultLang,
   },
   plugins: [
     'gatsby-plugin-image',
@@ -41,35 +42,35 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
-        path: `${__dirname}/${content}/data`,
+        path: `${__dirname}/${contentDir}/data`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
-        path: `${__dirname}/${content}/pages`,
+        path: `${__dirname}/${contentDir}/pages`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'object-types',
-        path: `${__dirname}/${content}/object-types`,
+        path: `${__dirname}/${contentDir}/object-types`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'services',
-        path: `${__dirname}/${content}/services`,
+        path: `${__dirname}/${contentDir}/services`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: `${__dirname}/${content}/posts`,
+        path: `${__dirname}/${contentDir}/posts`,
       },
     },
     {
@@ -238,7 +239,7 @@ module.exports = {
                 allMarkdownRemark(
                   limit: 30,
                   sort: { order: DESC, fields: [frontmatter___datePublished] },
-                  filter: { frontmatter: { state: { eq: "published" } } }
+                  filter: { fields: { type: { eq: "post" } } }
                 ) {
                   edges {
                     node {
@@ -260,6 +261,32 @@ module.exports = {
             title: 'S-Bars RSS Feed',
           },
         ],
+      },
+    },
+    {
+      resolve: 'at-site',
+      options: {
+        templatesDir: `${__dirname}/src${config.templatesDir}`,
+        excludedSlugs: [
+          'blog',
+          'category',
+          'category-list',
+          'tags',
+          'tag-list',
+          'years',
+          'year-list',
+        ],
+      },
+    },
+    {
+      resolve: 'at-blog',
+      options: {
+        templatesDir: `${__dirname}/src${config.templatesDir}`,
+        cardsPerPage: config.cardsPerPage,
+        blogPath: config.blogPath,
+        CREATE_TAG_PAGES: false,
+        CREATE_CATEGORY_PAGES: false,
+        CREATE_YEAR_PAGES: false,
       },
     },
     {
