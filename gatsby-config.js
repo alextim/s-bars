@@ -8,7 +8,7 @@ const locales = require('./config/locales');
 
 const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
-const { contentDir } = config;
+const { contentDir, postsPath, pagesPath, blogPath, cardsPerPage } = config;
 
 const CSP = {
   'default-src': "'self'",
@@ -48,8 +48,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'pages',
-        path: `${__dirname}/${contentDir}/pages`,
+        name: pagesPath,
+        path: `${__dirname}/${contentDir}/${pagesPath}`,
       },
     },
     {
@@ -69,8 +69,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'posts',
-        path: `${__dirname}/${contentDir}/posts`,
+        name: postsPath,
+        path: `${__dirname}/${contentDir}/${postsPath}`,
       },
     },
     {
@@ -267,6 +267,7 @@ module.exports = {
       resolve: 'at-site',
       options: {
         templatesDir: `${__dirname}/src${config.templatesDir}`,
+        pagesPath,
         excludedSlugs: [
           'blog',
           'category',
@@ -282,8 +283,9 @@ module.exports = {
       resolve: 'at-blog',
       options: {
         templatesDir: `${__dirname}/src${config.templatesDir}`,
-        cardsPerPage: config.cardsPerPage,
-        blogPath: config.blogPath,
+        cardsPerPage,
+        blogPath,
+        postsPath,
         CREATE_TAG_PAGES: false,
         CREATE_CATEGORY_PAGES: false,
         CREATE_YEAR_PAGES: false,
