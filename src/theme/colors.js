@@ -34,7 +34,6 @@ const nickelDark = '#454440';
 
 const brand = {
   main: 'rgb(210, 231, 250)',
-  secondLight: 'rgb(58, 118, 150)',
   secondDark: 'rgb(111,152,209)',
 };
 
@@ -126,7 +125,7 @@ colors.button = {
   hoverBg: gray40,
   hoverBorder: gray40,
   primary: {
-    text: white,
+    text: black,
     bg: colors.primary,
     border: colors.primary,
     hoverBg: colors.primary,

@@ -3,30 +3,27 @@ import { jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
 import { space } from '../../../theme/space';
-import colors from '../../../theme/colors';
 
-const wrapStyle = {
+import styleA from '../styleA';
+
+const styleWrap = {
   display: 'inline-flex',
-  flexDirection: 'row',
-  alignItems: 'center',
   justifyContent: 'center',
   flexWrap: 'wrap',
   width: '100%',
+  ...styleA,
 };
 
-const linkStyle = {
+const styleLink = {
   margin: '0 1rem',
   padding: `${space[2]} 0`,
   textTransform: 'uppercase',
-  ':hover': {
-    color: colors.footer.highlight,
-  },
 };
 
 const FooterNavigation = ({ items }) => (
-  <div css={wrapStyle}>
+  <div css={styleWrap}>
     {items.map(({ to, title }) => (
-      <Link key={to} css={linkStyle} to={to}>
+      <Link key={to} css={styleLink} to={to}>
         {title}
       </Link>
     ))}

@@ -28,24 +28,23 @@ import OrganizationPhones from '../organization/OrganizationPhones';
 // import OrganizationCloudPhones from '../organization/OrganizationCloudPhones';
 import Button from '../Button';
 
+import styleA from './styleA';
+
 const styleWidgetWrap = {
   display: 'flex',
   flexDirection: 'column',
   lineHeight: 1.75,
 };
 
-const WidgetWrapper = ({ children }) => <div css={styleWidgetWrap}>{children}</div>;
+const WidgetWrapper = ({ extraStyle = {}, children }) => (
+  <div css={{ ...styleWidgetWrap, ...extraStyle }}>{children}</div>
+);
 
 const styleWidgetArea = {
   display: 'grid',
   gridGap: space[6],
   paddingTop: space[5],
   paddingBottom: space[5],
-  a: {
-    ':hover': {
-      color: colors.footer.highlight,
-    },
-  },
   [mq.lg]: {
     gridTemplateColumns: '1fr 1fr 2fr',
     paddingTop: space[6],
@@ -64,6 +63,7 @@ const styleColophonBottom = {
   padding: '0.5rem 0',
   backgroundColor: colors.footer.colophon.bottom.bg,
   fontSize: fontSizes[0],
+  ...styleA,
 };
 
 const styleColophonBottomInnerWrap = {
@@ -80,13 +80,6 @@ const footerStyle = {
   backgroundColor: colors.footer.bg,
   fontSize: fontSizes[1],
   width: '100%',
-  a: {
-    color: colors.footer.text,
-    '&:active, &:focus, &:hover': {
-      outline: 'none',
-      textDecoration: 'none',
-    },
-  },
 };
 
 const styleInquiryText = {
@@ -111,14 +104,14 @@ const Footer = () => {
     <footer css={footerStyle}>
       <Container>
         <div css={styleWidgetArea}>
-          <WidgetWrapper>
+          <WidgetWrapper extraStyle={styleA}>
             <FooterWidget title={t('footer.call_us')}>
               <OrganizationPhones phones={phone} />
               <OrganizationEmail emails={email} />
             </FooterWidget>
           </WidgetWrapper>
 
-          <WidgetWrapper>
+          <WidgetWrapper extraStyle={styleA}>
             <FooterWidget title={t('footer.opening_time')}>
               <OrganizationOpeningHours openingHours={openingHours} />
             </FooterWidget>

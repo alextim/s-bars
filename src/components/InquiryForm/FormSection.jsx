@@ -7,12 +7,12 @@ const styleWrap = (t) => ({
   [t.mq.lg]: {
     gridGap: 0,
     gridTemplateColumns: '1fr 3fr',
-    gridTemplateRows: 'auto auto',
   },
 });
 
 const styleTitle = (t) => ({
   margin: 0,
+  fontFamily: t.fonts.body,
   [t.mq.lg]: {
     gridColumn: 2,
     grdRow: 1,
