@@ -5,22 +5,20 @@ import { graphql } from 'gatsby';
 import PageTemplate from '../components/object-types-and-services';
 
 const ObjectTypeListTemplate = ({ path, data, pageContext: { locale } }) => (
-  <PageTemplate path={path} data={data} locale={locale} type="object-type" />
+  <PageTemplate path={path} data={data} locale={locale} type="object" />
 );
 
 export default ObjectTypeListTemplate;
 
 export const pageQuery = graphql`
   query ObjectTypeListPageQuery($id: String!, $locale: String!) {
-    page: markdownRemark(id: { eq: $id }) {
-      ...PageFragment
+    page: mdPage(id: { eq: $id }) {
+      ...MdPageFragment
     }
-    pageItems: allMarkdownRemark(
-      filter: { fields: { type: { eq: "object-type" }, locale: { eq: $locale } } }
-    ) {
+    pageItems: allMdPage(filter: { type: { eq: "object" }, locale: { eq: $locale } }) {
       edges {
         node {
-          ...PostCardFragment
+          ...MdCardFragment
         }
       }
     }

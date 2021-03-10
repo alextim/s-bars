@@ -102,9 +102,7 @@ const styleWrap3 = (t) => ({
 
 const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const {
-    frontmatter: { title, metaTitle, description, metaDescription, noindex },
-  } = data.page;
+  const { title, metaTitle, description, metaDescription, noindex } = data.page;
   const { openingHours, embedMap } = useOrganization();
   const { contactPoint } = address;
 
@@ -151,8 +149,8 @@ export default ContactsTemplate;
 
 export const contactsPageQuery = graphql`
   query ContactsPageQuery($id: String!, $locale: String!) {
-    page: markdownRemark(id: { eq: $id }) {
-      ...PageFragment
+    page: mdPage(id: { eq: $id }) {
+      ...MdPageFragment
     }
     address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
       ...AddressFragment

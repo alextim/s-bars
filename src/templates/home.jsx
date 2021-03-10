@@ -23,10 +23,7 @@ const styleHtml = {
 
 const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const {
-    frontmatter: { title, metaTitle, description, metaDescription, noindex, sections },
-    html,
-  } = data.page;
+  const { title, metaTitle, description, metaDescription, noindex, sections, html } = data.page;
   const getObjectTypes = () => mainNav.edges[1].node.fields.submenu;
 
   return (
@@ -85,29 +82,27 @@ export default HomeTemplate;
 
 export const pageQuery = graphql`
   query HomePageQuery($id: String!, $locale: String!) {
-    page: markdownRemark(id: { eq: $id }) {
-      frontmatter {
+    page: mdPage(id: { eq: $id }) {
+      title
+      description
+      metaTitle
+      metaDescription
+      noindex
+      sections {
         title
-        description
-        metaTitle
-        metaDescription
-        noindex
-        sections {
+        subtitle
+        text
+        items {
           title
+          to
           subtitle
           text
-          items {
-            title
-            to
-            subtitle
-            text
-            icon
-            image {
-              alt
-              sm {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
-                }
+          icon
+          image {
+            alt
+            sm {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }

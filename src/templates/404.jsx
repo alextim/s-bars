@@ -18,10 +18,7 @@ const headingStyle = (t) => ({
 
 const NotFoundTemplate = ({ data, path, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const {
-    frontmatter: { title, metaTitle, description, metaDescription },
-    html,
-  } = data.page;
+  const { title, metaTitle, description, metaDescription, html } = data.page;
 
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
@@ -44,8 +41,8 @@ export default NotFoundTemplate;
 
 export const pageQuery = graphql`
   query NotFoundPageQuery($id: String!, $locale: String!) {
-    page: markdownRemark(id: { eq: $id }) {
-      ...PageFragment
+    page: mdPage(id: { eq: $id }) {
+      ...MdPageFragment
     }
     address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
       ...AddressFragment

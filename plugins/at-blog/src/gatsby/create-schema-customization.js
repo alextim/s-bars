@@ -1,55 +1,54 @@
-const postFrontmatterFields = {
-  category: {
-    type: '[String]',
-  },
-  tags: {
-    type: '[String]',
-  },
-  featured: {
-    type: 'Boolean',
-  },
-  datePublished: {
-    type: 'Date',
-  },
-  dateModified: {
-    type: 'Date',
-  },
-};
-
-module.exports = ({ actions, schema }) => {
+module.exports = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = [
-    schema.buildObjectType({
-      name: 'MarkdownRemark',
-      interfaces: ['Node'],
-      extensions: {
-        infer: false,
-      },
-      fields: {
-        frontmatter: {
-          type: 'Frontmatter',
-        },
-        fields: {
-          type: 'MarkdownRemarkFields',
-        },
-      },
-    }),
+    `
+    interface Post implements Node {
+      id: ID!
+      title: String!
+      description: String
+      metaTitle: String
+      metaDescription: String
+      cover: Image
 
-    schema.buildObjectType({
-      name: 'Frontmatter',
-      fields: {
-        ...postFrontmatterFields,
-      },
-    }),
+      category: [String]
+      tags: [String]
+      featured: Boolean
+      datePublished: Date
+      dateModified: Date,
 
-    schema.buildObjectType({
-      name: 'MarkdownRemarkFields',
-      fields: {
-        year: {
-          type: 'Int',
-        },
-      },
-    }),
+      template: String
+      noindex: Boolean
+
+      html: String!
+
+      locale: String!
+      slug: String!
+      year: Int
+    }
+
+    type MdPost implements Post & Node  @dontInfer {
+      title: String!
+      description: String
+      metaTitle: String
+      metaDescription: String
+      cover: Image
+
+      category: [String]
+      tags: [String]
+      featured: Boolean
+      datePublished: Date
+      dateModified: Date,
+
+      template: String
+      noindex: Boolean
+
+      html: String! @mdpassthrough(fieldName: "html")
+
+      locale: String!
+      slug: String!
+      year: Int
+    }
+    `,
   ];
 
   createTypes(typeDefs);

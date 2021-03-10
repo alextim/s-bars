@@ -11,9 +11,7 @@ import Layout from '../components/Layout/SimpleLayoutWithHeader';
 
 const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const {
-    frontmatter: { title, metaTitle, description, metaDescription, noindex, sections },
-  } = data.page;
+  const { title, metaTitle, description, metaDescription, noindex, sections } = data.page;
 
   return (
     <Layout
@@ -47,8 +45,8 @@ export default AboutTemplate;
 
 export const aboutPageQuery = graphql`
   query AboutPageQuery($id: String!, $locale: String!) {
-    page: markdownRemark(id: { eq: $id }) {
-      ...PageFragment
+    page: mdPage(id: { eq: $id }) {
+      ...MdPageFragment
     }
     address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
       ...AddressFragment

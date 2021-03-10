@@ -14,7 +14,13 @@ const styleHtml = (t) => ({
 const PageTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
   const {
-    frontmatter: { title, metaTitle, description, metaDescription, cover, noindex, sections },
+    title,
+    metaTitle,
+    description,
+    metaDescription,
+    cover,
+    noindex,
+    sections,
     html,
   } = data.page;
   return (
@@ -41,8 +47,8 @@ export default PageTemplate;
 
 export const pageQuery = graphql`
   query PriceListQuery($id: String!, $locale: String!) {
-    page: markdownRemark(id: { eq: $id }) {
-      ...PageFragment
+    page: mdPage(id: { eq: $id }) {
+      ...MdPageFragment
     }
     address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
       ...AddressFragment

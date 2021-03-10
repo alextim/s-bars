@@ -11,10 +11,7 @@ import InnerAsideLayout from '../components/InnerAsideLayout';
 
 const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const {
-    frontmatter: { title, metaTitle, description, metaDescription, cover, noindex },
-    html,
-  } = data.page;
+  const { title, metaTitle, description, metaDescription, cover, noindex, html } = data.page;
 
   return (
     <Layout
@@ -45,8 +42,8 @@ export default ObjectTypePageTemplate;
 
 export const objecTypePageQuery = graphql`
   query ObjecTypePageQuery($id: String!, $locale: String!) {
-    page: markdownRemark(id: { eq: $id }) {
-      ...PageFragment
+    page: mdPage(id: { eq: $id }) {
+      ...MdPageFragment
     }
     address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
       ...AddressFragment

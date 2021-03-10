@@ -86,7 +86,11 @@ module.exports = {
   backgroundColor: '#2e3246',
 
   postsPath: 'posts',
-  pagesPath: 'pages',
+  pagePathes: {
+    page: 'pages',
+    service: 'services',
+    object: 'object-types',
+  },
   blogPath: '/blog/',
   cardsPerPage: 12,
 

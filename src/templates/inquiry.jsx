@@ -10,9 +10,7 @@ import InquiryForm from '../components/InquiryForm';
 
 const InquiryTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const {
-    frontmatter: { title, metaTitle, description, metaDescription, noindex },
-  } = data.page;
+  const { title, metaTitle, description, metaDescription, noindex } = data.page;
 
   return (
     <Layout
@@ -39,8 +37,8 @@ export default InquiryTemplate;
 
 export const inquiryPageQuery = graphql`
   query InquiryPageQuery($id: String!, $locale: String!) {
-    page: markdownRemark(id: { eq: $id }) {
-      ...PageFragment
+    page: mdPage(id: { eq: $id }) {
+      ...MdPageFragment
     }
     address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
       ...AddressFragment

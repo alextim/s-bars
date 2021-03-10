@@ -12,15 +12,13 @@ export default ServiceListTemplate;
 
 export const pageQuery = graphql`
   query ServiceListPageQuery($id: String!, $locale: String!) {
-    page: markdownRemark(id: { eq: $id }) {
-      ...PageFragment
+    page: mdPage(id: { eq: $id }) {
+      ...MdPageFragment
     }
-    pageItems: allMarkdownRemark(
-      filter: { fields: { type: { eq: "service" }, locale: { eq: $locale } } }
-    ) {
+    pageItems: allMdPage(filter: { type: { eq: "service" }, locale: { eq: $locale } }) {
       edges {
         node {
-          ...PostCardFragment
+          ...MdCardFragment
         }
       }
     }

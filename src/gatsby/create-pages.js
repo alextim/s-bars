@@ -13,38 +13,27 @@ const objectTypeDefaultTemplate = require.resolve(`${templatesDir}object-type.js
 module.exports = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
-  console.log('=====createPages=====');
+  console.log('===== createPages: Services & Object Types =====');
   const result = await wrapper(
     graphql(`
       {
-        objectTypes: allMarkdownRemark(
-          limit: 100
-          filter: { fields: { type: { eq: "object-type" } } }
-        ) {
+        objectTypes: allMdPage(limit: 100, filter: { type: { eq: "object" } }) {
           edges {
             node {
               id
-              frontmatter {
-                template
-              }
-              fields {
-                slug
-                locale
-              }
+              template
+              slug
+              locale
             }
           }
         }
-        services: allMarkdownRemark(limit: 100, filter: { fields: { type: { eq: "service" } } }) {
+        services: allMdPage(limit: 100, filter: { type: { eq: "service" } }) {
           edges {
             node {
               id
-              frontmatter {
-                template
-              }
-              fields {
-                slug
-                locale
-              }
+              template
+              slug
+              locale
             }
           }
         }
@@ -66,24 +55,17 @@ module.exports = async ({ graphql, actions, reporter }) => {
   } else {
     console.log(`\nMd services: ${services.length}`);
     console.log('---------------');
-    services.forEach(
-      ({
-        node: {
+    services.forEach(({ node: { id, slug, locale } }) => {
+      console.log('pagepath=', slug);
+      createPage({
+        path: slug,
+        component: serviceDefaultTemplate,
+        context: {
           id,
-          fields: { slug, locale },
+          locale,
         },
-      }) => {
-        console.log('pagepath=', slug);
-        createPage({
-          path: slug,
-          component: serviceDefaultTemplate,
-          context: {
-            id,
-            locale,
-          },
-        });
-      },
-    );
+      });
+    });
   }
 
   /**
@@ -95,23 +77,16 @@ module.exports = async ({ graphql, actions, reporter }) => {
   } else {
     console.log(`\nMd object types: ${objectTypes.length}`);
     console.log('---------------');
-    objectTypes.forEach(
-      ({
-        node: {
+    objectTypes.forEach(({ node: { id, slug, locale } }) => {
+      console.log('pagepath=', slug);
+      createPage({
+        path: slug,
+        component: objectTypeDefaultTemplate,
+        context: {
           id,
-          fields: { slug, locale },
+          locale,
         },
-      }) => {
-        console.log('pagepath=', slug);
-        createPage({
-          path: slug,
-          component: objectTypeDefaultTemplate,
-          context: {
-            id,
-            locale,
-          },
-        });
-      },
-    );
+      });
+    });
   }
 };

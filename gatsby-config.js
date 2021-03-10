@@ -8,7 +8,7 @@ const locales = require('./config/locales');
 
 const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
-const { contentDir, postsPath, pagesPath, blogPath, cardsPerPage } = config;
+const { contentDir, postsPath, pagePathes, blogPath, cardsPerPage } = config;
 
 const CSP = {
   'default-src': "'self'",
@@ -30,6 +30,14 @@ const CSP = {
 const getContentSecurityPolicy = () =>
   Object.keys(CSP).reduce((acc, curr) => `${acc}${acc ? '; ' : ''}${curr} ${CSP[curr]}`, '');
 
+const pageSources = Object.keys(pagePathes).map((name) => ({
+  resolve: 'gatsby-source-filesystem',
+  options: {
+    name,
+    path: `${__dirname}/${contentDir}/${pagePathes[name]}`,
+  },
+}));
+
 module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl,
@@ -45,27 +53,7 @@ module.exports = {
         path: `${__dirname}/${contentDir}/data`,
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: pagesPath,
-        path: `${__dirname}/${contentDir}/${pagesPath}`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'object-types',
-        path: `${__dirname}/${contentDir}/object-types`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'services',
-        path: `${__dirname}/${contentDir}/services`,
-      },
-    },
+    ...pageSources,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -267,7 +255,7 @@ module.exports = {
       resolve: 'at-site',
       options: {
         templatesDir: `${__dirname}/src${config.templatesDir}`,
-        pagesPath,
+        pagePathes,
         excludedSlugs: [
           'blog',
           'category',

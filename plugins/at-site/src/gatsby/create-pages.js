@@ -31,17 +31,13 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
   const result = await wrapper(
     graphql(`
       {
-        pages: allMarkdownRemark(limit: 100, filter: { fields: { type: { eq: "page" } } }) {
+        pages: allMdPage(limit: 100, filter: { type: { eq: "page" } }) {
           edges {
             node {
               id
-              frontmatter {
-                template
-              }
-              fields {
-                slug
-                locale
-              }
+              template
+              slug
+              locale
             }
           }
         }
@@ -55,32 +51,24 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
   }
 
   const pages = result.data.pages.edges
-    .filter(({ node: { fields } }) => !excludedSlugs.some((s) => fields.slug.includes(s)))
-    .sort((a, b) => a.node.fields.slug - b.node.fields.slug);
+    .filter(({ node: { slug } }) => !excludedSlugs.some((s) => slug.includes(s)))
+    .sort((a, b) => a.node.slug - b.node.slug);
 
   if (pages.length === 0) {
     console.warn('\nNo pages');
   } else {
     console.log(`\nMd pages: ${pages.length}`);
     console.log('---------------');
-    pages.forEach(
-      ({
-        node: {
+    pages.forEach(({ node: { id, template, slug, locale } }) => {
+      console.log('pagepath=', slug);
+      createPage({
+        path: slug,
+        component: getTemplate(template || slug2template(slug)) || pageDefaultTemplate,
+        context: {
           id,
-          frontmatter: { template },
-          fields: { slug, locale },
+          locale,
         },
-      }) => {
-        console.log('pagepath=', slug);
-        createPage({
-          path: slug,
-          component: getTemplate(template || slug2template(slug)) || pageDefaultTemplate,
-          context: {
-            id,
-            locale,
-          },
-        });
-      },
-    );
+      });
+    });
   }
 };

@@ -65,10 +65,7 @@ const PostList = ({
     }),
   );
 
-  const {
-    html,
-    frontmatter: { title, metaTitle, description, metaDescription, noindex },
-  } = page;
+  const { html, title, metaTitle, description, metaDescription, noindex } = page;
 
   /*
   let metas;
@@ -116,8 +113,8 @@ export const pageQuery = graphql`
     # blogPath
     # regex: "/blog$/"
     #
-    page: markdownRemark(fields: { slug: { regex: "//blog//" }, locale: { eq: $locale } }) {
-      ...PageFragment
+    page: mdPage(slug: { regex: "//blog//" }, locale: { eq: $locale }) {
+      ...MdPageFragment
     }
     posts: allMarkdownRemark(
       sort: { fields: [frontmatter___datePublished], order: DESC }

@@ -1,5 +1,5 @@
 module.exports = (themeOptions) => ({
-  pagesPath: themeOptions.pagesPath || 'pages',
+  pagePathes: themeOptions.pagePathes || { page: 'pages' },
   excludedSlugs: themeOptions.excludedSlugs || [
     'blog',
     'category',
