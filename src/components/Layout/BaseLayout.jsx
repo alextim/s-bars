@@ -5,7 +5,7 @@ import theme from '../../theme';
 
 import AppContextProvider from '../../context';
 import GlobalStyle from '../GlobalStyle';
-import Header from '../Header/Header';
+import Header from '../Header';
 import Footer from '../Footer';
 // import useInquiryForm from '../useInquiryForm';
 

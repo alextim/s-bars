@@ -44,21 +44,21 @@ const formatUrl = (url) => {
   return result;
 };
 
-const formatPhone = (phone) => {
-  switch (phone.length) {
-    case 7:
-      return `${phone.substr(0, 3)}-${phone.substr(3, 2)}-${phone.substr(5, 2)}`;
-    case 10:
-      return `${phone.substr(0, 1)} ${phone.substr(1, 3)}-${phone.substr(4, 3)}-${phone.substr(
-        7,
-        3,
-      )}`;
-    default:
-      return `+${phone.substr(0, 2)} (${phone.substr(2, 3)}) ${phone.substr(5, 3)}-${phone.substr(
-        7,
-        2,
-      )}-${phone.substr(10, 2)}`;
+const formatPhone = (s) => {
+  if (!s) {
+    return '';
   }
+  const n = s.length;
+  if (n === 7) {
+    return `${s.substr(0, 3)}-${s.substr(3, 2)}-${s.substr(5, 2)}`;
+  }
+  if (n === 10) {
+    return `${s.substr(0, 3)} ${s.substr(3, 3)}-${s.substr(6, 2)}-${s.substr(8, 2)}`;
+  }
+  return `+${s.substr(0, 2)} (${s.substr(2, 3)}) ${s.substr(5, 3)}-${s.substr(8, 2)}-${s.substr(
+    10,
+    2,
+  )}`;
 };
 
 const isMobile = () =>

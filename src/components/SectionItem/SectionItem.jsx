@@ -7,6 +7,9 @@ import Icon from '../Icon';
 import colors from '../../theme/colors';
 import mq from '../../theme/media-queries';
 import { space } from '../../theme/space';
+import fonts from '../../theme/fonts';
+import { fontSizes } from '../../theme/font-sizes';
+import fontWeights from '../../theme/font-weights';
 
 const styleWrap = {
   display: 'flex',
@@ -17,6 +20,12 @@ const styleWrap = {
 
 const styleTitle = {
   marginBottom: space[2],
+  fontSize: fontSizes[4],
+  fontFamily: fonts.heading,
+  fontWeight: fontWeights.heading,
+  [mq.lg]: {
+    fontSize: fontSizes[5],
+  },
 };
 
 const styleTitleRound = {

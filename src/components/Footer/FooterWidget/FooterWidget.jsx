@@ -7,6 +7,8 @@ import fonts from '../../../theme/fonts';
 const headingStyle = {
   marginBottom: '0.4rem',
   fontFamily: fonts.body,
+  textTransform: 'none',
+  textAlign: 'unset',
 };
 
 const FooterWidget = ({ title, children }) => (

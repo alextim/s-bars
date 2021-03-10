@@ -168,21 +168,6 @@ module.exports = ({ actions, schema }) => {
       viber: String
     }
     `,
-
-    schema.buildObjectType({
-      name: 'MarkdownRemarkFields',
-      fields: {
-        locale: {
-          type: 'String',
-        },
-        type: {
-          type: 'String',
-        },
-        slug: {
-          type: 'String',
-        },
-      },
-    }),
   ];
 
   createTypes(typeDefs);

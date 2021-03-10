@@ -2,7 +2,11 @@
 import { jsx } from '@emotion/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
+import mq from '../../theme/media-queries';
 import { space } from '../../theme/space';
+import { fontSizes } from '../../theme/font-sizes';
+import fontWeights from '../../theme/font-weights';
+import fonts from '../../theme/fonts';
 
 const styleWrap = {
   marginBottom: space[10],
@@ -11,7 +15,13 @@ const styleWrap = {
   },
 };
 const styleTitle = {
-  textAlign: 'center',
+  fontSize: fontSizes[6],
+  marginBottom: space[4],
+  fontFamily: fonts.heading,
+  fontWeight: fontWeights.heading,
+  [mq.lg]: {
+    fontSize: fontSizes[6],
+  },
 };
 
 const styleSubtitle = {

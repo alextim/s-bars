@@ -3,7 +3,7 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import Sections from '../components/Sections';
+import Section from '../components/Section';
 import Triptych from '../components/home-page-parts/Triptych';
 
 import SEO from '../components/SEO';
@@ -11,7 +11,7 @@ import Layout from '../components/Layout/SimpleLayoutWithHeader';
 
 const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const { title, metaTitle, description, metaDescription, noindex, sections } = data.page;
+  const { title, metaTitle, description, metaDescription, noindex, sections, html } = data.page;
 
   return (
     <Layout
@@ -34,8 +34,12 @@ const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
             text={sections[0].text}
             items={sections[0].items}
           />
-          <Sections data={sections.slice(1)} />
         </React.Fragment>
+      )}
+      {html && (
+        <Section>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </Section>
       )}
     </Layout>
   );

@@ -14,7 +14,8 @@
  * wordpress.com
  * -apple-system,BlinkMacSystemFont,"Segoe UI", Roboto,"Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif
  */
-const webSafeFont = 'BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif';
+const webSafeFont =
+  'BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif';
 const fonts = {
   // body: '"Open Sans", fallback-body-font, sans-serif',
   body: webSafeFont,

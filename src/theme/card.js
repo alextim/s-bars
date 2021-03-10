@@ -1,5 +1,6 @@
 import colors from './colors';
 import { fontSizes } from './font-sizes';
+import fontWeights from './font-weights';
 import fonts from './fonts';
 import { space } from './space';
 
@@ -25,6 +26,9 @@ const card = {
     margin: 0,
     fontSize: fontSizes[5],
     fontFamily: fonts.body,
+    fontWeight: fontWeights.heading,
+    textTransform: 'none',
+    textAlign: 'unset',
   },
   textWrap: {
     padding: space[4],
