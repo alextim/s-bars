@@ -1,6 +1,6 @@
 const resolverPassthrough = require('./helpers/resolverPassthrough');
 
-module.exports = ({ actions, schema }) => {
+module.exports = ({ actions }) => {
   const { createTypes, createFieldExtension } = actions;
 
   createFieldExtension({
@@ -21,6 +21,7 @@ module.exports = ({ actions, schema }) => {
      *
      * Switch off type inference for SitePage.context
      */
+    /*
     schema.buildObjectType({
       name: 'SitePage',
       interfaces: ['Node'],
@@ -33,7 +34,7 @@ module.exports = ({ actions, schema }) => {
         },
       },
     }),
-
+   */
     `
     type Image {
       sm: File @fileByRelativePath
@@ -69,6 +70,7 @@ module.exports = ({ actions, schema }) => {
       noindex: Boolean
       sections: [Section]
       html: String!
+      htmlAst: JSON!
       locale: String!
       type: String!
       slug: String!
@@ -84,6 +86,7 @@ module.exports = ({ actions, schema }) => {
       noindex: Boolean
       sections: [Section]
       html: String! @mdpassthrough(fieldName: "html")
+      htmlAst: JSON! @mdpassthrough(fieldName: "htmlAst")
       locale: String!
       type: String!
       slug: String!

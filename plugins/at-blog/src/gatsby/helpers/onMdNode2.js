@@ -18,6 +18,7 @@ module.exports = ({ node, actions, getNode, createNodeId, createContentDigest })
     cover,
     sections,
     html,
+    htmlAst,
     template,
     noindex,
 
@@ -38,6 +39,7 @@ module.exports = ({ node, actions, getNode, createNodeId, createContentDigest })
     cover,
     sections,
     html,
+    htmlAst,
     template,
     noindex,
 

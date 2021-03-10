@@ -54,10 +54,6 @@
       "eslint --fix",
       "prettier-eslint --write",
       "git add ."
-    ],
-    "content/data/locales/translations/src/*.json": [
-      "yarn translations:json2yaml",
-      "git add ."
     ]
   },
   "dependencies": {
@@ -124,6 +120,10 @@
     "stylelint-config-standard": "^21.0.0"
   },
   "comments": {
+    "content/data/locales/translations/src/*.json": [
+      "yarn translations:json2yaml",
+      "git add ."
+    ],
     "browserslist": [
       ">0.25%",
       "not dead"

@@ -22,6 +22,7 @@ module.exports = (
     cover,
     sections,
     html,
+    htmlAst,
     template,
     noindex,
   } = frontmatter;
@@ -34,6 +35,7 @@ module.exports = (
     cover,
     sections,
     html,
+    htmlAst,
     template,
     noindex,
     locale,

@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import React from 'react';
+// import React from 'react';
 
 import { useTranslation } from '../../i18n';
 import useForm from '../Form/src/hooks/useForm';
 import useServiceItems from '../../hooks/useServiceItems';
 
-import Link from '../LocalizedLink';
+// import Link from '../LocalizedLink';
 import Button from '../Button';
 import { InputControl, TextAreaControl, HoneyPotInput } from '../Form/src/components/form-controls';
 import ValueSelectControl from '../Form/src/components/form-controls/ValueSelectControl';
@@ -49,12 +49,15 @@ const styleButton = (t) => ({
 
 const PrivacyLabel = () => {
   const { t } = useTranslation();
+  /*
   return (
     <React.Fragment>
       {`${t('if.privacy.agree_with')} `}
       <Link to="/privacy">{t('if.privacy.policy')}</Link>
     </React.Fragment>
   );
+  */
+  return t('if.agree');
 };
 
 const Form = ({ onSubmit }) => {

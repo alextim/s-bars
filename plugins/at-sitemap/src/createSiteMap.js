@@ -11,7 +11,7 @@ const getPureSlug = (slug, localeCodes) => {
 };
 
 module.exports = (allPages, reporter, options, siteUrl, allLocales) => {
-  reporter.info('Sitemap');
+  reporter.info(`Generating main sitemap for ${allPages.length} nodes...`);
 
   const localeCodes = allLocales.map(({ code }) => code);
 
@@ -20,42 +20,30 @@ module.exports = (allPages, reporter, options, siteUrl, allLocales) => {
     return acc;
   }, {});
 
-  const urlData = allPages.map(
-    ({
-      node: {
-        fields: { slug },
-      },
-    }) => {
-      const pureSlug = getPureSlug(slug, localeCodes);
+  const urlData = allPages.map(({ node: { slug } }) => {
+    const pureSlug = getPureSlug(slug, localeCodes);
 
-      const links = allPages
-        .filter(
-          ({
-            node: {
-              fields: { slug: linkSlug },
-            },
-          }) => getPureSlug(linkSlug, localeCodes) === pureSlug,
-        )
-        .map(({ node: { fields: { slug: linkSlug, locale: linkLocale } } }) => ({
-          url: siteUrl + linkSlug,
-          lang: locales[linkLocale],
-        }));
+    const links = allPages
+      .filter(({ node: { slug: linkSlug } }) => getPureSlug(linkSlug, localeCodes) === pureSlug)
+      .map(({ node: { slug: linkSlug, locale: linkLocale } }) => ({
+        url: siteUrl + linkSlug,
+        lang: locales[linkLocale],
+      }));
 
-      const result = {
-        url: siteUrl + slug,
-        changefreq: 'weekly',
-        priority: 0.7,
-      };
+    const result = {
+      url: siteUrl + slug,
+      changefreq: 'weekly',
+      priority: 0.7,
+    };
 
-      if (links) {
-        result.links = [...links];
-      }
+    if (links) {
+      result.links = [...links];
+    }
 
-      return result;
-    },
-  );
+    return result;
+  });
   if (!urlData.length) {
-    reporter.info('No pages for sitemap. Nothing generated.');
+    reporter.info('No data for sitemap. Nothing generated.');
     return;
   }
 
@@ -69,9 +57,8 @@ module.exports = (allPages, reporter, options, siteUrl, allLocales) => {
     },
   };
 
+  reporter.info(`Creating sitemap for ${urlData.length} nodes.`);
   const filePath = `${options.buildDir}/${options.mainSitemapPath}`;
-
-  reporter.info(`Creating sitemap for ${urlData.length} pages.`);
   writeSiteMap(urlData, generationOptions, filePath).then(() =>
     reporter.info(`Main sitemap successfully written to ${filePath}`),
   );

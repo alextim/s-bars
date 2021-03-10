@@ -27,66 +27,58 @@ const imagesFromAst = (htmlAst, specialFolder) => {
 };
 
 module.exports = (allPages, reporter, options, siteUrl) => {
-  reporter.info('Images sitemap');
+  reporter.info(`Generating images sitemap for ${allPages.length} nodes...`);
 
   let imagesCount = 0;
   const urlData = [];
 
-  allPages.forEach(
-    ({
-      node: {
-        fields: { slug },
-        htmlAst,
-        frontmatter: { cover, sections },
-      },
-    }) => {
-      const pageImages = {};
+  allPages.forEach(({ node: { slug, htmlAst, cover, sections } }) => {
+    const pageImages = {};
 
-      const addImage = (image) => {
-        if (!image || (options.ignoreImagesWithoutAlt && !image.alt)) {
-          return;
-        }
-        const img = image.xl || image.sm;
-        if (!img || !img.publicURL) {
-          return;
-        }
-        pageImages[img.publicURL] = image.alt;
-      };
-
-      addImage(cover);
-
-      if (sections) {
-        sections.forEach(({ image: sectionImage, items }) => {
-          addImage(sectionImage);
-          if (items) {
-            items.forEach(({ image: itemImage }) => addImage(itemImage));
-          }
-        });
-      }
-
-      const astImages = imagesFromAst(htmlAst);
-      astImages.forEach(({ src, alt }) => {
-        if (!options.ignoreImagesWithoutAlt || alt) {
-          pageImages[src] = alt;
-        }
-      });
-
-      const pageImagesKeys = Object.keys(pageImages);
-      if (pageImagesKeys.length === 0) {
+    const addImage = (image) => {
+      if (!image || (options.ignoreImagesWithoutAlt && !image.alt)) {
         return;
       }
+      const img = image.xl || image.sm;
+      if (!img || !img.publicURL) {
+        return;
+      }
+      pageImages[img.publicURL] = image.alt;
+    };
 
-      imagesCount += pageImagesKeys.length;
+    addImage(cover);
 
-      urlData.push({
-        url: siteUrl + slug,
-        img: pageImagesKeys.map((image) => ({
-          url: siteUrl + image,
-          title: pageImages[image],
-        })),
+    if (sections) {
+      sections.forEach(({ image: sectionImage, items }) => {
+        addImage(sectionImage);
+        if (items) {
+          items.forEach(({ image: itemImage }) => addImage(itemImage));
+        }
       });
-    },
-  );
+    }
+
+    const astImages = imagesFromAst(htmlAst);
+    astImages.forEach(({ src, alt }) => {
+      if (!options.ignoreImagesWithoutAlt || alt) {
+        pageImages[src] = alt;
+      }
+    });
+
+    const pageImagesKeys = Object.keys(pageImages);
+    if (pageImagesKeys.length === 0) {
+      return;
+    }
+
+    imagesCount += pageImagesKeys.length;
+
+    urlData.push({
+      url: siteUrl + slug,
+      img: pageImagesKeys.map((image) => ({
+        url: siteUrl + image,
+        title: pageImages[image],
+      })),
+    });
+  });
 
   if (!imagesCount) {
     reporter.info('No images for sitemap. Nothing generated.');

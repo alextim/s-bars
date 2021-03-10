@@ -20,6 +20,7 @@ module.exports = ({ actions }) => {
       noindex: Boolean
 
       html: String!
+      htmlAst: JSON!
       excerpt(pruneLength: Int = 180): String!
       timeToRead: Int
 
@@ -45,6 +46,7 @@ module.exports = ({ actions }) => {
       noindex: Boolean
 
       html: String! @mdpassthrough(fieldName: "html")
+      htmlAst: JSON! @mdpassthrough(fieldName: "htmlAst")
       excerpt(pruneLength: Int = 180): String! @mdpassthrough(fieldName: "excerpt")
       timeToRead: Int @mdpassthrough(fieldName: "timeToRead")
 

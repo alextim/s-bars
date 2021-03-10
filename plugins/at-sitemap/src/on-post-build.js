@@ -5,6 +5,8 @@ const createImageSiteMap = require('./createImageSiteMap');
 const wrapper = require('../../at-site/src/gatsby/helpers/promise-wrapper');
 
 module.exports = async ({ graphql, reporter }, pluginOptions) => {
+  reporter.info('at-sitemap: started...');
+
   const options = {
     ...defaultOptions,
     ...pluginOptions,
@@ -22,17 +24,22 @@ module.exports = async ({ graphql, reporter }, pluginOptions) => {
             }
           }
         }
-        allMarkdownRemark(filter: { frontmatter: { state: { ne: "draft" } } }) {
+        pages: allMdPage {
           edges {
             node {
-              fields {
-                type
-                slug
-                locale
+              slug
+              locale
+              cover {
+                alt
+                xl {
+                  publicURL
+                }
+                sm {
+                  publicURL
+                }
               }
-              frontmatter {
-                state
-                cover {
+              sections {
+                image {
                   alt
                   xl {
                     publicURL
@@ -41,27 +48,34 @@ module.exports = async ({ graphql, reporter }, pluginOptions) => {
                     publicURL
                   }
                 }
-                sections {
+                items {
                   image {
                     alt
-                    xl {
-                      publicURL
-                    }
                     sm {
                       publicURL
                     }
-                  }
-                  items {
-                    image {
-                      alt
-                      sm {
-                        publicURL
-                      }
-                      xl {
-                        publicURL
-                      }
+                    xl {
+                      publicURL
                     }
                   }
+                }
+              }
+              htmlAst
+            }
+          }
+        }
+        posts: allMdPost {
+          edges {
+            node {
+              slug
+              locale
+              cover {
+                alt
+                xl {
+                  publicURL
+                }
+                sm {
+                  publicURL
                 }
               }
               htmlAst
@@ -80,15 +94,18 @@ module.exports = async ({ graphql, reporter }, pluginOptions) => {
   const inExcludedPaths = (slug) =>
     options.excludePaths.some((exPath) => slug.indexOf(exPath) !== -1);
 
-  const allPages = result.data.allMarkdownRemark.edges.filter(
-    ({
-      node: {
-        fields: { slug },
-      },
-    }) => !inExcludedPaths(slug),
-  );
-  reporter.info(`Generating sitemap for ${allPages.length} pages...`);
+  const pages = result.data.pages.edges.filter(({ node: { slug } }) => !inExcludedPaths(slug));
+  const posts = result.data.posts.edges.filter(({ node: { slug } }) => !inExcludedPaths(slug));
 
-  createImageSiteMap(allPages, reporter, options, siteUrl);
+  const allPages = [...pages, ...posts];
+
+  if (!allPages.length) {
+    reporter.info('No data for sitemap');
+    return;
+  }
+  reporter.info(`Posts: ${posts.length}`);
+  reporter.info(`Pages: ${pages.length}`);
+
   createSiteMap(allPages, reporter, options, siteUrl, locales);
+  createImageSiteMap(allPages, reporter, options, siteUrl);
 };

@@ -5,12 +5,14 @@
  * Array to Yaml
  */
 const fs = require('fs');
+const path = require('path');
 const locales = require('../config/locales');
 
-const { content } = require('../config/website');
+const { contentDir } = require('../config/website');
 
 const FILE_NAME = 'translations';
-const FOLDER_NAME = `../${content}/data/locales/translations/`;
+
+const FOLDER_NAME = path.join(__dirname, '..', '..', contentDir, 'data', 'locales', 'translations');
 
 const sanitize = (key, value) => {
   if (!value) {
@@ -29,7 +31,7 @@ const sanitize = (key, value) => {
 };
 
 Object.keys(locales).forEach((locale) => {
-  const srcFileName = `${FOLDER_NAME}src/${FILE_NAME}.${locale}.json`;
+  const srcFileName = path.join(FOLDER_NAME, 'src', `${FILE_NAME}.${locale}.json`);
   console.log(`Reading file ${srcFileName}`);
   fs.readFile(srcFileName, 'utf8', (errRead, data) => {
     if (errRead) {
@@ -61,7 +63,7 @@ Object.keys(locales).forEach((locale) => {
       '',
     );
 
-    const dstFileName = `${FOLDER_NAME}${FILE_NAME}.${locale}.yaml`;
+    const dstFileName = path.join(FOLDER_NAME, `${FILE_NAME}.${locale}.yaml`);
     fs.writeFile(dstFileName, yaml, (errWrite) => {
       if (errWrite) {
         throw errWrite;
