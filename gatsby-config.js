@@ -206,40 +206,30 @@ module.exports = {
                 site: {
                   siteMetadata: { siteUrl },
                 },
-                allMarkdownRemark,
+                posts,
               },
-            }) => {
-              return allMarkdownRemark.edges.map(
-                ({ node: { frontmatter, excerpt, html, fields } }) => {
-                  return {
-                    ...frontmatter,
-                    description: excerpt,
-                    date: frontmatter.datePublished,
-                    url: siteUrl + fields.slug,
-                    guid: siteUrl + fields.slug,
-                    custom_elements: [{ 'content:encoded': html }],
-                  };
-                },
-              );
-            },
+            }) =>
+              posts.edges.map(({ node }) => ({
+                title: node.title,
+                description: node.excerpt,
+                date: node.datePublished,
+                url: siteUrl + node.slug,
+                guid: siteUrl + node.slug,
+                custom_elements: [{ 'content:encoded': node.html }],
+              })),
             query: `
               {
-                allMarkdownRemark(
+                posts: allMdPost(
                   limit: 30,
-                  sort: { order: DESC, fields: [frontmatter___datePublished] },
-                  filter: { fields: { type: { eq: "post" } } }
+                  sort: { order: DESC, fields: [datePublished] },
                 ) {
                   edges {
                     node {
+                      title
                       excerpt
+                      datePublished
+                      slug,
                       html
-                      fields {
-                        slug,
-                      }
-                      frontmatter {
-                        title
-                        datePublished
-                      }
                     }
                   }
                 }

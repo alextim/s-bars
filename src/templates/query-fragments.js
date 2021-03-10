@@ -133,6 +133,33 @@ export const postFragment = graphql`
   }
 `;
 
+export const mdPostFragment = graphql`
+  fragment MdPostFragment on MdPost {
+    title
+    description
+    metaTitle
+    metaDescription
+    cover {
+      sm {
+        publicURL
+        childImageSharp {
+          # fluid(maxWidth: 480)
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      alt
+    }
+    category
+    tags
+    dateModified
+    datePublished
+    noindex
+    timeToRead
+    excerpt
+    html
+  }
+`;
+
 export const postCardFragment = graphql`
   fragment PostCardFragment on MarkdownRemark {
     frontmatter {
@@ -158,6 +185,32 @@ export const postCardFragment = graphql`
     fields {
       slug
     }
+    excerpt(pruneLength: 180)
+    timeToRead
+  }
+`;
+
+export const mdPostCardFragment = graphql`
+  fragment MdPostCardFragment on MdPost {
+    title
+    description
+    metaTitle
+    metaDescription
+    cover {
+      sm {
+        publicURL
+        childImageSharp {
+          # fluid(maxWidth: 480)
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      alt
+    }
+    category
+    tags
+    dateModified
+    datePublished
+    slug
     excerpt(pruneLength: 180)
     timeToRead
   }
@@ -194,6 +247,12 @@ export const postShortInfoFragment = graphql`
   }
 `;
 
+export const mdPostShortInfoFragment = graphql`
+  fragment MdPostShortInfoFragment on MdPost {
+    title
+    slug
+  }
+`;
 export const addressFragment = graphql`
   fragment AddressFragment on Yaml {
     name

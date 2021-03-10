@@ -51,15 +51,30 @@ const PostList = ({
   }
 
   const postList = data.posts.edges.map(
-    ({ node: { frontmatter, timeToRead, excerpt, fields } }) => ({
-      path: fields.slug,
-      tags: frontmatter.tags,
-      category: frontmatter.category,
-      cover: frontmatter.cover,
-      title: frontmatter.title,
-      description: frontmatter.title,
-      metaDescription: frontmatter.metaDescription,
-      datePublished: frontmatter.datePublished,
+    ({
+      node: {
+        slug,
+        tags,
+        category,
+        cover,
+        title,
+        // TO DO description,
+        metaDescription,
+        datePublished,
+        dateModified,
+        timeToRead,
+        excerpt,
+      },
+    }) => ({
+      path: slug,
+      tags,
+      category,
+      cover,
+      title,
+      description: title, // TO DO
+      metaDescription,
+      datePublished,
+      dateModified,
       timeToRead,
       excerpt,
     }),
@@ -116,18 +131,15 @@ export const pageQuery = graphql`
     page: mdPage(slug: { regex: "//blog//" }, locale: { eq: $locale }) {
       ...MdPageFragment
     }
-    posts: allMarkdownRemark(
-      sort: { fields: [frontmatter___datePublished], order: DESC }
+    posts: allMdPost(
+      sort: { fields: [datePublished], order: DESC }
       limit: $limit
       skip: $skip
-      filter: {
-        frontmatter: { state: { eq: "published" } }
-        fields: { type: { eq: "post" }, locale: { eq: $locale } }
-      }
+      filter: { locale: { eq: $locale } }
     ) {
       edges {
         node {
-          ...PostCardFragment
+          ...MdPostCardFragment
         }
       }
     }

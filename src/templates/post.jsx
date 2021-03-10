@@ -19,16 +19,14 @@ const styleWidgetArea = {
 const PostTemplate = ({ path, data, pageContext: { locale } }) => {
   const { translations, address, mainNav, footerNav, socialLinks } = data;
   const {
-    frontmatter: {
-      title,
-      metaTitle,
-      description,
-      metaDescription,
-      cover,
-      noindex,
-      datePublished,
-      dateModified,
-    },
+    title,
+    metaTitle,
+    description,
+    metaDescription,
+    cover,
+    noindex,
+    datePublished,
+    dateModified,
     html,
   } = data.post;
   return (
@@ -63,34 +61,28 @@ export default PostTemplate;
 
 export const postQuery = graphql`
   query PostQuery($id: String!, $locale: String!) {
-    post: markdownRemark(id: { eq: $id }) {
-      ...PostFragment
+    post: mdPost(id: { eq: $id }) {
+      ...MdPostFragment
     }
-    recentPosts: allMarkdownRemark(
-      sort: { fields: [frontmatter___datePublished], order: DESC }
+    recentPosts: allMdPost(
+      sort: { fields: [datePublished], order: DESC }
       limit: 10
-      filter: {
-        frontmatter: { state: { eq: "published" } }
-        fields: { type: { eq: "post" }, locale: { eq: $locale } }
-      }
+      filter: { locale: { eq: $locale } }
     ) {
       edges {
         node {
-          ...PostShortInfoFragment
+          ...MdPostShortInfoFragment
         }
       }
     }
-    featuredPosts: allMarkdownRemark(
-      sort: { fields: [frontmatter___datePublished], order: DESC }
+    featuredPosts: allMdPost(
+      sort: { fields: [datePublished], order: DESC }
       limit: 10
-      filter: {
-        frontmatter: { state: { eq: "published" }, featured: { eq: true } }
-        fields: { type: { eq: "post" }, locale: { eq: $locale } }
-      }
+      filter: { featured: { eq: true }, locale: { eq: $locale } }
     ) {
       edges {
         node {
-          ...PostShortInfoFragment
+          ...MdPostShortInfoFragment
         }
       }
     }

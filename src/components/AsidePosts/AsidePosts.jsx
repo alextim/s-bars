@@ -56,7 +56,7 @@ const AsidePosts = ({ title, items }) => {
   return (
     <AsideWidget title={title}>
       <ul css={styleWrap}>
-        {items.map(({ node: { frontmatter: { title: itemTitle }, fields: { slug: to } } }) => (
+        {items.map(({ node: { title: itemTitle, slug: to } }) => (
           <li key={to} css={styleItem}>
             <a href={to} css={styleLink}>
               {itemTitle}

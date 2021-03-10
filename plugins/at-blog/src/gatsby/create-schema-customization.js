@@ -20,6 +20,8 @@ module.exports = ({ actions }) => {
       noindex: Boolean
 
       html: String!
+      excerpt(pruneLength: Int = 180): String!
+      timeToRead: Int
 
       locale: String!
       slug: String!
@@ -43,6 +45,8 @@ module.exports = ({ actions }) => {
       noindex: Boolean
 
       html: String! @mdpassthrough(fieldName: "html")
+      excerpt(pruneLength: Int = 180): String! @mdpassthrough(fieldName: "excerpt")
+      timeToRead: Int @mdpassthrough(fieldName: "timeToRead")
 
       locale: String!
       slug: String!

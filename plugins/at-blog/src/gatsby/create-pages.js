@@ -67,24 +67,16 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
             }
           }
         }
-        posts: allMarkdownRemark(
-          limit: 1000
-          filter: { fields: { type: { eq: "post" } } }
-          sort: { fields: [frontmatter___datePublished], order: DESC }
-        ) {
+        posts: allMdPost(limit: 1000, sort: { fields: [datePublished], order: DESC }) {
           edges {
             node {
               id
-              frontmatter {
-                template
-                tags
-                category
-              }
-              fields {
-                slug
-                locale
-                year
-              }
+              template
+              tags
+              category
+              slug
+              locale
+              year
             }
           }
         }
@@ -104,9 +96,7 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
      * Posts
      *
      */
-    const posts = result.data.posts.edges.filter(
-      ({ node: { fields } }) => fields.locale === locale,
-    );
+    const posts = result.data.posts.edges.filter(({ node }) => node.locale === locale);
 
     if (posts.length === 0) {
       console.warn('\nNo posts');
@@ -130,10 +120,9 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
              * keep it
              * */
             /*
-            frontmatter: { category, tags },
-            fields: { slug, year },
+            category, tags,  year,
             */
-            fields: { slug },
+            slug,
           },
         }) => {
           /**
