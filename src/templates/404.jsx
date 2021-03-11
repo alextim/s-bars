@@ -16,17 +16,23 @@ const headingStyle = (t) => ({
 });
 // const htmlStyle = { textAlign: 'center' };
 
-const NotFoundTemplate = ({ data, path, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const { title, metaTitle, description, metaDescription, html } = data.page;
+const NotFoundTemplate = ({ data }) => {
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: { title, metaTitle, metaDescription, html, locale, slug },
+  } = data;
 
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex
       />
       <div css={wrapStyle}>

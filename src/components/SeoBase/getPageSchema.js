@@ -10,6 +10,8 @@ const getPageSchema = ({
   datePublished,
   dateModified,
   pageType,
+  publisher,
+  author,
 }) => {
   const type =
     !pageType || !['Article', 'BlogPosting', 'Blog'].some((t) => pageType === t)
@@ -22,7 +24,7 @@ const getPageSchema = ({
     '@type': type,
     name: title,
     inLanguage: htmlLang,
-    publisher: {
+    publisher: publisher || {
       '@type': 'Organization',
       name: organizationName,
       url: siteUrl,
@@ -34,6 +36,7 @@ const getPageSchema = ({
   };
 
   if (isArticle) {
+    o.author = author || o.publisher;
     o.mainEntityOfPage = {
       '@type': 'WebPage',
       '@id': URL,

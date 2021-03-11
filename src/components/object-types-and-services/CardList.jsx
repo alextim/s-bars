@@ -22,15 +22,8 @@ const styleItemsWrap = {
 
 const CardList = ({ items }) => (
   <div css={styleItemsWrap}>
-    {items.map(({ title, to, cover, description, metaDescription }) => (
-      <Card
-        key={to}
-        title={title}
-        to={to}
-        cover={cover}
-        description={description}
-        metaDescription={metaDescription}
-      />
+    {items.map(({ title, to, cover }) => (
+      <Card key={to} title={title} to={to} cover={cover} />
     ))}
   </div>
 );

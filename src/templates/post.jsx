@@ -16,19 +16,28 @@ const styleWidgetArea = {
   flexDirection: 'column',
 };
 
-const PostTemplate = ({ path, data, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
+const PostTemplate = ({ data }) => {
   const {
-    title,
-    metaTitle,
-    description,
-    metaDescription,
-    cover,
-    noindex,
-    datePublished,
-    dateModified,
-    html,
-  } = data.post;
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    post: {
+      title,
+      metaTitle,
+      description,
+      metaDescription,
+      cover,
+      noindex,
+      datePublished,
+      dateModified,
+      html,
+      locale,
+      slug,
+    },
+  } = data;
+
   return (
     <Layout
       title={title}
@@ -37,9 +46,9 @@ const PostTemplate = ({ path, data, pageContext: { locale } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
         datePublished={datePublished}
         dateModified={dateModified}

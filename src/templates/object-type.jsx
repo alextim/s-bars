@@ -9,9 +9,15 @@ import AsideButtonList from '../components/AsideButtonList';
 
 import InnerAsideLayout from '../components/InnerAsideLayout';
 
-const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const { title, metaTitle, description, metaDescription, cover, noindex, html } = data.page;
+const ObjectTypePageTemplate = ({ data }) => {
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: { title, metaTitle, description, metaDescription, cover, noindex, html, locale, slug },
+  } = data;
 
   return (
     <Layout
@@ -21,11 +27,10 @@ const ObjectTypePageTemplate = ({ path, data, pageContext: { locale } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
-        pageType="Article"
         imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
       />
       <InnerAsideLayout cover={cover} html={html}>

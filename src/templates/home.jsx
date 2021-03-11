@@ -17,22 +17,25 @@ import {
   Credo,
 } from '../components/home-page-parts';
 
-const styleHtml = {
-  /* textAlign: 'justify', */
-};
-
-const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const { title, metaTitle, description, metaDescription, noindex, sections, html } = data.page;
+const HomeTemplate = ({ data }) => {
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: { metaTitle, metaDescription, noindex, sections, html, locale, slug },
+  } = data;
   const getObjectTypes = () => mainNav.edges[1].node.fields.submenu;
-
+  // eslint-disable-next-line no-console
+  console.log('HOME', slug);
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
         article={false}
       />
@@ -70,7 +73,7 @@ const HomeTemplate = ({ path, data, pageContext: { locale } }) => {
         )}
         {html && (
           <Section>
-            <div dangerouslySetInnerHTML={{ __html: html }} css={styleHtml} />
+            <div dangerouslySetInnerHTML={{ __html: html }} />
           </Section>
         )}
       </Container>
@@ -88,6 +91,8 @@ export const pageQuery = graphql`
       metaTitle
       metaDescription
       noindex
+      slug
+      locale
       sections {
         title
         subtitle

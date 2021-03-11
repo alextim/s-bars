@@ -7,9 +7,15 @@ import AsideServices from '../components/AsideServices';
 
 import InnerAsideLayout from '../components/InnerAsideLayout';
 
-const ServicePageTemplate = ({ path, data, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const { title, metaTitle, description, metaDescription, cover, noindex, html } = data.page;
+const ServicePageTemplate = ({ data }) => {
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: { title, metaTitle, description, metaDescription, cover, noindex, html, locale, slug },
+  } = data;
 
   return (
     <Layout
@@ -19,11 +25,10 @@ const ServicePageTemplate = ({ path, data, pageContext: { locale } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
-        pageType="Article"
         imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
       />
       <InnerAsideLayout cover={cover} html={html}>

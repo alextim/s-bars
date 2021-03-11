@@ -15,20 +15,25 @@ const htmlStyle = {
   marginBottom: space[10],
 };
 
-const ObjectTypeServiceList = ({ path, data, locale, type }) => {
-  const { translations, address, mainNav, footerNav, socialLinks, page, pageItems = [] } = data;
-  const { html, title, metaTitle, description, metaDescription, noindex } = page;
+const ObjectTypeServiceList = ({ data, type }) => {
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    pageItems = [],
+    page: { html, title, metaTitle, description, metaDescription, noindex, locale, slug },
+  } = data;
 
   /**
    * filter mainNav by existing edges from page query
    */
   const items = getListItems(mainNav, type).reduce((acc, curr) => {
-    const edge = pageItems.edges.find(({ node: { slug } }) => slug === curr.to);
+    const edge = pageItems.edges.find(({ node }) => node.slug === curr.to);
     if (edge) {
       acc.push({
         title: edge.node.title,
-        description: edge.node.description,
-        metaDescription: edge.node.metaDescription,
         to: edge.node.slug,
         cover: edge.node.cover,
       });
@@ -44,11 +49,10 @@ const ObjectTypeServiceList = ({ path, data, locale, type }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
-        pageType="Article"
       />
       <CardList items={items} />
       {html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}

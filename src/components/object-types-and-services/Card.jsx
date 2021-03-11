@@ -3,20 +3,9 @@ import { jsx } from '@emotion/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 import card from '../../theme/card';
-import getCardSchema from '../SeoBase/getCardSchema';
 
-const Card = ({ title, to, cover, description, metaDescription }) => (
+const Card = ({ title, to, cover }) => (
   <article key={to} css={card.wrap}>
-    <script type="application/ld+json">
-      {JSON.stringify(
-        getCardSchema({
-          to,
-          title,
-          description: description || metaDescription,
-          cover,
-        }),
-      )}
-    </script>
     {cover && cover.sm && (
       <a href={to}>
         <GatsbyImage image={cover.sm.childImageSharp.gatsbyImageData} alt={cover.alt} />

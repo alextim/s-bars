@@ -103,9 +103,15 @@ const styleWrap3 = (t) => ({
   },
 });
 
-const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const { title, metaTitle, description, metaDescription, noindex } = data.page;
+const ContactsTemplate = ({ data }) => {
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: { title, metaTitle, description, metaDescription, noindex, locale, slug },
+  } = data;
   const { openingHours, embedMap } = useOrganization();
   const { contactPoint } = address;
 
@@ -117,9 +123,9 @@ const ContactsTemplate = ({ path, data, pageContext: { locale } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
       />
 

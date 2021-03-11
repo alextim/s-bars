@@ -60,13 +60,7 @@ const SeoBase = ({
             href={`${config.siteUrl}${i18n.localizePath(purePath, code)}`}
           />
         ))}
-      {i18n && (
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={`${config.siteUrl}${i18n.localizePath(purePath, i18n.defaultLang)}`}
-        />
-      )}
+      {i18n && <link rel="alternate" hrefLang="x-default" href={`${config.siteUrl}${purePath}`} />}
       {/** *
        * https://developer.mozilla.org/ru/docs/Web/HTTP/Headers/Content-Language
        *

@@ -6,18 +6,26 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import Sections from '../components/Sections';
 
-const PageTemplate = ({ path, data, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
+const PageTemplate = ({ data }) => {
   const {
-    title,
-    metaTitle,
-    description,
-    metaDescription,
-    cover,
-    noindex,
-    sections,
-    html,
-  } = data.page;
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: {
+      title,
+      metaTitle,
+      description,
+      metaDescription,
+      cover,
+      noindex,
+      sections,
+      html,
+      locale,
+      slug,
+    },
+  } = data;
 
   return (
     <Layout
@@ -28,9 +36,9 @@ const PageTemplate = ({ path, data, pageContext: { locale } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
       />
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}

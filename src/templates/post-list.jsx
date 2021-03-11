@@ -18,7 +18,6 @@ const htmlStyle = (t) => ({
 });
 
 const PostList = ({
-  path,
   data,
   /**
    * keep it fot the future!
@@ -26,9 +25,16 @@ const PostList = ({
   /*
   pageContext: { locale, currentPage, numPages, categories, tags, years },
   */
-  pageContext: { locale, currentPage, numPages },
+  pageContext: { currentPage, numPages },
 }) => {
-  const { translations, address, mainNav, footerNav, socialLinks, page } = data;
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: { html, title, metaTitle, description, metaDescription, noindex, locale, slug },
+  } = data;
 
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
@@ -53,34 +59,32 @@ const PostList = ({
   const postList = data.posts.edges.map(
     ({
       node: {
-        slug,
+        slug: itemSlug,
         tags,
         category,
         cover,
-        title,
+        title: itemTitle,
         // TO DO description,
-        metaDescription,
+        metaDescription: itemMetaDescription,
         datePublished,
         dateModified,
         timeToRead,
         excerpt,
       },
     }) => ({
-      path: slug,
+      path: itemSlug,
       tags,
       category,
       cover,
-      title,
-      description: title, // TO DO
-      metaDescription,
+      title: itemTitle,
+      description: itemTitle, // TO DO
+      metaDescription: itemMetaDescription,
       datePublished,
       dateModified,
       timeToRead,
       excerpt,
     }),
   );
-
-  const { html, title, metaTitle, description, metaDescription, noindex } = page;
 
   /*
   let metas;
@@ -100,9 +104,9 @@ const PostList = ({
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
         pageType="Blog"
         links={links}

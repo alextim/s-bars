@@ -9,9 +9,15 @@ import Triptych from '../components/home-page-parts/Triptych';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
 
-const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const { title, metaTitle, description, metaDescription, noindex, sections, html } = data.page;
+const AboutTemplate = ({ data }) => {
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: { title, metaTitle, description, metaDescription, noindex, sections, html, locale, slug },
+  } = data;
 
   return (
     <Layout
@@ -21,9 +27,9 @@ const AboutTemplate = ({ path, data, pageContext: { locale } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
       />
       {sections && (

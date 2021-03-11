@@ -11,18 +11,27 @@ const styleHtml = (t) => ({
   marginTop: t.space[9],
 });
 
-const PageTemplate = ({ path, data, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
+const PageTemplate = ({ data }) => {
   const {
-    title,
-    metaTitle,
-    description,
-    metaDescription,
-    cover,
-    noindex,
-    sections,
-    html,
-  } = data.page;
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: {
+      title,
+      metaTitle,
+      description,
+      metaDescription,
+      cover,
+      noindex,
+      sections,
+      html,
+      locale,
+      slug,
+    },
+  } = data;
+
   return (
     <Layout
       title={title}
@@ -32,9 +41,9 @@ const PageTemplate = ({ path, data, pageContext: { locale } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
       />
       {sections && sections[0] && sections[0].items && <PriceList items={sections[0].items} />}

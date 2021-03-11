@@ -30,8 +30,8 @@ module.exports = (
   const fieldData = {
     title,
     description,
-    metaTitle,
-    metaDescription,
+    metaTitle: metaTitle || title,
+    metaDescription: metaDescription || description,
     cover,
     sections,
     html,

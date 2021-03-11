@@ -8,9 +8,15 @@ import Section from '../components/Section';
 
 import InquiryForm from '../components/InquiryForm';
 
-const InquiryTemplate = ({ path, data, pageContext: { locale } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks } = data;
-  const { title, metaTitle, description, metaDescription, noindex } = data.page;
+const InquiryTemplate = ({ data }) => {
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: { title, metaTitle, description, metaDescription, noindex, locale, slug },
+  } = data;
 
   return (
     <Layout
@@ -20,9 +26,9 @@ const InquiryTemplate = ({ path, data, pageContext: { locale } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
-        pathname={path}
+        title={metaTitle}
+        description={metaDescription}
+        pathname={slug}
         noindex={noindex}
       />
 
