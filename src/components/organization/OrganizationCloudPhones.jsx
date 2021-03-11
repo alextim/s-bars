@@ -4,7 +4,6 @@ import Utils from '../../lib/utils';
 import colors from '../../theme/colors';
 
 import IconLink from '../IconLink';
-import extraPadding from './extraPadding';
 
 const OrganizationCloudPhones = ({ voice }) => {
   const { whatsapp, viber, telegram } = colors.brands;
@@ -18,7 +17,6 @@ const OrganizationCloudPhones = ({ voice }) => {
           title="WhatsApp"
           target="_blank"
           rel="noindex noopener noreferrer"
-          css={extraPadding}
         >
           {Utils.formatPhone(voice.whatsapp)}
         </IconLink>

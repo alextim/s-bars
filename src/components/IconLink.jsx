@@ -3,13 +3,12 @@ import { jsx } from '@emotion/react';
 
 import Icon from './Icon';
 
-const IconLink = ({ children, to, icon, title, css = {}, ...props }) => {
-  const styleWrap = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'start',
-    ...css,
-  };
+const styleWrap = {
+  display: 'inline-flex',
+  alignItems: 'center',
+};
+
+const IconLink = ({ children, to, icon, title, ...props }) => {
   const styleLink = {
     marginLeft: `${icon ? '0' : '1'}.4em`,
   };

@@ -11,6 +11,7 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout/SimpleLayoutWithHeader';
 import Section from '../components/Section';
 
+import styleItemsWrap from '../components/organization/styleItemsWrap';
 import OrganizationOpeningHours from '../components/organization/OrganizationOpeningHours';
 
 const styleContactItemWrap = (t) => ({
@@ -79,15 +80,17 @@ const ContactPoints = ({ items }) => {
     <div css={styleContactItemWrap} key={name}>
       <ContactItemHeading title={description} />
       <div>{name}</div>
-      <div>{contactType}</div>
-      {telephone.map((tel) => (
-        <a key={tel} href={Utils.phoneUrl(tel)}>
-          {Utils.formatPhone(tel)}
-        </a>
-      ))}
-      {email.map((em) => (
-        <EmailLink key={em} email={em} />
-      ))}
+      <div css={styleItemSeparator}>{contactType}</div>
+      <div css={styleItemsWrap}>
+        {telephone.map((tel) => (
+          <a key={tel} href={Utils.phoneUrl(tel)}>
+            {Utils.formatPhone(tel)}
+          </a>
+        ))}
+        {email.map((em) => (
+          <EmailLink key={em} email={em} />
+        ))}
+      </div>
     </div>
   ));
 };

@@ -1,14 +1,13 @@
 import React from 'react';
 
 import IconLink from '../IconLink';
-import extraPadding from './extraPadding';
 
 import { obfuscate } from '../../lib/utils';
 
 const EmailLink = ({ email, hideIcon }) => {
   const e = obfuscate(email);
   return (
-    <IconLink icon={hideIcon ? '' : 'envelope'} css={extraPadding} to={`mailto:${e}`}>
+    <IconLink icon={hideIcon ? '' : 'envelope'} to={`mailto:${e}`}>
       {e}
     </IconLink>
   );

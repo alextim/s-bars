@@ -20,6 +20,7 @@ import useSocialLinks from '../../hooks/useSocialLinks';
 
 import SocialLinks from './SocialLinks';
 
+import styleItemsWrap from '../organization/styleItemsWrap';
 // import OrganizationPostalAddress from '../organization/OrganizationPostalAddress';
 import OrganizationEmail from '../organization/OrganizationEmail';
 import OrganizationOpeningHours from '../organization/OrganizationOpeningHours';
@@ -106,8 +107,10 @@ const Footer = () => {
         <div css={styleWidgetArea}>
           <WidgetWrapper extraStyle={styleA}>
             <FooterWidget title={t('footer.call_us')}>
-              <OrganizationPhones phones={phone} />
-              <OrganizationEmail emails={email} />
+              <div css={styleItemsWrap}>
+                <OrganizationPhones phones={phone} />
+                <OrganizationEmail emails={email} />
+              </div>
             </FooterWidget>
           </WidgetWrapper>
 
