@@ -25,7 +25,7 @@ const styleInnerWrap = {
 };
 
 const styleLabel = {
-  width: '5em',
+  width: '5.5em',
 };
 const BoxedInputControl = ({ name, label, type = 'text', value, required, error, onChange }) => (
   <div css={styleWrap}>
