@@ -14,7 +14,6 @@ const styleWrapL = {
   [mq.lg]: {
     textAlign: 'right',
     paddingRight: space[4],
-    borderRight: `1px ${colors.brand.main} solid`,
   },
 };
 
@@ -40,7 +39,6 @@ const styleWrapR = {
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
     paddingLeft: space[4],
-    borderLeft: `1px ${colors.brand.main} solid`,
   },
 };
 
@@ -48,6 +46,15 @@ const styleTextR = {
   textAlign: 'center',
   [mq.lg]: {
     textAlign: 'left',
+  },
+};
+
+const styleImageWrap = {
+  ...styleImg,
+  [mq.lg]: {
+    padding: `0 ${space[4]}`,
+    borderLeft: `1px ${colors.brand.main} solid`,
+    borderRight: `1px ${colors.brand.main} solid`,
   },
 };
 
@@ -90,14 +97,14 @@ export const SectionItemR = ({ data, breakWords }) => {
 export const SectionItemImage = ({ data }) => {
   const { image } = data;
   return (
-    image &&
-    image.sm && (
-      <GatsbyImage
-        css={styleImg}
-        image={image.sm.childImageSharp.gatsbyImageData}
-        alt={image.alt}
-        title={image.title}
-      />
-    )
+    <div css={styleImageWrap}>
+      {image && image.sm && (
+        <GatsbyImage
+          image={image.sm.childImageSharp.gatsbyImageData}
+          alt={image.alt}
+          title={image.title}
+        />
+      )}
+    </div>
   );
 };

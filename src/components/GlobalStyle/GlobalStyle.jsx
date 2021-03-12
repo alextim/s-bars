@@ -261,6 +261,8 @@ const GlobalStyle = () => (
 
       h1, h2, h3, h4 {
         line-height: ${lineHeights.heading};
+      }
+      h1 {
         text-align: center;
       }
 

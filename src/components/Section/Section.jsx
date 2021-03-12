@@ -19,6 +19,7 @@ const styleTitle = {
   marginBottom: space[4],
   fontFamily: fonts.heading,
   fontWeight: fontWeights.heading,
+  textAlign: 'center',
   [mq.lg]: {
     fontSize: fontSizes[6],
   },
