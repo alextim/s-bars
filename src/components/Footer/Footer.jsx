@@ -106,7 +106,7 @@ const Footer = () => {
       <Container>
         <div css={styleWidgetArea}>
           <WidgetWrapper extraStyle={styleA}>
-            <FooterWidget title={t('footer.call_us')}>
+            <FooterWidget title={t('footer.contacts')}>
               <div css={styleItemsWrap}>
                 <OrganizationPhones phones={phone} />
                 <OrganizationEmail emails={email} />
