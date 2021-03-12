@@ -148,6 +148,7 @@ const ContactsTemplate = ({ data }) => {
           frameBorder="0"
           allowFullScreen=""
           aria-hidden="false"
+          loading="lazy"
         />
       </Section>
     </Layout>
