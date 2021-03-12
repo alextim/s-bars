@@ -15,6 +15,7 @@ export const mdPageFragment = graphql`
         }
       }
       alt
+      title
     }
     noindex
     sections {
@@ -29,6 +30,7 @@ export const mdPageFragment = graphql`
           }
         }
         alt
+        title
       }
       items {
         title
@@ -44,6 +46,7 @@ export const mdPageFragment = graphql`
             }
           }
           alt
+          title
         }
       }
     }
@@ -68,6 +71,7 @@ export const mdPostFragment = graphql`
         }
       }
       alt
+      title
     }
     category
     tags
@@ -97,6 +101,7 @@ export const mdPostCardFragment = graphql`
         }
       }
       alt
+      title
     }
     category
     tags
@@ -123,6 +128,7 @@ export const mdCardFragment = graphql`
         }
       }
       alt
+      title
     }
     slug
   }

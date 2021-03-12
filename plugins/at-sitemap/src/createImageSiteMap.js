@@ -6,12 +6,12 @@ const imagesFromAst = (htmlAst, specialFolder) => {
   const findImageTags = (node) => {
     if (node.tagName === 'img') {
       const {
-        properties: { src, alt },
+        properties: { src, alt, title },
       } = node;
       if (src.startsWith('/')) {
-        a.push({ src, alt });
+        a.push({ src, alt, title });
       } else if (src.startsWith(specialFolder)) {
-        a.push({ src: `/${src}`, alt });
+        a.push({ src: `/${src}`, alt, title });
       }
     }
     if (node.children) {
@@ -43,7 +43,7 @@ module.exports = (allPages, reporter, options, siteUrl) => {
       if (!img || !img.publicURL) {
         return;
       }
-      pageImages[img.publicURL] = image.alt;
+      pageImages[img.publicURL] = { alt: image.alt, title: image.title };
     };
 
     addImage(cover);
@@ -58,9 +58,9 @@ module.exports = (allPages, reporter, options, siteUrl) => {
     }
 
     const astImages = imagesFromAst(htmlAst);
-    astImages.forEach(({ src, alt }) => {
+    astImages.forEach(({ src, alt, title }) => {
       if (!options.ignoreImagesWithoutAlt || alt) {
-        pageImages[src] = alt;
+        pageImages[src] = { alt, title };
       }
     });
 
@@ -75,7 +75,8 @@ module.exports = (allPages, reporter, options, siteUrl) => {
       url: siteUrl + slug,
       img: pageImagesKeys.map((image) => ({
         url: siteUrl + image,
-        title: pageImages[image],
+        title: pageImages[image].alt,
+        caption: pageImages[image].title,
       })),
     });
   });

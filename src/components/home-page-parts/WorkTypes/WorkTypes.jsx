@@ -5,7 +5,7 @@ import mq from '../../../theme/media-queries';
 import { space } from '../../../theme/space';
 
 import Section from '../../Section';
-import { SectionItemRound as SectionItem } from '../../SectionItem';
+import SectionItem from './SectionItemRound';
 
 const styleWrap = {
   marginTop: space[9],

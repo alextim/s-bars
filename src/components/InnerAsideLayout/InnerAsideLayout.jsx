@@ -41,6 +41,7 @@ const InnerAsideLayout = ({ cover, html, children }) => (
       <GatsbyImage
         image={cover.sm.childImageSharp.gatsbyImageData}
         alt={cover.alt}
+        title={cover.title}
         css={styleImg}
       />
     )}

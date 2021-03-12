@@ -40,6 +40,7 @@ module.exports = ({ actions }) => {
       sm: File @fileByRelativePath
       xl: File @fileByRelativePath
       alt: String
+      title: String
     }
 
     type Section {

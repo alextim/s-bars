@@ -3,7 +3,7 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 
 import Section from '../../Section';
-import { SectionItemR, SectionItemL, SectionItemImage } from '../../SectionItem';
+import { SectionItemR, SectionItemL, SectionItemImage } from './tryptich-items';
 
 import mq from '../../../theme/media-queries';
 import { space } from '../../../theme/space';
@@ -17,14 +17,14 @@ const styleWrap = {
   },
 };
 
-const Triptych = ({ title, subtitle, text, items }) => (
+const Triptych = ({ title, subtitle, text, items, breakWords }) => (
   <Section title={title} subtitle={subtitle} text={text} textLast textAlign="center">
     <div css={styleWrap}>
       {items && items.length > 2 && (
         <React.Fragment>
-          <SectionItemL data={items[0]} />
+          <SectionItemL data={items[0]} breakWords={breakWords} />
           <SectionItemImage data={items[1]} />
-          <SectionItemR data={items[2]} />
+          <SectionItemR data={items[2]} breakWords={breakWords} />
         </React.Fragment>
       )}
     </div>

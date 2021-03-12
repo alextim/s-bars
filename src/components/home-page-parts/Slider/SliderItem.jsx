@@ -43,7 +43,7 @@ const SliderItem = ({ title, image }) => {
   }
   return (
     <div css={styleWrap}>
-      {image && image.sm && <GatsbyImage image={images} alt={image.alt} />}
+      {image && image.sm && <GatsbyImage image={images} alt={image.alt} title={image.title} />}
       <div css={styleTitle}>{title}</div>
     </div>
   );

@@ -55,6 +55,7 @@ const HomeTemplate = ({ data }) => {
               subtitle={sections[2].subtitle}
               text={sections[2].text}
               items={sections[2].items}
+              breakWords
             />
             <WorkTypes title={sections[3].title} items={sections[3].items} />
             <Carousel
@@ -105,6 +106,7 @@ export const pageQuery = graphql`
           icon
           image {
             alt
+            title
             sm {
               childImageSharp {
                 gatsbyImageData(layout: FULL_WIDTH)

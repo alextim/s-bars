@@ -51,7 +51,11 @@ const PostCard = ({
 
       {cover && cover.sm && (
         <a href={to}>
-          <GatsbyImage image={cover.sm.childImageSharp.gatsbyImageData} alt={cover.alt} />
+          <GatsbyImage
+            image={cover.sm.childImageSharp.gatsbyImageData}
+            alt={cover.alt}
+            title={cover.title}
+          />
         </a>
       )}
       <div css={card.textWrap}>

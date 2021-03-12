@@ -60,7 +60,11 @@ const styleCustomerName = {
 const Carouseltem = ({ heading, customer, description, image }) => (
   <div css={styleWrap}>
     {image && image.sm && (
-      <GatsbyImage image={image.sm.childImageSharp.gatsbyImageData} alt={image.alt} />
+      <GatsbyImage
+        image={image.sm.childImageSharp.gatsbyImageData}
+        alt={image.alt}
+        title={image.title}
+      />
     )}
     <div css={styleTextWrap}>
       <div css={styleDescription} dangerouslySetInnerHTML={{ __html: description }} />

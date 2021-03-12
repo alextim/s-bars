@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 
 import Section from '../../Section';
-import { SectionItemCredo as SectionItem } from '../../SectionItem';
+import SectionItem from './SectionItemCredo';
 
 import mq from '../../../theme/media-queries';
 import { space } from '../../../theme/space';

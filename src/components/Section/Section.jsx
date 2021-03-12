@@ -64,6 +64,7 @@ const Section = ({
           css={styleImg}
           image={image.sm.childImageSharp.gatsbyImageData}
           alt={image.alt}
+          title={image.title}
         />
       )}
       {!textLast && text && <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />}
