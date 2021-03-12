@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import Utils from '../../lib/utils';
 import i18n from '../../i18n';
 import { useLocale } from '../../i18n/i18n-context';
-import useOrganization from '../../hooks/useOrganization';
+import useOrgContacts from '../../hooks/useOrgContacts';
 
 import mq from '../../theme/media-queries';
 import colors from '../../theme/colors';
@@ -60,7 +60,7 @@ const styleImg = {
 
 const Logo = ({ onClick }) => {
   const { locale } = useLocale();
-  const { phone } = useOrganization();
+  const { phone } = useOrgContacts();
   const to = i18n.localizePath('/', locale);
   return (
     <div css={styleWrap}>

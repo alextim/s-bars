@@ -4,7 +4,7 @@ import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
 import Utils from '../lib/utils';
-import useOrganization from '../hooks/useOrganization';
+import useOrgContacts from '../hooks/useOrgContacts';
 import { useTranslation } from '../i18n';
 
 import SEO from '../components/SEO';
@@ -112,7 +112,7 @@ const ContactsTemplate = ({ data }) => {
     socialLinks,
     page: { title, metaTitle, description, metaDescription, noindex, locale, slug },
   } = data;
-  const { openingHours, embedMap } = useOrganization();
+  const { openingHours, embedMap } = useOrgContacts();
   const { contactPoint } = address;
 
   return (

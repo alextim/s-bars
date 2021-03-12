@@ -16,7 +16,6 @@ const styleTitle = (t) => ({
   [t.mq.lg]: {
     gridColumn: 2,
     grdRow: 1,
-    textAlign: 'center',
     paddingLeft: t.space[4],
     paddingBottom: t.space[2],
     borderLeft: `1px ${t.colors.brand.main} solid`,

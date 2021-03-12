@@ -26,7 +26,7 @@ const PostCardList = ({ posts }) => {
   return (
     <div css={wrapStyle}>
       {posts.map((post) => (
-        <PostCard data={post} key={post.title} />
+        <PostCard key={post.path} data={post} />
       ))}
     </div>
   );

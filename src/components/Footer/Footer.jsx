@@ -14,7 +14,7 @@ import Link from '../LocalizedLink';
 
 import { useTranslation } from '../../i18n';
 import { useAppContext } from '../../context';
-import useOrganization from '../../hooks/useOrganization';
+import useOrganizationContacts from '../../hooks/useOrgContacts';
 import useFooterNavItems from '../../hooks/useFooterNavItems';
 import useSocialLinks from '../../hooks/useSocialLinks';
 
@@ -96,7 +96,7 @@ const styleInquiryButton = {
 
 const Footer = () => {
   const { t } = useTranslation();
-  const { email, phone, foundingDate, openingHours } = useOrganization();
+  const { email, phone, foundingDate, openingHours } = useOrganizationContacts();
   const { address } = useAppContext();
   const navItems = useFooterNavItems();
   const socialLinks = useSocialLinks();

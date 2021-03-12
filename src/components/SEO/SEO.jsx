@@ -4,9 +4,9 @@ import SeoBase from '../SeoBase';
 import config from '../../../config/website';
 import i18n from '../../i18n';
 
-import { useAppContext } from '../../context';
 import useSocialLinks from '../../hooks/useSocialLinks';
-import useOrganization from '../../hooks/useOrganization';
+import useOrgContacts from '../../hooks/useOrgContacts';
+import useOrgAddress from '../../hooks/useOrgAddress';
 
 const SEO = ({
   title,
@@ -23,13 +23,13 @@ const SEO = ({
   links,
 }) => {
   const socialLinks = useSocialLinks();
-  const { address /* , translations */ } = useAppContext();
-  const organization = useOrganization();
+  const orgAddress = useOrgAddress();
+  const orgContacts = useOrgContacts();
   const siteMeta = i18n.locales[locale];
 
   /*
   let dows;
-  if (organization.openingHours) {
+  if (orgContacts.openingHours) {
     const KEY_START = 'dow.d2.';
     const keyLength = KEY_START.length;
     dows = translations.edges
@@ -46,8 +46,8 @@ const SEO = ({
       config={config}
       siteMeta={siteMeta}
       i18n={i18n}
-      organization={organization}
-      address={address}
+      orgContacts={orgContacts}
+      orgAddress={orgAddress}
       socialLinks={socialLinks}
       title={title}
       description={description}

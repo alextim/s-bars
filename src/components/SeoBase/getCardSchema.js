@@ -4,7 +4,7 @@ import config from '../../../config/website';
 import { locales } from '../../i18n/i18n';
 import { useLocale } from '../../i18n/i18n-context';
 
-import useOrganization from '../../hooks/useOrganization';
+import useOrgAddress from '../../hooks/useOrgAddress';
 
 import getPageSchema from './getPageSchema';
 
@@ -18,7 +18,7 @@ const getCardSchema = ({
   pageType = 'Article',
 }) => {
   const { locale } = useLocale();
-  const { name: organizationName } = useOrganization();
+  const { name: organizationName } = useOrgAddress();
 
   const { htmlLang } = locales[locale];
   const { siteUrl, siteLogo } = config;

@@ -64,7 +64,7 @@ const PostList = ({
         category,
         cover,
         title: itemTitle,
-        // TO DO description,
+        description: itemDscription,
         metaDescription: itemMetaDescription,
         datePublished,
         dateModified,
@@ -77,7 +77,7 @@ const PostList = ({
       category,
       cover,
       title: itemTitle,
-      description: itemTitle, // TO DO
+      description: itemDscription,
       metaDescription: itemMetaDescription,
       datePublished,
       dateModified,

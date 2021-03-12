@@ -74,8 +74,8 @@ const getOpeningHoursSpecification = (openingHours) => {
 };
 
 const getOrganizationSchema = ({
-  organization,
-  address = {},
+  orgContacts,
+  orgAddress = {},
   config,
   /* dows,  */
   socialLinks,
@@ -90,7 +90,8 @@ const getOrganizationSchema = ({
     priceRange,
     currenciesAccepted,
     paymentAccepted,
-  } = organization;
+  } = orgContacts;
+
   const {
     name: organizationName,
     legalName,
@@ -98,7 +99,7 @@ const getOrganizationSchema = ({
     description,
     postalAddress,
     contactPoint,
-  } = address;
+  } = orgAddress;
 
   const schema = {
     '@context': 'https://schema.org',
@@ -169,11 +170,11 @@ const getOrganizationSchema = ({
       },
     );
   } else {
-    if (organization.email) {
-      schema.email = organization.email.join();
+    if (organizationEmail) {
+      schema.email = organizationEmail.join();
     }
-    if (organization.phone) {
-      schema.telephone = organization.phone.join();
+    if (organizationPhone) {
+      schema.telephone = organizationPhone.join();
     }
   }
 

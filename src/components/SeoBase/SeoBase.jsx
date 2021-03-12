@@ -9,8 +9,8 @@ const SeoBase = ({
   config,
   siteMeta,
   i18n,
-  organization,
-  address,
+  orgContacts,
+  orgAddress,
   socialLinks,
   title,
   description,
@@ -126,7 +126,7 @@ const SeoBase = ({
       <script type="application/ld+json">
         {JSON.stringify(
           getPageSchema({
-            organizationName: organization.name,
+            organizationName: orgAddress.name,
             siteUrl: config.siteUrl,
             siteLogo: config.siteLogo,
             URL,
@@ -144,8 +144,8 @@ const SeoBase = ({
         <script type="application/ld+json">
           {JSON.stringify(
             getOrganizationSchema({
-              organization,
-              address,
+              orgContacts,
+              orgAddress,
               config,
               homeURL,
               socialLinks,
