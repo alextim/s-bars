@@ -11,7 +11,7 @@ import getPageSchema from './getPageSchema';
 const getCardSchema = ({
   to,
   title,
-  description,
+  headline,
   cover,
   datePublished,
   dateModified,
@@ -40,7 +40,7 @@ const getCardSchema = ({
     siteLogo,
     URL,
     title,
-    description,
+    headline,
     htmlLang,
     imgURL,
     datePublished,

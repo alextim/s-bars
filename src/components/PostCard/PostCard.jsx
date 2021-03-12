@@ -40,7 +40,7 @@ const PostCard = ({
           getCardSchema({
             to,
             title,
-            description: description || metaDescription,
+            headline: description || metaDescription,
             cover,
             datePublished,
             dateModified,

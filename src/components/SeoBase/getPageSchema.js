@@ -4,7 +4,7 @@ const getPageSchema = ({
   siteLogo,
   URL,
   title,
-  description,
+  headline,
   htmlLang,
   imgURL,
   datePublished,
@@ -41,7 +41,7 @@ const getPageSchema = ({
       '@type': 'WebPage',
       '@id': URL,
     };
-    o.headline = description;
+    o.headline = headline;
     if (datePublished) {
       o.datePublished = datePublished;
     }
@@ -50,7 +50,7 @@ const getPageSchema = ({
     }
   } else {
     o.url = URL;
-    o.description = description;
+    o.description = headline;
   }
 
   if (imgURL) {

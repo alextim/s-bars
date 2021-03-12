@@ -48,6 +48,7 @@ const PostTemplate = ({ data }) => {
         locale={locale}
         title={metaTitle}
         description={metaDescription}
+        headline={description}
         pathname={slug}
         noindex={noindex}
         datePublished={datePublished}

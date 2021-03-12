@@ -11,6 +11,7 @@ import useOrgAddress from '../../hooks/useOrgAddress';
 const SEO = ({
   title,
   description,
+  headline,
   locale,
   pathname,
   pageType,
@@ -51,6 +52,7 @@ const SEO = ({
       socialLinks={socialLinks}
       title={title}
       description={description}
+      headline={headline}
       locale={locale}
       pathname={pathname}
       pageType={pageType}

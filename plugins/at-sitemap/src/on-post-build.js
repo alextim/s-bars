@@ -30,6 +30,7 @@ module.exports = async ({ graphql, reporter }, pluginOptions) => {
               slug
               locale
               cover {
+                title
                 alt
                 xl {
                   publicURL
@@ -40,6 +41,7 @@ module.exports = async ({ graphql, reporter }, pluginOptions) => {
               }
               sections {
                 image {
+                  title
                   alt
                   xl {
                     publicURL
@@ -50,6 +52,7 @@ module.exports = async ({ graphql, reporter }, pluginOptions) => {
                 }
                 items {
                   image {
+                    title
                     alt
                     sm {
                       publicURL
@@ -70,6 +73,7 @@ module.exports = async ({ graphql, reporter }, pluginOptions) => {
               slug
               locale
               cover {
+                title
                 alt
                 xl {
                   publicURL
