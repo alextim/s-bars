@@ -651,7 +651,7 @@ Disallow:
 
 ```env
 LOCALES = uk ru
-ONLY = / /inquiry
+ONLY = / /inquiry/
 WARNINGS = true
 ```
 

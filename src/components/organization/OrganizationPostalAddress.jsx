@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useAppContext } from '../../context';
+import useOrgAddress from '../../hooks/useOrgAddress';
 
 const OrganizationPostalAddress = () => {
   const {
@@ -8,12 +8,14 @@ const OrganizationPostalAddress = () => {
       legalName,
       postalAddress: { streetAddress, addressLocality, postalCode, addressCountry },
     },
-  } = useAppContext();
+  } = useOrgAddress();
 
   return (
     <>
       <div>{legalName}</div>
-      {streetAddress && streetAddress.map((item, i) => <div key={i}>{item}</div>)}
+      {streetAddress?.map((item, i) => (
+        <div key={i}>{item}</div>
+      ))}
       <div>{`${postalCode || ''}  ${addressLocality}`}</div>
       <div>{addressCountry}</div>
     </>

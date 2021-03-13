@@ -52,15 +52,14 @@ const SeoBase = ({
       <html lang={htmlLang} />
       <meta name="robots" content={`${noindex ? 'no' : ''}index, follow`} />
       <title>{metaTitle}</title>
-      {i18n &&
-        i18n.localeCodes.map((code) => (
-          <link
-            key={code}
-            rel="alternate"
-            hrefLang={i18n.locales[code].htmlLang}
-            href={`${config.siteUrl}${i18n.localizePath(purePath, code)}`}
-          />
-        ))}
+      {i18n?.localeCodes.map((code) => (
+        <link
+          key={code}
+          rel="alternate"
+          hrefLang={i18n.locales[code].htmlLang}
+          href={`${config.siteUrl}${i18n.localizePath(purePath, code)}`}
+        />
+      ))}
       {i18n && <link rel="alternate" hrefLang="x-default" href={`${config.siteUrl}${purePath}`} />}
       {/** *
        * https://developer.mozilla.org/ru/docs/Web/HTTP/Headers/Content-Language
@@ -78,12 +77,11 @@ const SeoBase = ({
         Object.keys(metas).map((name) => <meta key={name} name={name} content={metas[name]} />)}
       {config.fbAppID && <meta property="fb:app_id" content={config.fbAppID} />}
       <meta property="og:locale" content={ogLocale} />
-      {i18n &&
-        i18n.localeCodes
-          .filter((code) => code !== locale)
-          .map((code) => (
-            <meta key={code} property="og:locale:alternate" content={i18n.locales[code].ogLocale} />
-          ))}
+      {i18n?.localeCodes
+        .filter((code) => code !== locale)
+        .map((code) => (
+          <meta key={code} property="og:locale:alternate" content={i18n.locales[code].ogLocale} />
+        ))}
       <meta property="og:site_name" content={i18n.locales[locale].siteShortName} />
       {socialLinks && socialLinks.facebook && (
         <meta property="article:publisher" content={socialLinks.facebook.to} />

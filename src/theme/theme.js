@@ -1,7 +1,7 @@
 import colors from './colors';
 // import styles from './styles';
-import { breakpointsArray as breakpoints } from './breakpoints';
-import mq from './media-queries';
+import mq, { breakpointsArray as breakpoints } from './media-queries';
+
 import { fontSizes, fontSizesPx, fontSizesRaw } from './font-sizes';
 import fontWeights from './font-weights';
 import lineHeights from './line-heights';
