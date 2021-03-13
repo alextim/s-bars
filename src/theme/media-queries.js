@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import preval from 'preval.macro';
 
-const s = preval`
+const o = preval`
   const b = {
     sm: '576px',
     md: '768px',
@@ -19,9 +20,9 @@ const s = preval`
   module.exports = { b, bp, mq };
 `;
 
-export const breakpoints = s.b;
-export const breakpointsArray = s.bp;
+export const breakpoints = o.b;
+export const breakpointsArray = o.bp;
 
-const { mq } = s;
+const { mq } = o;
 
 export default mq;
