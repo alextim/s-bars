@@ -8,7 +8,7 @@ const locales = require('./config/locales');
 
 const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
-const { contentDir, postsPath, pagePathes, blogPath, cardsPerPage } = config;
+const { contentDir, postsDir, pageDirs, cardsPerPage } = config;
 
 const CSP = {
   'default-src': "'self'",
@@ -30,11 +30,11 @@ const CSP = {
 const getContentSecurityPolicy = () =>
   Object.keys(CSP).reduce((acc, curr) => `${acc}${acc ? '; ' : ''}${curr} ${CSP[curr]}`, '');
 
-const pageSources = Object.keys(pagePathes).map((name) => ({
+const pageSources = Object.keys(pageDirs).map((name) => ({
   resolve: 'gatsby-source-filesystem',
   options: {
     name,
-    path: `${__dirname}/${contentDir}/${pagePathes[name]}`,
+    path: `${__dirname}/${contentDir}/${pageDirs[name]}`,
   },
 }));
 
@@ -57,8 +57,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: postsPath,
-        path: `${__dirname}/${contentDir}/${postsPath}`,
+        name: postsDir,
+        path: `${__dirname}/${contentDir}/${postsDir}`,
       },
     },
     {
@@ -245,16 +245,8 @@ module.exports = {
       resolve: 'at-site',
       options: {
         templatesDir: `${__dirname}/src${config.templatesDir}`,
-        pagePathes,
-        excludedSlugs: [
-          'blog',
-          'category',
-          'category-list',
-          'tags',
-          'tag-list',
-          'years',
-          'year-list',
-        ],
+        pageDirs,
+        // excludedSlugs: [],
       },
     },
     {
@@ -262,11 +254,10 @@ module.exports = {
       options: {
         templatesDir: `${__dirname}/src${config.templatesDir}`,
         cardsPerPage,
-        blogPath,
-        postsPath,
-        CREATE_TAG_PAGES: false,
-        CREATE_CATEGORY_PAGES: false,
-        CREATE_YEAR_PAGES: false,
+        postsDir,
+        CREATE_TAG_PAGES: true,
+        CREATE_CATEGORY_PAGES: true,
+        CREATE_YEAR_PAGES: true,
       },
     },
     {

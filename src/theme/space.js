@@ -1,4 +1,4 @@
-/* eslint-disable prefer-destructuring */
+// eslint-disable-next-line import/no-extraneous-dependencies
 import preval from 'preval.macro';
 
 const s = preval`
@@ -9,5 +9,5 @@ const s = preval`
 `;
 
 export const space = s.spaceRem;
-export const spacePx = s.spacePx;
+export const { spacePx } = s;
 export const spaceRaw = s.space;

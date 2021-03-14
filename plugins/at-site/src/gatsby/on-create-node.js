@@ -1,10 +1,10 @@
-const onMdNode = require('./helpers/onMdNode2');
+const onMdPageNode = require('./helpers/onMdPageNode');
 const onDataNode = require('./helpers/onDataNode');
 
-const withOptions = require('./theme-options');
+const withOptions = require('./plugin-options');
 
 module.exports = async (params, pluginOptions) => {
-  const { pagePathes } = withOptions(pluginOptions);
+  const { pageDirs } = withOptions(pluginOptions);
   const { node, getNode } = params;
   if (node.internal.type === 'Yaml') {
     onDataNode(params);
@@ -14,8 +14,8 @@ module.exports = async (params, pluginOptions) => {
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent);
     const type = fileNode.sourceInstanceName;
-    if (pagePathes[type]) {
-      onMdNode(params, type);
+    if (pageDirs[type]) {
+      onMdPageNode(params, type);
     }
   }
 };

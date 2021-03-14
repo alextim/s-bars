@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import preval from 'preval.macro';
 
 const fs = preval`

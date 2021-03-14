@@ -1,7 +1,4 @@
 /* eslint-disable no-console */
-/**
- * const _ = require('lodash');
- */
 const wrapper = require('../../plugins/at-site/src/gatsby/helpers/promise-wrapper');
 const config = require('../../config/website');
 
@@ -55,14 +52,13 @@ module.exports = async ({ graphql, actions, reporter }) => {
   } else {
     console.log(`\nMd services: ${services.length}`);
     console.log('---------------');
-    services.forEach(({ node: { id, slug, locale } }) => {
+    services.forEach(({ node: { id, slug } }) => {
       console.log('pagepath=', slug);
       createPage({
         path: slug,
         component: serviceDefaultTemplate,
         context: {
           id,
-          locale,
         },
       });
     });
@@ -77,14 +73,13 @@ module.exports = async ({ graphql, actions, reporter }) => {
   } else {
     console.log(`\nMd object types: ${objectTypes.length}`);
     console.log('---------------');
-    objectTypes.forEach(({ node: { id, slug, locale } }) => {
+    objectTypes.forEach(({ node: { id, slug } }) => {
       console.log('pagepath=', slug);
       createPage({
         path: slug,
         component: objectTypeDefaultTemplate,
         context: {
           id,
-          locale,
         },
       });
     });

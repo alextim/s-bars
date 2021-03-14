@@ -1,16 +1,14 @@
-const defaultOptions = require('./default-options');
 const createSiteMap = require('./createSiteMap');
 const createImageSiteMap = require('./createImageSiteMap');
+
+const withOptions = require('./plugin-options');
 
 const wrapper = require('../../at-site/src/gatsby/helpers/promise-wrapper');
 
 module.exports = async ({ graphql, reporter }, pluginOptions) => {
   reporter.info('at-sitemap: started...');
 
-  const options = {
-    ...defaultOptions,
-    ...pluginOptions,
-  };
+  const options = withOptions(pluginOptions);
 
   const result = await wrapper(
     graphql(`

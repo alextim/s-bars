@@ -22,18 +22,17 @@ module.exports = ({ node, getNode }) => {
 
   let slug;
 
-  let isHome = false;
   if (slugFileName === 'home') {
-    isHome = true;
     slug = '/';
   } else {
     slug = frontmatter.slug;
     if (slug) {
-      slug = `/${slug}`;
+      slug = `/${slug}/`;
     } else {
-      slug = `/${slugFileName === 'index' ? dir : slugFileName}`;
+      slug = `/${slugFileName === 'index' ? dir : slugFileName}/`;
     }
   }
+
   if (process.env.ONLY && !process.env.ONLY.split(' ').some((p) => p === slug)) {
     if (process.env.WARNINGS) {
       console.warn(`Path "${slug}" is excluded from build. process.env.ONLY=${process.env.ONLY}`);
@@ -46,10 +45,6 @@ module.exports = ({ node, getNode }) => {
   }
 
   slug = i18n.localizePath(slug, locale);
-
-  if (!isHome) {
-    slug = `${slug}/`;
-  }
 
   return { slug, locale, frontmatter };
 };
