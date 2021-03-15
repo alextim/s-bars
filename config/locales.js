@@ -9,7 +9,7 @@ module.exports = {
     default: true,
 
     htmlLang: 'uk', // uk-ua
-    formatLocale: 'ua-UA',
+    formatLocale: 'uk-UA',
     ogLocale: 'uk_UA',
     name: 'Ukranian',
     shortName: 'Укр',

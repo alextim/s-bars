@@ -13,7 +13,7 @@ import shadows from '../../theme/shadows';
 // const rootPath = `${__PATH_PREFIX__}/`;
 //   if (location.pathname === rootPath) {
 
-const headerStyle = {
+const styleHeader = {
   display: 'flex',
   alignItems: 'center',
   width: '100%',
@@ -32,7 +32,7 @@ const headerStyle = {
   },
 };
 
-const containerStyle = {
+const styleInnerWrap = {
   display: 'flex',
   alignItems: 'center',
   width: '100%',
@@ -41,9 +41,11 @@ const containerStyle = {
 };
 
 const Header = () => (
-  <header role="navigation" css={headerStyle}>
-    <Container css={containerStyle}>
-      <Navbar />
+  <header role="navigation" css={styleHeader}>
+    <Container>
+      <div css={styleInnerWrap}>
+        <Navbar />
+      </div>
     </Container>
   </header>
 );

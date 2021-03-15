@@ -10,7 +10,7 @@ import CTAButton from './CTAButton';
 import MenuItem from './MenuItem';
 import SubMenu from './SubMenu';
 
-const styleWrapper = {
+const styleWrap = {
   flex: 1,
   minWidth: '50%',
 
@@ -64,7 +64,13 @@ const styleWrapper = {
   },
 };
 
-const styleMenuWrapper = {
+const styleWrapOpened = {
+  pointerEvents: 'auto',
+  visibility: 'visible',
+  transform: 'unset',
+};
+
+const styleMenuWrap = {
   display: 'flex',
   flexDirection: 'column',
   margin: 0,
@@ -81,7 +87,7 @@ const styleMenuWrapper = {
   },
 };
 
-const styleRightWrapper = {
+const styleWrapR = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -91,12 +97,6 @@ const styleRightWrapper = {
     flexDirection: 'row',
     alignItems: 'center',
   },
-};
-
-const styleWrapperOpened = {
-  pointerEvents: 'auto',
-  visibility: 'visible',
-  transform: 'unset',
 };
 
 const menuItemWrapStyle = {
@@ -119,8 +119,8 @@ const Menu = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
     <Location>
       {({ location: { pathname } }) => {
         return (
-          <div css={{ ...styleWrapper, ...(isMenuOpen ? styleWrapperOpened : {}) }}>
-            <ul css={styleMenuWrapper}>
+          <div css={{ ...styleWrap, ...(isMenuOpen ? styleWrapOpened : {}) }}>
+            <ul css={styleMenuWrap}>
               {navItems.map(({ title, to, submenu }, i) => {
                 if (submenu) {
                   return (
@@ -143,7 +143,7 @@ const Menu = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
                 );
               })}
             </ul>
-            <div css={styleRightWrapper}>
+            <div css={styleWrapR}>
               <CTAButton onClick={onClick} />
               <LanguageSwitch closeMenu={() => setIsMenuOpen(false)} />
             </div>

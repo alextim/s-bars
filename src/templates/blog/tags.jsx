@@ -78,7 +78,7 @@ export const pageQuery = graphql`
       limit: $limit
       skip: $skip
       sort: { fields: [datePublished], order: DESC }
-      filter: { tags: { in: [$tag] }, locale: { eq: $locale } }
+      filter: { tags: { elemMatch: { title: { in: [$tag] } } }, locale: { eq: $locale } }
     ) {
       edges {
         node {

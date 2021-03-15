@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import merge from 'lodash/merge';
 
 import mq from '../../theme/media-queries';
 
@@ -11,27 +10,25 @@ const containerFullWidthStyle = {
 };
 
 const containerStyle = {
-  margin: '0 auto',
+  ...containerFullWidthStyle,
   padding: '0 1rem',
   [mq.sm]: {
     padding: '0 2rem',
   },
 };
 
-const Wrapper = ({ children }) => <div css={containerStyle}>{children}</div>;
-
-const ContainerFullWidth = ({ children, css = {}, ...props }) => (
-  <div css={merge(containerFullWidthStyle, css)} {...props}>
+const ContainerFullWidth = ({ children, ...props }) => (
+  <div css={containerFullWidthStyle} {...props}>
     {children}
   </div>
 );
 
-const Container = ({ children, css = {}, ...props }) => (
-  <ContainerFullWidth css={merge(containerStyle, css)} {...props}>
+const Container = ({ children, ...props }) => (
+  <div css={containerStyle} {...props}>
     {children}
-  </ContainerFullWidth>
+  </div>
 );
 
-export { ContainerFullWidth, Wrapper };
+export { ContainerFullWidth };
 
 export default Container;

@@ -19,10 +19,7 @@ const a2oa = (a, prefix, locale) => {
   if (!a) {
     return null;
   }
-  // eslint-disable-next-line no-console
-  console.log('a=', typeof a, a);
-  const aMap = new Map(a);
-  return [...aMap].sort(compString).map((title) => ({
+  return [...new Set(a)].sort(compString).map((title) => ({
     title,
     to: i18n.localizePath(`${prefix}${slugify(translit(title, locale))}/`, locale),
   }));
@@ -58,8 +55,6 @@ module.exports = ({ node, actions, getNode, createNodeId, createContentDigest },
   } = frontmatter;
 
   const year = datePublished ? new Date(datePublished).getFullYear() : null;
-  // eslint-disable-next-line no-console
-  console.log(category, tags);
   const fieldData = {
     title,
     description,

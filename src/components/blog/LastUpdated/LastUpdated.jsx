@@ -4,12 +4,19 @@ import { jsx } from '@emotion/react';
 import useLocaleData from '../../../hooks/useLocaleData';
 import { useTranslation } from '../../../i18n';
 
-const wrapperStyle = (t) => ({
+const styleWrap = (t) => ({
   marginTop: t.space[5],
   fontSize: t.fontSizes[0],
 });
 
-const LastModified = ({ date }) => {
+const styleCaption = (t) => ({
+  ':after': {
+    content: '":"',
+    marginRight: t.space[1],
+  },
+});
+
+const LastUpdated = ({ date }) => {
   const { formatLocale } = useLocaleData();
   const { t } = useTranslation();
 
@@ -19,11 +26,11 @@ const LastModified = ({ date }) => {
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
 
   return (
-    <div css={wrapperStyle}>
-      <span>{t('post.dateModified')}</span>
-      <span css={wrapperStyle}>{new Date(date).toLocaleDateString(formatLocale, options)}</span>
+    <div css={styleWrap}>
+      <span css={styleCaption}>{t('post.lastUpdated')}</span>
+      {new Date(date).toLocaleDateString(formatLocale, options)}
     </div>
   );
 };
 
-export default React.memo(LastModified);
+export default React.memo(LastUpdated);

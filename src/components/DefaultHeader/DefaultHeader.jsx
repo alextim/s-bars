@@ -8,7 +8,7 @@ const styleSubtitle = {
   marginTop: '1rem',
 };
 
-const innerWrapperStyle = {
+const styleInnerWrap = {
   margin: `${space[7]} auto`,
   textAlign: 'center',
   [mq.md]: {
@@ -18,7 +18,7 @@ const innerWrapperStyle = {
 };
 
 const DefaultHeader = ({ title, subtitle }) => (
-  <div css={innerWrapperStyle}>
+  <div css={styleInnerWrap}>
     {title && <h1>{title}</h1>}
     {subtitle && <p css={styleSubtitle}>{subtitle}</p>}
   </div>

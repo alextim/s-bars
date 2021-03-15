@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import disableScroll from 'disable-scroll';
 
 import {
-  styleModalWrapper,
+  styleModalWrap,
   styleModalOverlay,
   styleModalContent,
   StyledModalCloseButton,
@@ -37,7 +37,7 @@ const Modal = ({ children, isOpen = false, close, elementId = 'portal' }) => {
   };
 
   return createPortal(
-    <div role="button" css={styleModalWrapper} ref={ref} tabIndex="-1" onKeyDown={handleKeyDown}>
+    <div role="button" css={styleModalWrap} ref={ref} tabIndex="-1" onKeyDown={handleKeyDown}>
       <div css={styleModalOverlay} />
       <div css={styleModalContent}>
         {children}

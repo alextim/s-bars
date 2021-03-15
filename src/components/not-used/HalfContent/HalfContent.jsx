@@ -5,19 +5,19 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 
 import mq from '../../../theme/media-queries';
 
-const styleWrapper = {
+const styleWrap = {
   display: 'flex',
   flexWrap: 'wrap',
   alignItems: 'center',
 };
 
-const styleWrapperLeft = {
+const styleWrapL = {
   [mq.lg]: {
     flexDirection: 'row-reverse',
   },
 };
 
-const styleContentWrapper = {
+const styleContentWrap = {
   width: '100%',
   [mq.lg]: {
     width: '50%',
@@ -89,17 +89,17 @@ const HalfContentItem = ({ component, title, text, image, fullwidth, left }) => 
 
   if (left) {
     return (
-      <div css={{ ...styleWrapper, ...styleWrapperLeft }}>
-        <div css={styleContentWrapper}>{imgContent}</div>
-        <div css={{ ...styleContentWrapper, ...textStyle, ...styleLeft }}>{textContent}</div>
+      <div css={{ ...styleWrap, ...styleWrapL }}>
+        <div css={styleContentWrap}>{imgContent}</div>
+        <div css={{ ...styleContentWrap, ...textStyle, ...styleLeft }}>{textContent}</div>
       </div>
     );
   }
 
   return (
-    <div css={styleWrapper}>
-      <div css={styleContentWrapper}>{imgContent}</div>
-      <div css={{ ...styleContentWrapper, ...textStyle }}>{textContent}</div>
+    <div css={styleWrap}>
+      <div css={styleContentWrap}>{imgContent}</div>
+      <div css={{ ...styleContentWrap, ...textStyle }}>{textContent}</div>
     </div>
   );
 };

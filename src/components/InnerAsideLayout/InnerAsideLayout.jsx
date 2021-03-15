@@ -49,8 +49,10 @@ const InnerAsideLayout = ({ cover, html, children, aside }) => (
         />
       )}
     </div>
-    {html && <div css={styleHtmlWrap} dangerouslySetInnerHTML={{ __html: html }} />}
-    {children}
+    <div>
+      {html && <div css={styleHtmlWrap} dangerouslySetInnerHTML={{ __html: html }} />}
+      {children}
+    </div>
     <div css={styleAsideWrap}>{aside}</div>
   </div>
 );

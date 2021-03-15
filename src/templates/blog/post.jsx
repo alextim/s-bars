@@ -11,7 +11,7 @@ import AsideFeaturedPosts from '../../components/AsideFeaturedPosts';
 
 import InnerAsideLayout from '../../components/InnerAsideLayout';
 import PostTags from '../../components/blog/PostTags';
-import LastModified from '../../components/blog/LastModified';
+import LastUpdated from '../../components/blog/LastUpdated';
 
 const styleWidgetArea = {
   display: 'flex',
@@ -71,7 +71,7 @@ const PostTemplate = ({ data }) => {
         }
       >
         <PostTags tags={tags} />
-        <LastModified date={dateModified} />
+        <LastUpdated date={dateModified} />
       </InnerAsideLayout>
     </Layout>
   );

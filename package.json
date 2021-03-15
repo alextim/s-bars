@@ -30,9 +30,9 @@
     "dev": "gatsby develop -o",
     "clean": "gatsby clean",
     "serve": "gatsby serve -o",
-    "lint": "eslint src/",
-    "lint:write": "eslint --debug src/ --fix",
-    "prettier": "prettier --write src/**/*.js",
+    "lint": "eslint src/ plugins/",
+    "lint:write": "eslint --debug src/ plugins/ --fix",
+    "prettier": "prettier --write src/**/*.js plugins/**/*.js",
     "stylelint": "stylelint --syntax css-in-js src/**/*.{js,jsx,ts,tsx,css,scss}",
     "format": "prettier-eslint --write 'src/**/*.{js,jsx,json,md}'",
     "git:tracked": "git ls-tree -r master --name-only",
@@ -54,7 +54,13 @@
       "eslint --fix",
       "prettier-eslint --write",
       "git add ."
+    ],
+    "plugins/**/*.{js,jsx}": [
+      "eslint --fix",
+      "prettier-eslint --write",
+      "git add ."
     ]
+
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
