@@ -20,10 +20,10 @@ const CategoryList = ({ categories, count = false }) => {
   }
   return (
     <div css={wrapperStyle}>
-      {Object.keys(categories).map((cat) => (
-        <Link key={cat} to={categories[cat].to} css={itemStyle}>
-          {cat}
-          {count && `: ${categories[cat].count}`}
+      {Object.keys(categories).map((to) => (
+        <Link key={to} to={to} css={itemStyle}>
+          {categories[to].title}
+          {count && `: ${categories[to].count}`}
         </Link>
       ))}
     </div>

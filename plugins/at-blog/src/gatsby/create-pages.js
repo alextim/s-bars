@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-const _ = require('lodash');
 const wrapper = require('../../../at-site/src/gatsby/helpers/promise-wrapper');
 const withOptions = require('./plugin-options');
 const i18n = require('../../../../src/i18n/i18n');
@@ -17,14 +16,27 @@ const compString = (a, b) => {
 
 const compNum = (a, b) => a - b;
 
-const map2Object = (m, comp, prefix, locale) =>
+const map2Object = (m) =>
+  [...m]
+    .map(([to]) => to)
+    .sort(compString)
+    .reduce((acc, to) => {
+      // eslint-disable-next-line no-param-reassign
+      acc[to] = {
+        title: m.get(to).title,
+        count: m.get(to).count,
+      };
+      return acc;
+    }, {});
+
+const yearMap2Object = (m, prefix, locale) =>
   [...m]
     .map(([key]) => key)
-    .sort(comp)
+    .sort(compNum)
     .reduce((acc, key) => {
       // eslint-disable-next-line no-param-reassign
       acc[key] = {
-        to: i18n.localizePath(`/${prefix}/${_.kebabCase(key)}`, locale),
+        to: i18n.localizePath(`/${prefix}/${key}/`, locale),
         count: m.get(key),
       };
       return acc;
@@ -65,8 +77,14 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
             node {
               id
               template
-              tags
-              category
+              tags {
+                title
+                to
+              }
+              category {
+                title
+                to
+              }
               slug
               locale
               year
@@ -102,21 +120,25 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
       console.log('---------------');
       posts.forEach(({ node: { id, category, tags, year, slug } }) => {
         if (CREATE_TAG_PAGES && tags) {
-          tags.forEach((tag) => {
-            if (tagMap.get(tag)) {
-              tagMap.set(tag, tagMap.get(tag) + 1);
+          tags.forEach(({ title, to }) => {
+            if (tagMap.get(to)) {
+              const o = tagMap.get(to);
+              o.count += 1;
+              tagMap.set(to, o);
             } else {
-              tagMap.set(tag, 1);
+              tagMap.set(to, { title, count: 1 });
             }
           });
         }
 
         if (CREATE_CATEGORY_PAGES && category) {
-          category.forEach((cat) => {
-            if (categoryMap.get(cat)) {
-              categoryMap.set(cat, categoryMap.get(cat) + 1);
+          category.forEach(({ title, to }) => {
+            if (categoryMap.get(to)) {
+              const o = categoryMap.get(to);
+              o.count += 1;
+              categoryMap.set(to, o);
             } else {
-              categoryMap.set(cat, 1);
+              categoryMap.set(to, { title, count: 1 });
             }
           });
         }
@@ -140,9 +162,9 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
         });
       });
 
-      const categories = map2Object(categoryMap, compString, 'category', locale);
-      const tags = map2Object(tagMap, compString, 'tags', locale);
-      const years = map2Object(yearMap, compNum, 'years', locale);
+      const categories = map2Object(categoryMap);
+      const tags = map2Object(tagMap);
+      const years = yearMap2Object(yearMap, 'years', locale);
 
       {
         const numPages = Math.ceil(posts.length / cardsPerPage);
@@ -188,15 +210,10 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
 
         console.log('\nCategory pages');
         console.log('---------------');
-        categoryMap.forEach((count, category) => {
+        categoryMap.forEach(({ title: category, count }, to) => {
           const numPages = Math.ceil(count / cardsPerPage);
-          for (let i = 0; i < numPages; i += 1) {
-            const path = i18n.localizePath(
-              i === 0
-                ? `${categoryPath}${_.kebabCase(category)}/`
-                : `${categoryPath}${_.kebabCase(category)}/${i + 1}/`,
-              locale,
-            );
+          for (let i = 0; i < numPages; i++) {
+            const path = i === 0 ? to : `${to}${i + 1}/`;
             console.log('pagepath=', path);
             createPage({
               path,
@@ -204,6 +221,7 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
               context: {
                 locale,
                 category,
+                subpath: to,
                 limit: cardsPerPage,
                 skip: i * cardsPerPage,
                 numPages,
@@ -223,7 +241,7 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
 
         {
           const path = i18n.localizePath(tagsPath, locale);
-          console.log('Tag List: pagepath=', path);
+          console.log('\nTag List: pagepath=', path);
           createPage({
             path,
             component: tagListTemplate,
@@ -235,15 +253,10 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
         }
         console.log('\nTag pages');
         console.log('---------------');
-        tagMap.forEach((count, tag) => {
+        tagMap.forEach(({ title: tag, count }, to) => {
           const numPages = Math.ceil(count / cardsPerPage);
           for (let i = 0; i < numPages; i += 1) {
-            const path = i18n.localizePath(
-              i === 0
-                ? `${tagsPath}${_.kebabCase(tag)}/`
-                : `${tagsPath}${_.kebabCase(tag)}/${i + 1}/`,
-              locale,
-            );
+            const path = i === 0 ? to : `${to}${i + 1}/`;
             console.log('pagepath=', path);
             createPage({
               path,
@@ -251,6 +264,7 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
               context: {
                 locale,
                 tag,
+                subpath: to,
                 limit: cardsPerPage,
                 skip: i * cardsPerPage,
                 numPages,
@@ -270,7 +284,7 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
 
         {
           const path = i18n.localizePath(yearsPath, locale);
-          console.log('Year List: pagepath=', path);
+          console.log('\nYear List: pagepath=', path);
           createPage({
             path,
             component: yearListTemplate,

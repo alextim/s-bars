@@ -2,14 +2,16 @@
 import { jsx } from '@emotion/react';
 import { graphql /* , Link */ } from 'gatsby';
 
-import SEO from '../components/SEO';
-import Layout from '../components/Layout/SimpleLayoutWithHeader';
+import SEO from '../../components/SEO';
+import Layout from '../../components/Layout/Layout';
 
-import AsideServices from '../components/AsideServices';
-import AsideFeaturedPosts from '../components/AsideFeaturedPosts';
-// import AsideRecentPosts from '../components/AsideRecentPosts';
+import AsideServices from '../../components/AsideServices';
+import AsideFeaturedPosts from '../../components/AsideFeaturedPosts';
+// import AsideRecentPosts from '../../components/AsideRecentPosts';
 
-import InnerAsideLayout from '../components/InnerAsideLayout';
+import InnerAsideLayout from '../../components/InnerAsideLayout';
+import PostTags from '../../components/blog/PostTags';
+import LastModified from '../../components/blog/LastModified';
 
 const styleWidgetArea = {
   display: 'flex',
@@ -32,6 +34,7 @@ const PostTemplate = ({ data }) => {
       noindex,
       datePublished,
       dateModified,
+      tags,
       html,
       locale,
       slug,
@@ -54,14 +57,21 @@ const PostTemplate = ({ data }) => {
         datePublished={datePublished}
         dateModified={dateModified}
         pageType="BlogPosting"
-        imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
+        imgPath={cover?.sm?.publicURL}
       />
-      <InnerAsideLayout cover={cover} html={html}>
-        <aside css={styleWidgetArea}>
-          <AsideServices mainNav={mainNav} />
-          <AsideFeaturedPosts items={data.featuredPosts.edges} />
-          {/* <AsideRecentPosts items={data.recentPosts.edges} /> */}
-        </aside>
+      <InnerAsideLayout
+        cover={cover}
+        html={html}
+        aside={
+          <aside css={styleWidgetArea}>
+            <AsideServices mainNav={mainNav} />
+            <AsideFeaturedPosts items={data.featuredPosts.edges} />
+            {/* <AsideRecentPosts items={data.recentPosts.edges} /> */}
+          </aside>
+        }
+      >
+        <PostTags tags={tags} />
+        <LastModified date={dateModified} />
       </InnerAsideLayout>
     </Layout>
   );

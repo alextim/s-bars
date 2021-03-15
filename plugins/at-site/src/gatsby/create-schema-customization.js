@@ -36,6 +36,11 @@ module.exports = ({ actions }) => {
     }),
    */
     `
+    type Link {
+      to: String!
+      title: String!
+    }
+    
     type Image {
       sm: File @fileByRelativePath
       xl: File @fileByRelativePath

@@ -1,5 +1,4 @@
 import React from 'react';
-import kebabCase from 'lodash/kebabCase';
 import { Link } from 'gatsby';
 
 import FaFolder from '../../../assets/fa/regular/folder.svg';
@@ -24,9 +23,9 @@ const PostCategory = ({ category }) => {
   return (
     <div css={wrapperStyle}>
       <FaFolder className="fa" css={iconStyle} />
-      {category.map((cat) => (
-        <Link key={cat} to={`/category/${kebabCase(cat)}/`} css={itemStyle}>
-          {cat}
+      {category.map(({ to, title }) => (
+        <Link key={to} to={to} css={itemStyle}>
+          {title}
         </Link>
       ))}
     </div>

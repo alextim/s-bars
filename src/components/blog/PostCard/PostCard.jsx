@@ -2,13 +2,13 @@
 import { jsx } from '@emotion/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-import card from '../../theme/card';
-import { space } from '../../theme/space';
-import { fontSizes } from '../../theme/font-sizes';
+import card from '../../../theme/card';
+import { space } from '../../../theme/space';
+import { fontSizes } from '../../../theme/font-sizes';
 
-import { useTranslation } from '../../i18n';
+import { useTranslation } from '../../../i18n';
 
-import getCardSchema from '../SeoBase/getCardSchema';
+import getCardSchema from '../../SeoBase/getCardSchema';
 
 const excerptStyle = {
   paddingTop: space[2],

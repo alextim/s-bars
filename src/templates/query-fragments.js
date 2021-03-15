@@ -73,8 +73,14 @@ export const mdPostFragment = graphql`
       alt
       title
     }
-    category
-    tags
+    category {
+      title
+      to
+    }
+    tags {
+      title
+      to
+    }
     dateModified
     datePublished
     noindex
@@ -103,8 +109,14 @@ export const mdPostCardFragment = graphql`
       alt
       title
     }
-    category
-    tags
+    category {
+      title
+      to
+    }
+    tags {
+      title
+      to
+    }
     dateModified
     datePublished
     slug

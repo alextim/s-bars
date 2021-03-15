@@ -5,7 +5,7 @@ import { getListItems } from '../../utils/list-info';
 
 import { space } from '../../theme/space';
 
-import Layout from '../Layout/SimpleLayoutWithHeader';
+import Layout from '../Layout';
 import SEO from '../SEO';
 
 import CardList from './CardList';

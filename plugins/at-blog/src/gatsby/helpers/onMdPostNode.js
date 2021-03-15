@@ -1,11 +1,39 @@
 const extractData = require('../../../../at-site/src/gatsby/helpers/extractData');
 
-module.exports = ({ node, actions, getNode, createNodeId, createContentDigest }) => {
+const slugify = require('../../../../../src/lib/slugify');
+const translit = require('../../../../../src/lib/translit');
+
+const i18n = require('../../../../../src/i18n/i18n');
+
+const compString = (a, b) => {
+  if (a > b) {
+    return 1;
+  }
+  if (a < b) {
+    return -1;
+  }
+  return 0;
+};
+
+const a2oa = (a, prefix, locale) => {
+  if (!a) {
+    return null;
+  }
+  // eslint-disable-next-line no-console
+  console.log('a=', typeof a, a);
+  const aMap = new Map(a);
+  return [...aMap].sort(compString).map((title) => ({
+    title,
+    to: i18n.localizePath(`${prefix}${slugify(translit(title, locale))}/`, locale),
+  }));
+};
+
+module.exports = ({ node, actions, getNode, createNodeId, createContentDigest }, options) => {
   const result = extractData({ node, getNode });
   if (!result) {
     return;
   }
-
+  const { categoryPath, tagsPath } = options;
   const { slug, locale, frontmatter } = result;
 
   const { createNode, createParentChildLink } = actions;
@@ -30,7 +58,8 @@ module.exports = ({ node, actions, getNode, createNodeId, createContentDigest })
   } = frontmatter;
 
   const year = datePublished ? new Date(datePublished).getFullYear() : null;
-
+  // eslint-disable-next-line no-console
+  console.log(category, tags);
   const fieldData = {
     title,
     description,
@@ -43,8 +72,8 @@ module.exports = ({ node, actions, getNode, createNodeId, createContentDigest })
     template,
     noindex,
 
-    category,
-    tags,
+    category: a2oa(category, categoryPath, locale),
+    tags: a2oa(tags, tagsPath, locale),
     featured,
     datePublished,
     dateModified,

@@ -1,12 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
+import mq from '../../../theme/media-queries';
+import { space } from '../../../theme/space';
 
 import PostCard from '../PostCard';
 // import loadable from '@loadable/component';
-import card from '../../theme/card';
+import card from '../../../theme/card';
 
 const wrapStyle = {
   display: 'grid',

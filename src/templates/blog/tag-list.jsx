@@ -1,28 +1,26 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/Layout/SimpleLayout';
-import SEO from '../components/SEO';
-import CategoryList from '../components/CategoryList';
-import PageHeader from '../components/DefaultHeader';
+import Layout from '../../components/Layout/Layout';
+import SEO from '../../components/SEO';
+import TagList from '../../components/blog/TagList';
 
 const htmlStyle = (t) => ({
   marginTop: t.space[6],
   marginBottom: t.space[10],
 });
 
-const CategoryListTemplate = ({ data, pageContext: { categories } }) => {
-  const {
-    translations,
-    address,
-    mainNav,
-    footerNav,
-    socialLinks,
-    page: { html, title, metaTitle, description, metaDescription, noindex, slug, locale },
-  } = data;
+const TagListTemplate = ({ data, pageContext: { tags } }) => {
+  const { translations, address, mainNav, footerNav, socialLinks, page } = data;
+
+  const { html, title, metaTitle, description, metaDescription, noindex, slug, locale } = page;
 
   return (
-    <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
+    <Layout
+      title={title}
+      subtitle={description}
+      context={{ translations, address, mainNav, footerNav, socialLinks }}
+    >
       <SEO
         locale={locale}
         title={metaTitle || title}
@@ -30,18 +28,17 @@ const CategoryListTemplate = ({ data, pageContext: { categories } }) => {
         pathname={slug}
         noindex={noindex}
       />
-      <PageHeader title={title} subtitle={description} />
       {html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
-      <CategoryList categories={categories} count />
+      <TagList tags={tags} count />
     </Layout>
   );
 };
 
-export default CategoryListTemplate;
+export default TagListTemplate;
 
 export const pageQuery = graphql`
-  query categoryListQuery($locale: String!) {
-    page: mdPage(slug: { regex: "/category-list$/" }, locale: { eq: $locale }) {
+  query tagListQuery($locale: String!) {
+    page: mdPage(slug: { regex: "//tag-list//" }, locale: { eq: $locale }) {
       ...MdPageFragment
     }
     address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {

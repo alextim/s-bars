@@ -2,15 +2,15 @@
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import { blogPath, siteUrl } from '../../config/website';
+import { blogPath, siteUrl } from '../../../config/website';
 
-import { prevLink, nextLink } from '../utils/pagination';
+import { prevLink, nextLink } from '../../utils/pagination';
 
-import Layout from '../components/Layout/SimpleLayoutWithHeader';
-import PostCardList from '../components/PostCardList';
-import PostPagination from '../components/PostPagination';
+import Layout from '../../components/Layout/Layout';
+import PostCardList from '../../components/blog/PostCardList';
+import PostPagination from '../../components/blog/PostPagination';
 // import { CategoryWidget, TagsWidget, YearsWidget } from '../components/post-widgets';
-import SEO from '../components/SEO';
+import SEO from '../../components/SEO';
 
 const htmlStyle = (t) => ({
   marginTop: t.space[6],

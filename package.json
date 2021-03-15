@@ -41,7 +41,7 @@
     "test": "cross-env NODE_ENV=test yarn run eslint",
     "testbuild": "yarn test && yarn build",
     "ncu": "ncu -u -x husky --timeout 150000 ",
-    "translations:json2yaml": "node scripts/translations-json-to-yaml",
+    "trans": "node scripts/translations-json-to-yaml",
     "postinstall": "cd plugins/at-sitemap/ && yarn"
   },
   "husky": {
@@ -70,7 +70,7 @@
     "gatsby-plugin-google-analytics": "^3.0.0",
     "gatsby-plugin-image": "^1.0.1",
     "gatsby-plugin-manifest": "^3.0.0",
-    "gatsby-plugin-netlify": "^3.0.0",
+    "gatsby-plugin-netlify": "^3.0.1",
     "gatsby-plugin-portal": "^1.0.7",
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-remove-generator": "^1.0.8",
@@ -97,7 +97,7 @@
     "@testing-library/react-hooks": "^5.1.0",
     "babel-preset-gatsby": "^1.0.0",
     "cross-env": "^7.0.3",
-    "eslint": "7.21.0",
+    "eslint": "7.22.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^8.1.0",

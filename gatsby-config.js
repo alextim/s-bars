@@ -246,13 +246,12 @@ module.exports = {
       options: {
         templatesDir: `${__dirname}/src${config.templatesDir}`,
         pageDirs,
-        // excludedSlugs: [],
       },
     },
     {
       resolve: 'at-blog',
       options: {
-        templatesDir: `${__dirname}/src${config.templatesDir}`,
+        templatesDir: `${__dirname}/src/${config.templatesDir}blog/`,
         cardsPerPage,
         postsDir,
         CREATE_TAG_PAGES: true,

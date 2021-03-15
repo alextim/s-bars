@@ -10,8 +10,9 @@ module.exports = ({ actions }) => {
       metaDescription: String
       cover: Image
 
-      category: [String]
-      tags: [String]
+      category: [Link]
+      tags: [Link]
+
       featured: Boolean
       datePublished: Date
       dateModified: Date,
@@ -36,8 +37,9 @@ module.exports = ({ actions }) => {
       metaDescription: String
       cover: Image
 
-      category: [String]
-      tags: [String]
+      category: [Link]
+      tags: [Link]
+      
       featured: Boolean
       datePublished: Date
       dateModified: Date,

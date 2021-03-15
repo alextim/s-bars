@@ -8,7 +8,7 @@ import useOrgContacts from '../hooks/useOrgContacts';
 import { useTranslation } from '../i18n';
 
 import SEO from '../components/SEO';
-import Layout from '../components/Layout/SimpleLayoutWithHeader';
+import Layout from '../components/Layout';
 import Section from '../components/Section';
 
 import styleItemsWrap from '../components/organization/styleItemsWrap';

@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { getObjectTypesTitle, getFormattedObjectTypeItems } from '../utils/list-info';
 
 import SEO from '../components/SEO';
-import Layout from '../components/Layout/SimpleLayoutWithHeader';
+import Layout from '../components/Layout';
 import AsideButtonList from '../components/AsideButtonList';
 
 import InnerAsideLayout from '../components/InnerAsideLayout';
@@ -33,12 +33,16 @@ const ObjectTypePageTemplate = ({ data }) => {
         noindex={noindex}
         imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
       />
-      <InnerAsideLayout cover={cover} html={html}>
-        <AsideButtonList
-          title={getObjectTypesTitle(mainNav)}
-          items={getFormattedObjectTypeItems(mainNav)}
-        />
-      </InnerAsideLayout>
+      <InnerAsideLayout
+        cover={cover}
+        html={html}
+        aside={
+          <AsideButtonList
+            title={getObjectTypesTitle(mainNav)}
+            items={getFormattedObjectTypeItems(mainNav)}
+          />
+        }
+      />
     </Layout>
   );
 };

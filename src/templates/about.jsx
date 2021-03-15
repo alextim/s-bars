@@ -7,7 +7,7 @@ import Section from '../components/Section';
 import Triptych from '../components/home-page-parts/Triptych';
 
 import SEO from '../components/SEO';
-import Layout from '../components/Layout/SimpleLayoutWithHeader';
+import Layout from '../components/Layout';
 
 const AboutTemplate = ({ data }) => {
   const {

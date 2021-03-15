@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import SEO from '../components/SEO';
-import Layout from '../components/Layout/SimpleLayoutWithHeader';
+import Layout from '../components/Layout';
 import AsideServices from '../components/AsideServices';
 
 import InnerAsideLayout from '../components/InnerAsideLayout';
@@ -31,9 +31,7 @@ const ServicePageTemplate = ({ data }) => {
         noindex={noindex}
         imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
       />
-      <InnerAsideLayout cover={cover} html={html}>
-        <AsideServices mainNav={mainNav} />
-      </InnerAsideLayout>
+      <InnerAsideLayout cover={cover} html={html} aside={<AsideServices mainNav={mainNav} />} />
     </Layout>
   );
 };

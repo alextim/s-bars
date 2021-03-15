@@ -38,7 +38,7 @@ const styleAsideWrap = (t) => ({
   },
 });
 
-const InnerAsideLayout = ({ cover, html, children }) => (
+const InnerAsideLayout = ({ cover, html, children, aside }) => (
   <div css={styleWrap}>
     <div css={styleImageWrap}>
       {cover && cover.sm && (
@@ -50,7 +50,8 @@ const InnerAsideLayout = ({ cover, html, children }) => (
       )}
     </div>
     {html && <div css={styleHtmlWrap} dangerouslySetInnerHTML={{ __html: html }} />}
-    <div css={styleAsideWrap}>{children}</div>
+    {children}
+    <div css={styleAsideWrap}>{aside}</div>
   </div>
 );
 

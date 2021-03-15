@@ -12,7 +12,7 @@ const slug2template = (slug) => {
 module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
   const { createPage } = actions;
 
-  const { templatesDir, excludedSlugs } = pluginOptions;
+  const { templatesDir } = pluginOptions;
   const pageDefaultTemplate = require.resolve(`${templatesDir}page.jsx`);
 
   const getTemplate = (template) => {
@@ -50,9 +50,7 @@ module.exports = async ({ graphql, actions, reporter }, pluginOptions) => {
     return;
   }
 
-  const pages = result.data.pages.edges
-    .filter(({ node: { slug } }) => !excludedSlugs.some((s) => slug.includes(s)))
-    .sort((a, b) => a.node.slug - b.node.slug);
+  const pages = result.data.pages.edges.sort((a, b) => a.node.slug - b.node.slug);
 
   if (pages.length === 0) {
     console.warn('\nNo pages');

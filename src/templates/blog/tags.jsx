@@ -1,52 +1,58 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import kebabCase from 'lodash/kebabCase';
 
-import Layout from '../components/Layout/SimpleLayout';
-import SEO from '../components/SEO';
-import PostCardList from '../components/PostCardList';
-import PostPagination from '../components/PostPagination';
-import PageHeader from '../components/DefaultHeader';
+import Layout from '../../components/Layout/Layout';
+import SEO from '../../components/SEO';
+import PostCardList from '../../components/blog/PostCardList';
+import PostPagination from '../../components/blog/PostPagination';
 
 const htmlStyle = (t) => ({
   marginTop: t.space[6],
   marginBottom: t.space[10],
 });
 
-const TagTemplate = ({ data, pageContext: { tag, currentPage, numPages } }) => {
-  const { translations, address, mainNav, footerNav, socialLinks, page } = data;
-  const isFirstPage = currentPage === 1;
+const TagTemplate = ({ data, pageContext: { tag, subpath, currentPage, numPages } }) => {
+  const {
+    translations,
+    address,
+    mainNav,
+    footerNav,
+    socialLinks,
+    page: {
+      html,
+      title: defaultTitle,
+      metaTitle,
+      description,
+      metaDescription,
+      noindex,
+      locale,
+      slug,
+    },
+  } = data;
 
   const postList = [];
   data.posts.edges.forEach(({ node }) => {
     postList.push({
-      path: node.fields.slug,
-      tags: node.frontmatter.tags,
-      category: node.frontmatter.category,
-      cover: node.frontmatter.cover,
-      title: node.frontmatter.title,
-      date: node.frontmatter.datePublished,
+      path: node.slug,
+      tags: node.tags,
+      category: node.category,
+      cover: node.cover,
+      title: node.title,
+      date: node.datePublished,
       timeToRead: node.timeToRead,
       excerpt: node.excerpt,
     });
   });
 
-  const {
-    html,
-    title: defaultTitle,
-    metaTitle,
-    description,
-    metaDescription,
-    noindex,
-    locale,
-    slug,
-  } = page;
-
   const title = `${defaultTitle} ${tag}`;
-  const subpath = `/tags/${kebabCase(tag)}/`;
+  const isFirstPage = currentPage === 1;
 
   return (
-    <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
+    <Layout
+      title={title}
+      subtitle={description}
+      context={{ translations, address, mainNav, footerNav, socialLinks }}
+    >
       <SEO
         locale={locale}
         title={metaTitle || title}
@@ -54,7 +60,6 @@ const TagTemplate = ({ data, pageContext: { tag, currentPage, numPages } }) => {
         pathname={slug}
         noindex={noindex}
       />
-      <PageHeader title={title} subtitle={description} />
       {html && isFirstPage && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
       <PostCardList posts={postList} />
       <PostPagination currentPage={currentPage} numPages={numPages} subpath={subpath} />
@@ -66,7 +71,7 @@ export default TagTemplate;
 
 export const pageQuery = graphql`
   query tagQuery($locale: String!, $tag: String, $skip: Int!, $limit: Int!) {
-    page: mdPage(slug: { regex: "/tags$/" }, locale: { eq: $locale }) {
+    page: mdPage(slug: { regex: "//tags//" }, locale: { eq: $locale }) {
       ...MdPageFragment
     }
     posts: allMdPost(

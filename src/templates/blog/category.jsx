@@ -1,19 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import kebabCase from 'lodash/kebabCase';
 
-import Layout from '../components/Layout/SimpleLayout';
-import SEO from '../components/SEO';
-import PostCardList from '../components/PostCardList';
-import PostPagination from '../components/PostPagination';
-import PageHeader from '../components/DefaultHeader';
+import Layout from '../../components/Layout/Layout';
+import SEO from '../../components/SEO';
+import PostCardList from '../../components/blog/PostCardList';
+import PostPagination from '../../components/blog/PostPagination';
 
 const htmlStyle = (t) => ({
   marginTop: t.space[6],
   marginBottom: t.space[10],
 });
 
-const CategoryTemplate = ({ data, pageContext: { category, currentPage, numPages } }) => {
+const CategoryTemplate = ({ data, pageContext: { category, subpath, currentPage, numPages } }) => {
   const {
     translations,
     address,
@@ -31,27 +29,30 @@ const CategoryTemplate = ({ data, pageContext: { category, currentPage, numPages
       locale,
     },
   } = data;
-  const isFirstPage = currentPage === 1;
 
   const postList = [];
   data.posts.edges.forEach(({ node }) => {
     postList.push({
-      path: node.fields.slug,
-      tags: node.frontmatter.tags,
-      category: node.frontmatter.category,
-      cover: node.frontmatter.cover,
-      title: node.frontmatter.title,
-      date: node.frontmatter.datePublished,
+      path: node.slug,
+      tags: node.tags,
+      category: node.category,
+      cover: node.cover,
+      title: node.title,
+      date: node.datePublished,
       timeToRead: node.timeToRead,
       excerpt: node.excerpt,
     });
   });
 
   const title = `${defaultTitle} ${category}`;
-  const subpath = `/category/${kebabCase(category)}/`;
+  const isFirstPage = currentPage === 1;
 
   return (
-    <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
+    <Layout
+      title={title}
+      subtitle={description}
+      context={{ translations, address, mainNav, footerNav, socialLinks }}
+    >
       <SEO
         locale={locale}
         title={metaTitle || title}
@@ -59,7 +60,6 @@ const CategoryTemplate = ({ data, pageContext: { category, currentPage, numPages
         pathname={slug}
         noindex={noindex}
       />
-      <PageHeader title={title} subtitle={description} />
       {html && isFirstPage && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
       <PostCardList posts={postList} />
       <PostPagination currentPage={currentPage} numPages={numPages} subpath={subpath} />
@@ -71,7 +71,7 @@ export default CategoryTemplate;
 
 export const pageQuery = graphql`
   query categoryQuery($locale: String!, $category: String, $skip: Int!, $limit: Int!) {
-    page: mdPage(slug: { regex: "/category$/" }, locale: { eq: $locale }) {
+    page: mdPage(slug: { regex: "//category//" }, locale: { eq: $locale }) {
       ...MdPageFragment
     }
     posts: allMdPost(
