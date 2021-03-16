@@ -66,7 +66,7 @@
     "@loadable/component": "^5.14.1",
     "@sendgrid/mail": "^7.4.2",
     "at-blog": "https://github.com/alextim/at-blog.git",
-    "at-seo": "file:../shared/components/at-seo",
+    "at-seo": "https://github.com/alextim/at-seo",
     "at-site-core": "https://github.com/alextim/at-site-core.git",
     "at-sitemap": "https://github.com/alextim/at-sitemap.git",
     "at-utils": "https://github.com/alextim/utils.git",
