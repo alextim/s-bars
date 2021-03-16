@@ -4,9 +4,9 @@ import { jsx } from '@emotion/react';
 import mq from '../../theme/media-queries';
 import { space } from '../../theme/space';
 import colors from '../../theme/colors';
+import container from '../../theme/container';
 import { fontSizes } from '../../theme/font-sizes';
 
-import Container from '../Container';
 import FooterWidget from './FooterWidget';
 import LegalInfo from './LegalInfo';
 import FooterNavigation from './FooterNavigation';
@@ -30,6 +30,8 @@ import OrganizationPhones from '../organization/OrganizationPhones';
 import Button from '../Button';
 
 import styleA from './styleA';
+
+const Container = ({ children }) => <div css={container.header}>{children}</div>;
 
 const styleWidgetWrap = {
   display: 'flex',

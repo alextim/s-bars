@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Utils from '../../lib/utils';
+import Utils from 'at-utils';
+
 import IconLink from '../IconLink';
 
 // import { siteUrl } from '../../../config/website';

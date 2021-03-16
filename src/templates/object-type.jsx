@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { getObjectTypesTitle, getFormattedObjectTypeItems } from '../utils/list-info';
+import { getObjectTypesTitle, getFormattedObjectTypeItems } from '../helpers/list-info';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';

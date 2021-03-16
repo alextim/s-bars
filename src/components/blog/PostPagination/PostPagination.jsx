@@ -5,7 +5,7 @@ import { space } from '../../../theme/space';
 
 import { useLocale } from '../../../i18n/i18n-context';
 
-import { currentLink, prevLink, nextLink } from '../../../utils/pagination';
+import { currentLink, prevLink, nextLink } from '../../../helpers/pagination';
 
 // https://gist.github.com/kottenator/9d936eb3e4e3c3e02598
 function pagination(currentPage, pageCount, delta = 2) {

@@ -2,7 +2,8 @@
 import { jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
-import Utils from '../../lib/utils';
+import Utils from 'at-utils';
+
 import i18n from '../../i18n';
 import { useLocale } from '../../i18n/i18n-context';
 import useOrgContacts from '../../hooks/useOrgContacts';

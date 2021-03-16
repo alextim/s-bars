@@ -8,7 +8,7 @@ import { fontSizes } from '../../../theme/font-sizes';
 
 import { useTranslation } from '../../../i18n';
 
-import getCardSchema from '../../SeoBase/getCardSchema';
+import getCardSchema from '../../SEO/getCardSchema';
 
 const excerptStyle = {
   paddingTop: space[2],

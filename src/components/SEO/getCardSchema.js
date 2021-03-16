@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import { getPageSchema } from 'at-seo';
+
 import config from '../../../config/website';
 
 import { locales } from '../../i18n/i18n';
 import { useLocale } from '../../i18n/i18n-context';
-
 import useOrgAddress from '../../hooks/useOrgAddress';
-
-import getPageSchema from './getPageSchema';
 
 const getCardSchema = ({
   to,

@@ -242,10 +242,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'at-site',
+      resolve: 'at-site-core',
       options: {
         templatesDir: `${__dirname}/src${config.templatesDir}`,
         pageDirs,
+        i18n,
       },
     },
     {
@@ -257,6 +258,7 @@ module.exports = {
         CREATE_TAG_PAGES: true,
         CREATE_CATEGORY_PAGES: true,
         CREATE_YEAR_PAGES: true,
+        i18n,
       },
     },
     {

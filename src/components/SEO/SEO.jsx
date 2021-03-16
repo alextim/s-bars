@@ -1,5 +1,5 @@
 import React from 'react';
-import SeoBase from '../SeoBase';
+import SeoBase from 'at-seo';
 
 import config from '../../../config/website';
 import i18n from '../../i18n';

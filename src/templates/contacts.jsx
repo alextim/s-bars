@@ -3,7 +3,8 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import Utils from '../lib/utils';
+import Utils from 'at-utils';
+
 import useOrgContacts from '../hooks/useOrgContacts';
 import { useTranslation } from '../i18n';
 

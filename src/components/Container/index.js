@@ -1,1 +1,1 @@
-export { ContainerFullWidth, Wrapper, default } from './Container';
+export { ContainerFullWidth, default } from './Container';

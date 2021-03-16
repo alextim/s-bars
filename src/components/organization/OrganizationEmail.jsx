@@ -1,8 +1,7 @@
 import React from 'react';
+import { obfuscate } from 'at-utils';
 
 import IconLink from '../IconLink';
-
-import { obfuscate } from '../../lib/utils';
 
 const EmailLink = ({ email, hideIcon }) => {
   const e = obfuscate(email);

@@ -16,8 +16,8 @@ import FormErrorMessage from '../Form/src/components/form-controls/FormErrorMess
 
 import FormSection from './FormSection';
 
-import EMAIL_FIELD from '../../lib/form/email-field';
-import fieldsInfo from '../../lib/form/inquiry-form-fields';
+import EMAIL_FIELD from '../../../config/form/email-field';
+import fieldsInfo from '../../../config/form/inquiry-form-fields';
 
 const OTHER_FIELD = 'other';
 

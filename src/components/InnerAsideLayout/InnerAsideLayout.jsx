@@ -13,7 +13,7 @@ const styleWrap = (t) => ({
   },
 });
 
-const styleImageWrap = (t) => ({
+const styleImage = (t) => ({
   marginBottom: t.space[8],
   [t.mq.lg]: {
     marginBottom: 0,
@@ -21,7 +21,7 @@ const styleImageWrap = (t) => ({
   },
 });
 
-const styleHtmlWrap = (t) => ({
+const styleBody = (t) => ({
   marginBottom: t.space[8],
   [t.mq.lg]: {
     gridColumn: 2,
@@ -31,7 +31,11 @@ const styleHtmlWrap = (t) => ({
   },
 });
 
-const styleAsideWrap = (t) => ({
+const styleHtml = (t) => ({
+  marginBottom: t.space[8],
+});
+
+const styleAside = (t) => ({
   [t.mq.lg]: {
     gridColumn: 1,
     paddingRight: t.space[4],
@@ -40,7 +44,7 @@ const styleAsideWrap = (t) => ({
 
 const InnerAsideLayout = ({ cover, html, children, aside }) => (
   <div css={styleWrap}>
-    <div css={styleImageWrap}>
+    <div css={styleImage}>
       {cover && cover.sm && (
         <GatsbyImage
           image={cover.sm.childImageSharp.gatsbyImageData}
@@ -49,11 +53,11 @@ const InnerAsideLayout = ({ cover, html, children, aside }) => (
         />
       )}
     </div>
-    <div>
-      {html && <div css={styleHtmlWrap} dangerouslySetInnerHTML={{ __html: html }} />}
+    <div css={styleBody}>
+      {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
       {children}
     </div>
-    <div css={styleAsideWrap}>{aside}</div>
+    <div css={styleAside}>{aside}</div>
   </div>
 );
 

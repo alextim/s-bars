@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
+import Utils from 'at-utils';
 
 import SocialLink from './SocialLink';
-import Utils from '../../lib/utils';
 // import useSocialLinks from '../../hooks/useSocialLinks';
 
 import Icon from '../Icon';

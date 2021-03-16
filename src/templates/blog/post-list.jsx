@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import { blogPath, siteUrl } from '../../../config/website';
 
-import { prevLink, nextLink } from '../../utils/pagination';
+import { prevLink, nextLink } from '../../helpers/pagination';
 
 import Layout from '../../components/Layout/Layout';
 import PostCardList from '../../components/blog/PostCardList';

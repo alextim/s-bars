@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Utils from '../../lib/utils';
+import Utils from 'at-utils';
+
 import colors from '../../theme/colors';
 
 import IconLink from '../IconLink';

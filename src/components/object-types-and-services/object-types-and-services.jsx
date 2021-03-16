@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import { getListItems } from '../../utils/list-info';
+import { getListItems } from '../../helpers/list-info';
 
 import { space } from '../../theme/space';
 

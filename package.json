@@ -41,8 +41,7 @@
     "test": "cross-env NODE_ENV=test yarn run eslint",
     "testbuild": "yarn test && yarn build",
     "ncu": "ncu -u -x husky --timeout 150000 ",
-    "trans": "node scripts/translations-json-to-yaml",
-    "postinstall": "cd plugins/at-sitemap/ && yarn"
+    "trans": "node scripts/translations-json-to-yaml"
   },
   "husky": {
     "hooks": {
@@ -60,12 +59,16 @@
       "prettier-eslint --write",
       "git add ."
     ]
-
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@loadable/component": "^5.14.1",
     "@sendgrid/mail": "^7.4.2",
+    "at-blog": "https://github.com/alextim/at-blog.git",
+    "at-seo": "file:../shared/components/at-seo",
+    "at-site-core": "https://github.com/alextim/at-site-core.git",
+    "at-sitemap": "https://github.com/alextim/at-sitemap.git",
+    "at-utils": "https://github.com/alextim/utils.git",
     "disable-scroll": "^0.6.0",
     "dotenv": "^8.2.0",
     "email-validator": "^2.0.4",

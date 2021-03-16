@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-const wrapper = require('../../plugins/at-site/src/gatsby/helpers/promise-wrapper');
 const config = require('../../config/website');
 
 const templatesDir = `..${config.templatesDir}`;
@@ -11,32 +10,30 @@ module.exports = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   console.log('===== createPages: Services & Object Types =====');
-  const result = await wrapper(
-    graphql(`
-      {
-        objectTypes: allMdPage(limit: 100, filter: { type: { eq: "object" } }) {
-          edges {
-            node {
-              id
-              template
-              slug
-              locale
-            }
-          }
-        }
-        services: allMdPage(limit: 100, filter: { type: { eq: "service" } }) {
-          edges {
-            node {
-              id
-              template
-              slug
-              locale
-            }
+  const result = await graphql(`
+    {
+      objectTypes: allMdPage(limit: 100, filter: { type: { eq: "object" } }) {
+        edges {
+          node {
+            id
+            template
+            slug
+            locale
           }
         }
       }
-    `),
-  );
+      services: allMdPage(limit: 100, filter: { type: { eq: "service" } }) {
+        edges {
+          node {
+            id
+            template
+            slug
+            locale
+          }
+        }
+      }
+    }
+  `);
 
   if (result.errors) {
     reporter.panic(result.errors);
@@ -52,13 +49,14 @@ module.exports = async ({ graphql, actions, reporter }) => {
   } else {
     console.log(`\nMd services: ${services.length}`);
     console.log('---------------');
-    services.forEach(({ node: { id, slug } }) => {
+    services.forEach(({ node: { id, slug, locale } }) => {
       console.log('pagepath=', slug);
       createPage({
         path: slug,
         component: serviceDefaultTemplate,
         context: {
           id,
+          locale,
         },
       });
     });
@@ -73,13 +71,14 @@ module.exports = async ({ graphql, actions, reporter }) => {
   } else {
     console.log(`\nMd object types: ${objectTypes.length}`);
     console.log('---------------');
-    objectTypes.forEach(({ node: { id, slug } }) => {
+    objectTypes.forEach(({ node: { id, slug, locale } }) => {
       console.log('pagepath=', slug);
       createPage({
         path: slug,
         component: objectTypeDefaultTemplate,
         context: {
           id,
+          locale,
         },
       });
     });

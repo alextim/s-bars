@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import Container from '../Container';
 import Navbar from '../Navbar';
 
 import mq from '../../theme/media-queries';
@@ -9,23 +8,20 @@ import colors from '../../theme/colors';
 import { fontSizes } from '../../theme/font-sizes';
 import sizes from '../../theme/sizes';
 import shadows from '../../theme/shadows';
+import container from '../../theme/container';
 
 // const rootPath = `${__PATH_PREFIX__}/`;
 //   if (location.pathname === rootPath) {
 
 const styleHeader = {
-  display: 'flex',
-  alignItems: 'center',
   width: '100%',
   height: sizes.header.sm,
   contain: 'layout',
-  color: colors.header.text,
-  backgroundColor: colors.header.bg,
   position: 'fixed',
   top: 0,
   left: 0,
-  boxShadow: shadows.raised,
   fontSize: fontSizes[1],
+  boxShadow: shadows.raised,
   zIndex: 200,
   [mq.lg]: {
     height: sizes.header.xl,
@@ -35,18 +31,17 @@ const styleHeader = {
 const styleInnerWrap = {
   display: 'flex',
   alignItems: 'center',
-  width: '100%',
   height: '100%',
-  backgroundColor: 'inherit',
+  color: colors.header.text,
+  backgroundColor: colors.header.bg,
+  ...container.header,
 };
 
 const Header = () => (
   <header role="navigation" css={styleHeader}>
-    <Container>
-      <div css={styleInnerWrap}>
-        <Navbar />
-      </div>
-    </Container>
+    <div css={styleInnerWrap}>
+      <Navbar />
+    </div>
   </header>
 );
 
