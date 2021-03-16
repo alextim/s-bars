@@ -41,7 +41,8 @@
     "test": "cross-env NODE_ENV=test yarn run eslint",
     "testbuild": "yarn test && yarn build",
     "ncu": "ncu -u -x husky --timeout 150000 ",
-    "trans": "node scripts/translations-json-to-yaml"
+    "trans": "node scripts/translations-json-to-yaml",
+    "upd": "scripts/content-update.bat"
   },
   "husky": {
     "hooks": {
