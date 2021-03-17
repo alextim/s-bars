@@ -2844,46 +2844,46 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
-"at-blog@https://github.com/alextim/at-blog.git":
+at-blog@alextim/at-blog:
   version "0.0.1"
-  resolved "https://github.com/alextim/at-blog.git#105e3ce013f6e205befedfb18f45eeea23ae54bd"
+  resolved "https://codeload.github.com/alextim/at-blog/tar.gz/3b2fe55fff4cb697d6fcf52226a49269b4aa8a18"
   dependencies:
-    at-site-core "https://github.com/alextim/at-site-core.git"
-    at-slugify "https://github.com/alextim/slugify.git"
-    at-translit "https://github.com/alextim/translit.git"
+    at-site-core alextim/at-site-core
+    at-slugify alextim/slugify
+    at-translit alextim/translit
 
 at-least-node@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-"at-seo@https://github.com/alextim/at-seo":
+at-seo@alextim/at-seo:
   version "0.0.1"
-  resolved "https://github.com/alextim/at-seo#ef0815ebc980d1c8b07247740618621726d5446d"
+  resolved "https://codeload.github.com/alextim/at-seo/tar.gz/ef0815ebc980d1c8b07247740618621726d5446d"
   dependencies:
     react-helmet "^6.1.0"
 
-"at-site-core@https://github.com/alextim/at-site-core.git":
+at-site-core@alextim/at-site-core:
   version "0.0.2"
-  resolved "https://github.com/alextim/at-site-core.git#5d2fb62f39513b61792994f568f9785118306742"
+  resolved "https://codeload.github.com/alextim/at-site-core/tar.gz/5d2fb62f39513b61792994f568f9785118306742"
 
-"at-sitemap@https://github.com/alextim/at-sitemap.git":
+at-sitemap@alextim/at-sitemap:
   version "0.0.1"
-  resolved "https://github.com/alextim/at-sitemap.git#c84263e3de274139fbf7448f654d33f7f0265252"
+  resolved "https://codeload.github.com/alextim/at-sitemap/tar.gz/3d9c6101a5a13d09642bdd02166949124fa67386"
   dependencies:
     sitemap "^6.4.0"
 
-"at-slugify@https://github.com/alextim/slugify.git":
+at-slugify@alextim/slugify:
   version "0.0.1"
-  resolved "https://github.com/alextim/slugify.git#e3997e9a65491e65271b63eeb9a2705f57860365"
+  resolved "https://codeload.github.com/alextim/slugify/tar.gz/e3997e9a65491e65271b63eeb9a2705f57860365"
 
-"at-translit@https://github.com/alextim/translit.git":
+at-translit@alextim/translit:
   version "0.0.1"
-  resolved "https://github.com/alextim/translit.git#cb25bfb6d940c303cd9c9dd934e6b8b2e18ffb30"
+  resolved "https://codeload.github.com/alextim/translit/tar.gz/cb25bfb6d940c303cd9c9dd934e6b8b2e18ffb30"
 
-"at-utils@https://github.com/alextim/utils.git":
+at-utils@alextim/utils:
   version "0.0.1"
-  resolved "https://github.com/alextim/utils.git#567bbb68c6c0d8a61ffecc3e9b85b7e79c72f714"
+  resolved "https://codeload.github.com/alextim/utils/tar.gz/567bbb68c6c0d8a61ffecc3e9b85b7e79c72f714"
 
 atob@^2.1.2:
   version "2.1.2"
@@ -4077,9 +4077,9 @@ content-type@^1.0.4, content-type@~1.0.4:
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
 contentful-management@^7.5.1:
-  version "7.10.0"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.10.0.tgz#942e26b5a82bed1798d527c5b2e8b3b6b88409b8"
-  integrity sha512-caVoNTzU/nHFn+NsBu+o7u1hpsnYMBEBmsZilT03BSGAO0rqnVquN/ftVd58+3JNgdw++NcpfA66JnhCi/MMIw==
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.11.0.tgz#3202c68c603e781fbcdd9286bebc3bd0c847c9d7"
+  integrity sha512-ewRMdKe1BpJ3ySAVBaIjOPsaVi9tP9cWd6h04foS+1u4HrAG23IKZsD3ZPl4jrArKerLDetvXAX0S446/DVd1g==
   dependencies:
     axios "^0.21.0"
     contentful-sdk-core "^6.7.0"
@@ -4796,9 +4796,9 @@ detect-newline@^1.0.3:
     minimist "^1.1.0"
 
 detect-node@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
-  integrity sha512-ZIzRpLJrOj7jjP2miAtgqIfmzbxa4ZOr5jJc601zklsfEx9oTzmmj2nVpIPRpNlRTIh8lc1kyViIY7BWSGNmKw==
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.5.tgz#9d270aa7eaa5af0b72c4c9d9b814e7f4ce738b79"
+  integrity sha512-qi86tE6hRcFHy8jI1m2VG+LaPUR1LhqDa5G8tVjuUXmOrpuAgqsA1pN0+ldgr3aKUH+QLI9hCY/OcRYisERejw==
 
 detect-port-alt@1.1.6:
   version "1.1.6"
@@ -5083,9 +5083,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.649:
-  version "1.3.689"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.689.tgz#0f4082467c109844b79a7b32a2649c9ab6a6c822"
-  integrity sha512-WCn+ZaU3V8WttlLNSOGOAlR2XpxibGre7slwGrYBB6oTjYPgP29LNDGG6wLvLTMseLdE+G1vno7PfY7JyDV48g==
+  version "1.3.690"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.690.tgz#54df63ec42fba6b8e9e05fe4be52caeeedb6e634"
+  integrity sha512-zPbaSv1c8LUKqQ+scNxJKv01RYFkVVF1xli+b+3Ty8ONujHjAMg+t/COmdZqrtnS1gT+g4hbSodHillymt1Lww==
 
 email-validator@^2.0.4:
   version "2.0.4"
@@ -8705,6 +8705,11 @@ is-unc-path@^1.0.0:
   dependencies:
     unc-path-regex "^0.1.2"
 
+is-unicode-supported@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/is-unicode-supported/-/is-unicode-supported-0.1.0.tgz#3f26c76a809593b52bfa2ecb5710ed2779b522a7"
+  integrity sha512-knxG2q4UC3u8stRGyAVJCOdxFmv5DZiRcdlIaAQXAbSfJya+OhopNotLQrstBhququ4ZpuKbDc/8S6mgXgPFPw==
+
 is-url@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/is-url/-/is-url-1.2.4.tgz#04a4df46d28c4cff3d73d01ff06abeb318a1aa52"
@@ -9340,11 +9345,12 @@ lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-4.0.0.tgz#69b3cc46d20f448eccdb75ea1fa733d9e821c920"
-  integrity sha512-FN8JBzLx6CzeMrB0tg6pqlGU1wCrXW+ZXGH481kfsBqer0hToTIiHdjH4Mq8xJUbvATujKCvaREGWpGUionraA==
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-4.1.0.tgz#3fbdbb95b4683ac9fc785111e792e558d4abd503"
+  integrity sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==
   dependencies:
-    chalk "^4.0.0"
+    chalk "^4.1.0"
+    is-unicode-supported "^0.1.0"
 
 log-update@^4.0.0:
   version "4.0.0"
@@ -13905,9 +13911,9 @@ terser-webpack-plugin@^5.1.1:
     terser "^5.5.1"
 
 terser@^5.5.1:
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.6.0.tgz#138cdf21c5e3100b1b3ddfddf720962f88badcd2"
-  integrity sha512-vyqLMoqadC1uR0vywqOZzriDYzgEkNJFK4q9GeyOBHIbiECHiWLKcWfbQWAUaPfxkjDhapSlZB9f7fkMrvkVjA==
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.6.1.tgz#a48eeac5300c0a09b36854bf90d9c26fb201973c"
+  integrity sha512-yv9YLFQQ+3ZqgWCUk+pvNJwgUTdlIxUk1WTN+RnaFJe2L7ipG2csPT0ra2XRm7Cs8cxN7QXmK1rFzEwYEQkzXw==
   dependencies:
     commander "^2.20.0"
     source-map "~0.7.2"
@@ -14921,9 +14927,9 @@ webpack-virtual-modules@^0.3.2:
     debug "^3.0.0"
 
 webpack@^5.16.0:
-  version "5.26.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.26.1.tgz#164ce73703f88936925dfe843b85806145f4d1e9"
-  integrity sha512-yepddlLlSfXq9NEIl5udTbETC4kG4UMzdeY4KJfaznFbN1SEIobj89aVVfh/Xei/pKPofGmC8hVT2CJ3Hl/8VQ==
+  version "5.26.3"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.26.3.tgz#bafd439abac08fbb82657ec855d038743b725ab8"
+  integrity sha512-z/F2lt2N1fZqaud1B4SzjL3OW03eULThbBXQ2OX4LSrZX4N9k1A5d0Rje3zS2g887DTWyAV0KGqEf64ois2dhg==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.46"

@@ -44,18 +44,6 @@
     "trans": "node scripts/translations-json-to-yaml",
     "upd": "scripts/content-update.bat"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint --fix",
-      "prettier-eslint --write",
-      "git add ."
-    ]
-  },
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@loadable/component": "^5.14.1",
@@ -87,7 +75,6 @@
     "gatsby-transformer-sharp": "^3.1.0",
     "gatsby-transformer-yaml": "^3.1.0",
     "lazysizes": "^5.3.0",
-    "lodash": "^4.17.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
