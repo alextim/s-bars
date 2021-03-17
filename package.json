@@ -60,7 +60,7 @@
     "@emotion/react": "^11.1.5",
     "@loadable/component": "^5.14.1",
     "@sendgrid/mail": "^7.4.2",
-    "at-blog": "github:alextim/at-blog",
+    "at-blog": "git+https://read:x-oauth-basic@github.com/alextim/at-blog.git",
     "at-seo": "alextim/at-seo",
     "at-site-core": "alextim/at-site-core",
     "at-sitemap": "alextim/at-sitemap",
