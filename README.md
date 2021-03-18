@@ -994,6 +994,7 @@ featured: false
 |   4 x 3              | > 696 x 522
 
 :bulb: Согласно требований Google минимальная ширина картинки должна быть не меньше 696px. Иначе она не попадет в **Google Картинками**. Подробнее [здесь](https://developers.google.com/search/docs/advanced/guidelines/google-images?hl=ru).
+
 ### Собственно Страницы
 
 Папка: `[CONTENT_DIR]\pages`
