@@ -488,7 +488,7 @@ Netlify отслеживает все изменения в удаленном �
 - [favicon.ico](https://en.wikipedia.org/wiki/Favicon)
 - [Facebook OpenGrpah](https://developers.facebook.com/docs/sharing/best-practices#images)
 - [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image)
-- [Local Business](https://developers.google.com/search/docs/data-types/local-business?hl=en)
+- [Местная компания](https://developers.google.com/search/docs/data-types/local-business?hl=ru)
 
 
 ## Ссылки
