@@ -3,44 +3,51 @@ import { jsx } from '@emotion/react';
 
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-const styleWrap = (t) => ({
+import mq from '../../theme/media-queries';
+import { space } from '../../theme/space';
+
+const styleWrap = {
   display: 'flex',
   flexDirection: 'column',
-  [t.mq.lg]: {
+  [mq.lg]: {
     display: 'grid',
-    gridGap: `${t.space[7]} 0`,
-    grid: 'auto 1fr/1fr 3fr',
+    // gridColumnGap: 0,
+    gridRowGap: space[7],
+    grid: 'auto 1fr/25% 75%',
   },
-});
+};
 
-const styleImage = (t) => ({
-  marginBottom: t.space[8],
-  [t.mq.lg]: {
-    marginBottom: 0,
-    paddingRight: t.space[4],
-  },
-});
-
-const styleBody = (t) => ({
-  marginBottom: t.space[8],
-  [t.mq.lg]: {
-    gridColumn: 2,
-    gridRow: 'auto/span 2',
-    marginBottom: 0,
-    paddingLeft: t.space[4],
-  },
-});
-
-const styleHtml = (t) => ({
-  marginBottom: t.space[8],
-});
-
-const styleAside = (t) => ({
-  [t.mq.lg]: {
+const styleImage = {
+  marginBottom: space[8],
+  [mq.lg]: {
     gridColumn: 1,
-    paddingRight: t.space[4],
+    gridRow: 1,
+    marginBottom: 0,
+    paddingRight: space[4],
   },
-});
+};
+
+const styleBody = {
+  marginBottom: space[8],
+  [mq.lg]: {
+    gridColumn: 2,
+    gridRow: '1/span 2',
+    marginBottom: 0,
+    paddingLeft: space[4],
+  },
+};
+
+const styleHtml = {
+  marginBottom: space[8],
+};
+
+const styleAside = {
+  [mq.lg]: {
+    gridColumn: 1,
+    gridRow: 2,
+    paddingRight: space[4],
+  },
+};
 
 const InnerAsideLayout = ({ cover, html, children, aside }) => (
   <div css={styleWrap}>

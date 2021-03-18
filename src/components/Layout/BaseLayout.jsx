@@ -9,23 +9,25 @@ import Header from '../Header';
 import Footer from '../Footer';
 // import useInquiryForm from '../useInquiryForm';
 
+import mq from '../../theme/media-queries';
+import sizes from '../../theme/sizes';
+
 const rootStyle = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-  // variant: 'layout.root',
 };
 
-const mainStyle = (t) => ({
+const mainStyle = {
   width: '100%',
   flex: '1 1 auto',
-  marginTop: t.sizes.header.sm,
-  paddingBottom: t.sizes.header.sm,
-  [t.mq.lg]: {
-    marginTop: t.sizes.header.xl,
-    paddingBottom: t.sizes.header.xl,
+  marginTop: sizes.header.sm,
+  paddingBottom: sizes.header.sm,
+  [mq.lg]: {
+    marginTop: sizes.header.xl,
+    paddingBottom: sizes.header.xl,
   },
-});
+};
 
 const BaseLayout = ({ context, children }) => (
   <AppContextProvider value={context}>

@@ -12,7 +12,7 @@ const styleWrap = {
   display: 'grid',
   gridGap: space[10],
   [mq.lg]: {
-    gridTemplateColumns: 'repeat(2, 1fr)',
+    gridTemplateColumns: '50% 50%',
   },
 };
 
