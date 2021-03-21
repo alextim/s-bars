@@ -2,6 +2,39 @@
 # yarn lockfile v1
 
 
+"@alextim/at-blog@^0.3.0":
+  version "0.3.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.3.0/566f6343f54a97449a8ca6cb04fc2cf993b1d3fe7845b6632f3f2da22192a5ec#d3deb9f31750b4751b5c930a1045898a72519257"
+  integrity sha512-w4a5OJZtUBJ+jonPbBMeSuarHA0JgD1CFG3tXx5HDNXmIyy3SHsOrZd2w1L1DSzE9qooDoBeI5KMuM6SmpaFLg==
+  dependencies:
+    at-site-core "github:alextim/at-site-core"
+    at-slugify "github:alextim/slugify"
+    at-translit "github:alextim/translit"
+
+"@alextim/at-seo@^0.2.0":
+  version "0.2.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.2.0/3dc4de02424f5ad7d70fff585bf2c6c75e1e6dbe872b7c65660daf534ecf1348#f130cc86adc43a59778d223e061bb9e509001e85"
+  integrity sha512-FNkFHCwx6OQe/VZPxoo6y6cgwLsYRUEr82P9iZ2W8CbhHwSFweFsxk8ieYrJcpze/VmR9q5eGmL4YGYZGotfng==
+  dependencies:
+    react-helmet "^6.1.0"
+
+"@alextim/at-site-core@^0.3.0":
+  version "0.3.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-site-core/0.3.0/bbab6189c2b3c8ffa83aab47a480519dc9fcb3c46105dbbe72ca38172eaacb98#f2be1f9a24a4dd18bb8cc7fd0919d33e53fed5ac"
+  integrity sha512-OOFLyCPud7rq7Kq2izjfmFF7OuJXy9ekLsP9lkD+t04zuYeZSxCVAcurcGNwhlsLrUmwbSb8HvLIE5Gz9BVvXw==
+
+"@alextim/at-sitemap@^0.3.0":
+  version "0.3.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-sitemap/0.3.0/bbe61836d60c807bfebccba1a28a62dfd4d31a3cbfc6546f9a873935a5e6b27e#efe8b78025ad6a3ccffeeba77573f4649ed911a9"
+  integrity sha512-ZfwxH+5m+OsYoNGH4aP1EFTV6FhYYJTAYLkQkAH6VFHTRldn7v+toCwSPbeBQzYBzYGGPbpJGGCvWLZOZxoGiw==
+  dependencies:
+    sitemap "^6.4.0"
+
+"@alextim/utils@^0.1.0":
+  version "0.1.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/utils/0.1.0/98a867f85efb0f86fddb2918b42eb85cffd4616053bff28f56a69500e7ab5f6d#e6fb070faad76a75a932bada5b18610393b77925"
+  integrity sha512-9paxXArjIPt3XAijhE3Ctn52ovKikieO0l3kEBHr/E5biYpBz0N7YZAhjO1N/GzIbPBzzuHvcCDmRbOt5hkbjw==
+
 "@ardatan/aggregate-error@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@ardatan/aggregate-error/-/aggregate-error-0.0.6.tgz#fe6924771ea40fc98dc7a7045c2e872dc8527609"
@@ -2844,46 +2877,22 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
-at-blog@alextim/at-blog:
-  version "0.0.1"
-  resolved "https://codeload.github.com/alextim/at-blog/tar.gz/3b2fe55fff4cb697d6fcf52226a49269b4aa8a18"
-  dependencies:
-    at-site-core alextim/at-site-core
-    at-slugify alextim/slugify
-    at-translit alextim/translit
-
 at-least-node@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-at-seo@alextim/at-seo:
-  version "0.0.1"
-  resolved "https://codeload.github.com/alextim/at-seo/tar.gz/ef0815ebc980d1c8b07247740618621726d5446d"
-  dependencies:
-    react-helmet "^6.1.0"
+"at-site-core@github:alextim/at-site-core":
+  version "0.2.0"
+  resolved "https://codeload.github.com/alextim/at-site-core/tar.gz/daa4edf68036408808832c79d3f08ea6f52f68b9"
 
-at-site-core@alextim/at-site-core:
-  version "0.0.2"
-  resolved "https://codeload.github.com/alextim/at-site-core/tar.gz/5d2fb62f39513b61792994f568f9785118306742"
+"at-slugify@github:alextim/slugify":
+  version "0.4.0"
+  resolved "https://codeload.github.com/alextim/slugify/tar.gz/f48e9094564944222bffa0e9f2ad18cec9e4e4ce"
 
-at-sitemap@alextim/at-sitemap:
-  version "0.0.1"
-  resolved "https://codeload.github.com/alextim/at-sitemap/tar.gz/3d9c6101a5a13d09642bdd02166949124fa67386"
-  dependencies:
-    sitemap "^6.4.0"
-
-at-slugify@alextim/slugify:
-  version "0.0.1"
-  resolved "https://codeload.github.com/alextim/slugify/tar.gz/e3997e9a65491e65271b63eeb9a2705f57860365"
-
-at-translit@alextim/translit:
-  version "0.0.1"
-  resolved "https://codeload.github.com/alextim/translit/tar.gz/cb25bfb6d940c303cd9c9dd934e6b8b2e18ffb30"
-
-at-utils@alextim/utils:
-  version "0.0.1"
-  resolved "https://codeload.github.com/alextim/utils/tar.gz/567bbb68c6c0d8a61ffecc3e9b85b7e79c72f714"
+"at-translit@github:alextim/translit":
+  version "0.4.0"
+  resolved "https://codeload.github.com/alextim/translit/tar.gz/cfbbec411ec5ae9cc5683e4b5f3a6459e886a731"
 
 atob@^2.1.2:
   version "2.1.2"
@@ -2944,7 +2953,7 @@ babel-eslint@^10.0.1:
     eslint-visitor-keys "^1.0.0"
     resolve "^1.12.0"
 
-babel-jsx-utils@^1.0.1:
+babel-jsx-utils@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/babel-jsx-utils/-/babel-jsx-utils-1.1.0.tgz#304ce4fce0c86cbeee849551a45eb4ed1036381a"
   integrity sha512-Mh1j/rw4xM9T3YICkw22aBQ78FhsHdsmlb9NEk4uVAFBOg+Ez9ZgXXHugoBPCZui3XLomk/7/JBBH4daJqTkQQ==
@@ -6630,14 +6639,15 @@ gatsby-plugin-google-analytics@^3.1.0:
     "@babel/runtime" "^7.12.5"
     minimatch "3.0.4"
 
-gatsby-plugin-image@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.1.0.tgz#cf7538385ad9c80418529024ad35e2c1f7a919ac"
-  integrity sha512-r/nsdznnFp8Rz/gLuCKnbHl8cPHdQW6mYh3PVGXgdF9cI6CiJd9kYSs6zCFtrsl+FxMcW3VDY7h4F/1OTwh9kQ==
+gatsby-plugin-image@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.1.1.tgz#b23789c105fda88196d846fc55e3fc290f1a99e5"
+  integrity sha512-8CIldGsS9ZQguVoIMNz3DAfU5GiQc1ez9hJTzlfqUusGbn8UdoVBnlVSVYWG0H0FKFnXuh+6ELksw6vvOGKS4g==
   dependencies:
+    "@babel/code-frame" "^7.12.13"
     "@babel/parser" "^7.12.5"
     "@babel/traverse" "^7.12.5"
-    babel-jsx-utils "^1.0.1"
+    babel-jsx-utils "^1.1.0"
     babel-plugin-remove-graphql-queries "^3.1.0"
     camelcase "^5.3.1"
     chokidar "^3.5.1"
@@ -6709,10 +6719,10 @@ gatsby-plugin-remove-generator@^1.0.8:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-generator/-/gatsby-plugin-remove-generator-1.0.8.tgz#3e8ef157d3c614a46a3604d6f0502f84e448c1df"
   integrity sha512-b+Y7dW2fXTwen0N6BM99szSYDZFgPuec84K1Tkhye7y7dF8+yL4JedBKpOnQ933wWgszsgCoPoU/nr7Sypk5XA==
 
-gatsby-plugin-sharp@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-3.1.0.tgz#64472f5b0904ce04fe8da1a01ae9d72b099239c6"
-  integrity sha512-u9gVDjclnxKuC86r4ghX6ne94ndnYpHULezPkzWoVepJVV7p1khVYeRnvfWbXPt7TN3NrgUgIsyDKQ1fzHKFZA==
+gatsby-plugin-sharp@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-3.1.1.tgz#886f99646fe37870ed549e0763db5a829b343792"
+  integrity sha512-j/4i0ZII1q2wC8bAD3nsi7FuLQv5m6rtdBy42xZfv3TkXIuPpAN4nbN+5BEfSy1yQuOLGe6jMbsUrtenMk1IwQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     async "^3.2.0"
@@ -6943,10 +6953,10 @@ gatsby-transformer-yaml@^3.1.0:
     lodash "^4.17.21"
     unist-util-select "^1.5.0"
 
-gatsby@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.1.0.tgz#88bfd1053d7a6574208d5fb525186a6a20ca8ffd"
-  integrity sha512-AnEMYZk5f5zEPZ4yHUaJk9G98RyoWdnkif1k2GvEyRrMbPOW6VpZdFnxZKVGfX/AZcA+pA0szuY8f46GASaXEg==
+gatsby@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.1.1.tgz#510f2160decb477f4837c08305f516538c2725a2"
+  integrity sha512-rn5M+Hc2RlJnwU8rHQ/5ZQ5VVJFRHt1iFq+A2AogSITYL538/FU7+94K3TWYexc5VJgfOptXo3eg4RCOpOTFHg==
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/core" "^7.12.3"

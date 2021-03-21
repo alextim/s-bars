@@ -28,8 +28,8 @@ const CategoryListTemplate = ({ data, pageContext: { categories } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
+        title={metaTitle}
+        description={metaDescription}
         pathname={slug}
         noindex={noindex}
       />

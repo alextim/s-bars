@@ -2,129 +2,13 @@
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import { blogPath, siteUrl } from '../../../config/website';
+import PostList from '../../components/blog/PostList';
 
-import { prevLink, nextLink } from '../../helpers/pagination';
+const PostListTemplate = ({ data, pageContext }) => (
+  <PostList data={data} pageContext={pageContext} />
+);
 
-import Layout from '../../components/Layout/Layout';
-import PostCardList from '../../components/blog/PostCardList';
-import PostPagination from '../../components/blog/PostPagination';
-// import { CategoryWidget, TagsWidget, YearsWidget } from '../components/post-widgets';
-import SEO from '../../components/SEO';
-
-const htmlStyle = (t) => ({
-  marginTop: t.space[6],
-  marginBottom: t.space[10],
-});
-
-const PostList = ({
-  data,
-  /**
-   * keep it fot the future!
-   */
-  /*
-  pageContext: { locale, currentPage, numPages, categories, tags, years },
-  */
-  pageContext: { currentPage, numPages },
-}) => {
-  const {
-    translations,
-    address,
-    mainNav,
-    footerNav,
-    socialLinks,
-    page: { html, title, metaTitle, description, metaDescription, noindex, locale, slug },
-  } = data;
-
-  const isFirst = currentPage === 1;
-  const isLast = currentPage === numPages;
-
-  const links = [];
-
-  if (numPages > 1) {
-    if (!isFirst) {
-      links.push({
-        rel: 'prev',
-        href: siteUrl + prevLink(currentPage, blogPath, locale),
-      });
-    }
-    if (!isLast) {
-      links.push({
-        rel: 'next',
-        href: siteUrl + nextLink(currentPage, blogPath, locale),
-      });
-    }
-  }
-
-  const postList = data.posts.edges.map(
-    ({
-      node: {
-        slug: itemSlug,
-        tags,
-        category,
-        cover,
-        title: itemTitle,
-        description: itemDscription,
-        metaDescription: itemMetaDescription,
-        datePublished,
-        dateModified,
-        timeToRead,
-        excerpt,
-      },
-    }) => ({
-      path: itemSlug,
-      tags,
-      category,
-      cover,
-      title: itemTitle,
-      description: itemDscription,
-      metaDescription: itemMetaDescription,
-      datePublished,
-      dateModified,
-      timeToRead,
-      excerpt,
-    }),
-  );
-
-  /*
-  let metas;
-
-  if (!isFirst) {
-    metas = {
-      robots: 'noindex, follow',
-    };
-  }
-  */
-
-  return (
-    <Layout
-      title={title}
-      subtitle={description}
-      context={{ translations, address, mainNav, footerNav, socialLinks }}
-    >
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={slug}
-        noindex={noindex}
-        pageType="Blog"
-        links={links}
-      />
-      {/*
-      <CategoryWidget items={categories} />
-      <TagsWidget items={tags} />
-      <YearsWidget items={years} />
-      */}
-
-      {isFirst && html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
-      <PostCardList posts={postList} />
-      <PostPagination currentPage={currentPage} numPages={numPages} subpath={blogPath} />
-    </Layout>
-  );
-};
-
-export default PostList;
+export default PostListTemplate;
 
 export const pageQuery = graphql`
   query PostListQuery($locale: String!, $skip: Int!, $limit: Int!) {

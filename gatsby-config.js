@@ -242,7 +242,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'at-site-core',
+      resolve: '@alextim/at-site-core',
       options: {
         templatesDir: `${__dirname}/src${config.templatesDir}`,
         pageDirs,
@@ -250,7 +250,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'at-blog',
+      resolve: '@alextim/at-blog',
       options: {
         templatesDir: `${__dirname}/src/${config.templatesDir}blog/`,
         cardsPerPage,
@@ -262,7 +262,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'at-sitemap',
+      resolve: '@alextim/at-sitemap',
       options: {
         ignoreImagesWithoutAlt: false,
       },

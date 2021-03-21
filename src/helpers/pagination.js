@@ -1,10 +1,5 @@
-import i18n from '../i18n';
+export const prevLink = (page, slug) => `${slug}${page - 1 === 1 ? '' : `${page - 1}/`}`;
 
-export const prevLink = (currentPage, subpath, locale) =>
-  i18n.localizePath(`${subpath}${currentPage - 1 === 1 ? '' : `${currentPage - 1}/`}`, locale);
+export const nextLink = (page, slug) => `${slug}${page + 1}/`;
 
-export const nextLink = (currentPage, subpath, locale) =>
-  i18n.localizePath(`${subpath}${currentPage + 1}/`, locale);
-
-export const currentLink = (page, subpath, locale) =>
-  i18n.localizePath(`${subpath}${page === 1 ? '' : `${page}/`}`, locale);
+export const currentLink = (page, slug) => `${slug}${page === 1 ? '' : `${page}/`}`;

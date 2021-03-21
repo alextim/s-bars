@@ -23,8 +23,8 @@ const TagListTemplate = ({ data, pageContext: { tags } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
+        title={metaTitle}
+        description={metaDescription}
         pathname={slug}
         noindex={noindex}
       />

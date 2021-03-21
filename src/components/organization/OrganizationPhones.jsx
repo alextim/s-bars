@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Utils from 'at-utils';
+import Utils from '@alextim/utils';
 
 import IconLink from '../IconLink';
 

@@ -23,8 +23,8 @@ const YearsListTemplate = ({ data, pageContext: { years } }) => {
     >
       <SEO
         locale={locale}
-        title={metaTitle || title}
-        description={metaDescription || description}
+        title={metaTitle}
+        description={metaDescription}
         pathname={slug}
         noindex={noindex}
       />

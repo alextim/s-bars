@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { getPageSchema } from 'at-seo';
+import { getPageSchema } from '@alextim/at-seo';
 
 import config from '../../../config/website';
 

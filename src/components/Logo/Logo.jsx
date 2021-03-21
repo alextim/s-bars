@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
-import Utils from 'at-utils';
+import Utils from '@alextim/utils';
 
 import i18n from '../../i18n';
 import { useLocale } from '../../i18n/i18n-context';

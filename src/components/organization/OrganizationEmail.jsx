@@ -1,5 +1,5 @@
 import React from 'react';
-import { obfuscate } from 'at-utils';
+import { obfuscate } from '@alextim/utils';
 
 import IconLink from '../IconLink';
 
