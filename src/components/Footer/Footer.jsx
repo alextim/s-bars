@@ -49,7 +49,7 @@ const styleWidgetArea = {
   paddingTop: space[5],
   paddingBottom: space[5],
   [mq.lg]: {
-    gridTemplateColumns: '25% 25% 50%',
+    gridTemplateColumns: '1fr 1fr 2fr',
     paddingTop: space[6],
     paddingBottom: space[6],
   },

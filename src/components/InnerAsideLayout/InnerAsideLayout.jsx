@@ -13,7 +13,7 @@ const styleWrap = {
     display: 'grid',
     // gridColumnGap: 0,
     gridRowGap: space[7],
-    grid: 'auto 1fr/25% 75%',
+    grid: 'auto 1fr/1fr 3fr',
   },
 };
 
