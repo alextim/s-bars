@@ -6,7 +6,7 @@ const styleWrap = (t) => ({
   gridGap: t.space[2],
   [t.mq.lg]: {
     gridGap: 0,
-    gridTemplateColumns: '25% 75%',
+    gridTemplateColumns: '1fr 3fr',
   },
 });
 

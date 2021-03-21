@@ -100,7 +100,7 @@ const styleWrap3 = (t) => ({
   display: 'grid',
   gridGap: t.space[8],
   [t.mq.lg]: {
-    gridTemplateColumns: 'calc(100%/3) calc(100%/3) calc(100%/3)',
+    gridTemplateColumns: 'repeat(3, 1fr)',
   },
 });
 

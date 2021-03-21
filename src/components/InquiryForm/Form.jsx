@@ -29,7 +29,7 @@ const styleSections = (t) => ({
 const styleFooter = (t) => ({
   [t.mq.lg]: {
     display: 'grid',
-    gridTemplateColumns: '25% 75%',
+    gridTemplateColumns: '1fr 3fr',
   },
 });
 const styleFooterInner = (t) => ({
