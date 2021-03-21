@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
-import Utils from '@alextim/utils';
+import utils from '@alextim/utils';
 
 import i18n from '../../i18n';
 import { useLocale } from '../../i18n/i18n-context';
@@ -78,7 +78,7 @@ const Logo = ({ onClick }) => {
         <Link to={to} onClick={onClick} css={styleHomeLink}>
           {i18n.locales[locale].siteShortName}
         </Link>
-        <a href={Utils.phoneUrl(phone[0])}>{Utils.formatPhone(phone[0])}</a>
+        <a href={utils.phoneUrl(phone[0])}>{utils.formatPhone(phone[0])}</a>
       </div>
     </div>
   );

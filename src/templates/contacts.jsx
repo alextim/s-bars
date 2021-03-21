@@ -3,7 +3,7 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import Utils from '@alextim/utils';
+import utils from '@alextim/utils';
 
 import useOrgContacts from '../hooks/useOrgContacts';
 import { useTranslation } from '../i18n';
@@ -69,7 +69,7 @@ const OpeningHours = ({ data }) => {
 };
 
 const EmailLink = ({ email }) => {
-  const e = Utils.obfuscate(email);
+  const e = utils.obfuscate(email);
   return <a href={`mailto:${e}`}>{e}</a>;
 };
 
@@ -84,8 +84,8 @@ const ContactPoints = ({ items }) => {
       <div css={styleItemSeparator}>{contactType}</div>
       <div css={styleItemsWrap}>
         {telephone.map((tel) => (
-          <a key={tel} href={Utils.phoneUrl(tel)}>
-            {Utils.formatPhone(tel)}
+          <a key={tel} href={utils.phoneUrl(tel)}>
+            {utils.formatPhone(tel)}
           </a>
         ))}
         {email.map((em) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Utils from 'at-utils';
+import utils from '@alextim/utils';
 
 import IconLink from '../IconLink';
 
@@ -9,7 +9,7 @@ import useSiteMetadata from '../../hooks/useSiteMetadata';
 
 const OrganizationSite = () => {
   const { siteUrl } = useSiteMetadata();
-  const hostName = Utils.extractHostname(siteUrl);
+  const hostName = utils.extractHostname(siteUrl);
 
   return (
     <IconLink icon="link" to={siteUrl}>

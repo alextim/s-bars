@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import Utils from '@alextim/utils';
+import utils from '@alextim/utils';
 
 import SocialLink from './SocialLink';
 // import useSocialLinks from '../../hooks/useSocialLinks';
@@ -22,7 +22,7 @@ const SocialLinks = ({ items }) => (
       <SocialLink
         key={key}
         icon={<Icon name={key} />}
-        name={Utils.upperFirst(key)}
+        name={utils.upperFirst(key)}
         to={items[key].to}
         title={items[key].title}
       />

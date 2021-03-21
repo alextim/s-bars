@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Utils from 'at-utils';
+import utils from '@alextim/utils';
 
 import colors from '../../theme/colors';
 
@@ -14,12 +14,12 @@ const OrganizationCloudPhones = ({ voice }) => {
         <IconLink
           icon="whatsapp"
           color={whatsapp}
-          to={Utils.whatsappUrl(voice.whatsapp)}
+          to={utils.whatsappUrl(voice.whatsapp)}
           title="WhatsApp"
           target="_blank"
           rel="noindex noopener noreferrer"
         >
-          {Utils.formatPhone(voice.whatsapp)}
+          {utils.formatPhone(voice.whatsapp)}
         </IconLink>
       )}
 
@@ -27,7 +27,7 @@ const OrganizationCloudPhones = ({ voice }) => {
         <IconLink
           icon="telegram"
           color={telegram}
-          to={Utils.telegramUrl(voice.telegram)}
+          to={utils.telegramUrl(voice.telegram)}
           title="Telegram"
           target="_blank"
           rel="noindex noopener noreferrer"
@@ -40,12 +40,12 @@ const OrganizationCloudPhones = ({ voice }) => {
         <IconLink
           icon="viber"
           color={viber}
-          to={Utils.viberUrl(voice.viber)}
+          to={utils.viberUrl(voice.viber)}
           title="Viber"
           target="_blank"
           rel="noindex noopener noreferrer"
         >
-          {Utils.formatPhone(voice.viber)}
+          {utils.formatPhone(voice.viber)}
         </IconLink>
       )}
     </>
