@@ -25,28 +25,18 @@ import './swiper-styles.css';
 
 import SliderItem from './SliderItem';
 
-import { space } from '../../../theme/space';
-
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
-const styleWrap = {
-  marginBottom: space[10],
-};
-
-const Slider = ({ items }) => {
-  return (
-    <section css={styleWrap}>
-      <Swiper slidesPerView={1} spaceBetween={0} navigation pagination autoplay loop>
-        {items &&
-          items.map(({ title: itemTitle, image }, i) => (
-            <SwiperSlide key={i}>
-              <SliderItem title={itemTitle} image={image} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
-    </section>
-  );
-};
+const Slider = ({ items }) => (
+  <Swiper slidesPerView={1} spaceBetween={0} navigation pagination autoplay loop>
+    {items &&
+      items.map(({ title: itemTitle, image }, i) => (
+        <SwiperSlide key={i}>
+          <SliderItem title={itemTitle} image={image} />
+        </SwiperSlide>
+      ))}
+  </Swiper>
+);
 
 export default Slider;

@@ -35,7 +35,7 @@ const PriceListTemplate = ({ data }) => {
   return (
     <Layout
       title={title}
-      subtitle={headline}
+      headline={headline}
       cover={cover}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >

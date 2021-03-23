@@ -3,9 +3,9 @@ import React from 'react';
 import ContainerLayout from './ContainerLayout';
 import PageHeader from '../DefaultHeader';
 
-const Layout = ({ title, subtitle, context, children }) => (
+const Layout = ({ title, headline, context, children }) => (
   <ContainerLayout context={context}>
-    <PageHeader title={title} subtitle={subtitle} />
+    <PageHeader title={title} headline={headline} />
     {children}
   </ContainerLayout>
 );

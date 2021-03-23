@@ -18,7 +18,7 @@ const TagListTemplate = ({ data, pageContext: { tags } }) => {
   return (
     <Layout
       title={title}
-      subtitle={headline}
+      headline={headline}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO

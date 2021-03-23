@@ -109,7 +109,7 @@ const PostList = ({
   return (
     <Layout
       title={title || defaultTitle}
-      subtitle={headline}
+      headline={headline}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO

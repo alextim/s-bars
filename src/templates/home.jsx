@@ -8,6 +8,9 @@ import Layout from '../components/Layout/BaseLayout';
 
 import Section from '../components/Section';
 
+import mq from '../theme/media-queries';
+import { space } from '../theme/space';
+
 import {
   Slider,
   ObjectTypes,
@@ -17,16 +20,21 @@ import {
   Credo,
 } from '../components/home-page-parts';
 
-/*
 const styleTitle = {
   marginTop: space[2],
 };
 
 const styleHeadline = {
-  marginTop: space[4],
+  margin: `${space[4]} auto ${space[10]}`,
   textAlign: 'center',
+  [mq.md]: {
+    padding: `0 ${space[12]}`,
+  },
+  [mq.lg]: {
+    padding: '0 10rem',
+  },
 };
-*/
+
 const HomeTemplate = ({ data }) => {
   const {
     translations,
@@ -54,8 +62,10 @@ const HomeTemplate = ({ data }) => {
         {sections && (
           <>
             <Slider items={sections[0].items} />
-            <h1>{title}</h1>
-            <div>{headline}</div>
+
+            <h1 css={styleTitle}>{title}</h1>
+            <div css={styleHeadline}>{headline}</div>
+
             <ObjectTypes
               title={sections[1].title}
               subtitle={sections[1].subtitle}

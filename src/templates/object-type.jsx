@@ -22,7 +22,7 @@ const ObjectTypePageTemplate = ({ data }) => {
   return (
     <Layout
       title={title}
-      subtitle={headline}
+      headline={headline}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
