@@ -1563,7 +1563,6 @@ foundingDate: 2009-01-01
 
 ```yaml
 openingHours:
-  - ["mo-fr", "09:00", "18:00"]
   - ["mo", "10:00", "18:00"]
   - ["tu", "10:00", "18:00"]
   - ["we", "10:00", "18:00"]
@@ -1607,18 +1606,18 @@ openingHours:
 
 Папка: `[CONTENT_DIR]\data\locales`
 
-| Что         | Папка                                  | Имя файла             | Комментарий                            |
-| ------------ | --------------------------------------- | --------------------- | ------------------------------- |
-| Главное меню    | .\main-nav              | main-nav.uk.yaml     |
-|              |                        | main-nav.ru.yaml     |
-| Навигация в футере  | .\footer-nav            | footer-nav.uk.yaml   |
-|              |                        | footer-nav.ru.yaml   |
-| Ссылки на соц.сети | .\social-links          | social-links.uk.yaml | Facebook, Intagram и тд          |
-|              |                        | social-links.ru.yaml |
-| Адрес      | .\address               | address.uk.yaml      | Официальное название организации, почтовый адрес, подробное описание контактов          |
-|              |                        | address.ru.yaml      |
-| Переводы | .\translations          | translations.uk.yaml | Для внутреннего использования
-|              |                        | translations.ru.yaml |
+| Что                | Папка           | Имя файла            | Комментарий
+| ------------       | --------------- | -------------------  | -------------------
+| Главное меню       | .\main-nav      | main-nav.uk.yaml     |
+|                    |                 | main-nav.ru.yaml     |
+| Навигация в футере | .\footer-nav    | footer-nav.uk.yaml   |
+|                    |                 | footer-nav.ru.yaml   |
+| Ссылки на соц.сети | .\social-links  | social-links.uk.yaml | Facebook, Intagram и тд
+|                    |                 | social-links.ru.yaml |
+| Адрес              | .\address       | address.uk.yaml      | Официальное название организации, почтовый адрес, подробное описание контактов
+|                    |                 | address.ru.yaml      |
+| Переводы           | .\translations  | translations.uk.yaml | Для внутреннего использования
+|                    |                 | translations.ru.yaml |
 
 
 #### Навигация в футере
