@@ -14,7 +14,7 @@ export const pageQuery = graphql`
   query PostListQuery($locale: String!, $skip: Int!, $limit: Int!) {
     #
     # blogPath
-    # regex: "/blog$/"
+    # regex: "//blog//"
     #
     page: mdPage(slug: { regex: "//blog//" }, locale: { eq: $locale }) {
       ...MdPageFragment

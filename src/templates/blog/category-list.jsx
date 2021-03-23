@@ -5,10 +5,7 @@ import Layout from '../../components/Layout/Layout';
 import SEO from '../../components/SEO';
 import CategoryList from '../../components/blog/CategoryList';
 
-const htmlStyle = (t) => ({
-  marginTop: t.space[6],
-  marginBottom: t.space[10],
-});
+import styleHtml from '../../components/styles/styleHtml';
 
 const CategoryListTemplate = ({ data, pageContext: { categories } }) => {
   const {
@@ -33,7 +30,7 @@ const CategoryListTemplate = ({ data, pageContext: { categories } }) => {
         pathname={slug}
         noindex={noindex}
       />
-      {html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
+      {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
       <CategoryList categories={categories} count />
     </Layout>
   );

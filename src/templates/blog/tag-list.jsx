@@ -5,10 +5,7 @@ import Layout from '../../components/Layout/Layout';
 import SEO from '../../components/SEO';
 import TagList from '../../components/blog/TagList';
 
-const htmlStyle = (t) => ({
-  marginTop: t.space[6],
-  marginBottom: t.space[10],
-});
+import styleHtml from '../../components/styles/styleHtml';
 
 const TagListTemplate = ({ data, pageContext: { tags } }) => {
   const { translations, address, mainNav, footerNav, socialLinks, page } = data;
@@ -28,7 +25,7 @@ const TagListTemplate = ({ data, pageContext: { tags } }) => {
         pathname={slug}
         noindex={noindex}
       />
-      {html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
+      {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
       <TagList tags={tags} count />
     </Layout>
   );

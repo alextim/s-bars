@@ -45,8 +45,7 @@ const HomeTemplate = ({ data }) => {
     page: { title, headline, metaTitle, metaDescription, noindex, sections, html, locale, slug },
   } = data;
   const objectTypes = mainNav.edges[1].node.submenu;
-  // eslint-disable-next-line no-console
-  console.log('HOME', slug);
+
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
       <SEO

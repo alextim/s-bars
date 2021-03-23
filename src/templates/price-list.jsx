@@ -6,10 +6,12 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import PriceList from '../components/PriceList';
 
-const styleHtml = (t) => ({
+import styleHtmlDefault from '../components/styles/styleHtml';
+
+const styleHtml = {
+  ...styleHtmlDefault,
   textAlign: 'justify',
-  marginTop: t.space[9],
-});
+};
 
 const PriceListTemplate = ({ data }) => {
   const {

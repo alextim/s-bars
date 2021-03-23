@@ -3,17 +3,12 @@ import { jsx } from '@emotion/react';
 
 import { getListItems } from '../../helpers/list-info';
 
-import { space } from '../../theme/space';
-
 import Layout from '../Layout';
 import SEO from '../SEO';
 
-import CardList from './CardList';
+import styleHtml from '../styles/styleHtml';
 
-const htmlStyle = {
-  marginTop: space[6],
-  marginBottom: space[10],
-};
+import CardList from './CardList';
 
 const ObjectTypeServiceList = ({ data, type }) => {
   const {
@@ -55,7 +50,7 @@ const ObjectTypeServiceList = ({ data, type }) => {
         noindex={noindex}
       />
       <CardList items={items} />
-      {html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
+      {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
     </Layout>
   );
 };

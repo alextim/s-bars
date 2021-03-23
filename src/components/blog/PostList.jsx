@@ -2,19 +2,19 @@
 import { jsx } from '@emotion/react';
 
 import { siteUrl } from '../../../config/website';
-
 import { prevLink, nextLink } from '../../helpers/pagination';
 
-import Layout from '../Layout/Layout';
-import PostCardList from './PostCardList';
+import styleCardsWrap from '../styles/styleCardsWrap';
+
+import Layout from '../Layout';
+import SEO from '../SEO';
+import styleHtml from '../styles/styleHtml';
+
+import PostCard from './PostCard';
+// import loadable from '@loadable/component';
+
 import PostPagination from './PostPagination';
 // import { CategoryWidget, TagsWidget, YearsWidget } from '../components/post-widgets';
-import SEO from '../SEO';
-
-const htmlStyle = (t) => ({
-  marginTop: t.space[6],
-  marginBottom: t.space[10],
-});
 
 const PostList = ({
   data,
@@ -44,6 +44,7 @@ const PostList = ({
       locale,
       slug,
     },
+    posts,
   } = data;
 
   const isFirst = currentPage === 1;
@@ -66,46 +67,6 @@ const PostList = ({
     }
   }
 
-  const postList = data.posts.edges.map(
-    ({
-      node: {
-        slug: itemSlug,
-        tags,
-        category,
-        cover,
-        title: itemTitle,
-        headline: itemHeadline,
-        metaDescription: itemMetaDescription,
-        datePublished,
-        dateModified,
-        timeToRead,
-        excerpt,
-      },
-    }) => ({
-      path: itemSlug,
-      tags,
-      category,
-      cover,
-      title: itemTitle,
-      headline: itemHeadline,
-      metaDescription: itemMetaDescription,
-      datePublished,
-      dateModified,
-      timeToRead,
-      excerpt,
-    }),
-  );
-
-  /*
-  let metas;
-
-  if (!isFirst) {
-    metas = {
-      robots: 'noindex, follow',
-    };
-  }
-  */
-
   return (
     <Layout
       title={title || defaultTitle}
@@ -127,8 +88,14 @@ const PostList = ({
       <YearsWidget items={years} />
       */}
 
-      {isFirst && html && <div css={htmlStyle} dangerouslySetInnerHTML={{ __html: html }} />}
-      <PostCardList posts={postList} />
+      {isFirst && html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
+
+      <div css={styleCardsWrap}>
+        {posts.edges.map(({ node }) => (
+          <PostCard key={node.slug} data={node} />
+        ))}
+      </div>
+
       <PostPagination currentPage={currentPage} numPages={numPages} slug={subpath || slug} />
     </Layout>
   );
