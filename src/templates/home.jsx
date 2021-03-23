@@ -17,6 +17,16 @@ import {
   Credo,
 } from '../components/home-page-parts';
 
+/*
+const styleTitle = {
+  marginTop: space[2],
+};
+
+const styleHeadline = {
+  marginTop: space[4],
+  textAlign: 'center',
+};
+*/
 const HomeTemplate = ({ data }) => {
   const {
     translations,
@@ -24,9 +34,9 @@ const HomeTemplate = ({ data }) => {
     mainNav,
     footerNav,
     socialLinks,
-    page: { metaTitle, metaDescription, noindex, sections, html, locale, slug },
+    page: { title, headline, metaTitle, metaDescription, noindex, sections, html, locale, slug },
   } = data;
-  const getObjectTypes = () => mainNav.edges[1].node.fields.submenu;
+  const objectTypes = mainNav.edges[1].node.submenu;
   // eslint-disable-next-line no-console
   console.log('HOME', slug);
   return (
@@ -43,12 +53,14 @@ const HomeTemplate = ({ data }) => {
       <Container>
         {sections && (
           <>
-            <Slider title={sections[0].title} text={sections[0].text} items={sections[0].items} />
+            <Slider items={sections[0].items} />
+            <h1>{title}</h1>
+            <div>{headline}</div>
             <ObjectTypes
               title={sections[1].title}
               subtitle={sections[1].subtitle}
               text={sections[1].text}
-              items={getObjectTypes()}
+              items={objectTypes}
             />
             <Triptych
               title={sections[2].title}
@@ -88,7 +100,7 @@ export const pageQuery = graphql`
   query HomePageQuery($id: String!, $locale: String!) {
     page: mdPage(id: { eq: $id }) {
       title
-      description
+      headline
       metaTitle
       metaDescription
       noindex
@@ -117,38 +129,30 @@ export const pageQuery = graphql`
       }
       html
     }
-    address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
+    address: address(locale: { eq: $locale }) {
       ...AddressFragment
     }
-    mainNav: allYaml(filter: { fields: { type: { eq: "main-nav" }, locale: { eq: $locale } } }) {
+    mainNav: allMainNav(filter: { locale: { eq: $locale } }) {
       edges {
         node {
           title
-          fields {
-            to
-            submenu {
-              title
-              to
-            }
-          }
-        }
-      }
-    }
-    footerNav: allYaml(
-      filter: { fields: { type: { eq: "footer-nav" }, locale: { eq: $locale } } }
-    ) {
-      edges {
-        node {
-          title
-          fields {
+          to
+          submenu {
+            title
             to
           }
         }
       }
     }
-    socialLinks: allYaml(
-      filter: { fields: { type: { eq: "social-links" }, locale: { eq: $locale } } }
-    ) {
+    footerNav: allFooterNav(filter: { locale: { eq: $locale } }) {
+      edges {
+        node {
+          title
+          to
+        }
+      }
+    }
+    socialLinks: allSocialLink(filter: { locale: { eq: $locale } }) {
       edges {
         node {
           code
@@ -157,10 +161,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    translations: allYaml(
-      filter: { fields: { type: { eq: "translations" }, locale: { eq: $locale } } }
-      limit: 1000
-    ) {
+    translations: allTranslation(filter: { locale: { eq: $locale } }, limit: 1000) {
       edges {
         node {
           key

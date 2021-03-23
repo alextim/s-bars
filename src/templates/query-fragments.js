@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 export const mdPageFragment = graphql`
   fragment MdPageFragment on MdPage {
     title
-    description
+    headline
     metaTitle
     metaDescription
     cover {
@@ -59,7 +59,7 @@ export const mdPageFragment = graphql`
 export const mdPostFragment = graphql`
   fragment MdPostFragment on MdPost {
     title
-    description
+    headline
     metaTitle
     metaDescription
     cover {
@@ -95,7 +95,7 @@ export const mdPostFragment = graphql`
 export const mdPostCardFragment = graphql`
   fragment MdPostCardFragment on MdPost {
     title
-    description
+    headline
     metaTitle
     metaDescription
     cover {
@@ -128,7 +128,7 @@ export const mdPostCardFragment = graphql`
 export const mdCardFragment = graphql`
   fragment MdCardFragment on MdPage {
     title
-    description
+    headline
     metaTitle
     metaDescription
     cover {
@@ -152,8 +152,9 @@ export const mdPostShortInfoFragment = graphql`
     slug
   }
 `;
+
 export const addressFragment = graphql`
-  fragment AddressFragment on Yaml {
+  fragment AddressFragment on Address {
     name
     legalName
     alternateName

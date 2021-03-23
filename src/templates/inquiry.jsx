@@ -15,13 +15,13 @@ const InquiryTemplate = ({ data }) => {
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, description, metaDescription, noindex, locale, slug },
+    page: { title, metaTitle, headline, metaDescription, noindex, locale, slug },
   } = data;
 
   return (
     <Layout
       title={title}
-      subtitle={description}
+      subtitle={headline}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -41,43 +41,35 @@ const InquiryTemplate = ({ data }) => {
 
 export default InquiryTemplate;
 
-export const inquiryPageQuery = graphql`
+export const pageQuery = graphql`
   query InquiryPageQuery($id: String!, $locale: String!) {
     page: mdPage(id: { eq: $id }) {
       ...MdPageFragment
     }
-    address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
+    address: address(locale: { eq: $locale }) {
       ...AddressFragment
     }
-    mainNav: allYaml(filter: { fields: { type: { eq: "main-nav" }, locale: { eq: $locale } } }) {
+    mainNav: allMainNav(filter: { locale: { eq: $locale } }) {
       edges {
         node {
           title
-          fields {
-            to
-            submenu {
-              title
-              to
-            }
-          }
-        }
-      }
-    }
-    footerNav: allYaml(
-      filter: { fields: { type: { eq: "footer-nav" }, locale: { eq: $locale } } }
-    ) {
-      edges {
-        node {
-          title
-          fields {
+          to
+          submenu {
+            title
             to
           }
         }
       }
     }
-    socialLinks: allYaml(
-      filter: { fields: { type: { eq: "social-links" }, locale: { eq: $locale } } }
-    ) {
+    footerNav: allFooterNav(filter: { locale: { eq: $locale } }) {
+      edges {
+        node {
+          title
+          to
+        }
+      }
+    }
+    socialLinks: allSocialLink(filter: { locale: { eq: $locale } }) {
       edges {
         node {
           code
@@ -86,10 +78,7 @@ export const inquiryPageQuery = graphql`
         }
       }
     }
-    translations: allYaml(
-      filter: { fields: { type: { eq: "translations" }, locale: { eq: $locale } } }
-      limit: 1000
-    ) {
+    translations: allTranslation(filter: { locale: { eq: $locale } }, limit: 1000) {
       edges {
         node {
           key

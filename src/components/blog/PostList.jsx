@@ -38,7 +38,7 @@ const PostList = ({
       html,
       title: defaultTitle,
       metaTitle,
-      description,
+      headline,
       metaDescription,
       noindex,
       locale,
@@ -74,7 +74,7 @@ const PostList = ({
         category,
         cover,
         title: itemTitle,
-        description: itemDscription,
+        headline: itemHeadline,
         metaDescription: itemMetaDescription,
         datePublished,
         dateModified,
@@ -87,7 +87,7 @@ const PostList = ({
       category,
       cover,
       title: itemTitle,
-      description: itemDscription,
+      headline: itemHeadline,
       metaDescription: itemMetaDescription,
       datePublished,
       dateModified,
@@ -109,7 +109,7 @@ const PostList = ({
   return (
     <Layout
       title={title || defaultTitle}
-      subtitle={description}
+      subtitle={headline}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO

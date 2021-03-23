@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 const useOrgContacts = () => {
   const data = useStaticQuery(graphql`
     query OrganizationQuery {
-      yaml(fields: { type: { eq: "contacts" } }) {
+      contact {
         organizationType
         email
         geo {
@@ -29,7 +29,7 @@ const useOrgContacts = () => {
     }
   `);
 
-  return data.yaml;
+  return data.contact;
 };
 
 export default useOrgContacts;

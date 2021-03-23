@@ -28,7 +28,7 @@ const PostTemplate = ({ data }) => {
     post: {
       title,
       metaTitle,
-      description,
+      headline,
       metaDescription,
       cover,
       noindex,
@@ -44,14 +44,14 @@ const PostTemplate = ({ data }) => {
   return (
     <Layout
       title={title}
-      subtitle={description}
+      subtitle={headline}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        headline={description}
+        headline={headline}
         pathname={slug}
         noindex={noindex}
         datePublished={datePublished}
@@ -106,38 +106,30 @@ export const postQuery = graphql`
         }
       }
     }
-    address: yaml(fields: { type: { eq: "address" }, locale: { eq: $locale } }) {
+    address: address(locale: { eq: $locale }) {
       ...AddressFragment
     }
-    mainNav: allYaml(filter: { fields: { type: { eq: "main-nav" }, locale: { eq: $locale } } }) {
+    mainNav: allMainNav(filter: { locale: { eq: $locale } }) {
       edges {
         node {
           title
-          fields {
-            to
-            submenu {
-              title
-              to
-            }
-          }
-        }
-      }
-    }
-    footerNav: allYaml(
-      filter: { fields: { type: { eq: "footer-nav" }, locale: { eq: $locale } } }
-    ) {
-      edges {
-        node {
-          title
-          fields {
+          to
+          submenu {
+            title
             to
           }
         }
       }
     }
-    socialLinks: allYaml(
-      filter: { fields: { type: { eq: "social-links" }, locale: { eq: $locale } } }
-    ) {
+    footerNav: allFooterNav(filter: { locale: { eq: $locale } }) {
+      edges {
+        node {
+          title
+          to
+        }
+      }
+    }
+    socialLinks: allSocialLink(filter: { locale: { eq: $locale } }) {
       edges {
         node {
           code
@@ -146,10 +138,7 @@ export const postQuery = graphql`
         }
       }
     }
-    translations: allYaml(
-      filter: { fields: { type: { eq: "translations" }, locale: { eq: $locale } } }
-      limit: 1000
-    ) {
+    translations: allTranslation(filter: { locale: { eq: $locale } }, limit: 1000) {
       edges {
         node {
           key

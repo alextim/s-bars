@@ -34,36 +34,17 @@ const styleWrap = {
   marginBottom: space[10],
 };
 
-const styleTitle = {
-  marginTop: space[2],
-};
-
-const styleText = {
-  marginTop: space[4],
-  textAlign: 'center',
-};
-
-const Slider = ({ title, text, items }) => {
+const Slider = ({ items }) => {
   return (
     <section css={styleWrap}>
       <Swiper slidesPerView={1} spaceBetween={0} navigation pagination autoplay loop>
         {items &&
-          items.map(
-            ({ title: itemTitle, subtitle: itemSubtitle, image, to, text: itemText }, i) => (
-              <SwiperSlide key={i}>
-                <SliderItem
-                  title={itemTitle}
-                  subtitle={itemSubtitle}
-                  to={to}
-                  text={itemText}
-                  image={image}
-                />
-              </SwiperSlide>
-            ),
-          )}
+          items.map(({ title: itemTitle, image }, i) => (
+            <SwiperSlide key={i}>
+              <SliderItem title={itemTitle} image={image} />
+            </SwiperSlide>
+          ))}
       </Swiper>
-      <h1 css={styleTitle}>{title}</h1>
-      <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />
     </section>
   );
 };

@@ -20,16 +20,7 @@ const styleReadMore = {
 };
 
 const PostCard = ({
-  data: {
-    path: to,
-    cover,
-    title,
-    excerpt,
-    description,
-    metaDescription,
-    datePublished,
-    dateModified,
-  },
+  data: { path: to, cover, title, excerpt, headline, metaDescription, datePublished, dateModified },
 }) => {
   const { t } = useTranslation();
 
@@ -40,7 +31,7 @@ const PostCard = ({
           getCardSchema({
             to,
             title,
-            headline: description || metaDescription,
+            headline: headline || metaDescription,
             cover,
             datePublished,
             dateModified,

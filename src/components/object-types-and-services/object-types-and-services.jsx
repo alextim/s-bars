@@ -23,7 +23,7 @@ const ObjectTypeServiceList = ({ data, type }) => {
     footerNav,
     socialLinks,
     pageItems = [],
-    page: { html, title, metaTitle, description, metaDescription, noindex, locale, slug },
+    page: { html, title, metaTitle, headline, metaDescription, noindex, locale, slug },
   } = data;
 
   /**
@@ -44,7 +44,7 @@ const ObjectTypeServiceList = ({ data, type }) => {
   return (
     <Layout
       title={title}
-      subtitle={description}
+      subtitle={headline}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
