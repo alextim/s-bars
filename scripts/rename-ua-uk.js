@@ -5,26 +5,30 @@ const fs = require('fs');
 
 const PATTERN = /\.ua.json$|\.ua.md$|\.ua.yaml$/;
 const REPLACE = 'uk';
+const EXCLUDE = ['.git', '.github'];
 
 let dirCount = 0;
 const listDir = (dir, fileList = []) => {
+  console.log('Reading:', dir);
   dirCount++;
   const files = fs.readdirSync(dir);
 
   files.forEach((file) => {
-    if (fs.statSync(path.join(dir, file)).isDirectory()) {
-      fileList = listDir(path.join(dir, file), fileList);
-    } else if (PATTERN.test(file)) {
-      const parts = file.split('.');
-      const name = parts[0];
-      const ext = parts[parts.length - 1];
-      const newFileName = `${name}.${REPLACE}.${ext}`;
-      const src = path.join(dir, file);
-      const newSrc = path.join(dir, newFileName);
-      fileList.push({
-        oldSrc: src,
-        newSrc,
-      });
+    if (!EXCLUDE.some((v) => v === file)) {
+      if (fs.statSync(path.join(dir, file)).isDirectory()) {
+        fileList = listDir(path.join(dir, file), fileList);
+      } else if (PATTERN.test(file)) {
+        const parts = file.split('.');
+        const name = parts[0];
+        const ext = parts[parts.length - 1];
+        const newFileName = `${name}.${REPLACE}.${ext}`;
+        const src = path.join(dir, file);
+        const newSrc = path.join(dir, newFileName);
+        fileList.push({
+          oldSrc: src,
+          newSrc,
+        });
+      }
     }
   });
 
@@ -35,7 +39,9 @@ const startTime = new Date();
 console.log(`Pattern: ${PATTERN.toString()}`);
 console.log(`Replace: ${REPLACE}`);
 
-const foundFiles = listDir('content');
+const SRC = path.join(__dirname, '..', '..', 's-bars.content');
+
+const foundFiles = listDir(SRC);
 foundFiles.forEach((f) => {
   fs.renameSync(f.oldSrc, f.newSrc);
 });
