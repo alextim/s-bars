@@ -23,6 +23,10 @@ const dayOffColumnStyle = {
 const OrganizationOpeningHours = ({ openingHours }) => {
   const { t } = useTranslation();
 
+  if (!openingHours) {
+    return null;
+  }
+
   const parseDow = (s) => {
     if (!s) {
       return '';

@@ -36,7 +36,7 @@ const GlobalStyle = () => (
       html {
         scroll-padding-top: calc(${sizes.header.sm} + 1.5rem);
         ${mq.lg} {
-          scroll-padding-top: calc(${sizes.header.xl} + 1.5rem);
+          scroll-padding-top: calc(${sizes.header.lg} + 1.5rem);
         }
       }
 
@@ -76,10 +76,11 @@ const GlobalStyle = () => (
       }
       */
       body {
-        margin: 0;
         font-family: ${fonts.body};
         line-height: ${lineHeights.body};
         font-weight: ${fontWeights.body};
+        color: ${colors.text};
+        background-color: ${colors.background};
       }
 
       a,

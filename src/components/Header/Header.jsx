@@ -24,7 +24,7 @@ const styleHeader = {
   boxShadow: shadows.raised,
   zIndex: 200,
   [mq.lg]: {
-    height: sizes.header.xl,
+    height: sizes.header.lg,
   },
 };
 

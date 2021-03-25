@@ -28,7 +28,7 @@ const dropDownWrapStyle = {
   backgroundColor: colors.header.nav.submenu.bg,
   [mq.lg]: {
     position: 'absolute',
-    top: sizes.header.xl,
+    top: sizes.header.lg,
     backgroundColor: colors.header.bg,
     left: 0,
     boxShadow: '2px 2px 15px 0 rgba(0,0,0,.8)',

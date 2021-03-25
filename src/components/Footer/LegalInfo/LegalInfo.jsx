@@ -9,10 +9,16 @@ const style = {
   },
 };
 
-const LegalInfo = ({ foundingDate, name, text }) => (
-  <div css={style}>{`© ${
-    foundingDate ? `${new Date(foundingDate).getFullYear()}-` : ''
-  }${new Date().getFullYear()} ${name}${text ? `. ${text}` : ''}`}</div>
-);
+const LegalInfo = ({ foundingDate, name, text }) => {
+  const currentYear = new Date().getFullYear();
+  let s = '';
+  if (foundingDate) {
+    const foundingYear = new Date(foundingDate).getFullYear();
+    if (foundingYear !== currentYear) {
+      s = `${foundingYear}-`;
+    }
+  }
+  return <div css={style}>{`© ${s}${currentYear} ${name}${text ? `. ${text}` : ''}`}</div>;
+};
 
 export default LegalInfo;

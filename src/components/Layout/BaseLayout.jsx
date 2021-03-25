@@ -24,8 +24,8 @@ const mainStyle = {
   marginTop: sizes.header.sm,
   paddingBottom: sizes.header.sm,
   [mq.lg]: {
-    marginTop: sizes.header.xl,
-    paddingBottom: sizes.header.xl,
+    marginTop: sizes.header.lg,
+    paddingBottom: sizes.header.lg,
   },
 };
 
