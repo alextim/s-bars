@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@alextim/at-blog": "^0.1.1",
-    "@alextim/at-seo": "^0.1.0",
+    "@alextim/at-seo": "^0.1.1",
     "@alextim/at-site-core": "^0.1.1",
     "@alextim/at-sitemap": "^0.1.0",
     "@alextim/slugify": "^0.1.0",
@@ -115,7 +115,7 @@
   },
   "comments": {
     "@alextim/at-blog": "^0.1.1",
-    "@alextim/at-seo": "^0.1.0",
+    "@alextim/at-seo": "^0.1.1",
     "@alextim/at-site-core": "^0.1.1",
     "content/data/locales/translations/src/*.json": [
       "yarn translations:json2yaml",

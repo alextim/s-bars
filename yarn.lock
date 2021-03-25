@@ -7,10 +7,10 @@
   resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.1.1/05b5e32c67727889a009171f9b7ad0b4e83f1f3e19f48afec1088a33daa67831#02141ef2d83c653a8a3fbc3db5ffdbbc170f2881"
   integrity sha512-S6kcDIh5j7Q0giKycz+bTngP5yNIsgMrJfW1VPxCzL1SdN6SlKxcIxyZ3cHhL6iAV5d0ZXe/gC1Cv8Ukz3pZrg==
 
-"@alextim/at-seo@^0.1.0":
-  version "0.1.0"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.1.0/9389af6cb90718660891d4f2c8eedaea08ce5e54715195c10314de2b96ba9ee5#869da610c28a64539e4a707f1979ca4d31dde1ef"
-  integrity sha512-N7qr7yDjQDdryYHwmlopjJ56uaEniOBGHxVG5cBLDBggqBoX0yGxh0O6eg6ZD+lrwlGZk1JKxOIJIajEvPpXAA==
+"@alextim/at-seo@^0.1.1":
+  version "0.1.1"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.1.1/cbba5cf14f9256beb73d5f6d0d02d89c6a432284534998aa51d1cb2c1f90f661#2168eb81320173334263d3e4178c7818de7b1730"
+  integrity sha512-wgO5krwqhv6TdPuZloRW5XpL2pku8/FRGl0oc3zEvQiDJZSjxm4dT501Jr1qlNuVrXcPhjRwF31TbROQHlaaUQ==
   dependencies:
     react-helmet "^6.1.0"
 
