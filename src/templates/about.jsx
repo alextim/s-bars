@@ -34,11 +34,12 @@ const AboutTemplate = ({ data }) => {
       />
       {sections && (
         <React.Fragment>
+          <Section text={sections[0].text} />
           <Triptych
-            title={sections[0].title}
-            subtitle={sections[0].subtitle}
-            text={sections[0].text}
-            items={sections[0].items}
+            title={sections[1].title}
+            subtitle={sections[1].subtitle}
+            text={sections[1].text}
+            items={sections[1].items}
           />
         </React.Fragment>
       )}
