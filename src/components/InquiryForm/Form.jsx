@@ -28,15 +28,13 @@ const styleSections = (t) => ({
 });
 
 const styleFooter = (t) => ({
-  [t.mq.lg]: {
-    margin: '0 auto',
-  },
-});
-
-const styleFooterInner = {
   display: 'flex',
   flexDirection: 'column',
-};
+  [t.mq.lg]: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 const styleButton = (t) => ({
   marginTop: t.space[4],
@@ -293,20 +291,18 @@ const Form = ({ onSubmit }) => {
             />
           </FormSection>
           <div css={styleFooter}>
-            <div css={styleFooterInner}>
-              <CheckBoxControl
-                label={<PrivacyLabel />}
-                name="privacy"
-                required
-                value={values.privacy}
-                error={errors.privacy}
-                onChange={handleOnChange}
-              />
-              <Button type="submit" overrideCSS={styleButton}>
-                {t('form.send')}
-              </Button>
-              {hasErrors() && <FormErrorMessage>{t('form.has_input_errors')}</FormErrorMessage>}
-            </div>
+            <CheckBoxControl
+              label={<PrivacyLabel />}
+              name="privacy"
+              required
+              value={values.privacy}
+              error={errors.privacy}
+              onChange={handleOnChange}
+            />
+            <Button type="submit" overrideCSS={styleButton}>
+              {t('form.send')}
+            </Button>
+            {hasErrors() && <FormErrorMessage>{t('form.has_input_errors')}</FormErrorMessage>}
           </div>
         </div>
       </form>

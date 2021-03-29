@@ -12,8 +12,9 @@ const styleWrap = {
 
 const styleTitle = {
   gridArea: '1/1',
-  alignSelf: 'center',
+  alignSelf: 'end',
   justifySelf: 'center',
+  marginBottom: '2rem',
   fontSize: fontSizes[2],
   color: colors.white,
   textAlign: 'center',
@@ -21,8 +22,7 @@ const styleTitle = {
   textShadow: '1px 1px 6px rgba(0, 0, 0, 0.7)',
   zIndex: 2,
   [mq.md]: {
-    alignSelf: 'end',
-    marginBottom: '2.5rem',
+    marginBottom: '2.2rem',
     fontSize: fontSizes[5],
   },
   [mq.lg]: {
