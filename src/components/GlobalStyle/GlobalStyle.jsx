@@ -277,6 +277,7 @@ const GlobalStyle = () => (
         margin-bottom: ${space[4]};
       }
 
+
       h3 {
         font-family: ${fonts.heading};
         font-size: ${fontSizes[5]};
@@ -284,23 +285,6 @@ const GlobalStyle = () => (
         margin-bottom: ${space[2]};
       }
 
-      /*
-      h2 {
-        font-size: ${fontSizes[6]};
-        margin-bottom: ${space[4]};
-        ${mq.lg} {
-          font-size: ${fontSizes[6]};
-        }
-      }
-
-      h3 {
-        font-size: ${fontSizes[5]};
-        margin-bottom: ${space[2]};
-        ${mq.lg} {
-          font-size: ${fontSizes[5]};
-        }
-      }
-      */
       h4 {
         margin-bottom: ${space[2]};
         font-size: ${fontSizes[2]};
@@ -339,6 +323,17 @@ const GlobalStyle = () => (
             margin-bottom: 0;
           }
           */
+      }
+      p, ul, ol {
+        + h2 {
+          margin-top: ${space[7]};
+        }
+        + h3 {
+          margin-top: ${space[7]};
+        }
+        + h4 {
+          margin-top: ${space[7]};
+        }
       }
 
       input,

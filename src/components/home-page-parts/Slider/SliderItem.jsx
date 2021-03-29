@@ -7,46 +7,52 @@ import colors from '../../../theme/colors';
 import { fontSizes } from '../../../theme/font-sizes';
 
 const styleWrap = {
-  position: 'relative',
+  display: 'grid',
 };
 
 const styleTitle = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  margin: 0,
-  transform: 'translate(-50%, -50%)',
-  fontSize: fontSizes[3],
+  gridArea: '1/1',
+  alignSelf: 'center',
+  justifySelf: 'center',
+  fontSize: fontSizes[2],
   color: colors.white,
   textAlign: 'center',
   textTransform: 'uppercase',
   textShadow: '1px 1px 6px rgba(0, 0, 0, 0.7)',
+  zIndex: 2,
+  [mq.md]: {
+    alignSelf: 'end',
+    marginBottom: '2.5rem',
+    fontSize: fontSizes[5],
+  },
   [mq.lg]: {
-    top: '70%',
     fontSize: fontSizes[7],
   },
 };
 
-const SliderItem = ({ title, image }) => {
-  let images;
-  if (image) {
-    if (image.sm && image.xl) {
-      images = withArtDirection(getImage(image.sm), [
-        {
-          media: '(min-width: 480px)',
-          image: getImage(image.xl),
-        },
-      ]);
-    } else {
-      images = getImage(image.sm || image.xl);
-    }
-  }
-  return (
-    <div css={styleWrap}>
-      {image && image.sm && <GatsbyImage image={images} alt={image.alt} title={image.title} />}
-      <div css={styleTitle}>{title}</div>
-    </div>
-  );
+const styleImage = {
+  gridArea: '1/1',
 };
+
+const getImages = (image) => {
+  if (image.sm && image.xl) {
+    return withArtDirection(getImage(image.sm), [
+      {
+        media: '(min-width: 480px)',
+        image: getImage(image.xl),
+      },
+    ]);
+  }
+  return getImage(image.sm || image.xl);
+};
+
+const SliderItem = ({ title, image }) => (
+  <div css={styleWrap}>
+    {image && (
+      <GatsbyImage image={getImages(image)} alt={image.alt} title={image.title} css={styleImage} />
+    )}
+    <div css={styleTitle}>{title}</div>
+  </div>
+);
 
 export default SliderItem;

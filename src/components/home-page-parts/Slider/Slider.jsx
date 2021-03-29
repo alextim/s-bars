@@ -3,7 +3,8 @@ import { jsx } from '@emotion/react';
 
 // https://swiperjs.com/react
 // import Swiper core and required modules
-import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+// import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 /**
@@ -26,10 +27,12 @@ import './swiper-styles.css';
 import SliderItem from './SliderItem';
 
 // install Swiper modules
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+// SwiperCore.use([Navigation, Pagination, Autoplay]);
+SwiperCore.use([Navigation, Pagination]);
+//   <Swiper slidesPerView={1} spaceBetween={0} navigation pagination autoplay loop>
 
 const Slider = ({ items }) => (
-  <Swiper slidesPerView={1} spaceBetween={0} navigation pagination autoplay loop>
+  <Swiper slidesPerView={1} spaceBetween={0} navigation pagination>
     {items &&
       items.map(({ title: itemTitle, image }, i) => (
         <SwiperSlide key={i}>

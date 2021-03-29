@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
+import mq from '../../../theme/media-queries';
 import { space } from '../../../theme/space';
 
 import styleA from '../styleA';
@@ -15,9 +16,12 @@ const styleWrap = {
 };
 
 const styleLink = {
-  margin: '0 1rem',
+  margin: '0 .75rem',
   padding: `${space[2]} 0`,
   textTransform: 'uppercase',
+  [mq.lg]: {
+    margin: '0 1rem',
+  },
 };
 
 const FooterNavigation = ({ items }) => (
