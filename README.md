@@ -42,8 +42,6 @@
   - [Общие](#общие)
   - [Языки](#языки)
   - [Поисковые роботы](#поисковые-роботы)
-    - [Файл robots.txt](#файл-robotstxt)
-    - [Файл gatsby-config.js](#файл-gatsby-configjs)
     - [Стратегия индексации страницы "Блог"](#стратегия-индексации-страницы-блог)
   - [Компиляция](#компиляция)
     - [Режим разработки](#режим-разработки)
@@ -618,6 +616,10 @@ Markdown позволяет вставлять ссылки в формате HT
 - **siteUrl**
 Измените это `https://s-bars.netlify.app` на действительный адрес сайта (БЕЗ СЛЭША В КОНЦЕ!).
 
+- **noRobots**
+`true` если вы хотите запретить индексирования сайта (добавляет в хедер серверного ответа `X-Robots-Tag: noindex, nofollow`).
+
+
 - **content**
 Имя репозитория с данными.
 
@@ -644,42 +646,35 @@ Markdown позволяет вставлять ссылки в формате HT
 
 :warning: По умолчанию индексирование поисковиками запрещено.
 
-Если вы хотите, что бы ваш сайт был проиндексирован **Google** и другими, то нужно внести изменения в файлы **robots.txt** и **gatby-conig.js`**.
+Если вы хотите, что бы ваш сайт был проиндексирован **Google** и другими, то внесите изменения в файл  `[PROJECT_DIR]\config\website.js`.
 
-#### Файл robots.txt
+Нужно изменить значение константы **noRobots** на `false`.
 
-Папка: `[PROJECT_DIR]\static\`
+Идексирование запрещено:
 
-Содержимое:
+```js
+  /* Disable Robots */
+  noRobots: true,
+```  
 
-```env
+Идексирование разрешено:
+
+```js
+  /* Disable Robots */
+  noRobots: false,
+```  
+
+После чего во время сборки сайта в файл `robots.txt` будет следующее содержимое
+
+```text
 User-agent: *
-Disallow: /
-
-sitemap: https://your-actual-site-address/sitemap.xml
-sitemap: https://your-actual-site-address/image-sitemap.xml
-```
-
-Уберите бэк-слэш после `Disallow:`
-
-```env
 Disallow:
 ```
 
-#### Файл gatsby-config.js
+А из заголовков ответов сервера будет удалена сторока:
 
-Папка: `[PROJECT_DIR]\`
-
-В настройках плагина **gatsby-plugin-netlify** надо найти строку
-
-```javascript
-'X-Robots-Tag: noindex, nofollow',
-```
-
-И закоментировать ее:
-
-```javascript
-// 'X-Robots-Tag: noindex, nofollow',
+```text
+X-Robots-Tag: noindex, nofollow
 ```
 
 #### Стратегия индексации страницы "Блог"

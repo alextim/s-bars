@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import React from 'react';
 import { graphql } from 'gatsby';
 
@@ -59,7 +61,7 @@ const HomeTemplate = ({ data }) => {
 
       <Container>
         {sections && (
-          <>
+          <React.Fragment>
             <Slider items={sections[0].items} />
 
             <h1 css={styleTitle}>{title}</h1>
@@ -91,7 +93,7 @@ const HomeTemplate = ({ data }) => {
               text={sections[5].text}
               items={sections[5].items}
             />
-          </>
+          </React.Fragment>
         )}
         {html && (
           <Section>

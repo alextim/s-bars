@@ -1,9 +1,12 @@
 // change it to actual site URL
-const siteUrl = 'https://s-bars.netlify.app'; // No trailing slash!
+const siteUrl = 'https://s-bars-dev.netlify.app'; // No trailing slash!
 
 module.exports = {
   /* Meta */
   siteUrl,
+
+  /* Disable Robots */
+  noRobots: true,
 
   /**
    * name of content folder

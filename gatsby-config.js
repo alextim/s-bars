@@ -8,7 +8,7 @@ const locales = require('./config/locales');
 
 const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
-const { contentDir, postsDir, pageDirs, cardsPerPage } = config;
+const { contentDir, postsDir, pageDirs, cardsPerPage, noRobots } = config;
 
 const CSP = {
   'default-src': "'self'",
@@ -29,6 +29,18 @@ const CSP = {
 
 const getContentSecurityPolicy = () =>
   Object.keys(CSP).reduce((acc, curr) => `${acc}${acc ? '; ' : ''}${curr} ${CSP[curr]}`, '');
+
+const headerForAll = [`Content-Security-Policy: ${getContentSecurityPolicy()}`];
+if (config.noRobots) {
+  headerForAll.push('X-Robots-Tag: noindex, nofollow');
+}
+
+const headers = {
+  '/*': headerForAll,
+  '/assets/*': ['Cache-Control: public, max-age=31536000, immutable'],
+  '/404.html': ['Cache-Control: max-age=300'],
+  '/ru/404.html': ['Cache-Control: max-age=300'],
+};
 
 const pageSources = Object.keys(pageDirs).map((name) => ({
   resolve: 'gatsby-source-filesystem',
@@ -176,15 +188,7 @@ module.exports = {
       options: {
         mergeSecurityHeaders: true,
         mergeCachingHeaders: true,
-        headers: {
-          '/*': [
-            `Content-Security-Policy: ${getContentSecurityPolicy()}`,
-            // 'X-Robots-Tag: noindex, nofollow',
-          ],
-          '/assets/*': ['Cache-Control: public, max-age=31536000, immutable'],
-          '/404.html': ['Cache-Control: max-age=300'],
-          '/ru/404.html': ['Cache-Control: max-age=300'],
-        },
+        headers,
       },
     },
     // 'gatsby-plugin-sass',
@@ -270,6 +274,8 @@ module.exports = {
     {
       resolve: '@alextim/at-sitemap',
       options: {
+        createRobotsTxt: true,
+        noRobots,
         ignoreImagesWithoutAlt: false,
       },
     },

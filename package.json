@@ -46,9 +46,9 @@
   },
   "dependencies": {
     "@alextim/at-blog": "^0.1.2",
-    "@alextim/at-seo": "^0.1.1",
+    "@alextim/at-seo": "^0.1.7",
     "@alextim/at-site-core": "^0.1.1",
-    "@alextim/at-sitemap": "^0.1.0",
+    "@alextim/at-sitemap": "^0.1.1",
     "@alextim/slugify": "^0.1.0",
     "@alextim/translit": "^0.1.1",
     "@alextim/utils": "^0.1.0",
@@ -80,15 +80,15 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "swiper": "^6.5.1"
+    "swiper": "^6.5.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.13",
-    "@babel/eslint-parser": "^7.13.10",
+    "@babel/core": "^7.13.14",
+    "@babel/eslint-parser": "^7.13.14",
     "@babel/preset-react": "^7.13.13",
     "@emotion/eslint-plugin": "^11.2.0",
     "@hot-loader/react-dom": "^17.0.1",
-    "@testing-library/react-hooks": "^5.1.0",
+    "@testing-library/react-hooks": "^5.1.1",
     "babel-preset-gatsby": "^1.1.0",
     "cross-env": "^7.0.3",
     "eslint": "7.23.0",
@@ -114,9 +114,6 @@
     "stylelint-config-standard": "^21.0.0"
   },
   "comments": {
-    "@alextim/at-blog": "^0.1.2",
-    "@alextim/at-seo": "^0.1.1",
-    "@alextim/at-site-core": "^0.1.1",
     "content/data/locales/translations/src/*.json": [
       "yarn translations:json2yaml",
       "git add ."

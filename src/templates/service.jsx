@@ -29,7 +29,7 @@ const ServicePageTemplate = ({ data }) => {
         description={metaDescription}
         pathname={slug}
         noindex={noindex}
-        imgPath={cover && cover.sm ? cover.sm.publicURL : undefined}
+        imgPath={cover?.sm?.publicURL}
       />
       <InnerAsideLayout cover={cover} html={html} aside={<AsideServices mainNav={mainNav} />} />
     </Layout>

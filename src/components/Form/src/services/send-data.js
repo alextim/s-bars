@@ -18,6 +18,7 @@ const sendData = async (data, endPoint) => {
     return true;
   }
 
+  console.error(res);
   const text = await res.text();
   console.error(text);
   if (!text) {
