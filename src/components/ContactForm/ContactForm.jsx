@@ -5,8 +5,8 @@ import { jsx } from '@emotion/react';
 import { ContactFormBase } from '../Form';
 import Spinner from '../Spinner';
 
-import EMAIL_FIELD from '../../lib/form/email-field';
-import fieldsInfo from '../../lib/form/contact-form-fields';
+import EMAIL_FIELD from '../../../config/form/email-field';
+import fieldsInfo from '../../../config/form/contact-form-fields';
 
 import { useTranslation } from '../../i18n';
 
