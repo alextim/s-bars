@@ -18,6 +18,7 @@ const SEO = ({
   imgPath,
   datePublished,
   dateModified,
+  tags,
   canonical = true,
   noindex = false,
   metas,
@@ -59,6 +60,7 @@ const SEO = ({
       imgPath={imgPath}
       datePublished={datePublished}
       dateModified={dateModified}
+      tags={tags?.map(({ title: tagTitle }) => tagTitle)}
       canonical={canonical}
       noindex={noindex}
       metas={metas}

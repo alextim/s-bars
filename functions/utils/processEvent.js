@@ -113,7 +113,7 @@ const processEvent = async (event, sgMail, fields, subject) => {
     return `${name}: ${sanitized[k]}`;
   });
 
-  aBody.splice(0, 0, URL, '-'.repeat(20));
+  // aBody.splice(0, 0, URL, '-'.repeat(20));
   const html = aBody.join('<br><br>');
   const text = aBody.join('\n\n');
 

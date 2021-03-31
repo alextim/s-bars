@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@alextim/at-blog": "^0.1.2",
-    "@alextim/at-seo": "^0.1.7",
+    "@alextim/at-seo": "^0.1.10",
     "@alextim/at-site-core": "^0.1.1",
     "@alextim/at-sitemap": "^0.1.1",
     "@alextim/slugify": "^0.1.0",
@@ -80,7 +80,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "swiper": "^6.5.2"
+    "swiper": "^6.5.3"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",

@@ -7,10 +7,10 @@
   resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.1.2/984a27756ef2a438531d464a20a1e4627426be23a9fa6e33a8fdf58bf488a459#f9c2adc2195bb8de946ffbe111ac56bf289fdb15"
   integrity sha512-HLm8faFefZQQNAg17qpd1xI9dx+rIlkxlRrXgExBcTTzEvdEPuMU2oGLP8iFPlPjZro3YsGcVH36snlcoybJBg==
 
-"@alextim/at-seo@^0.1.7":
-  version "0.1.7"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.1.7/a5c1555b9dd0fce84e1122a0a5c34db3a9b99a46bd46752a6b56286f4532e5b4#5c68f1922cc9cd694b9a702ab3cda1917a2ce506"
-  integrity sha512-TzOXUYtl0UPI4zYXtHB7YKpaLcEYcsurF0Zg81wW7pN6iQzBaOUshILtjNSkKchNuGXz5Z8aHA0x/MgU8pmR1Q==
+"@alextim/at-seo@^0.1.10":
+  version "0.1.10"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.1.10/e171c07dae2a2251eb385b649e8737dd9e70b40253278563c8d764089e8a621e#9d2e9527db20f97e38e9b222669565788a0257fe"
+  integrity sha512-6eOYwi224AbsKLmePf4wtPjTQzmofB92snlTDH8sIEwqrHmjkFAjR4nQwUBhLuYTCDPub6y7po8aT6csVyBaPw==
 
 "@alextim/at-site-core@^0.1.1":
   version "0.1.1"
@@ -13922,10 +13922,10 @@ svgo@1.3.2, svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-swiper@^6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-6.5.2.tgz#c72596486ed91ce63d0cf4e96a551494fcd352a0"
-  integrity sha512-a5PiGG9IxdRrFFHU4IdG2m02R1i+pY0vC2p/aiDKiwW6JIpOVFuEJmUumvIGPmjELTxb8TGTSsI4cNWOKgOBVQ==
+swiper@^6.5.3:
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-6.5.3.tgz#ff42617dd87277bd0f622c729572d3db47bee225"
+  integrity sha512-WsRKA/il3cHkpHFivvQCEFsgo9eYgvKpHBrgNsLCENyuG1z3E8Rc6zFMEioy5NDQI0BztR3r5UyMqBZyqs9u8Q==
   dependencies:
     dom7 "^3.0.0"
     ssr-window "^3.0.0"

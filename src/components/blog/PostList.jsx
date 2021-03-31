@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 
 import { siteUrl } from '../../../config/website';
-import { prevLink, nextLink } from '../../helpers/pagination';
+import { prevLink, nextLink, currentLink } from '../../helpers/pagination';
 
 import styleCardsWrap from '../styles/styleCardsWrap';
 
@@ -77,7 +77,7 @@ const PostList = ({
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        pathname={slug}
+        pathname={currentLink(currentPage, slug)}
         noindex={noindex}
         pageType="Blog"
         links={links}
