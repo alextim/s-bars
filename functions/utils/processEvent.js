@@ -75,13 +75,13 @@ const processEvent = async (sgMail, event, fields, subject) => {
       body: 'SENDGRID_API_KEY must be defined',
     };
   }
-  if (emailValidator.validate(SENDGRID_SINGE_SENDER)) {
+  if (!emailValidator.validate(SENDGRID_SINGE_SENDER)) {
     return {
       statusCode: 500,
       body: 'SENDGRID_SINGE_SENDER not valid email address',
     };
   }
-  if (emailValidator.validate(TO_EMAIL)) {
+  if (!emailValidator.validate(TO_EMAIL)) {
     return {
       statusCode: 500,
       body: 'TO_EMAIL not valid email address',

@@ -297,6 +297,7 @@ git clone --recurse-submodules https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНО
    Добавьте переменные:
    |  Key                  | Value
    |---                    |---
+   | NPM_TOKEN             | GitHub API ключ к private репозиториям
    | SENDGRID_API_KEY      | ваш SendGrid API ключ
    | SENDGRID_SINGE_SENDER | ваш e-mail, верифицированный SendGrid
    | TO_EMAIL              | e-mail, на который будут приходить сообщения из форм
