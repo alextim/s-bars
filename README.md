@@ -184,7 +184,8 @@ YAML:
 | Сервис           | Где                                                | Комментарий
 |  ---             | ----                                               | ----
 | Send Grid        | Страница "Контакты"                                | Альтернатива - свой сервер
-| Google Mail      | Google и ваш компьютер                             | Можно настроить получение писем с сайта на любую почту, не только на GMail
+| Google Mail      | Google                                             | Можно настроить получение писем с сайта на любую почту, не только на GMail
+| ваша организация | ваш компьютер и тд                                 |
 
 ## Инсталляция
 
@@ -194,7 +195,7 @@ YAML:
 
 ### Предварительные условия
 
-1. Учетная запись на [SendGrid](https://sendgrid.com). Необходимо получить API key и верифицировать ваш e-mail.
+1. Учетная запись на [SendGrid](https://sendgrid.com). Необходимо получить API key и верифицировать ваш e-mail (Single Sender).
 1. Учетная запись на [GitHub](https://github.com).
 1. Учетная запись на  [Netlify](https://netlify.com).
 1. Инсталлировать **Git** на ваш локальный компьютер. Ссылка для скачивания [здесь](https://git-scm.com/download).
@@ -294,11 +295,12 @@ git clone --recurse-submodules https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНО
    - **Publish directoty**: `public`
 7. Перейдите в раздел **Environment variables**.  
    Добавьте переменные:
-   |  Key              | Value
-   |---                |---
-   | SENDGRID_API_KEY  | ваш SendGrid API ключ
-   | SENDGRID_TO_EMAIL | ваш e-mail, верифицированный SendGrid
-   | WARNINGS          | true
+   |  Key                  | Value
+   |---                    |---
+   | SENDGRID_API_KEY      | ваш SendGrid API ключ
+   | SENDGRID_SINGE_SENDER | ваш e-mail, верифицированный SendGrid
+   | TO_EMAIL              | e-mail, на который будут приходить сообщения из форм
+   | WARNINGS              | true
 8. Дайте Netlify доступ к вашему защищенному репозиторию на GitHub
    - Перейдите в раздел **Deploy key**.
    - Нажмите кнопку **Generate public deploy key**
