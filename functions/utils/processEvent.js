@@ -3,7 +3,7 @@ const emailValidator = require('email-validator');
 
 const {
   SENDGRID_API_KEY,
-  SENDGRID_SINGE_SENDER,
+  SENDGRID_SINGLE_SENDER,
   TO_EMAIL,
   URL,
   SITE_NAME,
@@ -75,10 +75,10 @@ const processEvent = async (event, sgMail, fields, subject) => {
       body: 'SENDGRID_API_KEY must be defined',
     };
   }
-  if (!emailValidator.validate(SENDGRID_SINGE_SENDER)) {
+  if (!emailValidator.validate(SENDGRID_SINGLE_SENDER)) {
     return {
       statusCode: 500,
-      body: `SENDGRID_SINGE_SENDER {${SENDGRID_SINGE_SENDER}} not valid email address`,
+      body: `SENDGRID_SINGE_SENDER {${SENDGRID_SINGLE_SENDER}} not valid email address`,
     };
   }
   if (!emailValidator.validate(TO_EMAIL)) {
@@ -119,7 +119,7 @@ const processEvent = async (event, sgMail, fields, subject) => {
 
   const msg = {
     to: TO_EMAIL,
-    from: SENDGRID_SINGE_SENDER,
+    from: SENDGRID_SINGLE_SENDER,
     subject: `${SITE_NAME}: ${subject}`,
     text,
     html,
