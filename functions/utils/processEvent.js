@@ -58,7 +58,7 @@ const getSanitizedValues = (body, fields) => {
   return result;
 };
 
-const processEvent = async (sgMail, event, fields, subject) => {
+const processEvent = async (event, sgMail, fields, subject) => {
   // console.warn(event.headers.origin, URL);
   if (!validateOrigin(event)) {
     return { statusCode: 401, body: 'Bad origin' };
@@ -78,13 +78,13 @@ const processEvent = async (sgMail, event, fields, subject) => {
   if (!emailValidator.validate(SENDGRID_SINGE_SENDER)) {
     return {
       statusCode: 500,
-      body: 'SENDGRID_SINGE_SENDER not valid email address',
+      body: `SENDGRID_SINGE_SENDER {${SENDGRID_SINGE_SENDER}} not valid email address`,
     };
   }
   if (!emailValidator.validate(TO_EMAIL)) {
     return {
       statusCode: 500,
-      body: 'TO_EMAIL not valid email address',
+      body: `TO_EMAIL {${TO_EMAIL}} not valid email address`,
     };
   }
 
@@ -113,13 +113,14 @@ const processEvent = async (sgMail, event, fields, subject) => {
     return `${name}: ${sanitized[k]}`;
   });
 
+  aBody.splice(0, 0, URL, '-'.repeat(20));
   const html = aBody.join('<br><br>');
   const text = aBody.join('\n\n');
 
   const msg = {
     to: TO_EMAIL,
     from: SENDGRID_SINGE_SENDER,
-    subject,
+    subject: `${SITE_NAME}: ${subject}`,
     text,
     html,
   };

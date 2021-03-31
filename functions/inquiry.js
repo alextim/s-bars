@@ -6,4 +6,4 @@ const fields = require('../config/form/inquiry-form-fields');
 const processEvent = require('./utils/processEvent');
 
 const subject = 'Отправка формы "Запрос" с сайта';
-exports.handler = async (event) => processEvent(sgMail, event, fields, subject);
+exports.handler = async (event) => processEvent(event, sgMail, fields, subject);
