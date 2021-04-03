@@ -12,7 +12,8 @@ const { contentDir } = require('../config/website');
 
 const FILE_NAME = 'translations';
 
-const FOLDER_NAME = path.join(__dirname, '..', '..', contentDir, 'data', 'locales', 'translations');
+const srcPaths = [__dirname, '..', '..', contentDir, 'data', 'locales', 'translations'];
+const FOLDER_NAME = path.join(...srcPaths);
 
 const sanitize = (key, value) => {
   if (!value) {
