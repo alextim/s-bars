@@ -10,6 +10,7 @@ import styleHtmlDefault from '../components/styles/styleHtml';
 
 const styleHtml = {
   ...styleHtmlDefault,
+
   textAlign: 'justify',
 };
 

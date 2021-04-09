@@ -28,6 +28,7 @@ const styleCircleWrap = {
   height: '6.25rem',
   width: '6.25rem',
   borderRadius: '50%',
+
   [mq.lg]: {
     float: 'none',
     margin: 0,

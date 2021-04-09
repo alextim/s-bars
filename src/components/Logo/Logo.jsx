@@ -53,6 +53,7 @@ const styleHomeLink = {
 const styleImg = {
   width: '3rem',
   height: '3rem',
+
   [mq.lg]: {
     width: '3.7rem',
     height: '3.7rem',

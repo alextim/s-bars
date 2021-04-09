@@ -13,6 +13,7 @@ const styleLink = {
   borderBottomWidth: '1px',
   borderStyle: 'solid',
   borderColor: '#b4d5e7',
+
   ':hover, :focus, :active': {
     textDecoration: 'none',
   },
@@ -28,6 +29,7 @@ const styleItem = {
   background: '#fff',
   position: 'relative',
   marginBottom: '10px',
+
   ':after': {
     content: '""',
     display: 'block',
@@ -38,12 +40,15 @@ const styleItem = {
     height: '100%',
     backgroundColor: '#b4d5e7',
   },
+
   ':hover:after': {
     width: '100%',
   },
+
   ':hover a': {
     color: '#fff',
   },
+
   ':hover a, :hover:after': {
     transition: 'all .3s ease-in-out',
   },

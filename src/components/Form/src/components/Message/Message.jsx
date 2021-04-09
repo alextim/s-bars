@@ -11,12 +11,16 @@ const styleIconCommon = {
 
 const styleExclamationIcon = {
   ...styleIconCommon,
+
   color: 'red',
 };
+
 const styleCheckIcon = {
   ...styleIconCommon,
+
   color: 'green',
 };
+
 const styleWtap = {
   display: 'flex',
 };

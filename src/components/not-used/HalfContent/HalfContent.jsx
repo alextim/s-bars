@@ -19,6 +19,7 @@ const styleWrapL = {
 
 const styleContentWrap = {
   width: '100%',
+
   [mq.lg]: {
     width: '50%',
   },
@@ -30,13 +31,16 @@ const styleText = {
   height: '100%',
   textAlign: 'left',
   padding: '2rem 0',
+
   [mq.lg]: {
     width: '50%',
     padding: '0 3rem',
   },
 };
+
 const styleTextFullWidth = {
   padding: '1rem',
+
   [mq.lg]: {
     padding: '2rem',
   },
@@ -53,6 +57,7 @@ const styleLeft = {
 const headingStyle = (t) => ({
   marginBottom: t.space[2],
 });
+
 const HalfContent = ({ items, fullwidth = false, left = false }) =>
   items.map(({ component, title, text, image }, i) => (
     <HalfContentItem

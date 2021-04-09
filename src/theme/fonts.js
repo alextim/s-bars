@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /**
  * https://simonhearne.com/2021/layout-shifts-webfonts/
  * https://meowni.ca/font-style-matcher/

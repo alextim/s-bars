@@ -29,9 +29,11 @@ const styleTitle = {
 const styleHeadline = {
   margin: `${space[4]} auto ${space[10]}`,
   textAlign: 'center',
+
   [mq.md]: {
     padding: `0 ${space[12]}`,
   },
+
   [mq.lg]: {
     padding: '0 10rem',
   },

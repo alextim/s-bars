@@ -21,6 +21,7 @@ const itemWrapStyle = {
     marginLeft: '0.4rem',
     marginRight: '0.4rem',
   },
+
   ':last-child': {
     '&::after': {
       content: '""',
@@ -33,10 +34,12 @@ const itemWrapStyle = {
 const itemStyle = {
   color: colors.header.text,
   textTransform: 'uppercase',
+
   '&:active, &:focus, &:hover': {
     outline: 'none',
     textDecoration: 'none',
   },
+
   '&:hover': {
     color: colors.highlight,
   },

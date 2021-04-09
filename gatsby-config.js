@@ -167,7 +167,7 @@ module.exports = {
       options: {
         stages: ['develop'],
         extensions: ['js', 'jsx'],
-        exclude: ['node_modules', '.cache', 'public', '.netlify', '.vscode'],
+        exclude: ['node_modules', '.cache', 'public', '.netlify', '.vscode', '.husky'],
         // Any eslint-webpack-plugin options below
       },
     },

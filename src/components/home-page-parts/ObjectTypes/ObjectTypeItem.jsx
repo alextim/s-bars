@@ -13,6 +13,7 @@ const styleIcon = {
   width: '1rem',
   height: '1rem',
   color: links.color,
+
   [mq.lg]: {
     display: 'none',
   },
@@ -31,6 +32,7 @@ const ObjectTypeItem = ({ title, to, firstRow, firstCol }) => {
   const styleCell = {
     display: 'inline-flex',
     alignItems: 'center',
+
     [mq.lg]: {
       padding: '1.5rem',
       textAlign: 'center',

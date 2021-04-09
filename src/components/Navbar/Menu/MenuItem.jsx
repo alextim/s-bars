@@ -38,6 +38,7 @@ const linkStyle = {
 
   borderBottom: '1px solid',
   borderBottomColor: colors.header.nav.item.borderColor,
+
   '&:first-of-type': {
     borderTop: '1px solid',
     borderTopColor: colors.header.nav.item.borderColor,

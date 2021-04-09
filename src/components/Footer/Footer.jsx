@@ -48,6 +48,7 @@ const styleWidgetArea = {
   gridGap: space[6],
   paddingTop: space[5],
   paddingBottom: space[5],
+
   [mq.lg]: {
     gridTemplateColumns: '1fr 1fr 2fr',
     paddingTop: space[6],
@@ -73,6 +74,7 @@ const styleColophonBottomInnerWrap = {
   fontSize: fontSizes[0],
   display: 'flex',
   justifyContent: 'space-between',
+
   [mq.lg]: {
     justifyContent: 'center',
   },
@@ -91,6 +93,7 @@ const styleInquiryText = {
 
 const styleInquiryButton = {
   justifyContent: 'center',
+
   [mq.lg]: {
     alignSelf: 'flex-start',
   },

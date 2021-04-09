@@ -9,6 +9,7 @@ import { space } from '../../theme/space';
 const styleWrap = {
   display: 'flex',
   flexDirection: 'column',
+
   [mq.lg]: {
     display: 'grid',
     // gridColumnGap: 0,
@@ -19,6 +20,7 @@ const styleWrap = {
 
 const styleImage = {
   marginBottom: space[8],
+
   [mq.lg]: {
     gridColumn: 1,
     gridRow: 1,
@@ -29,6 +31,7 @@ const styleImage = {
 
 const styleBody = {
   marginBottom: space[8],
+
   [mq.lg]: {
     gridColumn: 2,
     gridRow: '1/span 2',

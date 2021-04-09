@@ -82,6 +82,7 @@ function useForm(validationSchema, callback, defaultValues = {}) {
     };
     document.addEventListener('keydown', escHandler, false);
     return () => document.removeEventListener('keydown', escHandler, false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function validateField(name, value) {

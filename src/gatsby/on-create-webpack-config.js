@@ -4,7 +4,10 @@ module.exports = ({ getConfig, stage, actions }) => {
   const config = getConfig();
 
   actions.setWebpackConfig({
-    // Allow to use something like: import { X } from 'components/directory' instead of '../../components/directory'
+    // Allow to use something like: import { X } from
+    // 'components/directory'
+    // instead o
+    // '../../components/directory'
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },

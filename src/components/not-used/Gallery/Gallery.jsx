@@ -41,15 +41,16 @@ const Gallery = ({ images, itemsPerRow: itemsPerRowByBreakpoints, onClick }) => 
               display: 'inline-block',
               verticalAlign: 'middle',
               transition: 'filter 0.3s',
-              ':hover': {
-                filter: 'brightness(87.5%)',
-              },
               width: rowAspectRatioSumsByBreakpoints.map((rowAspectRatioSums, j) => {
                 const rowIndex = Math.floor(i / itemsPerRowByBreakpoints[j]);
                 const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
 
                 return `${(image.aspectRatio / rowAspectRatioSum) * 100}%`;
               }),
+
+              ':hover': {
+                filter: 'brightness(87.5%)',
+              },
             }}
             onClick={() => onClick(i)}
           />

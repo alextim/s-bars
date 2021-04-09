@@ -46,6 +46,7 @@ const paginationNumberStyle = {
   minWidth: '2.5rem',
   textAlign: 'center',
   transition: 'box-shadow .2s',
+
   ':hover': {
     boxShadow: '0 2px 0 0 #5f6368',
     textDecoration: 'none',

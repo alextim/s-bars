@@ -26,6 +26,7 @@ const dropDownWrapStyle = {
   padding: 0,
   margin: 0,
   backgroundColor: colors.header.nav.submenu.bg,
+
   [mq.lg]: {
     position: 'absolute',
     top: sizes.header.lg,
@@ -41,6 +42,7 @@ const headingWrapStyle = {
   alignItems: 'center',
   width: '100%',
   position: 'relative',
+
   [mq.lg]: {
     height: '100%',
   },
@@ -49,6 +51,7 @@ const headingWrapStyle = {
 const menuItemExtraStyle = {
   [mq.lg]: {
     ...styleMenuItemLg,
+
     ':after': {
       display: 'inline-block',
       content: '""',
@@ -97,6 +100,7 @@ const SubMenu = ({ title, to, items, path, onClick }) => {
     height: '100%',
     right: 0,
     cursor: 'pointer',
+
     '&:after': {
       display: 'inline-block',
       position: 'absolute',
@@ -113,10 +117,12 @@ const SubMenu = ({ title, to, items, path, onClick }) => {
       borderWidth: '0 1px 1px 0',
       transform: `rotate(${visible ? 225 : 45}deg)`,
     },
+
     [mq.lg]: {
       display: 'none',
     },
   };
+
   return (
     <li css={menuItemWrapStyle} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <div css={headingWrapStyle}>

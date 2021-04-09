@@ -10,6 +10,7 @@ import { space } from '../../../theme/space';
 const styleWrap = {
   display: 'grid',
   gridGap: space[10],
+
   [mq.lg]: {
     gridTemplateColumns: '50% 50%',
   },

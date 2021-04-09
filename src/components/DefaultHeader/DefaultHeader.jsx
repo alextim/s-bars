@@ -11,10 +11,12 @@ const styleHeadline = {
 const styleInnerWrap = {
   margin: `${space[7]} auto`,
   textAlign: 'center',
+
   [mq.md]: {
     padding: `0 ${space[12]}`,
     lineHeight: 1.25,
   },
+
   [mq.lg]: {
     padding: '0 10rem',
   },

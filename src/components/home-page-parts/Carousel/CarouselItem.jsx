@@ -18,6 +18,7 @@ const styleTextWrap = {
   justifyContent: 'center',
   alignItems: 'center',
   marginTop: space[1],
+
   [mq.lg]: {
     /**
      * https://stackoverflow.com/questions/38948102/center-one-and-right-left-align-other-flexbox-element
