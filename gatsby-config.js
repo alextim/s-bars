@@ -246,7 +246,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-          title: `${i18n.defaultLocale.siteShortName} RSS Feed`,
+            title: 'S-Bars RSS Feed',
           },
         ],
       },
