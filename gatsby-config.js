@@ -1,14 +1,14 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-
+const path = require('path');
 const i18n = require('./src/i18n/i18n');
 const config = require('./config/website');
 const locales = require('./config/locales');
-
+const colors = require('./src/theme/colors');
 const manifestIconSrc = `${__dirname}/src/assets/images/icon.png`;
 
-const { contentDir, postsDir, pageDirs, cardsPerPage, noRobots } = config;
+const { contentDir, postDirs, pageDirs, cardsPerPage, noRobots } = config;
 
 const CSP = {
   'default-src': "'self'",
@@ -42,11 +42,12 @@ const headers = {
   '/ru/404.html': ['Cache-Control: max-age=300'],
 };
 
-const pageSources = Object.keys(pageDirs).map((name) => ({
+const allDirs = { ...pageDirs, ...postDirs };
+const pageSources = Object.keys(allDirs).map((name) => ({
   resolve: 'gatsby-source-filesystem',
   options: {
     name,
-    path: `${__dirname}/${contentDir}/${pageDirs[name]}`,
+    path: `${__dirname}/${contentDir}/${allDirs[name]}`,
   },
 }));
 
@@ -66,13 +67,6 @@ module.exports = {
       },
     },
     ...pageSources,
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: postsDir,
-        path: `${__dirname}/${contentDir}/${postsDir}`,
-      },
-    },
     {
       resolve: 'gatsby-transformer-yaml',
       options: {
@@ -246,7 +240,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'S-Bars RSS Feed',
+            title: `${i18n.defaultLocale.siteShortName} RSS Feed`,
           },
         ],
       },
@@ -254,17 +248,18 @@ module.exports = {
     {
       resolve: '@alextim/at-site-core',
       options: {
-        templatesDir: `${__dirname}/src${config.templatesDir}`,
+        templatesDir: path.join(__dirname, 'src', config.templatesDir),
         pageDirs,
         i18n,
       },
     },
     {
       resolve: '@alextim/at-blog',
+      // resolve: 'at-blog',
       options: {
-        templatesDir: `${__dirname}/src/${config.templatesDir}blog/`,
+        templatesDir: path.join(__dirname, 'src', config.templatesDir, 'blog'),
         cardsPerPage,
-        postsDir,
+        postDirs,
         CREATE_TAG_PAGES: false,
         CREATE_CATEGORY_PAGES: false,
         CREATE_YEAR_PAGES: false,

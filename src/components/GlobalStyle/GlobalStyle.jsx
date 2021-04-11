@@ -246,11 +246,6 @@ const GlobalStyle = () => (
         min-width: 2rem;
       }
 
-      .fa {
-        width: 1em;
-        height: 1em;
-      }
-
       @media (max-width: ${breakpoints.lg}) {
         .${BODY_PREVENT_SCROLLING} {
           height: 100%;

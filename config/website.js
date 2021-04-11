@@ -88,8 +88,9 @@ module.exports = {
   themeColor: '#3498DB',
   backgroundColor: '#2e3246',
 
-  postsDir: 'blog/posts',
-
+  postDirs: {
+    blog: 'blog/posts',
+  },
   pageDirs: {
     page: 'pages',
     service: 'services',
@@ -100,4 +101,6 @@ module.exports = {
   cardsPerPage: 12,
 
   templatesDir: '/templates/',
+
+  readMore: 'post.readMore',
 };

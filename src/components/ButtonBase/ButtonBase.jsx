@@ -17,6 +17,7 @@ const focusStyle = {
 
 const components = {
   href: ({ children, ...rest }) => <a {...rest}>{children}</a>,
+  // eslint-disable-next-line react/button-has-type
   button: ({ children, ...rest }) => <button {...rest}>{children}</button>,
 };
 

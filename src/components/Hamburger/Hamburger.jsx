@@ -1,29 +1,21 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-const Hamburger = ({ w = 2.5, open, bp, onClick }) => {
+const Hamburger = ({ w = 2.5, m = 0, open, bp, onClick }) => {
   const wrapStyle = {
     height: `${w}rem`,
     width: `${w}rem`,
-    margin: 0,
-    cursor: 'pointer',
+    margin: m,
+    position: 'relative',
+    transform: 'rotate(0deg)',
+    transition: '0.5s ease-in-out',
+    backgroundColor: 'transparent',
+    border: 'none',
 
     [bp]: {
       display: 'none',
       pointerEvents: 'none',
     },
-  };
-
-  const innerWrapStyle = {
-    position: 'relative',
-    top: 0,
-    height: '1.3rem',
-    width: '1.9rem',
-    marginTop: '1.2rem',
-    marginLeft: '0.6rem',
-    cursor: 'pointer',
-    transform: 'rotate(0deg)',
-    transition: '0.5s ease-in-out',
   };
 
   const commonSpanStyle = {
@@ -58,11 +50,14 @@ const Hamburger = ({ w = 2.5, open, bp, onClick }) => {
   });
 
   return (
-    <div css={wrapStyle} type="button" aria-label="Close" onClick={onClick}>
-      <div css={innerWrapStyle}>
-        <span css={spanStyle} />
-      </div>
-    </div>
+    <button
+      css={wrapStyle}
+      type="button"
+      aria-label={`${open ? 'Close' : 'Open'} menu`}
+      onClick={onClick}
+    >
+      <span css={spanStyle} />
+    </button>
   );
 };
 
