@@ -22,6 +22,10 @@ jobs:
 
       - name: submodule Update
         run: |
+          git config --file .gitmodules --get-regexp url | while read url; do
+            git config --file=.gitmodules $(echo "$url" | sed -E "s/git@github.com:|https:\/\/github.com\//https:\/\/${{ secrets.ACCESS_TOKEN }}:${{ secrets.ACCESS_TOKEN }}@github.com\//")
+          done
+          git submodule sync
           git submodule update --init --recursive --remote
 
       # This step will evaluate the repo status and report the change
