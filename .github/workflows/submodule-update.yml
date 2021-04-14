@@ -16,6 +16,7 @@ jobs:
         with:
           submodules: true
           token: ${{ secrets.ACCESS_TOKEN }}
+          ref: ${GITHUB_REF}
 
       - name: check for changes
         run: git status
