@@ -16,14 +16,14 @@ jobs:
         with:
           submodules: true
           token: ${{ secrets.ACCESS_TOKEN }}
-          ref: ${GITHUB_REF}
+          # ref: ${GITHUB_REF}
 
       - name: check for changes
         run: git status
 
       - name: submodule Update
         run: |
-          # git submodule sync
+          git submodule sync
           git submodule update --init --recursive --remote
 
       # This step will evaluate the repo status and report the change
