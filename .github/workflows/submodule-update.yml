@@ -18,7 +18,7 @@ jobs:
 
       - name: submodule Update
         run: |
-          git submodule update --remote --recursive
+          git submodule update --init --recursive --remote
 
       # This step will evaluate the repo status and report the change
       - name: Check if there are changes
