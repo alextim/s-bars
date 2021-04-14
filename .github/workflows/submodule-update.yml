@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - run: |
+          echo ${GITHUB_REF}
 
       - name: check for changes
         run: git status
