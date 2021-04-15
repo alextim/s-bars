@@ -3,6 +3,7 @@ name: Submodule Update Remote
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    types: [submodule-update]
 
 jobs:
   build:
@@ -24,6 +25,9 @@ jobs:
       - name: submodule Update
         run: |
           # git pull --recurse-submodules
+          cd s-bars.content
+          git checkout dev
+          cd ..
           git submodule sync
           git submodule update --remote
           # --init --recursive
