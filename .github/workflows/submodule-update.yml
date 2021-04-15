@@ -8,15 +8,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: |
+          echo ${GITHUB_REF}
+
       - uses: actions/checkout@v2
         with:
-          submodules: true
+          submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
+          # ref: ${GITHUB_REF}
+
+      - name: check for changes
+        run: git status
 
       - name: submodule Update
         run: |
           git submodule sync
-          git submodule update --init --recursive --remote
+          git submodule update --remote
+          # --init --recursive
 
       - name: Check if there are changes
         id: changes

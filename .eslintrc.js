@@ -4,8 +4,13 @@ module.exports = {
   },
   env: {
     browser: true,
+    commonjs: true,
     es6: true,
+    jest: true,
+    node: true,
   },
+  plugins: ['@emotion', 'import', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
+
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -24,8 +29,11 @@ module.exports = {
     'jsx-quotes': [2, 'prefer-double'],
     semi: ['error', 'always'],
     'linebreak-style': ['error', 'windows'],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    // 'prettier/prettier': ['error', { endOfLine: 'auto' }],
     // Allowing ++ on numbers
     'no-plusplus': 'off',
+    'react/no-array-index-key': 'warn',
     'react/no-danger': 0,
     'react/jsx-props-no-spreading': 0,
     'react/prop-types': 'off',

@@ -10,8 +10,6 @@ import AsideFeaturedPosts from '../../components/AsideFeaturedPosts';
 // import AsideRecentPosts from '../../components/AsideRecentPosts';
 
 import InnerAsideLayout from '../../components/InnerAsideLayout';
-import PostTags from '../../components/blog/PostTags';
-import LastUpdated from '../../components/blog/LastUpdated';
 
 const styleWidgetArea = {
   display: 'flex',
@@ -34,7 +32,6 @@ const PostTemplate = ({ data }) => {
       noindex,
       datePublished,
       dateModified,
-      tags,
       html,
       locale,
       slug,
@@ -56,7 +53,6 @@ const PostTemplate = ({ data }) => {
         noindex={noindex}
         datePublished={datePublished}
         dateModified={dateModified}
-        tags={tags}
         pageType="BlogPosting"
         imgPath={cover?.sm?.publicURL}
       />
@@ -70,10 +66,7 @@ const PostTemplate = ({ data }) => {
             {/* <AsideRecentPosts items={data.recentPosts.edges} /> */}
           </aside>
         }
-      >
-        <PostTags tags={tags} />
-        <LastUpdated date={dateModified} />
-      </InnerAsideLayout>
+      />
     </Layout>
   );
 };

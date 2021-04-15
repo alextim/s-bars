@@ -11,7 +11,7 @@ const PostListTemplate = ({ data, pageContext }) => (
 export default PostListTemplate;
 
 export const pageQuery = graphql`
-  query PostListQuery($locale: String!, $skip: Int!, $limit: Int!) {
+  query PostListQuery($locale: String!, $skip: Int!, $limit: Int!, $type: String!) {
     #
     # blogPath
     # regex: "//blog//"
@@ -20,10 +20,10 @@ export const pageQuery = graphql`
       ...MdPageFragment
     }
     posts: allMdPost(
-      sort: { fields: [datePublished], order: DESC }
+      sort: { fields: [featured, datePublished], order: [ASC, DESC] }
       limit: $limit
       skip: $skip
-      filter: { locale: { eq: $locale } }
+      filter: { locale: { eq: $locale }, type: { eq: $type } }
     ) {
       edges {
         node {

@@ -139,4 +139,5 @@ colors.button = {
     hoverBorder: colors.secondaryDark,
   },
 };
-export default colors;
+
+module.exports = colors;

@@ -6,7 +6,7 @@ module.exports = {
   siteUrl,
 
   /* Disable Robots */
-  noRobots: false,
+  noRobots: true,
 
   /**
    * name of content folder
@@ -79,7 +79,7 @@ module.exports = {
    *  */
   twitterCreator: '',
 
-  googleAnalyticsID: '',
+  googleAnalyticsID: 'UA-24264154-1',
 
   /**
    * webmanifest
@@ -88,8 +88,9 @@ module.exports = {
   themeColor: '#3498DB',
   backgroundColor: '#2e3246',
 
-  postsDir: 'blog/posts',
-
+  postDirs: {
+    blog: 'blog/posts',
+  },
   pageDirs: {
     page: 'pages',
     service: 'services',
@@ -100,4 +101,6 @@ module.exports = {
   cardsPerPage: 12,
 
   templatesDir: '/templates/',
+
+  readMore: 'post.readMore',
 };

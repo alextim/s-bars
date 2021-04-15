@@ -4,9 +4,10 @@ import { jsx } from '@emotion/react';
 import { Location } from '@reach/router';
 import { Link } from 'gatsby';
 
+import useAllSitePath from '../../hooks/useAllSitePath';
 import colors from '../../theme/colors';
 
-import { localizePath, i18nEnabled, locales, localeCodes } from '../../i18n/i18n';
+import i18n from '../../i18n/i18n';
 import { useLocale } from '../../i18n/i18n-context';
 
 const wrapStyle = {
@@ -18,15 +19,12 @@ const wrapStyle = {
 const itemWrapStyle = {
   ':after': {
     content: '"|"',
-    marginLeft: '0.4rem',
-    marginRight: '0.4rem',
+    margin: '0 0.4rem',
   },
-
   ':last-child': {
-    '&::after': {
+    ':after': {
       content: '""',
-      marginLeft: 0,
-      marginRight: 0,
+      margin: 0,
     },
   },
 };
@@ -34,13 +32,11 @@ const itemWrapStyle = {
 const itemStyle = {
   color: colors.header.text,
   textTransform: 'uppercase',
-
-  '&:active, &:focus, &:hover': {
+  ':active, :focus, :hover': {
     outline: 'none',
     textDecoration: 'none',
   },
-
-  '&:hover': {
+  ':hover': {
     color: colors.highlight,
   },
 };
@@ -49,44 +45,54 @@ const activeItemStyle = {
   color: colors.header.nav.languageSwitch.selected,
 };
 
-const nonActiveItemStyle = {};
+const getSafePath = (pathname, code, allPathes) => {
+  const alternatePath = i18n.localizePath(i18n.purePath(pathname), code);
+  const isPathExist = (x) => allPathes.some(({ node: { path } }) => path === x);
 
-const LanguageSwitch = ({ closeMenu }) => {
+  if (isPathExist(alternatePath)) {
+    return alternatePath;
+  }
+  /*
+  const a = alternatePath.split('/');
+  a.pop();
+  a.pop();
+  if (a[a.length - 1] !== '') {
+    a.push('');
+  }
+  const nextPath = a.join('/');
+  if (isPathExist(nextPath)) {
+    return nextPath;
+  }
+  */
+  return i18n.localizePath('/', code);
+};
+
+const LanguageSwitch = ({ closeMenu, extraStyle = {} }) => {
   const { locale } = useLocale();
+  const allPathes = useAllSitePath();
 
-  if (!i18nEnabled) {
+  if (!i18n.i18nEnabled) {
     return null;
   }
-
-  const toPage = (p) => {
-    const n = p.length;
-    if (n <= 3) {
-      return '';
-    }
-    return p
-      .split(/\/[a-z]{2}\//)
-      .pop()
-      .replace(/^\/+/, '');
-  };
 
   return (
     <Location>
       {({ location: { pathname } }) => (
-        <div css={wrapStyle}>
-          {localeCodes.map((code) => {
-            const { shortName, shortLocalName } = locales[code];
+        <div css={{ ...wrapStyle, ...extraStyle }}>
+          {i18n.localeCodes.map((code) => {
+            const { shortName } = i18n.locales[code];
             const isCurrent = locale === code;
             return (
-              <div key={code} css={itemWrapStyle}>
+              <div key={code} className="lang-switch-item" css={itemWrapStyle}>
                 <Link
                   css={{
                     ...itemStyle,
-                    ...(isCurrent ? activeItemStyle : nonActiveItemStyle),
+                    ...(isCurrent ? activeItemStyle : {}),
                   }}
-                  to={localizePath(`/${toPage(pathname)}`, code)}
+                  to={isCurrent ? pathname : getSafePath(pathname, code, allPathes)}
                   onClick={closeMenu}
                 >
-                  {isCurrent ? shortLocalName : shortName}
+                  {shortName}
                 </Link>
               </div>
             );

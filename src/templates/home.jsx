@@ -58,7 +58,6 @@ const HomeTemplate = ({ data }) => {
         description={metaDescription}
         pathname={slug}
         noindex={noindex}
-        article={false}
       />
 
       <Container>
