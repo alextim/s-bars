@@ -6,7 +6,7 @@ module.exports = {
   siteUrl,
 
   /* Disable Robots */
-  noRobots: false,
+  noRobots: true,
 
   /**
    * name of content folder
@@ -79,7 +79,7 @@ module.exports = {
    *  */
   twitterCreator: '',
 
-  googleAnalyticsID: '',
+  googleAnalyticsID: 'UA-24264154-1',
 
   /**
    * webmanifest

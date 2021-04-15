@@ -17,12 +17,17 @@
   resolved "https://npm.pkg.github.com/download/@alextim/at-site-core/0.1.2/36f6536f9fc37d413db88fdec66c8dbfe3cdff5ef2e4471fba75e96095e07e0b#c6f6e39e004a13473c19e04f11211046bb961dd1"
   integrity sha512-wyq6VLQEjF/AoHKPgzxAvlz0I2DOAuJ0dkTxtnPQrC73LZkhQf4BfTy+WMNphLn8CuaGTUBhzsvGnvHMHnyK8w==
 
-"@alextim/at-sitemap@^0.2.1":
-  version "0.2.1"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-sitemap/0.2.1/5365299d25aa4fe848b4f12169eca95be06231a45cf83ce602b23ce3afa90969#802dc6c2fa5de5e8d86b97c61ac2df91ca886b02"
-  integrity sha512-dVjUE2sLtYElqMENQr/ThLJN+t5s/JI/c2ZIMsdDprK76UvgmTEt002y5hAFy2X1GpT4ydYYozvB32mAbtHE+g==
+"@alextim/at-sitemap@^0.2.6":
+  version "0.2.6"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-sitemap/0.2.6/e012dc3ca355770238905101ad83fe94ee8f196f23a106acb18906ea2e095263#131e1e270226eb1a813797bb67d896bcf8b54368"
+  integrity sha512-bC7AbifzNCEwMnjB1sulZ1/OqjFcQoR4TwgloAEGZWL0YejXClkJZUi+HMaLQIIWt3LfG7/qiy2DewML7l8ngw==
   dependencies:
     sitemap "^6.4.0"
+
+"@alextim/csp@^0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@alextim/csp/0.0.1/919bdd754c990da9a8262771a82c8e80158aa08ebade1d567d508b5c69347307#370b71d0ba4af6e84994b52b268640dd6e02af77"
+  integrity sha512-4xb0HvqVzTAMoLEKBI+6yaavW7ue83LSNn6ZFyc4CiAnDe8bJY7L9paQL2xTb6RrriEOkCFG9jc6pG6Phf5zSA==
 
 "@alextim/slugify@^0.1.0":
   version "0.1.0"
@@ -5452,10 +5457,10 @@ eslint-plugin-node@^11.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-prettier@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.3.1.tgz#7079cfa2497078905011e6f82e8dd8453d1371b7"
-  integrity sha512-Rq3jkcFY8RYeQLgk2cCwuc0P7SEFwDravPhsJZOQ5N4YI4DSg50NyqJ/9gdZHzQlHf8MvafSesbNJCcP/FF6pQ==
+eslint-plugin-prettier@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.4.0.tgz#cdbad3bf1dbd2b177e9825737fe63b476a08f0c7"
+  integrity sha512-UDK6rJT6INSfcOo545jiaOwB701uAIt2/dR7WnFQoGCVl1/EMqdANBmwUaqqQ45aXprsTGzSa39LI1PyuRBxxw==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
