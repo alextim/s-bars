@@ -3,7 +3,6 @@ name: Submodule Update Remote 2
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    types: [submodule-update]
 
 jobs:
   build:
