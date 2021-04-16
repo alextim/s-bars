@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const config = require('../../config/website');
+const config = require('../../s-bars.content/config/website');
 
 const templatesDir = `..${config.templatesDir}`;
 

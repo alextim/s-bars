@@ -4,7 +4,7 @@ import utils from '@alextim/utils';
 
 import IconLink from '../IconLink';
 
-// import { siteUrl } from '../../../config/website';
+// import { siteUrl } from '../../../s-bars.content/config/website';
 import useSiteMetadata from '../../hooks/useSiteMetadata';
 
 const OrganizationSite = () => {

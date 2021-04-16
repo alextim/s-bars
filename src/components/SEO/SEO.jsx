@@ -1,7 +1,7 @@
 import React from 'react';
 import { SeoBase } from '@alextim/at-seo';
 
-import config from '../../../config/website';
+import config from '../../../s-bars.content/config/website';
 import i18n from '../../i18n';
 
 import useSocialLinks from '../../hooks/useSocialLinks';

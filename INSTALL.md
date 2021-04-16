@@ -80,9 +80,11 @@ git clone --recurse-submodules https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНО
 3. Сгенерируйте два токена и скопируйте их значения
    - API_TOKEN (права: repo, read:repo_hook)
    - ACCESS_TOKEN (права: repo, read:repo_hook)
-4. Перейдите в репозиторий `[ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ]/s-bars.content` -> Settings -> Secrets
+4. Перейдите в репозиторий `https://github/ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ/s-bars.content` -> Settings -> Secrets
+
    Добавьте **API_TOKEN**.
-5. Перейдите в репозиторий `[ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ]/s-bars` -> Settings -> Secrets
+5. Перейдите в репозиторий `https://github/ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ/s-bars` -> Settings -> Secrets
+
    Добавьте **ACCESS_TOKEN**.
 
 

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-import config from '../../../config/website';
+import config from '../../../s-bars.content/config/website';
 
 import { prevLink, nextLink, currentLink } from '../../helpers/pagination';
 import { useTranslation } from '../../i18n';
