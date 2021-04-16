@@ -35,6 +35,7 @@
     "stylelint": "stylelint --syntax css-in-js src/**/*.{js,jsx,ts,tsx,css,scss}",
     "format": "prettier-eslint --write 'src/**/*.{js,jsx,json,md}'",
     "git:tracked": "git ls-tree -r master --name-only",
+    "git:log": "git log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
     "check:security": "audit-ci --critical",
     "test": "cross-env NODE_ENV=test yarn run eslint",
