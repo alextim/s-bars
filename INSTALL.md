@@ -103,7 +103,9 @@ git clone --recurse-submodules https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНО
    - **Build command**: `yarn build`
    - **Publish directoty**: `public`
 7. Перейдите в раздел **Environment variables**.  
+
    Добавьте переменные:
+
    |  Key                  | Value
    |---                    |---
    | NPM_TOKEN             | GitHub API ключ к private репозиториям с кодом
@@ -111,6 +113,8 @@ git clone --recurse-submodules https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНО
    | SENDGRID_SINGE_SENDER | ваш e-mail, верифицированный SendGrid
    | TO_EMAIL              | e-mail, на который будут приходить сообщения из форм
    | WARNINGS              | true
+   | NO_INDEX              | true, если надо запретить индексирование всего сайта
+
 8. Дайте Netlify доступ к вашему защищенному репозиторию на GitHub
    - Перейдите в раздел **Deploy key**.
    - Нажмите кнопку **Generate public deploy key**
@@ -120,7 +124,7 @@ git clone --recurse-submodules https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНО
    - Нажмите кнопку **Add deploy key**
    - В поле **Title** напишите `Netlify`, в поле **Key** вставьте из буфера обмена ключ, **Allow write access** оставьте невыбранным
    - Нажмите кнопку **Add key**, после чего Netlify получит доступ к вашему защищенному репозиторию с данными
-9. Вернитесь обратно на сайт Netlify. Нажмите кнопку **Deploy site**.
+9.  Вернитесь обратно на сайт Netlify. Нажмите кнопку **Deploy site**.
    Netlify начнет компиляцию сайта. Через несколько минут ваш сайт будет on-line!
 
 ## Если код сайта в **private** репозитории на GitHub

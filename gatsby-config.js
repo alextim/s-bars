@@ -10,10 +10,10 @@ const locales = require('./s-bars.content/config/locales');
 
 const manifestIconSrc = path.join(__dirname, 'src', 'assets', 'images', 'icon.png');
 
-const { contentDir, postDirs, pageDirs, cardsPerPage, noRobots } = config;
+const { contentDir, postDirs, pageDirs, cardsPerPage } = config;
 
 const headerForAll = [`Content-Security-Policy: ${getCSP(!!config.googleAnalyticsID, true, true)}`];
-if (config.noRobots) {
+if (process.env.NO_INDEX) {
   headerForAll.push('X-Robots-Tag: noindex, nofollow');
 }
 
@@ -215,6 +215,7 @@ const plugins = [
       templatesDir: path.join(__dirname, 'src', config.templatesDir),
       pageDirs,
       i18n,
+      noIndex: process.env.NO_INDEX,
     },
   },
   {
@@ -224,18 +225,16 @@ const plugins = [
       templatesDir: path.join(__dirname, 'src', config.templatesDir, 'blog'),
       cardsPerPage,
       postDirs,
-      CREATE_TAG_PAGES: false,
-      CREATE_CATEGORY_PAGES: false,
-      CREATE_YEAR_PAGES: false,
       i18n,
+      noIndex: process.env.NO_INDEX,
     },
   },
   {
     resolve: '@alextim/at-sitemap',
     options: {
       createRobotsTxt: true,
-      noRobots,
       ignoreImagesWithoutAlt: false,
+      noIndex: process.env.NO_INDEX,
     },
   },
 ];
