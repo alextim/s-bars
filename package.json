@@ -46,10 +46,10 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "@alextim/at-blog": "^0.2.2",
+    "@alextim/at-blog": "^0.2.7",
     "@alextim/at-seo": "^0.1.12",
-    "@alextim/at-site-core": "^0.1.2",
-    "@alextim/at-sitemap": "^0.2.6",
+    "@alextim/at-site-core": "^0.1.4",
+    "@alextim/at-sitemap": "^0.2.8",
     "@alextim/csp": "^0.0.1",
     "@alextim/slugify": "^0.1.0",
     "@alextim/translit": "^0.1.1",

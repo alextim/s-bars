@@ -380,7 +380,7 @@ Netlify отслеживает эти измения, сам cкомпилиру
 |  7 |             | business-photo.jpg | static/assets/images/organization/16x9/ | 16 : 9 | > 1600 x 900 | 1
 |    |             |                       |                                   |         |             |
 |  8 | schema.org  | logo.svg              | static/assets/images/             |         |             | 1
-|  9 | webmainfest | icon.png              | src/assets/images/                | 1 : 1   | > 512 x 512 | 1
+|  9 | webmanifest | icon.png              | src/assets/images/                | 1 : 1   | > 512 x 512 | 1
 
 
 *Установите, если надо, свои размеры изображений для Twitter и Facebook OpenGraph и в файле `[PROJECT_DIR]/config/website.js`.*
@@ -481,14 +481,14 @@ Markdown позволяет вставлять ссылки в формате HT
 
 Настройки сайта находятся в двух JavaScript-файлах:
 
-- `[PROJECT_DIR]/config/locales.js`
-- `[PROJECT_DIR]/config/website.js`
+- `[CONTENT_DIR]/config/locales.js`
+- `[CONTENT_DIR]/config/website.js`
 
 :bulb: Если необходима настройка, то рекомендуется привлечение :sunglasses: программиста!
 
 ### Общие
 
-Файл: `[PROJECT_DIR]/config/website.js`
+Файл: `[CONTENT_DIR]/config/website.js`
 
 Обязательные поля:
 
@@ -521,9 +521,9 @@ Markdown позволяет вставлять ссылки в формате HT
 `uk` и `ru`
 
 
-Файл: `[PROJECT_DIR]/src/config/locales.js`
+Файл: `[CONTENT_DIR]/config/locales.js`
 
-По этому файлу во время компиляции сайта добавляется префикс языка к адресам страниц, создается переключатель языков, SEO и многое другое.
+По содержимому этого файла во время компиляции сайта добавляется префикс языка к адресам страниц, создается переключатель языков, SEO и многое другое.
 
 Пример содержимого
 
@@ -546,7 +546,7 @@ module.exports = {
     // формат вывода дат и чисел
     formatLocale: 'uk-UA',
 
-    // 1. webmainfest.json - lang
+    // 1. manifest.webmanifest - lang
     // 2. <meta> - язык OpenGraph
     ogLocale: 'uk_UA',
 
@@ -560,20 +560,20 @@ module.exports = {
 
     dateFormat: 'dd.MM.yyyy',
 
-    // 1. webmainfest.json - name
+    // 1. manifest.webmanifest - name
     // 2. alt для лого в хедере
     // 3. тег <title>, если поля title и metaTitle не заполнены
     // 4. structured data  "@type": "WebSite" - name
     siteTitle: 'КОМПАНІЯ «СНІЖНИЙ БАРС»',
 
-    // 1. webmainfest.json - description
+    // 1. manifest.webmanifest - description
     // 2. <meta> - если не заполнены поля headline, metaDescription
     // 3. structured data "@type": "Organization" - description
     // 4. structured data  "@type": "WebSite" - description
     siteDescription:
       'Мы предлагаем широкий спектр услуг в сфере промальпа, заказывайте строительные работы на высоте от компании Снежный Барс.',
     
-    // 1. webmanifest.json - short_name
+    // 1. manifest.webmanifest - short_name
     // 2. выводится рядом с лого в хедере
     siteShortName: 'СНІЖНИЙ БАРС',
   },
@@ -587,25 +587,9 @@ module.exports = {
 
 ### Поисковые роботы
 
-:warning: По умолчанию индексирование поисковиками запрещено.
+По умолчанию индексирование поисковиками разрешено.
 
-Если вы хотите, что бы ваш сайт был проиндексирован **Google** и другими, то внесите изменения в файл  `[PROJECT_DIR]/config/website.js`.
-
-Нужно изменить значение константы **noRobots** на `false`.
-
-Идексирование запрещено:
-
-```js
-  /* Disable Robots */
-  noRobots: true,
-```  
-
-Идексирование разрешено:
-
-```js
-  /* Disable Robots */
-  noRobots: false,
-```  
+Если вы хотите, что бы ваш сайт был закрыт от индексирования, то в настройках Netlify надо присвоить переменной окружения **NO_INDEX** значение `true`.
 
 
 #### Стратегия индексации страницы "Блог"

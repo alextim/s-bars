@@ -12,8 +12,26 @@ const manifestIconSrc = path.join(__dirname, 'src', 'assets', 'images', 'icon.pn
 
 const { contentDir, postDirs, pageDirs, cardsPerPage } = config;
 
+const toBoolean = (x) => {
+  if (!x) {
+    return false;
+  }
+  if (typeof x === 'boolean') {
+    return x;
+  }
+  if (typeof x === 'number') {
+    return !!x;
+  }
+  return typeof x === 'string' && x.trim().toLowerCase() === 'true';
+};
+
+const noIndex = toBoolean(process.env.NO_INDEX);
+
+// eslint-disable-next-line no-console
+console.log(`Robots and indexing: ${noIndex ? 'DISABLED' : 'ENABLED'}`);
+
 const headerForAll = [`Content-Security-Policy: ${getCSP(!!config.googleAnalyticsID, true, true)}`];
-if (process.env.NO_INDEX) {
+if (noIndex) {
   headerForAll.push('X-Robots-Tag: noindex, nofollow');
 }
 
@@ -215,7 +233,7 @@ const plugins = [
       templatesDir: path.join(__dirname, 'src', config.templatesDir),
       pageDirs,
       i18n,
-      noIndex: process.env.NO_INDEX,
+      noIndex,
     },
   },
   {
@@ -226,7 +244,7 @@ const plugins = [
       cardsPerPage,
       postDirs,
       i18n,
-      noIndex: process.env.NO_INDEX,
+      noIndex,
     },
   },
   {
@@ -234,7 +252,7 @@ const plugins = [
     options: {
       createRobotsTxt: true,
       ignoreImagesWithoutAlt: false,
-      noIndex: process.env.NO_INDEX,
+      noIndex,
     },
   },
 ];

@@ -2,25 +2,25 @@
 # yarn lockfile v1
 
 
-"@alextim/at-blog@^0.2.2":
-  version "0.2.2"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.2.2/a0c74b4cccb462ac385f9116dbe9058fb0cfa861b9b981893352ee4fd44a3b83#7addaeb27db0074c2942e0eca0621e1b16adae82"
-  integrity sha512-z9Qe7Pnl8HxqClLbfzIO8VhAzaMBGW/bCcPRvOIdKopwPmBBk3LxuQZdn9J9u8djtvZjYLcr+ehXFWt4w+cf7A==
+"@alextim/at-blog@^0.2.7":
+  version "0.2.7"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.2.7/ef04936c55c026a266e7091d22c51d011dd6eb08ffa89e06a2fcaf6a1bf05044#ae05a28cfcfc0e7668296158232095d731cc4ff7"
+  integrity sha512-OE7eIo89HpsSOZmW0sNvpFF3/dwZbXovmKyfkK81aVqIxyXLF6xcJO0kT2XEveQlBV9A4DZVY35coZWVTrnm0w==
 
 "@alextim/at-seo@^0.1.12":
   version "0.1.12"
   resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.1.12/2f57becf120fc4d6e65a5090c87a29e1f7e3feba02245dedb54c079d9e321260#4a12dcf5581f99b0a20d585528faa14d6b7477ee"
   integrity sha512-ISHHcqAqSU4ETCxDu5a+6ML7r8xlBmPTcReY7W4ZXjo7zOSOFT4U2YxYXuxXk6Y2fO8kvEcfyYV4eCab6vjk1A==
 
-"@alextim/at-site-core@^0.1.2":
-  version "0.1.2"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-site-core/0.1.2/36f6536f9fc37d413db88fdec66c8dbfe3cdff5ef2e4471fba75e96095e07e0b#c6f6e39e004a13473c19e04f11211046bb961dd1"
-  integrity sha512-wyq6VLQEjF/AoHKPgzxAvlz0I2DOAuJ0dkTxtnPQrC73LZkhQf4BfTy+WMNphLn8CuaGTUBhzsvGnvHMHnyK8w==
+"@alextim/at-site-core@^0.1.4":
+  version "0.1.4"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-site-core/0.1.4/775ad93738f743baa6ec01b455fda09ba4b637658313cb74307efd1769e0f9b6#a7897b21c15088e220a41d111d0560e197e198db"
+  integrity sha512-r3Idm+KhbX5DwoDLvwEgOIYk2yvbw1/ob690zG9J+r1krdWo5+m/mgzpk1esVM4I8yAELAmyZTQhPGV3EaAyYA==
 
-"@alextim/at-sitemap@^0.2.6":
-  version "0.2.6"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-sitemap/0.2.6/e012dc3ca355770238905101ad83fe94ee8f196f23a106acb18906ea2e095263#131e1e270226eb1a813797bb67d896bcf8b54368"
-  integrity sha512-bC7AbifzNCEwMnjB1sulZ1/OqjFcQoR4TwgloAEGZWL0YejXClkJZUi+HMaLQIIWt3LfG7/qiy2DewML7l8ngw==
+"@alextim/at-sitemap@^0.2.8":
+  version "0.2.8"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-sitemap/0.2.8/165a379bb9d05d4c76501f89e7af0d03b8213ba166681c1603481a2eefca99fa#8d4a3498f531c6fe9eab3ce6012b0568b16909ee"
+  integrity sha512-nrmWmJZ+KbHV9dwNVZXBg7bsfv+u4E9KPh839TEFESdg6Y8mpUb4bNIxPyMy/JpEVrzjX99QmLfGq5swmsyGKg==
   dependencies:
     sitemap "^6.4.0"
 
