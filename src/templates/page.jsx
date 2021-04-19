@@ -6,25 +6,14 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import Sections from '../components/Sections';
 
-const PageTemplate = ({ data }) => {
+const PageTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: {
-      title,
-      metaTitle,
-      headline,
-      metaDescription,
-      cover,
-      noindex,
-      sections,
-      html,
-      locale,
-      slug,
-    },
+    page: { title, metaTitle, headline, metaDescription, cover, noindex, sections, html },
   } = data;
 
   return (
@@ -38,7 +27,7 @@ const PageTemplate = ({ data }) => {
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        pathname={slug}
+        pathname={pathname}
         noindex={noindex}
       />
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}

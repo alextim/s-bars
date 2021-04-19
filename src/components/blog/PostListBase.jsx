@@ -3,7 +3,7 @@ import { jsx } from '@emotion/react';
 
 import config from '../../../s-bars.content/config/website';
 
-import { prevLink, nextLink, currentLink } from '../../helpers/pagination';
+import { prevLink, nextLink } from '../../helpers/pagination';
 import { useTranslation } from '../../i18n';
 
 import styleCardsWrap from '../styles/styleCardsWrap';
@@ -25,13 +25,14 @@ const Cards = ({ posts, readMore, cardComponent }) => {
 
 const PostListBase = ({
   data,
+  pathname,
   /**
    * keep it for the future!
    */
   /*
   pageContext: { locale, currentPage, numPages, categories, tags, years },
   */
-  pageContext: { to, currentPage, numPages },
+  pageContext: { locale, to, currentPage, numPages },
   title,
   readMore,
   cardComponent,
@@ -42,7 +43,7 @@ const PostListBase = ({
     mainNav,
     footerNav,
     socialLinks,
-    page: { html, title: defaultTitle, metaTitle, headline, metaDescription, noindex, locale },
+    page: { html, title: defaultTitle, metaTitle, headline, metaDescription, noindex },
     posts,
   } = data;
 
@@ -76,7 +77,7 @@ const PostListBase = ({
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        pathname={currentLink(currentPage, to)}
+        pathname={pathname}
         noindex={noindex}
         pageType="Blog"
         links={links}

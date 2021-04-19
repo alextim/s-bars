@@ -47,7 +47,7 @@ const pageSources = Object.keys(allDirs).map((name) => ({
   resolve: 'gatsby-source-filesystem',
   options: {
     name,
-    path: `${__dirname}/${contentDir}/${allDirs[name]}`,
+    path: path.join(__dirname, contentDir, allDirs[name]),
   },
 }));
 
@@ -249,6 +249,7 @@ const plugins = [
   },
   {
     resolve: '@alextim/at-sitemap',
+    // resolve: 'at-sitemap',
     options: {
       createRobotsTxt: true,
       ignoreImagesWithoutAlt: false,

@@ -4,7 +4,9 @@ import { graphql } from 'gatsby';
 
 import PageTemplate from '../components/object-types-and-services';
 
-const ServiceListTemplate = ({ data }) => <PageTemplate data={data} type="service" />;
+const ServiceListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => (
+  <PageTemplate data={data} pathname={pathname} locale={locale} type="service" />
+);
 
 export default ServiceListTemplate;
 

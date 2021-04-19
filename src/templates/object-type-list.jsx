@@ -4,7 +4,9 @@ import { graphql } from 'gatsby';
 
 import PageTemplate from '../components/object-types-and-services';
 
-const ObjectTypeListTemplate = ({ data }) => <PageTemplate data={data} type="object" />;
+const ObjectTypeListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => (
+  <PageTemplate data={data} pathname={pathname} locale={locale} type="object" />
+);
 
 export default ObjectTypeListTemplate;
 

@@ -8,14 +8,14 @@ import Section from '../components/Section';
 
 import InquiryForm from '../components/InquiryForm';
 
-const InquiryTemplate = ({ data }) => {
+const InquiryTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex, locale, slug },
+    page: { title, metaTitle, headline, metaDescription, noindex },
   } = data;
 
   return (
@@ -28,7 +28,7 @@ const InquiryTemplate = ({ data }) => {
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        pathname={slug}
+        pathname={pathname}
         noindex={noindex}
       />
 

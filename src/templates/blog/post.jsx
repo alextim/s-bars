@@ -16,7 +16,7 @@ const styleWidgetArea = {
   flexDirection: 'column',
 };
 
-const PostTemplate = ({ data }) => {
+const PostTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
@@ -33,8 +33,6 @@ const PostTemplate = ({ data }) => {
       datePublished,
       dateModified,
       html,
-      locale,
-      slug,
     },
   } = data;
 
@@ -49,7 +47,7 @@ const PostTemplate = ({ data }) => {
         title={metaTitle}
         description={metaDescription}
         headline={headline}
-        pathname={slug}
+        pathname={pathname}
         noindex={noindex}
         datePublished={datePublished}
         dateModified={dateModified}

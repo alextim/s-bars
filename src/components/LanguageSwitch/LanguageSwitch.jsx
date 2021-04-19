@@ -42,6 +42,7 @@ const itemStyle = {
 };
 
 const activeItemStyle = {
+  ...itemStyle,
   color: colors.header.nav.languageSwitch.selected,
 };
 
@@ -85,10 +86,7 @@ const LanguageSwitch = ({ closeMenu, extraStyle = {} }) => {
             return (
               <div key={code} className="lang-switch-item" css={itemWrapStyle}>
                 <Link
-                  css={{
-                    ...itemStyle,
-                    ...(isCurrent ? activeItemStyle : {}),
-                  }}
+                  css={isCurrent ? activeItemStyle : itemStyle}
                   to={isCurrent ? pathname : getSafePath(pathname, code, allPathes)}
                   onClick={closeMenu}
                 >

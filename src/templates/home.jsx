@@ -39,14 +39,14 @@ const styleHeadline = {
   },
 };
 
-const HomeTemplate = ({ data }) => {
+const HomeTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, headline, metaTitle, metaDescription, noindex, sections, html, locale, slug },
+    page: { title, headline, metaTitle, metaDescription, noindex, sections, html },
   } = data;
   const objectTypes = mainNav.edges[1].node.submenu;
 
@@ -56,7 +56,7 @@ const HomeTemplate = ({ data }) => {
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        pathname={slug}
+        pathname={pathname}
         noindex={noindex}
       />
 
@@ -116,8 +116,6 @@ export const pageQuery = graphql`
       metaTitle
       metaDescription
       noindex
-      slug
-      locale
       sections {
         title
         subtitle

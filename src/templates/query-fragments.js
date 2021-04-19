@@ -51,8 +51,6 @@ export const mdPageFragment = graphql`
         }
       }
     }
-    slug
-    locale
     html
   }
 `;

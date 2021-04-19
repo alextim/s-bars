@@ -16,14 +16,14 @@ const headingStyle = (t) => ({
 });
 // const htmlStyle = { textAlign: 'center' };
 
-const NotFoundTemplate = ({ data }) => {
+const NotFoundTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, metaDescription, html, locale, slug },
+    page: { title, metaTitle, metaDescription, html },
   } = data;
 
   return (
@@ -32,7 +32,7 @@ const NotFoundTemplate = ({ data }) => {
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        pathname={slug}
+        pathname={pathname}
         noindex
       />
       <div css={wrapStyle}>

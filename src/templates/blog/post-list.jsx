@@ -4,8 +4,8 @@ import { graphql } from 'gatsby';
 
 import PostList from '../../components/blog/PostList';
 
-const PostListTemplate = ({ data, pageContext }) => (
-  <PostList data={data} pageContext={pageContext} />
+const PostListTemplate = ({ data, location: { pathname }, pageContext }) => (
+  <PostList data={data} pathname={pathname} pageContext={pageContext} />
 );
 
 export default PostListTemplate;

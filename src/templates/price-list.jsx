@@ -14,25 +14,14 @@ const styleHtml = {
   textAlign: 'justify',
 };
 
-const PriceListTemplate = ({ data }) => {
+const PriceListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: {
-      title,
-      metaTitle,
-      headline,
-      metaDescription,
-      cover,
-      noindex,
-      sections,
-      html,
-      locale,
-      slug,
-    },
+    page: { title, metaTitle, headline, metaDescription, cover, noindex, sections, html },
   } = data;
 
   return (
@@ -46,7 +35,7 @@ const PriceListTemplate = ({ data }) => {
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        pathname={slug}
+        pathname={pathname}
         noindex={noindex}
       />
       {sections && sections[0] && sections[0].items && <PriceList items={sections[0].items} />}

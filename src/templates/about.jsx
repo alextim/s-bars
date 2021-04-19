@@ -9,14 +9,14 @@ import Triptych from '../components/home-page-parts/Triptych';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 
-const AboutTemplate = ({ data }) => {
+const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex, sections, html, locale, slug },
+    page: { title, metaTitle, headline, metaDescription, noindex, sections, html },
   } = data;
 
   return (
@@ -29,7 +29,7 @@ const AboutTemplate = ({ data }) => {
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        pathname={slug}
+        pathname={pathname}
         noindex={noindex}
       />
       {sections && (

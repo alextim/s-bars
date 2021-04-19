@@ -10,7 +10,7 @@ import styleHtml from '../styles/styleHtml';
 
 import CardList from './CardList';
 
-const ObjectTypeServiceList = ({ data, type }) => {
+const ObjectTypeServiceList = ({ data, pathname, locale, type }) => {
   const {
     translations,
     address,
@@ -18,7 +18,7 @@ const ObjectTypeServiceList = ({ data, type }) => {
     footerNav,
     socialLinks,
     pageItems = [],
-    page: { html, title, metaTitle, headline, metaDescription, noindex, locale, slug },
+    page: { html, title, metaTitle, headline, metaDescription, noindex },
   } = data;
 
   /**
@@ -46,7 +46,7 @@ const ObjectTypeServiceList = ({ data, type }) => {
         locale={locale}
         title={metaTitle}
         description={metaDescription}
-        pathname={slug}
+        pathname={pathname}
         noindex={noindex}
       />
       <CardList items={items} />
