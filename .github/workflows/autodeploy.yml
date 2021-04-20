@@ -47,10 +47,11 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build the project
-        run: |
-          yarn build # --if-present
+        run: yarn build # --if-present
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      #- run: npm run test:unit # run the tests
+          #- run: npm run test:unit # run the tests
 
       # deploy site to netlify using secrets created on repository
       - uses: netlify/actions/cli@master
