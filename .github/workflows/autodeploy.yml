@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -28,8 +30,22 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
 
+      - name: create env file
+        run: |
+          touch .env
+          echo SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }} >> .env
+          echo SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER }} >> .env
+          echo TO_EMAIL=${{ secrets.TO_EMAIL }} >> .env
+          echo WARNINGS=${{ secrets.WARNINGS }} >> .env
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SENDGRID_SINGLE_SENDER: ${{ secrets.SENDGRID_SINGLE_SENDER }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          WARNINGS: ${{ secrets.WARNINGS }}
+
       - name: Build the project
-        run: yarn build # --if-present
+        run: |
+          yarn build # --if-present
 
       #- run: npm run test:unit # run the tests
 
