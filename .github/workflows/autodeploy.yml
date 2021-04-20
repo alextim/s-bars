@@ -48,7 +48,6 @@ jobs:
 
       - name: Build the project
         run: |
-          yarn global add gatsby-cli
           gatsby build # --if-present
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
