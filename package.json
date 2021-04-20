@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@alextim/at-blog": "^0.2.7",
-    "@alextim/at-seo": "^0.1.12",
+    "@alextim/at-seo": "^0.1.14",
     "@alextim/at-site-core": "^0.1.4",
     "@alextim/at-sitemap": "^0.2.8",
     "@alextim/csp": "^0.0.1",
@@ -100,7 +100,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "7.23.2",
     "eslint-plugin-react-hooks": "4.2.0",
-    "eslint-webpack-plugin": "^2.5.3",
+    "eslint-webpack-plugin": "^2.5.4",
     "gatsby-plugin-eslint": "^3.0.0",
     "gatsby-plugin-react-svg": "^3.0.1",
     "husky": "^6.0.0",

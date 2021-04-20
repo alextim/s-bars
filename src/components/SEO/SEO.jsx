@@ -29,9 +29,6 @@ const SEO = ({
   const orgContacts = useOrgContacts();
   const siteMeta = i18n.locales[locale];
 
-  // eslint-disable-next-line no-console
-  console.log(orgContacts);
-
   /*
   let dows;
   if (orgContacts.openingHours) {
