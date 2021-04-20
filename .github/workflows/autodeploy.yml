@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '14'
 
-      - name: create .env & .npmrc files
+      - name: create .env file
         run: |
           touch .env
           echo SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }} >> .env
@@ -47,7 +47,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build the project
-        run: yarn build # --if-present
+        run: gatsby build # --if-present
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
