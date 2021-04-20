@@ -8,20 +8,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.NPM_TOKEN }}
+          #token: ${{ secrets.NPM_TOKEN }}
+          submodules: recursive
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
 
-      - name: create .env file
-        run: |
-          touch .env
-          echo SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }} >> .env
-          echo SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER }} >> .env
-          echo TO_EMAIL=${{ secrets.TO_EMAIL }} >> .env
-          echo WARNINGS=${{ secrets.WARNINGS }} >> .env
+      #- name: create .env file
+      #  run: |
+      #    touch .env
+      #    echo SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }} >> .env
+      #    echo SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER }} >> .env
+      #    echo TO_EMAIL=${{ secrets.TO_EMAIL }} >> .env
+      #    echo WARNINGS=${{ secrets.WARNINGS }} >> .env
 
         env:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
@@ -51,7 +53,10 @@ jobs:
           yarn run gatsby build # --if-present
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SENDGRID_SINGLE_SENDER: ${{ secrets.SENDGRID_SINGLE_SENDER }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          WARNINGS: ${{ secrets.WARNINGS }}
           #- run: npm run test:unit # run the tests
 
       # deploy site to netlify using secrets created on repository
