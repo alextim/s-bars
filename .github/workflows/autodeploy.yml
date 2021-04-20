@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '14'
 
-      - name: create env file
+      - name: create .env & .npmrc files
         run: |
           touch .env
           echo NPM_TOKEN=${{ secrets.NPM_TOKEN }} >> .env
@@ -23,6 +23,10 @@ jobs:
           echo SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER }} >> .env
           echo TO_EMAIL=${{ secrets.TO_EMAIL }} >> .env
           echo WARNINGS=${{ secrets.WARNINGS }} >> .env
+
+          touch .npmrc
+          echo @alextim:registry=https://npm.pkg.github.com >> .npmrc
+          echo //npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }} >> .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
