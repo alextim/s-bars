@@ -8,7 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          #token: ${{ secrets.NPM_TOKEN }}
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
 
@@ -38,10 +37,11 @@ jobs:
         run:  yarn run gatsby build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          WARNINGS: ${{ secrets.WARNINGS }}
+          NO_INDEX: ${{ secrets.NO_INDEX }}
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
           SENDGRID_SINGLE_SENDER: ${{ secrets.SENDGRID_SINGLE_SENDER }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
-          WARNINGS: ${{ secrets.WARNINGS }}
           #- run: npm run test:unit # run the tests
 
       # deploy site to netlify using secrets created on repository

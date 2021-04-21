@@ -1496,10 +1496,10 @@ Frontmatter cодержит одну секцию со списком позиц
 | telegram         | страница Контакты  |                |               |
 | phone            | SEO                | да             | да            | [телефон](https://schema.org/telephone) список цифровых значений, разделитель элементов `,`
 | e-mail           | SEO                | да             | да            | [почта](https://schema.org/email) список, разделитель элементов `,`
-| openingHours        | страница "Контакты" и SEO     | да | да | [рабочее время](https://schema.org/openingHours), преобразуется в `OpeningHoursSpecification`
-| priceRange          | SEO                           | нет | да | [диапазон цен](https://schema.org/priceRange), валидные значения: `$`, `$$`, `$$$`, `$$$$`
-| currenciesAccepted  | SEO                           | нет | да | [валюты, принимаемая к оплате](https://schema.org/currenciesAccepted)
-| paymentAccepted     | SEO                           | нет | да | [способы оплаты](https://schema.org/paymentAccepted)
+| openingHours       | страница "Контакты" и SEO     | да | да | [рабочее время](https://schema.org/openingHours), преобразуется в `OpeningHoursSpecification`
+| priceRange         | SEO                           | нет | да | [диапазон цен](https://schema.org/priceRange), валидные значения: `$`, `$$`, `$$$`, `$$$$`
+| currenciesAccepted | SEO                           | нет | да | [валюты, принимаемая к оплате](https://schema.org/currenciesAccepted)
+| paymentAccepted    | SEO                           | нет | да | [способы оплаты](https://schema.org/paymentAccepted)
 | foundingDate     | футер и SEO        | да             | да            | [дата основания](https://schema.org/foundingDate) в формате ISO 8601
 
 Поля **e-mail** и **phone** участвуют в структурированных данных для **Organization** или **LocalBusiness**. Используется только первый элемент массива.

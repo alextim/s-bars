@@ -8,17 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: |
-          echo ${GITHUB_REF}
-
       - uses: actions/checkout@v2
         with:
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
-          # ref: ${GITHUB_REF}
-
-      - name: check for changes
-        run: git status
 
       - name: submodule Update
         run: |
