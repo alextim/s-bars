@@ -42,7 +42,7 @@ const ContactItemHeading = ({ title }) => <div css={styleContactItemTitle}>{titl
 const Address = ({ data }) => {
   const {
     legalName,
-    postalAddress: { addressCountry, addressLocality, postalCode, streetAddress },
+    postalAddress: { addressCountryName, addressLocality, postalCode, streetAddress },
   } = data;
   return (
     <div css={styleItemSeparator}>
@@ -52,7 +52,7 @@ const Address = ({ data }) => {
         <div>
           {addressLocality} {postalCode}
         </div>
-        <div>{addressCountry}</div>
+        <div>{addressCountryName}</div>
       </div>
     </div>
   );

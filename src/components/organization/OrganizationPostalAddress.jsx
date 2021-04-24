@@ -6,7 +6,7 @@ const OrganizationPostalAddress = () => {
   const {
     address: {
       legalName,
-      postalAddress: { streetAddress, addressLocality, postalCode, addressCountry },
+      postalAddress: { streetAddress, addressLocality, postalCode, addressCountryName },
     },
   } = useOrgAddress();
 
@@ -17,7 +17,7 @@ const OrganizationPostalAddress = () => {
         <div key={i}>{item}</div>
       ))}
       <div>{`${postalCode || ''}  ${addressLocality}`}</div>
-      <div>{addressCountry}</div>
+      <div>{addressCountryName}</div>
     </>
   );
 };

@@ -88,6 +88,7 @@ export const addressFragment = graphql`
       addressRegion
       postalCode
       addressCountry
+      addressCountryName
     }
     contactPoint {
       name
