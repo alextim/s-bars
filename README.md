@@ -1674,17 +1674,26 @@ postalAddress:
   addressLocality:  Вінниця
   addressRegion: Вінницька обл.
   postalCode: 21036
-  addressCountry: Україна
+  # для структурированных данных, два символа ISO 3166-1 alpha-2
+  addressCountry: UA
+  # для вывода на странице Контакты
+  addressCountryName: Україна
 
 contactPoint:
   - name: Світлана Доляк
     description: Фарбування металоконструкцій, фасадів і т.д.
-    contactType: відділ роботи з клієнтом
+    # для структурированных данных
+    contactType: customer service
+    # для вывода на странице Контакты
+    contactTypeName: відділ роботи з клієнтом
     telephone: [380965553092]
     email: [promalp.s.bars@gmail.com]
   - name: Андрій Карпенко
     description: Утеплення квартир
-    contactType: клієнт-менеджер
+    # для структурированных данных
+    contactType: customer service
+    # для вывода на странице Контакты
+    contactTypeName: клієнт-менеджер
     telephone: [380979705376, 380432573695]
     email: [andrey.karpenko7@gmail.com]
 ```

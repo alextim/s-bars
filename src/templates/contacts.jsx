@@ -77,11 +77,11 @@ const ContactPoints = ({ items }) => {
   if (!items) {
     return null;
   }
-  return items.map(({ description, name, contactType, email, telephone }) => (
+  return items.map(({ description, name, contactTypeName, email, telephone }) => (
     <div css={styleContactItemWrap} key={name}>
       <ContactItemHeading title={description} />
       <div>{name}</div>
-      <div css={styleItemSeparator}>{contactType}</div>
+      <div css={styleItemSeparator}>{contactTypeName}</div>
       <div css={styleItemsWrap}>
         {telephone.map((tel) => (
           <a key={tel} href={utils.phoneUrl(tel)}>

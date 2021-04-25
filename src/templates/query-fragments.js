@@ -94,6 +94,7 @@ export const addressFragment = graphql`
       name
       description
       contactType
+      contactTypeName
       areaServed
       telephone
       email
