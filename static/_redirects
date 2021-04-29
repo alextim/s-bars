@@ -1,5 +1,6 @@
-# http://s-bars.netlify.app/*   https://s-bars.com/:splat  301!
-# https://s-bars.netlify.app/*  https://s-bars.com/:splat  301!
-/dlya-predpriyatijh           /services                  301
-/ru/*                         /ru/404                    404
-/uteplenie_sten_i_fasadov     /uteplenie-sten-i-fasadov  301
+http://s-bars.netlify.app/*   https://s-bars.com/:splat     301!
+https://s-bars.netlify.app/*  https://s-bars.com/:splat     301!
+/dlya-predpriyatijh           /services                     301
+/ru/*                         /ru/404                       404
+/uteplenie_sten_i_fasadov     /uteplenie-sten-i-fasadov     301
+/ru/uteplenie_sten_i_fasadov  /ru/uteplenie-sten-i-fasadov  301

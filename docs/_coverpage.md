@@ -2,14 +2,14 @@
 
 # s-bars.com
 
-> Стек используемых технологий
+> Стек технологий
 
 - Gatsby
 - Markdown & YAML
 - React
 - GitHub Actions
 - SendGrid
-- Netlify Funcions
+- Netlify Functions
 - Netlify
 
 
