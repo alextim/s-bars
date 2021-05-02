@@ -1,14 +1,14 @@
 const fetch = require('node-fetch');
 
-const { TELEGRAM_BOT_ID, TELEGRAM_CHAT_ID } = process.env;
+const { TELEGRAM_TO, TELEGRAM_TOKEN } = process.env;
 
 module.exports = async (msg) => {
-  if (!TELEGRAM_BOT_ID) {
-    console.warn('TELEGRAM_BOT_ID should be defined!');
+  if (!TELEGRAM_TOKEN) {
+    console.warn('TELEGRAM_TOKEN should be defined!');
     return false;
   }
-  if (!TELEGRAM_CHAT_ID) {
-    console.warn('TELEGRAM_CHAT_ID should be defined!');
+  if (!TELEGRAM_TO) {
+    console.warn('TELEGRAM_TO should be defined!');
     return false;
   }
   if (!msg) {
@@ -16,7 +16,7 @@ module.exports = async (msg) => {
   }
   const encodedMsg = encodeURIComponent(msg);
   try {
-    const URL = `https://api.telegram.org/bot${TELEGRAM_BOT_ID}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedMsg}`;
+    const URL = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_TO}&text=${encodedMsg}`;
     const data = await fetch(URL, { method: 'POST' }).then((response) => response.json());
     if (data.ok) {
       return true;

@@ -1,4 +1,4 @@
-name: Auto Deploy
+name: "Auto Deploy - branch: main"
 on:
   push:
     branches: [main]
@@ -8,6 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: main
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
 
@@ -34,7 +35,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build the project
-        run:  yarn run gatsby build
+        run: yarn run gatsby build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           WARNINGS: ${{ secrets.WARNINGS }}
@@ -42,12 +43,39 @@ jobs:
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
           SENDGRID_SINGLE_SENDER: ${{ secrets.SENDGRID_SINGLE_SENDER }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
           #- run: npm run test:unit # run the tests
 
+      - name: Check build
+        if: ${{ failure() }}
+        run: |
+          echo "AT_STATE=Build: failed" >> $GITHUB_ENV
+
       # deploy site to netlify using secrets created on repository
-      - uses: netlify/actions/cli@master
+      - name: Deploy site
+        if: ${{ success() }}
+        uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           args: deploy --dir=public --prod
+
+      - name: Check Deploy
+        if: ${{ failure() && env.AT_STATE == ''}}
+        run: |
+          echo "AT_STATE=Deploy: failed" >> $GITHUB_ENV
+
+      - name: msg
+        if: ${{ success() }}
+        run: |
+          echo "AT_STATE=Deploy: OK" >> $GITHUB_ENV
+
+      - name: Send to Telegram
+        if: ${{ always() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: ${{ env.AT_STATE }}
