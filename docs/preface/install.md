@@ -66,6 +66,12 @@ git clone https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ/s-bar
 1. Settings -> Secrets -> New repository secret.
 1. Создайте новый секрет с именем **API_TOKEN** и значением полученного токена.
 
+## Создание токена доступа к защищенному репозитортю с данными
+
+1. Зайдите в вашу учетную запись на [Github](https://github.com).
+1. Settings -> Developer settings -> Personal access tokens -> Generate new token.
+1. Создайте новый токен с именем **ACCESS_TOKEN** (права: read:repo_hook, repo).
+1. Скопируйте значение сгенерированного токена. Храните **ACCESS_TOKEN** в секрете.
 
 ## Настройка секретов репозитория с кодом
 
@@ -79,7 +85,8 @@ git clone https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ/s-bar
 
 |  Key                  | Value                  |
 |---                    |---                     |---
-| NETLIFY_AUTH_TOKEN    | **NETLIFY_AUTH_TOKEN** | конфиденциальная информация!
+| ACCESS_TOKEN          |                        | конфиденциальная информация!
+| NETLIFY_AUTH_TOKEN    |                        | конфиденциальная информация!
 | NETLIFY_SITE_ID       | **Site ID**            | конфиденциальная информация!
 | SENDGRID_API_KEY      | ваш SendGrid API ключ  | конфиденциальная информация!
 | SENDGRID_SINGE_SENDER | ваш e-mail, верифицированный SendGrid
