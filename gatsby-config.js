@@ -30,7 +30,10 @@ const noIndex = toBoolean(process.env.NO_INDEX);
 // eslint-disable-next-line no-console
 console.log(`Robots and indexing: ${noIndex ? 'DISABLED' : 'ENABLED'}`);
 
-const headerForAll = [`Content-Security-Policy: ${getCSP(!!config.googleAnalyticsID, true, true)}`];
+const headerForAll = [
+  `Content-Security-Policy: ${getCSP(!!config.googleAnalyticsID, true, true)}`,
+  'Permissions-Policy: interest-cohort=()',
+];
 if (noIndex) {
   headerForAll.push('X-Robots-Tag: noindex, nofollow');
 }

@@ -1,7 +1,10 @@
 [build]
-  functions = "./functions"
+  functions = "functions"
   command = "yarn build"
   publish = "public"
+
+[functions]
+  node_bundler = "esbuild"
 
 [build.environment]
   NETLIFY_USE_YARN = "true"

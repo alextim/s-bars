@@ -1,5 +1,7 @@
 const urlAPI = require('url');
 const emailValidator = require('email-validator');
+const sendEmail = require('./sendEmail');
+const sendTelegram = require('./sendTelegram');
 
 const {
   SENDGRID_API_KEY,
@@ -42,7 +44,7 @@ const validateOrigin = (event) => {
 
 const isSpam = (body) => body.email;
 
-const getSanitizedValues = (body, fields) => {
+const sanitize = (body, fields) => {
   const keys = Object.keys(fields);
   const n = keys.length;
   const result = {};
@@ -53,13 +55,33 @@ const getSanitizedValues = (body, fields) => {
     if (!validateField(value, fieldInfo)) {
       return false;
     }
-    result[key] = sanitizeField(value);
+    const sanitized = sanitizeField(value);
+    if (sanitized) {
+      result[key] = sanitized;
+    }
   }
   return result;
 };
 
-const processEvent = async (event, sgMail, fields, subject) => {
-  // console.warn(event.headers.origin, URL);
+const reorder = (o, body) => {
+  const result = {};
+  const keys = Object.keys(body);
+  const n = keys.length;
+  for (let i = 0; i < n; i++) {
+    const key = keys[i];
+    if (o[key]) {
+      result[key] = o[key];
+    }
+  }
+  return result;
+};
+
+module.exports = async (event, fields, subject) => {
+  /**
+   * for Debug
+   * console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`);
+   * console.warn(event.headers.origin, URL);
+   */
   if (!validateOrigin(event)) {
     return { statusCode: 401, body: 'Bad origin' };
     // return { statusCode: 401, body: `Bad origin ${event.headers.origin} ${URL}` };
@@ -103,43 +125,29 @@ const processEvent = async (event, sgMail, fields, subject) => {
     return { statusCode: 403, body: 'Forbidden' };
   }
 
-  const sanitized = getSanitizedValues(body, fields);
+  const sanitized = sanitize(body, fields);
   if (!sanitized) {
     return { statusCode: 400, body: 'Bad data' };
   }
 
-  const aBody = Object.keys(sanitized).map((k) => {
-    const name = (fields[k] ? fields[k].humanName : undefined) || k;
-    return `${name}: ${sanitized[k]}`;
+  const ordered = reorder(sanitized, body);
+
+  const aBody = Object.keys(ordered).map((key) => {
+    const name = (fields[key] ? fields[key].humanName : undefined) || key;
+    return `${name}: ${ordered[key]}`;
   });
 
+  aBody.push(`IP: ${event.headers['client-ip']}`);
   // aBody.splice(0, 0, URL, '-'.repeat(20));
-  const html = aBody.join('<br><br>');
-  const text = aBody.join('\n\n');
+  const text = aBody.join('\n');
 
-  const msg = {
+  await sendTelegram(text);
+
+  return sendEmail({
     to: TO_EMAIL,
     from: SENDGRID_SINGLE_SENDER,
     subject: `${SITE_NAME}: ${subject}`,
     text,
-    html,
-  };
-  try {
-    await sgMail.send(msg);
-    return {
-      statusCode: 200,
-      body: 'ok',
-    };
-  } catch (err) {
-    console.error(err);
-    if (err.response) {
-      console.error(err.response.body);
-    }
-    return {
-      statusCode: err.code,
-      body: err.message,
-    };
-  }
+    html: aBody.join('<br><br>'),
+  });
 };
-
-module.exports = processEvent;
