@@ -3,13 +3,18 @@
 Компилятор в режиме разработки использует файл переменных окружения `[PROJECT_DIR]/.env.development`.
 
 
-В файле хранятся три переменных:
+В файле хранятся следуюшие переменные:
 
 ```env
 LOCALES = uk ru
 ONLY = / /inquiry/
 WARNINGS = true
 NO_INDEX = false
+TELEGRAM_TOKEN = 
+TELEGRAM_TO = 
+SENDGRID_API_KEY = 
+SENDGRID_SINGE_SENDER = 
+TO_EMAIL =
 ```
 
 В `LOCALES` указываются языки, для которых будет генерироваться сайт. В качестве разделителя элеметов используется пробел.

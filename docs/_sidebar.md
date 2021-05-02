@@ -32,3 +32,4 @@
   - [Вставка видео с YouTube](useful/youtube-insert.md)
   - [Оформление ссылок](useful/links.md)
   - [Базовое SEO](useful/seo.md)
+  - [Статьи](useful/literature.md)

@@ -4,12 +4,13 @@
 
 > Стек технологий
 
+- React
 - Gatsby
 - Markdown & YAML
-- React
 - GitHub Actions
-- SendGrid
-- Netlify Functions
 - Netlify
+- Netlify Functions
+- SendGrid
+- Telegram
 
 
