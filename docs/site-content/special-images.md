@@ -3,17 +3,13 @@
 | №  | Назначение  | Имя файла             | Папка                             | Ш : В   | Размер, px  | Кол-во
 |---:|-----------  |---                    |---                                |  ---:   |        ---: |---
 |  1 | Site        | favicon.ico           | static/                           | 1 : 1   |   16 x 16   | 1
-|    |             |                       |                                   |         |             |
 |  2 | OpenGraph   | banner-`{locale}`.jpg | static/assets/images/og/          | 1.9 : 1 | 1200 x 630  | 1 на `locale`
-|    |             |                       |                                   |         |             |
 |  3 | Twitter     | banner-`{locale}`.jpg | static/assets/images/twitter/1x1/ | 1 : 1   |  450 x 450  | 1 на `locale`
 |  4 |             | banner-`{locale}`.jpg | static/assets/images/twitter/2x1/ | 2 : 1   |  600 x 300  | 1 на `locale`
-|    |             |                       |                                   |         |             |
 |  5 | schema.org  | business-photo.jpg | static/assets/images/organization/1x1/  | 1 : 1  | >  696 x 696 | 1
 |  6 |             | business-photo.jpg | static/assets/images/organization/4x3/  | 4 : 3  | > 1200 x 900 | 1
 |  7 |             | business-photo.jpg | static/assets/images/organization/16x9/ | 16 : 9 | > 1600 x 900 | 1
-|    |             |                       |                                   |         |             |
-|  8 | schema.org  | logo.png              | static/assets/images/             |         |             | 1
+|  8 | schema.org  | logo.svg              | static/assets/images/             |         |             | 1
 |  9 | webmanifest | icon.png              | src/assets/images/                | 1 : 1   | > 512 x 512 | 1
 
 

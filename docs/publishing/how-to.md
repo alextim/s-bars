@@ -17,7 +17,7 @@ Netlify сам отследит все изменения в удаленном 
 
 **Cхема процесса обновления сайта**
 
-<img alt="Пошаговая схема процесса обновления сайта" src="/_media/git-workflow-actions.svg">
+<img alt="Пошаговая схема процесса обновления сайта" src="/_media/git-workflow-actions-v2.svg">
 
 1. Запустите Visual Studio Code
 2. Откройте папку с данными - меню File -> Open Folder..., папка `[CONTENT_DIR]`.

@@ -34,22 +34,12 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add .
           git commit -m "remote data update"
-          # git push
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
-      #- name: Trigger deploy
-      #  if: steps.changes.outputs.changed == 1
-      #  run: |
-      #    curl \
-      #      -X POST \
-      #      -H "Accept: application/vnd.github.v3+json" \
-      #      -u ${{ secrets.API_TOKEN }} \
-      #      https://api.github.com/repos/alextim/s-bars/actions/workflows/autodeploy.yml/dispatches \
-      #      -d '{"ref":"main"}'
 
       - name: No Changes
         if: steps.changes.outputs.changed == 0

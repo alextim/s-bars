@@ -3,6 +3,12 @@ on:
   # workflow_dispatch:
   push:
     branches: [dev]
+    paths-ignore:
+      - 'docs/**/*.*'
+      - '.github/**/*.*'
+      - '.gitignore'
+      - '.vscode/**/*.*'
+      - 'README.md'
 jobs:
   build-and-test:
     runs-on: ubuntu-latest

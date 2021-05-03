@@ -7,7 +7,7 @@
 1. Учетная запись на [SendGrid](https://sendgrid.com). Необходимо получить API key и верифицировать ваш e-mail (Single Sender).
 2. Учетная запись на [GitHub](https://github.com).
 3. Учетная запись на [Netlify](https://netlify.com).
-4. Инсталлированное ПО на вашем локальном компьютере: 
+4. Предвариельно установленное ПО на вашем локальном компьютере:
     - система контроля версий **Git**. Ссылка для скачивания [здесь](https://git-scm.com/download)
     - NodeJs. Ссылка для скачивания [здесь](https://nodejs.dev/download).
 5. Права доступа к исходному защищенному репозиторию с данными.
@@ -22,7 +22,7 @@
    npm i -g netlify-cli
    ```
 
-## Созданиме нового сайта на Netlify
+## Создание нового сайта на Netlify
 
 1. Запустите командную строку.
 2. Выполните команду:
@@ -33,14 +33,14 @@
 
 3. После создания сайта скопируйте с экрана терминала **Site ID**.
 
-## Созданиме токена доступа к сайту на Netlify
+## Создание токена доступа к API Netlify
 
 1. Зайдите в учетную запись Netlify.
 2. User Settings -> Application -> New Access Token.
 3. Сгенерируйте токен с именем **NETLIFY_AUTH_TOKEN**.
 4. Скопируйте содержимое токена.
 
-:bulb: **Site ID** и **NETLIFY_AUTH_TOKEN** - важная информация для управления сайтом. Она не должна хранится в надежном месте, чтобы исключить ее утечку.
+:bulb: Идентификатор сайта **Site ID** и токен **NETLIFY_AUTH_TOKEN** - важная информация для управления сайтом. Храните эти значения в надежном месте, чтобы исключить их утечку.
 
 ## Клонирование данных сайта из защищенного репозитория-источника
 
@@ -58,20 +58,13 @@
 git clone https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ/s-bars.content.git
 ```
 
-## Пропишите токен вызова API генерации сайта
+## Настройка удаленного репозитория
 
-1. Получите токен (права: repo, read:repo_hook) от поставщика услуги генерации сайта. Храните этот токен в секрете!
+1. Получите токен доступа к API (права: *read:repo_hook, repo*) от поставщика услуги генерации сайта. Храните этот токен в секрете!
 1. Зайдите в вашу учетную запись на [Github](https://github.com).
 1. Откройте репозиторий с данными.
 1. Settings -> Secrets -> New repository secret.
 1. Создайте новый секрет с именем **API_TOKEN** и значением полученного токена.
-
-## Создание токена доступа к защищенному репозитортю с данными
-
-1. Зайдите в вашу учетную запись на [Github](https://github.com).
-1. Settings -> Developer settings -> Personal access tokens -> Generate new token.
-1. Создайте новый токен с именем **ACCESS_TOKEN** (права: read:repo_hook, repo).
-1. Скопируйте значение сгенерированного токена. Храните **ACCESS_TOKEN** в секрете.
 
 ## Настройка секретов репозитория с кодом
 
@@ -83,22 +76,48 @@ git clone https://github.com/ИМЯ-ВАШЕЙ-УЧЕТНОЙ-ЗАПИСИ/s-bar
 
 ### Данные от вас для секретов репозитория
 
-|  Key                  | Value                  |
+|  Key                  | Value                  | Комментарий
 |---                    |---                     |---
-| ACCESS_TOKEN          |                        | конфиденциальная информация!
 | NETLIFY_AUTH_TOKEN    |                        | конфиденциальная информация!
 | NETLIFY_SITE_ID       | **Site ID**            | конфиденциальная информация!
 | SENDGRID_API_KEY      | ваш SendGrid API ключ  | конфиденциальная информация!
 | SENDGRID_SINGE_SENDER | ваш e-mail, верифицированный SendGrid
 | TO_EMAIL              | e-mail, на который будут приходить сообщения из форм
 | NO_INDEX              | true, если надо запретить индексирование всего сайта
- 
-## Данные от поставщика для секретов репозитория
+
+### Данные от поставщика для секретов репозитория
 
 |  Key                  | Value
 |---                    |---
-| NPM_TOKEN             | GitHub API ключ к private репозиториям с кодом
+| ACCESS_TOKEN          | права *read:repo_hook, repo*
+| NPM_TOKEN             | права *read:packages*
 | TELEGRAM_TOKEN        | Токен Telegram-бота
 | TELEGRAM_TO           | ID Telegram-канала
 | WARNINGS              | true
-   
+
+## Настройка хостинга сайта
+
+1. Зайдите в учетную запись Netlify.
+1. Sites -> ВАШ-САЙТ -> Deploys -> Deploy settings.
+1. Перейдите в Environment -> Environment variables
+
+   Создайте переменные окружения. Значения переменных из предыдущего подраздела.
+
+   |  Key                  | Value
+   |---                    |---
+   | SENDGRID_API_KEY      | ваш SendGrid API ключ
+   | SENDGRID_SINGE_SENDER | ваш e-mail, верифицированный SendGrid
+   | TO_EMAIL              | e-mail, на который будут приходить сообщения из форм
+   | TELEGRAM_TOKEN        | Токен Telegram-бота
+   | TELEGRAM_TO           | ID Telegram-канала
+
+Если на вашем сайт был подключен к репозиторию и был настроен всторенный CD от Netlify
+1. Перейдите в Continuos Deployment -> Build settings -> Edit settings
+
+   Выберите Stop builds и нажмите Save.
+1. Перейдите в Deploy contexts и установите следующие значения:
+   - Production branch: main
+   - Deploy previews: none
+   - Branch deploys: none
+*Возможно для корректной работы Netlify-CLI в составе GitHub Actions дополнительно потребуются действия описанные [здесь](https://github.com/netlify/cli/issues/1251#issuecomment-808947876).*
+
