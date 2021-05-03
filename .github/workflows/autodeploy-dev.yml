@@ -1,17 +1,17 @@
-name: "Auto Deploy - branch: dev"
+name: "Auto Deploy - branch: main"
 on:
   # workflow_dispatch:
   push:
-    branches: [dev]
+    branches: [main]
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: dev
+          ref: main
           submodules: recursive
-          token: ${{ secrets.ACCESS_TOKEN_SBARS }}
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
@@ -40,10 +40,10 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           WARNINGS: ${{ secrets.WARNINGS }}
-          NO_INDEX: ${{ secrets.NO_INDEX_SBARS }}
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY_SBARS }}
-          SENDGRID_SINGLE_SENDER: ${{ secrets.SENDGRID_SINGLE_SENDER_SBARS }}
-          TO_EMAIL: ${{ secrets.TO_EMAIL_SBARS }}
+          NO_INDEX: ${{ secrets.NO_INDEX }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SENDGRID_SINGLE_SENDER: ${{ secrets.SENDGRID_SINGLE_SENDER }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
           #- run: npm run test:unit # run the tests
@@ -58,8 +58,8 @@ jobs:
         if: ${{ success() }}
         uses: netlify/actions/cli@master
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN_SBARS }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_SBARS }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           args: deploy --dir=public --prod
 
