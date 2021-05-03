@@ -137,7 +137,7 @@ module.exports = async (event, fields, subject) => {
     return `${name}: ${ordered[key]}`;
   });
 
-  aBody.push(`IP: ${event.headers['client-ip']}`);
+  // aBody.push(`IP: ${event.headers['client-ip']}`);
   // aBody.splice(0, 0, URL, '-'.repeat(20));
   const text = aBody.join('\n');
 
