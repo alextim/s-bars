@@ -5,4 +5,3 @@
 [Документация к сайту](https://alextim.github.io/s-bars/)
 
 Этот проект Open Source и доступен под лицезией [MIT](https://github.com/alextim/s-bars/blob/main/LICENSE)
-
