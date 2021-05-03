@@ -1,15 +1,15 @@
-name: "Auto Deploy - branch: dev"
+name: "Auto Deploy - branch: main"
 on:
   # workflow_dispatch:
   push:
-    branches: [dev]
+    branches: [main]
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: dev
+          ref: main
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN_SBARS }}
 
