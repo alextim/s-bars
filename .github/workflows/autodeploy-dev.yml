@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - ${{ env.BRANCH_NAME }}
+      - "${{ env.BRANCH_NAME }}"
     paths-ignore:
       - 'docs/**/*.*'
       - '.github/**/*.*'
