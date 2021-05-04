@@ -57,7 +57,7 @@ jobs:
       - name: Check build
         if: ${{ failure() }}
         run: |
-          echo "AT_STATE=Build: failed" >> $GITHUB_ENV
+         echo "AT_STATE=Build: failed, {{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}" >> $GITHUB_ENV
 
       # deploy site to netlify using secrets created on repository
       - name: Deploy site
@@ -72,12 +72,12 @@ jobs:
       - name: Check Deploy
         if: ${{ failure() && env.AT_STATE == ''}}
         run: |
-          echo "AT_STATE=Deploy: failed" >> $GITHUB_ENV
+          echo "AT_STATE=Deploy: failed, {{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}" >> $GITHUB_ENV
 
       - name: msg
         if: ${{ success() }}
         run: |
-          echo "AT_STATE=Deploy: OK" >> $GITHUB_ENV
+          echo "AT_STATE=Deploy: OK, ${{ github.repository }}" >> $GITHUB_ENV
 
       - name: Send to Telegram
         if: ${{ always() }}
