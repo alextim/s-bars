@@ -26,8 +26,8 @@ jobs:
       - name: test
         run: |
           echo "{{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}"
-          echo {{ github.actor }}
-          echo {{ github.ref }}
+          echo "{{ github.actor }}"
+          echo "{{ github.ref }}"
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
