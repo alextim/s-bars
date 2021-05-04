@@ -1,8 +1,11 @@
 name: "Auto Deploy - branch: dev"
+env:
+  BRANCH_NAME: dev
 on:
   workflow_dispatch:
   push:
-    branches: [dev]
+    branches:
+      - ${{ env.BRANCH_NAME }}
     paths-ignore:
       - 'docs/**/*.*'
       - '.github/**/*.*'
@@ -15,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: dev
+          ref: ${{ env.BRANCH_NAME }}
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
 
@@ -85,4 +88,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: "${{ env.AT_STATE }}, ${{ github.actor }}, ${{ github.ref }}"
+          args: "${{ env.AT_STATE }}, ${{ env.BRANCH_NAME }}"
