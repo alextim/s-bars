@@ -17,7 +17,7 @@ GitHub сам отследит все изменения в удаленном �
 
 **Cхема процесса обновления сайта**
 
-<img alt="Пошаговая схема процесса обновления сайта" src="assets/images/git-workflow-actions-v2.svg">
+<img alt="Пошаговая схема процесса обновления сайта" src="https://github.com/alextim/s-bars/blob/main/docs/assets/images/git-workflow-actions-v2.svg?raw=true">
 
 
 1. Запустите Visual Studio Code
