@@ -1,8 +1,9 @@
-name: "Auto Deploy - branch: main"
+name: Auto Deploy
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - dev
+      - main
     paths-ignore:
       - 'docs/**/*.*'
       - '.github/**/*.*'
@@ -10,12 +11,42 @@ on:
       - '.vscode/**/*.*'
       - 'README.md'
 jobs:
+  set-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: |
+          echo ${{ github.ref }}
+
+      - name: dev env
+        if: ${{ github.ref == 'refs/heads/dev' }}
+        run: |
+          echo "BRANCH_NAME=dev" >> $GITHUB_ENV
+          echo "NO_INDEX=${{ secrets.NO_INDEX }}" >> $GITHUB_ENV
+          echo "SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}" >> $GITHUB_ENV
+          echo "SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER }}" >> $GITHUB_ENV
+          echo "TO_EMAIL=${{ secrets.TO_EMAIL }}" >> $GITHUB_ENV
+          echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN }}" >> $GITHUB_ENV
+          echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID }}" >> $GITHUB_ENV
+
+      - name: dev main
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          echo "BRANCH_NAME=main" >> $GITHUB_ENV
+          echo "NO_INDEX=${{ secrets.NO_INDEX_SBARS }}" >> $GITHUB_ENV
+          echo "SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY_SBARS }}" >> $GITHUB_ENV
+          echo "SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER_SBARS }}" >> $GITHUB_ENV
+          echo "TO_EMAIL=${{ secrets.TO_EMAIL_SBARS }}" >> $GITHUB_ENV
+          echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN_SBARS }}" >> $GITHUB_ENV
+          echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_SBARS }}" >> $GITHUB_ENV
+
   build-and-test:
+    needs: set-env
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: main
+          #ref: ${{ env.BRANCH_NAME }}
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
 
@@ -46,10 +77,10 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           WARNINGS: ${{ secrets.WARNINGS }}
-          NO_INDEX: ${{ secrets.NO_INDEX_SBARS }}
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY_SBARS }}
-          SENDGRID_SINGLE_SENDER: ${{ secrets.SENDGRID_SINGLE_SENDER_SBARS }}
-          TO_EMAIL: ${{ secrets.TO_EMAIL_SBARS }}
+          NO_INDEX: ${{ env.NO_INDEX }}
+          SENDGRID_API_KEY: ${{ env.SENDGRID_API_KEY }}
+          SENDGRID_SINGLE_SENDER: ${{ env.SENDGRID_SINGLE_SENDER }}
+          TO_EMAIL: ${{ env.TO_EMAIL }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
           #- run: npm run test:unit # run the tests
@@ -57,27 +88,27 @@ jobs:
       - name: Check build
         if: ${{ failure() }}
         run: |
-          echo "AT_STATE=Build: failed, {{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}" >> $GITHUB_ENV
+         echo "AT_STATE=Build: failed" >> $GITHUB_ENV
 
       # deploy site to netlify using secrets created on repository
       - name: Deploy site
         if: ${{ success() }}
         uses: netlify/actions/cli@master
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN_SBARS }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_SBARS }}
+          NETLIFY_AUTH_TOKEN: ${{ env.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
         with:
           args: deploy --dir=public --prod
 
       - name: Check Deploy
         if: ${{ failure() && env.AT_STATE == ''}}
         run: |
-          echo "AT_STATE=Deploy: failed, {{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}" >> $GITHUB_ENV
+          echo "AT_STATE=Deploy: failed" >> $GITHUB_ENV
 
       - name: msg
         if: ${{ success() }}
         run: |
-          echo "AT_STATE=Deploy: OK, ${{ github.repository }}" >> $GITHUB_ENV
+          echo "AT_STATE=Deploy: OK" >> $GITHUB_ENV
 
       - name: Send to Telegram
         if: ${{ always() }}
@@ -85,4 +116,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: ${{ env.AT_STATE }}
+          args: "${{ env.AT_STATE }}, ${{ env.BRANCH_NAME }}"
