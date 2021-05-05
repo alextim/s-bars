@@ -48,5 +48,5 @@
 ```
 
 
-Более точно узнать причины 2 и 3 случаев можно в содержимом log-ов выполнения GitHub Actions [здесь](https://github.com/alextim/s-bars/actions).
+Более точно узнать причины для второго и третьего случаев можно в содержимом log-ов выполнения GitHub Actions [здесь](https://github.com/alextim/s-bars/actions).
 
