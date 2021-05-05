@@ -79,7 +79,7 @@ jobs:
       - name: Check build
         if: ${{ failure() }}
         run: |
-         echo "AT_STATE=Build: failed" >> $GITHUB_ENV
+          echo "AT_STATE=Build: failed" >> $GITHUB_ENV
 
       - name: Deploy site
         if: ${{ success() }}
