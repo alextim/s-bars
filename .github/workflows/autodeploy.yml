@@ -41,9 +41,18 @@ jobs:
           echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_SBARS }}" >> $GITHUB_ENV
 
   build-and-test:
-    needs: set-env
+
     runs-on: ubuntu-latest
     steps:
+      - name: test env
+          echo ${{ env.BRANCH_NAME }}
+          echo ${{ env.NO_INDEX }}
+          echo ${{ env.SENDGRID_API_KEY }}
+          echo ${{ env.SENDGRID_SINGLE_SENDER }}
+          echo ${{ env.TO_EMAIL }}
+          echo ${{ env.NETLIFY_AUTH_TOKEN }}
+          echo ${{ env.NETLIFY_SITE_ID }}
+          
       - uses: actions/checkout@v2
         with:
           #ref: ${{ env.BRANCH_NAME }}
