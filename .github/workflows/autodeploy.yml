@@ -45,6 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test env
+        run: |
           echo ${{ env.BRANCH_NAME }}
           echo ${{ env.NO_INDEX }}
           echo ${{ env.SENDGRID_API_KEY }}
@@ -52,7 +53,7 @@ jobs:
           echo ${{ env.TO_EMAIL }}
           echo ${{ env.NETLIFY_AUTH_TOKEN }}
           echo ${{ env.NETLIFY_SITE_ID }}
-          
+
       - uses: actions/checkout@v2
         with:
           #ref: ${{ env.BRANCH_NAME }}
