@@ -10,15 +10,12 @@ on:
       - '.gitignore'
       - '.vscode/**/*.*'
       - 'README.md'
+
 jobs:
-  set-env:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: echo
-        run: |
-          echo ${{ github.ref }}
-
-      - name: dev env
+      - name: set development env
         if: ${{ github.ref == 'refs/heads/dev' }}
         run: |
           echo "BRANCH_NAME=dev" >> $GITHUB_ENV
@@ -29,7 +26,7 @@ jobs:
           echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN }}" >> $GITHUB_ENV
           echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID }}" >> $GITHUB_ENV
 
-      - name: dev main
+      - name: set production env
         if: ${{ github.ref == 'refs/heads/main' }}
         run: |
           echo "BRANCH_NAME=main" >> $GITHUB_ENV
@@ -40,13 +37,8 @@ jobs:
           echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN_SBARS }}" >> $GITHUB_ENV
           echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_SBARS }}" >> $GITHUB_ENV
 
-  build-and-test:
-    needs: set-env
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v2
         with:
-          #ref: ${{ env.BRANCH_NAME }}
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
 
@@ -83,14 +75,12 @@ jobs:
           TO_EMAIL: ${{ env.TO_EMAIL }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
-          #- run: npm run test:unit # run the tests
 
       - name: Check build
         if: ${{ failure() }}
         run: |
          echo "AT_STATE=Build: failed" >> $GITHUB_ENV
 
-      # deploy site to netlify using secrets created on repository
       - name: Deploy site
         if: ${{ success() }}
         uses: netlify/actions/cli@master
@@ -116,4 +106,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: "${{ env.AT_STATE }}, ${{ env.BRANCH_NAME }}"
+          args: "${{ env.AT_STATE }}, branch: ${{ env.BRANCH_NAME }}"
