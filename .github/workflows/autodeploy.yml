@@ -10,17 +10,13 @@ on:
       - '.gitignore'
       - '.vscode/**/*.*'
       - 'README.md'
+
 jobs:
-
   build-and-test:
-
     runs-on: ubuntu-latest
     steps:
-      - name: echo
-        run: |
-          echo ${{ github.ref }}
 
-      - name: dev env
+      - name: set development env
         if: ${{ github.ref == 'refs/heads/dev' }}
         run: |
           echo "BRANCH_NAME=dev" >> $GITHUB_ENV
@@ -31,7 +27,7 @@ jobs:
           echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN }}" >> $GITHUB_ENV
           echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID }}" >> $GITHUB_ENV
 
-      - name: dev main
+      - name: set production env
         if: ${{ github.ref == 'refs/heads/main' }}
         run: |
           echo "BRANCH_NAME=main" >> $GITHUB_ENV
@@ -41,16 +37,6 @@ jobs:
           echo "TO_EMAIL=${{ secrets.TO_EMAIL_SBARS }}" >> $GITHUB_ENV
           echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN_SBARS }}" >> $GITHUB_ENV
           echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_SBARS }}" >> $GITHUB_ENV
-
-      - name: test env
-        run: |
-          echo ${{ env.BRANCH_NAME }}
-          echo ${{ env.NO_INDEX }}
-          echo ${{ env.SENDGRID_API_KEY }}
-          echo ${{ env.SENDGRID_SINGLE_SENDER }}
-          echo ${{ env.TO_EMAIL }}
-          echo ${{ env.NETLIFY_AUTH_TOKEN }}
-          echo ${{ env.NETLIFY_SITE_ID }}
 
       - uses: actions/checkout@v2
         with:
@@ -124,4 +110,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: "${{ env.AT_STATE }}, ${{ env.BRANCH_NAME }}"
+          args: "${{ env.AT_STATE }}, branch: ${{ env.BRANCH_NAME }}"
