@@ -1,18 +1,18 @@
 version: 2
 registries:
-  at-seo:
+  "@alextim/at-seo":
     type: npm-registry
     url: https://npm.pkg.github.com
     token: ${{secrets.NPM_TOKEN}}
-  at-blog:
+  "@alextim/at-blog":
     type: npm-registry
     url: https://npm.pkg.github.com
     token: ${{secrets.NPM_TOKEN}}
-  at-site-core:
+  "@alextim/at-site-core":
     type: npm-registry
     url: https://npm.pkg.github.com
     token: ${{secrets.NPM_TOKEN}}
-  at-sitemap:
+  "@alextim/at-sitemap":
     type: npm-registry
     url: https://npm.pkg.github.com
     token: ${{secrets.NPM_TOKEN}}
@@ -25,7 +25,10 @@ updates:
 
   - package-ecosystem: npm
     registries:
-      - "*"
+      - "@alextim/at-seo"
+      - "@alextim/at-blog"
+      - "@alextim/at-site-core"
+      - "@alextim/at-sitemap"
     directory: "/"
     schedule:
       interval: daily
