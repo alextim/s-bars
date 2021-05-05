@@ -24,4 +24,5 @@ const validateField = (x, fieldInfo) => {
   }
   return true;
 };
+
 module.exports = { sanitizeField, validateField };
