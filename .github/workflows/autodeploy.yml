@@ -11,7 +11,9 @@ on:
       - '.vscode/**/*.*'
       - 'README.md'
 jobs:
-  set-env:
+
+  build-and-test:
+
     runs-on: ubuntu-latest
     steps:
       - name: echo
@@ -40,10 +42,6 @@ jobs:
           echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN_SBARS }}" >> $GITHUB_ENV
           echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_SBARS }}" >> $GITHUB_ENV
 
-  build-and-test:
-
-    runs-on: ubuntu-latest
-    steps:
       - name: test env
         run: |
           echo ${{ env.BRANCH_NAME }}
