@@ -1,11 +1,9 @@
-name: "Auto Deploy - branch: dev"
-env:
-  BRANCH_NAME: dev
+name: Auto Deploy
 on:
-  workflow_dispatch:
   push:
     branches:
       - dev
+      - main
     paths-ignore:
       - 'docs/**/*.*'
       - '.github/**/*.*'
@@ -13,12 +11,42 @@ on:
       - '.vscode/**/*.*'
       - 'README.md'
 jobs:
+  set-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: |
+          echo ${{ github.ref }}
+
+      - name: dev env
+        if: ${{ github.ref == 'refs/heads/dev' }}
+        run: |
+          echo "BRANCH_NAME=dev" >> $GITHUB_ENV
+          echo "NO_INDEX=${{ secrets.NO_INDEX }}" >> $GITHUB_ENV
+          echo "SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}" >> $GITHUB_ENV
+          echo "SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER }}" >> $GITHUB_ENV
+          echo "TO_EMAIL=${{ secrets.TO_EMAIL }}" >> $GITHUB_ENV
+          echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN }}" >> $GITHUB_ENV
+          echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID }}" >> $GITHUB_ENV
+
+      - name: dev main
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          echo "BRANCH_NAME=main" >> $GITHUB_ENV
+          echo "NO_INDEX=${{ secrets.NO_INDEX_SBARS }}" >> $GITHUB_ENV
+          echo "SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY_SBAR }}" >> $GITHUB_ENV
+          echo "SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER_SBAR }}" >> $GITHUB_ENV
+          echo "TO_EMAIL=${{ secrets.TO_EMAIL_SBAR }}" >> $GITHUB_ENV
+          echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN_SBAR }}" >> $GITHUB_ENV
+          echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_SBAR }}" >> $GITHUB_ENV
+
   build-and-test:
+    needs: set-env
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ env.BRANCH_NAME }}
+          #ref: ${{ env.BRANCH_NAME }}
           submodules: recursive
           token: ${{ secrets.ACCESS_TOKEN }}
 
@@ -49,10 +77,10 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           WARNINGS: ${{ secrets.WARNINGS }}
-          NO_INDEX: ${{ secrets.NO_INDEX }}
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-          SENDGRID_SINGLE_SENDER: ${{ secrets.SENDGRID_SINGLE_SENDER }}
-          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          NO_INDEX: ${{ env.NO_INDEX }}
+          SENDGRID_API_KEY: ${{ env.SENDGRID_API_KEY }}
+          SENDGRID_SINGLE_SENDER: ${{ env.SENDGRID_SINGLE_SENDER }}
+          TO_EMAIL: ${{ env.TO_EMAIL }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
           #- run: npm run test:unit # run the tests
@@ -67,8 +95,8 @@ jobs:
         if: ${{ success() }}
         uses: netlify/actions/cli@master
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ env.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
         with:
           args: deploy --dir=public --prod
 
