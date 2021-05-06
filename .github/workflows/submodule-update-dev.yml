@@ -14,7 +14,7 @@ jobs:
           ref: dev
           token: ${{ secrets.ACCESS_TOKEN }}
 
-      - name: submodule Update
+      - name: Submodule Update
         run: |
           git submodule update --remote
 
