@@ -79,13 +79,16 @@ const reorder = (o, body) => {
 
 module.exports = async (event, fields, subject) => {
   /**
-   * for Debug
-   * console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`);
-   * console.warn(event.headers.origin, URL);
+   *  for Debug
+   *  console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`);
+   *  console.warn(event.headers.origin, URL);
    */
   if (!validateOrigin(event)) {
     return { statusCode: 401, body: 'Bad origin' };
-    // return { statusCode: 401, body: `Bad origin ${event.headers.origin} ${URL}` };
+    /**
+     *  for Debug
+     *  return { statusCode: 401, body: `Bad origin ${event.headers.origin} ${URL}` };
+     */
   }
 
   if (event.httpMethod !== 'POST') {
