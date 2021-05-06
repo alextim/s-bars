@@ -47,5 +47,7 @@
 - Настройки репозитория GitHub (secrets).
 
 
-*Более точно узнать причины для второго и третьего случаев можно в содержимом log-ов выполнения GitHub Actions [здесь](https://github.com/alextim/s-bars/actions).*
+Более точно узнать причины для второго и третьего случаев можно в содержимом log-ов выполнения GitHub Actions [здесь](https://github.com/alextim/s-bars/actions).
+
+Выберите Workflow -> Auto Deploy
 

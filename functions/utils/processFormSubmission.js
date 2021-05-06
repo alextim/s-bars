@@ -1,7 +1,9 @@
 const urlAPI = require('url');
 const emailValidator = require('email-validator');
+
 const sendEmail = require('./sendEmail');
 const sendTelegram = require('./sendTelegram');
+const { sanitizeField, validateField } = require('./field-utils');
 
 const {
   SENDGRID_API_KEY,
@@ -11,7 +13,6 @@ const {
   SITE_NAME,
   DEPLOY_URL,
 } = process.env;
-const { sanitizeField, validateField } = require('./field-utils');
 
 const getDomainName = (s) => s.replace(/^[^.]+\./g, '');
 
