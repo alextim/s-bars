@@ -95,6 +95,9 @@ module.exports = async (event, fields, subject) => {
     return { statusCode: 405, body: 'Method Not Allowed', headers: { Allow: 'POST' } };
   }
 
+  /**
+   *  Validate environment vars for SendGrid
+   */
   if (!SENDGRID_API_KEY) {
     return {
       statusCode: 500,
