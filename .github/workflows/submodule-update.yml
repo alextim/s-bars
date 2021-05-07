@@ -1,46 +1,152 @@
-name: "Submodule Update - branch: main"
+name: Auto Deploy
 
 on:
+  push:
+    paths-ignore:
+      - 'docs/**/*.*'
+      - '.github/**/*.*'
+      - '.gitignore'
+      - '.vscode/**/*.*'
+      - 'README.md'
+
   workflow_dispatch:
+    inputs:
+      commit_message:
+        description: commit message
+        required: true
+        default: remote data update
 
 jobs:
-  build:
+  submodule-update:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
           submodules: recursive
-          ref: main
+          ref: ${{ github.event.ref }}
           token: ${{ secrets.ACCESS_TOKEN }}
-          #persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-          #fetch-depth: 0 #  otherwise, you will failed to push refs to dest repo
 
-      - name: Submodule Update
-        run: |
-          git submodule update --remote
-
-      - name: Check if there are changes
-        id: changes
-        uses: UnicornGlobal/has-changes-action@v1.0.11
+      - name: Submodule update
+        run: git submodule update --remote
 
       - name: Process changes
-        if: steps.changes.outputs.changed == 1
         run: |
-          echo "Changes exist"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
-          git commit -m "remote data update"
+          git commit -m "${{ github.event.inputs.commit_message }}"
 
       - name: Push changes
-        if: steps.changes.outputs.changed == 1
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
 
-      - name: No Changes
-        if: steps.changes.outputs.changed == 0
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          ref: ${{ github.event.ref }}
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Setup Node environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - name: Installing dependencies
+        # if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install --prefer-offline
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Set development env
+        if: ${{ github.ref == 'refs/heads/dev' }}
         run: |
-          echo "No Changes"
+          echo "BRANCH_NAME=dev" >> $GITHUB_ENV
+          echo "NO_INDEX=${{ secrets.NO_INDEX }}" >> $GITHUB_ENV
+          echo "SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}" >> $GITHUB_ENV
+          echo "SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER }}" >> $GITHUB_ENV
+          echo "TO_EMAIL=${{ secrets.TO_EMAIL }}" >> $GITHUB_ENV
+          echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN }}" >> $GITHUB_ENV
+          echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID }}" >> $GITHUB_ENV
+
+      - name: Set production env
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          echo "BRANCH_NAME=main" >> $GITHUB_ENV
+          echo "NO_INDEX=${{ secrets.NO_INDEX_SBARS }}" >> $GITHUB_ENV
+          echo "SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY_SBARS }}" >> $GITHUB_ENV
+          echo "SENDGRID_SINGLE_SENDER=${{ secrets.SENDGRID_SINGLE_SENDER_SBARS }}" >> $GITHUB_ENV
+          echo "TO_EMAIL=${{ secrets.TO_EMAIL_SBARS }}" >> $GITHUB_ENV
+          echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN_SBARS }}" >> $GITHUB_ENV
+          echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_SBARS }}" >> $GITHUB_ENV
+
+      - name: Build the project
+        run: |
+          npm i -g gatsby-cli
+          yarn build
+        env:
+          GATSBY_TELEMETRY_DISABLED: 1
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          WARNINGS: ${{ secrets.WARNINGS }}
+          NO_INDEX: ${{ env.NO_INDEX }}
+          SENDGRID_API_KEY: ${{ env.SENDGRID_API_KEY }}
+          SENDGRID_SINGLE_SENDER: ${{ env.SENDGRID_SINGLE_SENDER }}
+          TO_EMAIL: ${{ env.TO_EMAIL }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
+      - name: Check build
+        if: ${{ failure() }}
+        run: |
+          echo "AT_STATE=Build: failed" >> $GITHUB_ENV
+
+      - name: Deploy to Netlify
+        if: ${{ success() }}
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ env.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=public --prod
+
+      - name: Check deploy
+        if: ${{ failure() && env.AT_STATE == ''}}
+        run: |
+          echo "AT_STATE=Deploy: failed" >> $GITHUB_ENV
+
+      - name: Set message on success
+        if: ${{ success() }}
+        run: |
+          echo "AT_STATE=Deploy: OK" >> $GITHUB_ENV
+
+      - name: "Get commit message for 'workflow_dispatch' event"
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "COMMIT_MESSAGE=${{ github.event.inputs.commit_message }}" >> $GITHUB_ENV
+
+      - name: "Get commit message for 'push' event"
+        if: github.event_name == 'push'
+        run: echo "COMMIT_MESSAGE=${{ github.event.head_commit.message }}" >> $GITHUB_ENV
+
+      - name: Send to Telegram
+        if: ${{ always() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: "${{ env.AT_STATE }}, branch: ${{ env.BRANCH_NAME }}, ${{ env.COMMIT_MESSAGE }}"
