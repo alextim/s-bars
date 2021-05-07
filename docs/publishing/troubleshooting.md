@@ -51,14 +51,18 @@
 
 Из списка всех **Workflows** выберите рабочий процесс с именем *Auto Deploy*.
 
-У вас отобразятся все запуски рабочего процесса *Auto Deploy*.
-
 ![Workflow List](../assets/images/actions-workflow-autodeploy.jpg)
+
+У вас отобразятся все запуски рабочего процесса *Auto Deploy*.
 
 Откройте содержимое последнего запуска процесса *Auto Deploy* для ветки `main`.
 
 Откройте log выполнения задачи *build-and-deploy*.
 
+![Workflow List](../assets/images/actions-workflow-autodeploy-jobs.jpg)
+
 Просмотрите содержимое log-а.
 
 Наиболее вероятна причина ошибки в шагах *Build the project* или *Deploy to Netlify*.
+
+![Workflow List](../assets/images/actions-workflow-autodeploy-job-log.jpg)
