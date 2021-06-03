@@ -11,20 +11,20 @@
 
 ## Список полей
 
-|   Поле           | Назначение         |   Organization | LocalBusiness | Описание
-|---               |---                 |---             |---            |---
-| organizationType | SEO                |                |               | [Organization](https://schema.org/Organization), [LocalBusiness](https://schema.org/LocalBusiness)
-| geo              | SEO                | нет            | да            | [географические координаты](https://schema.org/geo)
-| hasMap           | SEO                | нет            | да            | [ссылка на Google-карты](https://schema.org/hasMap)
-| whatsapp         | страница Котнтакты |                |               |
-| telegram         | страница Котнтакты |                |               |
-| phone            | SEO                | да             | да            | [телефон](https://schema.org/telephone) список цифровых значений, разделитель элементов `,`
-| email            | SEO                | да             | да            | [почта](https://schema.org/email) список, разделитель элементов `,`
-| openingHours        | страница "Контакты" и SEO     | да | да | [рабочее время](https://schema.org/openingHours), преобразуется в `OpeningHoursSpecification`
-| priceRange          | SEO                           | нет | да | [диапазон цен](https://schema.org/priceRange), валидные значения: `$`, `$$`, `$$$`, `$$$$`
-| currenciesAccepted  | SEO                           | нет | да | [валюты, принимаемые к оплате](https://schema.org/currenciesAccepted)
-| paymentAccepted     | SEO                           | нет | да | [способы оплаты](https://schema.org/paymentAccepted)
-| foundingDate     | футер и SEO        | да             | да            | [дата основания организации](https://schema.org/foundingDate) в формате ISO 8601
+|   Поле           | Назначение         | Organization | LocalBusiness | Описание
+|---               |---                 |---           |---            |---
+| organizationType | SEO                |              |               | [Organization](https://schema.org/Organization), [LocalBusiness](https://schema.org/LocalBusiness)
+| geo              | SEO                | нет          | да            | [географические координаты](https://schema.org/geo)
+| hasMap           | SEO                | нет          | да            | [ссылка на Google-карты](https://schema.org/hasMap)
+| whatsapp         | страница Котнтакты |              |               |
+| telegram         | страница Котнтакты |              |               |
+| phone            | SEO                | да           | да            | [телефон](https://schema.org/telephone) список цифровых значений, разделитель элементов `,`
+| email            | SEO                | да           | да            | [почта](https://schema.org/email) список, разделитель элементов `,`
+| openingHours       | страница "Контакты" и SEO | да  | да            | [рабочее время](https://schema.org/openingHours), преобразуется в `OpeningHoursSpecification`
+| priceRange         | SEO                       | нет | да            | [диапазон цен](https://schema.org/priceRange), валидные значения: `$`, `$$`, `$$$`, `$$$$`
+| currenciesAccepted | SEO                       | нет | да            | [валюты, принимаемые к оплате](https://schema.org/currenciesAccepted)
+| paymentAccepted    | SEO                       | нет | да            | [способы оплаты](https://schema.org/paymentAccepted)
+| foundingDate     | футер и SEO        | да           | да            | [дата основания организации](https://schema.org/foundingDate) в формате ISO 8601
 
 Поля **e-mail** и **phone** участвуют в структурированных данных для **Organization** или **LocalBusiness**. Используется только первый элемент массива.
 

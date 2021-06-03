@@ -141,7 +141,7 @@ jobs:
 
       - name: "Get commit message for 'push' event"
         if: github.event_name == 'push'
-        run: echo "COMMIT_MESSAGE=${{ github.event.head_commit.message }}" >> $GITHUB_ENV
+        run: echo "COMMIT_MESSAGE=$(echo ${{ github.event.head_commit.message }} | head -n 1)" >> $GITHUB_ENV
 
       - name: Send to Telegram
         if: ${{ always() }}
