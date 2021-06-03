@@ -4,7 +4,7 @@
 
 Из этого файла формируются:
 
-- структурированные данные о компании в формате JSON-LD на главной странице основного языка (описание [здесь](https://developers.google.com/search/docs/data-types/local-business?hl=ru));
+- структурированные данные об организации в формате JSON-LD на главной странице основного языка (описание [здесь](https://developers.google.com/search/docs/data-types/local-business?hl=ru));
 - время работы и карта на странице Контакты;
 - время работы, e-mail и телефоны в футере;
 - начальный год копирайта в футере.
@@ -19,17 +19,17 @@
 | whatsapp         | страница Котнтакты |                |               |
 | telegram         | страница Котнтакты |                |               |
 | phone            | SEO                | да             | да            | [телефон](https://schema.org/telephone) список цифровых значений, разделитель элементов `,`
-| e-mail           | SEO                | да             | да            | [почта](https://schema.org/email) список, разделитель элементов `,`
+| email            | SEO                | да             | да            | [почта](https://schema.org/email) список, разделитель элементов `,`
 | openingHours        | страница "Контакты" и SEO     | да | да | [рабочее время](https://schema.org/openingHours), преобразуется в `OpeningHoursSpecification`
 | priceRange          | SEO                           | нет | да | [диапазон цен](https://schema.org/priceRange), валидные значения: `$`, `$$`, `$$$`, `$$$$`
-| currenciesAccepted  | SEO                           | нет | да | [валюты, принимаемая к оплате](https://schema.org/currenciesAccepted)
+| currenciesAccepted  | SEO                           | нет | да | [валюты, принимаемые к оплате](https://schema.org/currenciesAccepted)
 | paymentAccepted     | SEO                           | нет | да | [способы оплаты](https://schema.org/paymentAccepted)
-| foundingDate     | футер и SEO        | да             | да            | [дата основания](https://schema.org/foundingDate) в формате ISO 8601
+| foundingDate     | футер и SEO        | да             | да            | [дата основания организации](https://schema.org/foundingDate) в формате ISO 8601
 
 Поля **e-mail** и **phone** участвуют в структурированных данных для **Organization** или **LocalBusiness**. Используется только первый элемент массива.
 
 
-:bulb: Номер телефона допускает только цифры, без плюса спереди, без пробелов, скобок и прочих символов.
+:bulb: В номере телефона допустимы только цифры, без плюса спереди, без пробелов, скобок и прочих символов.
 
 Сокращенный пример содержимого:
 
@@ -73,7 +73,7 @@ openingHours:
   - ["fr", "10:00", "18:00"]
 ```
 
-Рабочее время с понедельника по пятницу с 10:00 до 18:00 можно записать короче
+Рабочее время с понедельника по пятницу с 10:00 до 18:00 можно записать короче:
 
 ```yaml
 openingHours:
