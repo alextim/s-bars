@@ -33,9 +33,7 @@ jobs:
       shell: bash
       id: mystep
       run: |
-        mystr = ${{ github.event.inputs.name }}
-        msg=$(printf '%s' "$mystr" | head -n 1)
-        echo "::set-output name=msg::$msg"
+        echo "::set-output name=msg::${{ github.event.inputs.name }}"
 
     - name: Send greeting 2
       run: echo ${{ steps.mystep.outputs.msg }}
