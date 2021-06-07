@@ -139,9 +139,16 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         run: echo "COMMIT_MESSAGE=${{ github.event.inputs.commit_message }}" >> $GITHUB_ENV
 
+      # https://acdcjunior.dev/git-get-first-line-commit-message-shell.html
+      # git log --oneline --format=%B -n 1 HEAD | head -n 1
+      - name: "Extract first line from commit message of 'push' event"
+        if: github.event_name == 'push'
+        id: get_push_msg
+        run: echo "::set-output name=commit_msg::${{ github.event.head_commit.message }}"
+
       - name: "Get commit message for 'push' event"
         if: github.event_name == 'push'
-        run: echo "COMMIT_MESSAGE=$(echo ${{ github.event.head_commit.message }} | head -n 1)" >> $GITHUB_ENV
+        run: echo "COMMIT_MESSAGE=${{ steps.get_push_msg.outputs.commit_msg }}" >> $GITHUB_ENV
 
       - name: Send to Telegram
         if: ${{ always() }}
