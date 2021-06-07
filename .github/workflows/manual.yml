@@ -30,6 +30,7 @@ jobs:
       run: echo "Hello ${{ github.event.inputs.name }}"
 
     - name: Set greeting 2
+      shell: bash
       id: mystep
       run: |
         mystr = ${{ github.event.inputs.name }}
