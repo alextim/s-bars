@@ -6574,12 +6574,12 @@ gatsby-page-utils@^1.7.0:
     lodash "^4.17.21"
     micromatch "^4.0.2"
 
-gatsby-plugin-emotion@^6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-6.6.0.tgz#deb6f0e23d7116b8c9837c21de1659b022b58ec3"
-  integrity sha512-DodZnw84ltmVmTyEhgK1ed4JZsowfYPkR7GTpiVeluOFVnkZFeGp3y45W1Zi0Pzb3xvi+JtFm+iX/mx6k6lMjQ==
+gatsby-plugin-emotion@^6.7.0:
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-6.7.0.tgz#16671d57750cd095b92c59e15cecce4717800a36"
+  integrity sha512-8zUpxc1zpmfiqTsnPs2SlYVl+w2SDKdR8tNicIUwOCzpnQ8Ex6Z0stmb1cuHXW8QGjdMC7b5GwWZpz2LEIR9RA==
   dependencies:
-    "@babel/runtime" "^7.11.2"
+    "@babel/runtime" "^7.14.0"
     "@emotion/babel-preset-css-prop" "^11.2.0"
 
 gatsby-plugin-eslint@^3.0.0:
@@ -6728,7 +6728,7 @@ gatsby-plugin-typescript@^3.7.0:
     "@babel/runtime" "^7.14.0"
     babel-plugin-remove-graphql-queries "^3.7.0"
 
-gatsby-plugin-utils@^1.6.0, gatsby-plugin-utils@^1.7.0:
+gatsby-plugin-utils@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-1.7.0.tgz#e486e49505e0ea3295da8550f03c611436aaac70"
   integrity sha512-lRTnXgH0zgZCybq4VpnjfoCaEwiEGE8VV7m6o5e7v1mXKYVvO/8YXhpIIUqdc6DJZoGJEGy8MpylltYFzBftGQ==
