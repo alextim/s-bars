@@ -2,6 +2,9 @@ name: Auto Deploy
 
 on:
   push:
+    branches:
+      - main
+      - dev
     paths-ignore:
       - 'docs/**/*.*'
       - '.github/**/*.*'
@@ -10,6 +13,9 @@ on:
       - 'README.md'
 
   workflow_dispatch:
+    branches:
+      - main
+      - dev
     inputs:
       commit_message:
         description: commit message
