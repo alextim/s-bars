@@ -74,7 +74,7 @@
     "gatsby-plugin-sharp": "^3.7.0",
     "gatsby-remark-images": "^5.4.0",
     "gatsby-remark-relative-images": "^2.0.2",
-    "gatsby-source-filesystem": "^3.6.0",
+    "gatsby-source-filesystem": "^3.7.0",
     "gatsby-transformer-remark": "^4.4.0",
     "gatsby-transformer-sharp": "^3.7.0",
     "gatsby-transformer-yaml": "^3.6.0",
