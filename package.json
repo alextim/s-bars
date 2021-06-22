@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@alextim/at-blog": "^0.2.9",
-    "@alextim/at-seo": "^0.2.0",
+    "@alextim/at-seo": "^0.3.0",
     "@alextim/at-site-core": "^0.2.1",
     "@alextim/at-sitemap": "^0.2.9",
     "@alextim/csp": "^0.0.1",
