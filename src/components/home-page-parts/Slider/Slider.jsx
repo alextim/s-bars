@@ -1,27 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 
-// https://swiperjs.com/react
-// import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-/**
- *
- * BUG
- *
- * Importing styles in separate files does't work in build neither with SCSS nor CSS
- * but in development mode it's OK
- *
- */
-/*
-import 'swiper/swiper.min.css';
-import 'swiper/components/navigation/navigation.min.css';
-import 'swiper/components/pagination/pagination.min.css';
-*/
-import 'swiper/swiper-bundle.min.css';
-
-import './swiper-styles.css';
+import './swiper-styles.scss';
 
 import SliderItem from './SliderItem';
 

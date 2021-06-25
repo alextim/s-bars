@@ -4,31 +4,11 @@ registries:
     type: npm-registry
     url: https://npm.pkg.github.com
     token: ${{secrets.NPM_TOKEN}}
-  "@alextim/at-seo":
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    token: ${{secrets.NPM_TOKEN}}
   "@alextim/at-site-core":
     type: npm-registry
     url: https://npm.pkg.github.com
     token: ${{secrets.NPM_TOKEN}}
   "@alextim/at-sitemap":
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    token: ${{secrets.NPM_TOKEN}}
-  "@alextim/csp":
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    token: ${{secrets.NPM_TOKEN}}
-  "@alextim/slugify":
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    token: ${{secrets.NPM_TOKEN}}
-  "@alextim/translit":
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    token: ${{secrets.NPM_TOKEN}}
-  "@alextim/utils":
     type: npm-registry
     url: https://npm.pkg.github.com
     token: ${{secrets.NPM_TOKEN}}
@@ -40,15 +20,11 @@ updates:
       interval: daily
 
   - package-ecosystem: npm
+    open-pull-requests-limit: 10
     registries:
       - "@alextim/at-blog"
-      - "@alextim/at-seo"
       - "@alextim/at-site-core"
       - "@alextim/at-sitemap"
-      - "@alextim/csp"
-      - "@alextim/slugify"
-      - "@alextim/translit"
-      - "@alextim/utils"
     directory: "/"
     schedule:
       interval: daily
