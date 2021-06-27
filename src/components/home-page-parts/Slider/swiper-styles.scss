@@ -2,14 +2,19 @@
 @import 'swiper/components/navigation/navigation.scss';
 @import 'swiper/components/pagination/pagination.scss';
 
-.swiper-button-next,
+.swiper-pagination-bullet {
+  height: 0.1875rem;
+  width: 0.75rem;
+  border-radius: unset;
+}
+
 .swiper-button-prev {
   display: inline-block;
-  height: 2rem;
-  width: 2rem;
-  padding: 3px;
+  height: 1.9rem;
+  width: 1.9rem;
+  padding: 0.1875rem;
   border: solid white;
-  border-width: 0 3px 3px 0;
+  border-width: 0 0.1875rem 0.1875rem 0;
   /*
   background-size: calc(var(--swiper-navigation-size) / 44 * 27) var(--swiper-navigation-size);
   background-position: center;
