@@ -107,7 +107,7 @@
     "eslint-webpack-plugin": "^2.5.4",
     "gatsby-plugin-eslint": "^3.0.0",
     "gatsby-plugin-react-svg": "^3.0.1",
-    "husky": "^6.0.0",
+    "husky": "^7.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.2",
     "prettier-eslint": "^12.0.0",
