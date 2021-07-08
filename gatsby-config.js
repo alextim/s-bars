@@ -31,7 +31,7 @@ const noIndex = toBoolean(process.env.NO_INDEX);
 console.log(`Robots and indexing: ${noIndex ? 'DISABLED' : 'ENABLED'}`);
 
 const headerForAll = [
-  `Content-Security-Policy: ${getCSP(!!config.googleAnalyticsID, true, true)}`,
+  `Content-Security-Policy: ${getCSP(!!config.googleAnalyticsID, true, true, false, true, true)}`,
   'Permissions-Policy: interest-cohort=()',
 ];
 if (noIndex) {

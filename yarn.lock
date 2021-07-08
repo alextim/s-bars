@@ -24,10 +24,10 @@
   dependencies:
     sitemap "^6.4.0"
 
-"@alextim/csp@^0.0.1":
-  version "0.0.1"
-  resolved "https://npm.pkg.github.com/download/@alextim/csp/0.0.1/919bdd754c990da9a8262771a82c8e80158aa08ebade1d567d508b5c69347307#370b71d0ba4af6e84994b52b268640dd6e02af77"
-  integrity sha512-4xb0HvqVzTAMoLEKBI+6yaavW7ue83LSNn6ZFyc4CiAnDe8bJY7L9paQL2xTb6RrriEOkCFG9jc6pG6Phf5zSA==
+"@alextim/csp@^0.1.1":
+  version "0.1.1"
+  resolved "https://npm.pkg.github.com/download/@alextim/csp/0.1.1/1bdc7706b28d31c7cdf56e9e7f136223494b926ed84b7bf8f078d8db853e75b1#fac4ae473b6112ff0875e3bc0fbf8a9eda882726"
+  integrity sha512-S+brX2B0u93/7qAEKmKDOqahU1KBKOE1FuxmwMBSHvWi9Mg9PPD75g1Odv48ZFuykgZy4hj1vqCL/sBL6tyLMA==
 
 "@alextim/slugify@^0.1.0":
   version "0.1.0"
