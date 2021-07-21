@@ -6751,10 +6751,10 @@ gatsby-plugin-google-analytics@^3.10.0:
     minimatch "3.0.4"
     web-vitals "^1.1.2"
 
-gatsby-plugin-image@^1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.10.0.tgz#d70cf48f96ddf8540eee1e19acf0ee4e97a4b7f1"
-  integrity sha512-6/miPMomGrNSwobZT4yg6fqYQfCQpnoveCBK5SoK/zFBOHHNpd+08137lqF6vKtX+OkcfDHunGOAMU2W2iX1Og==
+gatsby-plugin-image@^1.10.1:
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.10.1.tgz#27a5eb2031f16d5b7320c2399266decdf295618a"
+  integrity sha512-0gbp3XqQFOAUnyN1GJOho1Eng+rQEMy1aPhRlb1s2xdWW3zx2Uqt9N7ZRsBMo1PIxBSFeqBKzU9GDux2RVyUCA==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/parser" "^7.14.7"
