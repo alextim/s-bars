@@ -66,7 +66,7 @@
     "gatsby-plugin-feed": "^3.11.0",
     "gatsby-plugin-google-analytics": "^3.11.0",
     "gatsby-plugin-image": "^1.10.1",
-    "gatsby-plugin-manifest": "^3.10.0",
+    "gatsby-plugin-manifest": "^3.11.0",
     "gatsby-plugin-netlify": "^3.11.0",
     "gatsby-plugin-portal": "^1.0.7",
     "gatsby-plugin-react-helmet": "^4.11.0",
