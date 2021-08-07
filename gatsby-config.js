@@ -98,6 +98,7 @@ const plugins = [
              */
             maxWidth: 896,
             quality: 50,
+            linkImagesToOriginal: false,
           },
         },
       ],
