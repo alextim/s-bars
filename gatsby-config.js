@@ -172,6 +172,7 @@ const plugins = [
       mergeSecurityHeaders: true,
       mergeCachingHeaders: true,
       headers,
+      generateMatchPathRewrites: false,
     },
   },
   // 'gatsby-plugin-sass',
