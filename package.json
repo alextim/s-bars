@@ -55,7 +55,7 @@
     "@alextim/slugify": "^0.1.0",
     "@alextim/translit": "^0.1.1",
     "@alextim/utils": "^0.1.0",
-    "@emotion/react": "^11.4.0",
+    "@emotion/react": "^11.4.1",
     "@sendgrid/mail": "^7.4.5",
     "disable-scroll": "^0.6.0",
     "dotenv": "^10.0.0",
