@@ -71,7 +71,7 @@
     "gatsby-plugin-portal": "^1.0.7",
     "gatsby-plugin-react-helmet": "^4.12.0",
     "gatsby-plugin-remove-generator": "^1.1.0",
-    "gatsby-plugin-sass": "^4.11.0",
+    "gatsby-plugin-sass": "^4.12.0",
     "gatsby-plugin-sharp": "^3.11.0",
     "gatsby-remark-images": "^5.8.0",
     "gatsby-remark-relative-images": "^2.0.2",
