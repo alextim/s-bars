@@ -105,7 +105,7 @@
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-webpack-plugin": "^2.5.4",
-    "gatsby-plugin-eslint": "^3.0.0",
+    "gatsby-plugin-eslint": "^4.0.0",
     "gatsby-plugin-react-svg": "^3.0.1",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
