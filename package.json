@@ -40,7 +40,7 @@
     "check:security": "audit-ci --critical",
     "test": "cross-env NODE_ENV=test yarn run eslint",
     "testbuild": "yarn test && yarn build",
-    "ncu": "ncu -u --timeout 150000",
+    "ncu": "ncu -u -x swiper --timeout 150000",
     "trans": "node scripts/translations-json-to-yaml",
     "upd": "scripts/content-update.bat",
     "docs:serve": "docsify serve docs",
@@ -83,8 +83,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "sass": "^1.38.1",
-    "swiper": "^7.0.1"
+    "sass": "^1.38.2",
+    "swiper": "^6.8.4"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -104,7 +104,7 @@
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
-    "eslint-webpack-plugin": "^2.5.4",
+    "eslint-webpack-plugin": "^3.0.1",
     "gatsby-plugin-eslint": "^4.0.0",
     "gatsby-plugin-react-svg": "^3.0.1",
     "husky": "^7.0.2",
