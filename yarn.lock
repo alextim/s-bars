@@ -6279,10 +6279,10 @@ gatsby-plugin-react-svg@^3.0.1:
   dependencies:
     svg-react-loader "^0.4.4"
 
-gatsby-plugin-remove-generator@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-generator/-/gatsby-plugin-remove-generator-1.1.0.tgz#d5283c4bd317b0f785a7059f74d81cff542de56e"
-  integrity sha512-xEHg4y9oppAab1c0JnPF80JL8rFZsdFNRC3iCozKQKl/7Gn8o6u2ZGcrHSIqswfkovGFg8SQZY21ViV3e4pYkw==
+gatsby-plugin-remove-generator@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-remove-generator/-/gatsby-plugin-remove-generator-1.2.0.tgz#28037a7c8bbdf2303d7011389ecf7b56d0eabe92"
+  integrity sha512-49s6QSVQ7Q7o1xBgboawlscfbRXbhhzCn2UqxlyyiVTeRZ/F3AyghOV7Yrmz/u4+7ubOXXzdgl40I0qim4EPyw==
 
 gatsby-plugin-sass@^4.14.0:
   version "4.14.0"
