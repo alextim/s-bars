@@ -37,5 +37,7 @@ module.exports = {
     'react/no-danger': 0,
     'react/jsx-props-no-spreading': 0,
     'react/prop-types': 'off',
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    'no-restricted-exports': 'off',
   },
 };

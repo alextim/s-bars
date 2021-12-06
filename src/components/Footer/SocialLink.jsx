@@ -22,8 +22,10 @@ const style = (t) => ({
   },
 });
 
+// Google Does Not Use rel=me Microformats
+// rel="me noreferrer"
 const SocialLink = ({ icon, name, title, to }) => (
-  <a css={style} href={to} target="_blank" rel="me noreferrer" aria-label={name} title={title}>
+  <a css={style} href={to} target="_blank" rel="noreferrer" aria-label={name} title={title}>
     {icon}
   </a>
 );
