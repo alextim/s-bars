@@ -6,9 +6,9 @@
   version "0.3.1"
   resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.3.1/31d5a8cee15dbf09feb5701a6acaaf2d4c05d355b233014f8b94e864752eac84"
 
-"@alextim/at-seo@^0.3.0":
-  version "0.3.0"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.3.0/8d4af31451b58595d4e6c763a1efd48315e6b32ead13ee96ffef02ed6cf2e0ab"
+"@alextim/at-seo@^0.4.1":
+  version "0.4.1"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.4.1/13d14ccb22148ce6efa290a785a7aa43e35d61cc9f330fb477821db0ed8cbfad#78a5ba5e2e0c64de240c3cadcda88eae3419953d"
 
 "@alextim/at-site-core@^0.3.1":
   version "0.3.1"
