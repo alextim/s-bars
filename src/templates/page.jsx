@@ -13,7 +13,17 @@ const PageTemplate = ({ data, location: { pathname }, pageContext: { locale } })
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, cover, noindex, sections, html },
+    page: {
+      title,
+      metaTitle,
+      headline,
+      metaDescription,
+      cover,
+      noindex,
+      breadcrumbs,
+      sections,
+      html,
+    },
   } = data;
 
   return (
@@ -29,6 +39,7 @@ const PageTemplate = ({ data, location: { pathname }, pageContext: { locale } })
         description={metaDescription}
         pathname={pathname}
         noindex={noindex}
+        breadcrumbs={breadcrumbs}
       />
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
       <Sections data={sections} />

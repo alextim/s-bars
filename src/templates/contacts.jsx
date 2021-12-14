@@ -111,7 +111,7 @@ const ContactsTemplate = ({ data, location: { pathname }, pageContext: { locale 
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex },
+    page: { title, metaTitle, headline, metaDescription, noindex, breadcrumbs },
   } = data;
   const { openingHours, embedMap } = useOrgContacts();
   const { contactPoint } = address;
@@ -120,6 +120,7 @@ const ContactsTemplate = ({ data, location: { pathname }, pageContext: { locale 
     <Layout
       title={title}
       headline={headline}
+      breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -128,6 +129,7 @@ const ContactsTemplate = ({ data, location: { pathname }, pageContext: { locale 
         description={metaDescription}
         pathname={pathname}
         noindex={noindex}
+        breadcrumbs={breadcrumbs}
       />
 
       <Section>

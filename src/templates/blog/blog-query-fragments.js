@@ -27,7 +27,12 @@ export const mdPostFragment = graphql`
     }
     dateModified
     datePublished
+    author
     noindex
+    breadcrumbs {
+      title
+      to
+    }
     timeToRead
     excerpt
     html

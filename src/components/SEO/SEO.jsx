@@ -18,6 +18,8 @@ const SEO = ({
   imgPath,
   datePublished,
   dateModified,
+  author,
+  breadcrumbs,
   tags,
   canonical = true,
   noindex = false,
@@ -43,6 +45,7 @@ const SEO = ({
       }, {});
   }
   */
+
   return (
     <SeoBase
       config={config}
@@ -60,6 +63,8 @@ const SEO = ({
       imgPath={imgPath}
       datePublished={datePublished}
       dateModified={dateModified}
+      author={author}
+      breadcrumbs={breadcrumbs}
       tags={tags?.map(({ title: tagTitle }) => tagTitle)}
       canonical={canonical}
       noindex={noindex}

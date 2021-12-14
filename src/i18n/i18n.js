@@ -1,3 +1,4 @@
+const i18n = require('@alextim/i18n-utils');
 const allLocales = require('../../s-bars.content/config/locales');
 
 // Only allow languages defined in the LOCALES env variable.
@@ -43,32 +44,7 @@ const findDefaultLang = () => {
 const defaultLang = findDefaultLang() || locales.localeCodes[0];
 const defaultLocale = locales[defaultLang];
 
-const isDefaultLang = (lang) => lang === defaultLang;
-/**
- *
- * @param {string} path - '/', '/posts'
- * @param {string} lang - 'ru', 'en'
- *
- * if lang is default
- *   return path
- *
- * if path == /
- *   return `/${lang}`
- *
- * else
- *   return `/${lang}${path}
- */
-const localizePath = (path, lang) => {
-  if (isDefaultLang(lang)) {
-    return path;
-  }
-  if (path === '/') {
-    return `/${lang}/`;
-  }
-  return `/${lang}${path}`;
-};
-
-const isValidLang = (x) => x && typeof x === 'string' && locales[x];
+const isValidLang = (x) => i18n.isValidLang(x, locales);
 
 const langFromPath = (path) => {
   if (!path || path === '/') {
@@ -79,24 +55,6 @@ const langFromPath = (path) => {
     return defaultLang;
   }
   return lang;
-};
-
-const pureSlug = (slug) => {
-  if (slug === '/') {
-    return '/';
-  }
-  const a = slug.split('/');
-  const locale = a[1];
-  const isLocalized = localeCodes.some((el) => locale === el);
-  if (isLocalized) {
-    return a
-      .slice(0, a.length - 1)
-      .slice(2)
-      .join('/');
-  }
-  a.shift();
-  a.pop();
-  return a.join('/');
 };
 
 const purePath = (path) => {
@@ -116,11 +74,11 @@ module.exports = {
   i18nEnabled,
   defaultLang,
   defaultLocale,
-  isDefaultLang,
+  isDefaultLang: (lang) => i18n.isDefaultLang(lang, defaultLang),
   isValidLang,
-  localizePath,
+  localizePath: (path, lang) => i18n.localizePath(path, lang, defaultLang),
   purePath,
-  pureSlug,
+  pureSlug: (slug) => i18n.pureSlug(slug, locales),
   locales,
   localeCodes,
   langFromPath,

@@ -43,7 +43,7 @@ const PostListBase = ({
     mainNav,
     footerNav,
     socialLinks,
-    page: { html, title: defaultTitle, metaTitle, headline, metaDescription, noindex },
+    page: { html, title: defaultTitle, metaTitle, headline, metaDescription, noindex, breadcrumbs },
     posts,
   } = data;
 
@@ -71,6 +71,7 @@ const PostListBase = ({
     <Layout
       title={title || defaultTitle}
       headline={headline}
+      breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -79,6 +80,7 @@ const PostListBase = ({
         description={metaDescription}
         pathname={pathname}
         noindex={noindex}
+        breadcrumbs={breadcrumbs}
         pageType="Blog"
         links={links}
       />

@@ -12,6 +12,8 @@ import FaThumbsUp from '../assets/fa/regular/thumbs-up.svg';
 import FaCheck from '../assets/fa/solid/check.svg';
 import FaPlane from '../assets/fa/solid/plane.svg';
 import FaUsers from '../assets/fa/solid/users.svg';
+// import FaHome from '../assets/fa/solid/home.svg';
+import AntHome from '../assets/ant-design-icons/outlined/home.svg';
 
 // import { FaTelegram } from 'react-icons/fa';
 // import { FaWhatsapp } from 'react-icons/fa';
@@ -40,6 +42,7 @@ const Icon = ({ name, css = {}, ...rest }) => {
     check: <FaCheck css={style} {...rest} />,
     plane: <FaPlane css={style} {...rest} />,
     users: <FaUsers css={style} {...rest} />,
+    home: <AntHome css={style} {...rest} />,
     // whatsapp: <FaWhatsapp css={style} />,
     // telegram: <FaTelegram css={style} />,
     // viber: <FaViber css={style} />,

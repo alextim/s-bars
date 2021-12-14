@@ -14,13 +14,14 @@ const ServicePageTemplate = ({ data, location: { pathname }, pageContext: { loca
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, cover, noindex, html },
+    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, html },
   } = data;
 
   return (
     <Layout
       title={title}
       headline={headline}
+      breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -29,6 +30,7 @@ const ServicePageTemplate = ({ data, location: { pathname }, pageContext: { loca
         description={metaDescription}
         pathname={pathname}
         noindex={noindex}
+        breadcrumbs={breadcrumbs}
         imgPath={cover?.sm?.publicURL}
       />
       <InnerAsideLayout cover={cover} html={html} aside={<AsideServices mainNav={mainNav} />} />

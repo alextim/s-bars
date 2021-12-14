@@ -3,13 +3,16 @@ import { jsx } from '@emotion/react';
 import { graphql /* , Link */ } from 'gatsby';
 
 import SEO from '../../components/SEO';
-import Layout from '../../components/Layout/Layout';
+import Layout from '../../components/Layout';
 
 import AsideServices from '../../components/AsideServices';
 import AsideFeaturedPosts from '../../components/AsideFeaturedPosts';
 // import AsideRecentPosts from '../../components/AsideRecentPosts';
 
 import InnerAsideLayout from '../../components/InnerAsideLayout';
+import PostInfo from '../../components/blog/PostInfo';
+
+import LastUpdated from '../../components/blog/LastUpdated';
 
 const styleWidgetArea = {
   display: 'flex',
@@ -30,9 +33,12 @@ const PostTemplate = ({ data, location: { pathname }, pageContext: { locale } })
       metaDescription,
       cover,
       noindex,
+      breadcrumbs,
       datePublished,
       dateModified,
+      author,
       html,
+      timeToRead,
     },
   } = data;
 
@@ -40,6 +46,7 @@ const PostTemplate = ({ data, location: { pathname }, pageContext: { locale } })
     <Layout
       title={title}
       headline={headline}
+      breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -49,11 +56,14 @@ const PostTemplate = ({ data, location: { pathname }, pageContext: { locale } })
         headline={headline}
         pathname={pathname}
         noindex={noindex}
+        breadcrumbs={breadcrumbs}
         datePublished={datePublished}
         dateModified={dateModified}
+        author={author}
         pageType="BlogPosting"
         imgPath={cover?.sm?.publicURL}
       />
+      <PostInfo author={author} datePublished={datePublished} timeToRead={timeToRead} />
       <InnerAsideLayout
         cover={cover}
         html={html}
@@ -65,6 +75,9 @@ const PostTemplate = ({ data, location: { pathname }, pageContext: { locale } })
           </aside>
         }
       />
+      {dateModified && ((datePublished && dateModified !== datePublished) || !datePublished) && (
+        <LastUpdated date={dateModified} />
+      )}
     </Layout>
   );
 };

@@ -16,13 +16,14 @@ const ObjectTypePageTemplate = ({ data, location: { pathname }, pageContext: { l
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, cover, noindex, html },
+    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, html },
   } = data;
 
   return (
     <Layout
       title={title}
       headline={headline}
+      breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -31,6 +32,7 @@ const ObjectTypePageTemplate = ({ data, location: { pathname }, pageContext: { l
         description={metaDescription}
         pathname={pathname}
         noindex={noindex}
+        breadcrumbs={breadcrumbs}
         imgPath={cover?.sm?.publicURL}
       />
       <InnerAsideLayout

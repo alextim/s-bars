@@ -18,6 +18,10 @@ export const mdPageFragment = graphql`
       title
     }
     noindex
+    breadcrumbs {
+      title
+      to
+    }
     sections {
       title
       subtitle

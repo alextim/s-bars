@@ -18,7 +18,7 @@ const ObjectTypeServiceList = ({ data, pathname, locale, type }) => {
     footerNav,
     socialLinks,
     pageItems = [],
-    page: { html, title, metaTitle, headline, metaDescription, noindex },
+    page: { html, title, metaTitle, headline, metaDescription, noindex, breadcrumbs },
   } = data;
 
   /**
@@ -40,6 +40,7 @@ const ObjectTypeServiceList = ({ data, pathname, locale, type }) => {
     <Layout
       title={title}
       headline={headline}
+      breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -48,6 +49,7 @@ const ObjectTypeServiceList = ({ data, pathname, locale, type }) => {
         description={metaDescription}
         pathname={pathname}
         noindex={noindex}
+        breadcrumbs={breadcrumbs}
       />
       <CardList items={items} />
       {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}

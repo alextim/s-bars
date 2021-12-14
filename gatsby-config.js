@@ -240,24 +240,24 @@ const plugins = [
     options: {
       templatesDir: path.join(__dirname, 'src', config.templatesDir),
       pageDirs,
-      i18n,
+      locales: i18n.locales,
+      defaultLang: i18n.defaultLang,
       noIndex,
     },
   },
   {
     resolve: '@alextim/at-blog',
-    // resolve: 'at-blog',
     options: {
       templatesDir: path.join(__dirname, 'src', config.templatesDir, 'blog'),
       cardsPerPage,
       postDirs,
-      i18n,
+      locales: i18n.locales,
+      defaultLang: i18n.defaultLang,
       noIndex,
     },
   },
   {
     resolve: '@alextim/at-sitemap',
-    // resolve: 'at-sitemap',
     options: {
       createRobotsTxt: true,
       ignoreImagesWithoutAlt: false,

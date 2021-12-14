@@ -35,10 +35,12 @@
 - **twitterSite**
 - **twitterCreator**
 
+- **noBreadcrumns**
+По умолчанию `false`. Если значение `true`, то запрещает микроразметку **Breadcrumbs** в плагине `at-seo`.
+
 ## Языки
 
 `uk` и `ru`
-
 
 Файл: `[CONTENT_DIR]/config/locales.js`
 

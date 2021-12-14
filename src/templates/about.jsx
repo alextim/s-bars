@@ -3,11 +3,11 @@ import React from 'react';
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import Section from '../components/Section';
-import Triptych from '../components/home-page-parts/Triptych';
-
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
+import Section from '../components/Section';
+
+import Triptych from '../components/home-page-parts/Triptych';
 
 const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
@@ -16,13 +16,14 @@ const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex, sections, html },
+    page: { title, metaTitle, headline, metaDescription, noindex, breadcrumbs, sections, html },
   } = data;
 
   return (
     <Layout
       title={title}
       headline={headline}
+      breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -31,6 +32,7 @@ const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }
         description={metaDescription}
         pathname={pathname}
         noindex={noindex}
+        breadcrumbs={breadcrumbs}
       />
       {sections && (
         <React.Fragment>
