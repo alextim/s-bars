@@ -2,7 +2,7 @@
   "name": "s-bars",
   "description": "Static website for `Snelnij Bars` company",
   "private": true,
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "author": "Oleksii Tymoshenko <buildmnt@gmail.com>",
   "keywords": [
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@alextim/at-blog": "^0.4.1",
-    "@alextim/at-seo": "^0.4.1",
+    "@alextim/at-seo": "^0.4.2",
     "@alextim/at-site-core": "^0.4.0",
     "@alextim/at-sitemap": "^0.3.1",
     "@alextim/csp": "^0.1.2",

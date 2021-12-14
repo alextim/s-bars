@@ -45,7 +45,6 @@ const SEO = ({
       }, {});
   }
   */
-
   return (
     <SeoBase
       config={config}
