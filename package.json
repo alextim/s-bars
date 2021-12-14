@@ -62,7 +62,7 @@
     "dotenv": "^10.0.0",
     "email-validator": "^2.0.4",
     "emotion-theming": "^11.0.0",
-    "gatsby": "^4.3.0",
+    "gatsby": "^4.4.0",
     "gatsby-cli": "^4.4.0",
     "gatsby-plugin-emotion": "^7.3.0",
     "gatsby-plugin-feed": "^4.3.0",
