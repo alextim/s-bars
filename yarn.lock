@@ -5581,7 +5581,7 @@ gatsby-cli@^4.4.0:
     yoga-layout-prebuilt "^1.10.0"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^3.3.0, gatsby-core-utils@^3.4.0:
+gatsby-core-utils@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.4.0.tgz#6d5658dc045dcf60a314d4f2d0bc85e260659837"
   integrity sha512-dYQpyo1BLGJzxQOXgGs1Fbj7jzGj5cKAIPYz2hz2l4Aus6skwjjaUlOjZlrWIahNHoLkx3mH0f5y6E8205T/aQ==
@@ -5662,9 +5662,10 @@ gatsby-plugin-feed@^4.4.0:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-google-analytics@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.3.0.tgz"
+gatsby-plugin-google-analytics@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.4.0.tgz#a4c700b59f5bdb8c8b2276f5e50440d484b14b58"
+  integrity sha512-Z+CW64zo/d1rtyMz1bJ+Ao9apsWeyak5BXNc7piO+FwE7dFdWrAyHrgGmE3YltqFUY8+PS3vmpBv9qn0ZrOSGg==
   dependencies:
     "@babel/runtime" "^7.15.4"
     minimatch "3.0.4"
