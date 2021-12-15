@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import config from '../../../../s-bars.content/config/website';
+import config from '../../../s-bars.content/config/website';
 import useOrgContacts from '../../hooks/useOrgContacts';
 
 const getOrganizationSchema = (orgContacts, orgAddress) => {
