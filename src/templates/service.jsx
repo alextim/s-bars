@@ -4,8 +4,8 @@ import { graphql } from 'gatsby';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import AsideServices from '../components/AsideServices';
-
 import InnerAsideLayout from '../components/InnerAsideLayout';
+import ServiceSchema from '../components/ServiceSchema';
 
 const ServicePageTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
@@ -33,6 +33,8 @@ const ServicePageTemplate = ({ data, location: { pathname }, pageContext: { loca
         breadcrumbs={breadcrumbs}
         imgPath={cover?.sm?.publicURL}
       />
+      <ServiceSchema pathname={pathname} title={title} address={address} />
+
       <InnerAsideLayout cover={cover} html={html} aside={<AsideServices mainNav={mainNav} />} />
     </Layout>
   );
