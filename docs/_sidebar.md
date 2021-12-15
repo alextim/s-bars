@@ -14,9 +14,11 @@
   - [Устройство страницы](internal-organization/page-parts.md)
   - [Формирование путей](internal-organization/path-generation-rules.md)
 
-- Страницы сайта
-  - [Посты](site-content/posts.md)
-  - [Страницы](site-content/pages.md)
+- Типы страниц сайта
+  - [Страница](site-content/page.md)
+  - [Пост](site-content/post.md)
+  - [Услуга](site-content/service.md)
+  - [Объект](site-content/object.md)
 - Элементы сайта
   - [Общие данные](site-content/common-elements.md)
   - [Языкозависимые данные](site-content/language-dependent-elements.md)
