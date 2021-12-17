@@ -1,6 +1,6 @@
 ![logo](/_media/logo.svg)
 
-# s-bars.com
+# s-bars.com.ua
 
 > Стек технологий
 
