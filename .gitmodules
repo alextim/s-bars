@@ -1,3 +1,4 @@
 [submodule "s-bars.content"]
 	path = s-bars.content
-	url = git@github.com:sbarscom/s-bars.content
+	url = git://github.com/sbarscom/s-bars.content.git
+
