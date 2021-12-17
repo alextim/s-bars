@@ -43,7 +43,6 @@
     "ncu": "ncu -u -x swiper --timeout 150000",
     "trans": "node scripts/translations-json-to-yaml",
     "upd": "scripts/content-update.bat",
-    "docs:serve": "docsify serve docs",
     "postinstall": "husky install"
   },
   "dependencies": {
