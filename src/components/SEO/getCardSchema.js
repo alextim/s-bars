@@ -14,6 +14,7 @@ const getCardSchema = ({
   cover,
   datePublished,
   dateModified,
+  author,
   pageType = 'Article',
 }) => {
   const { locale } = useLocale();
@@ -44,6 +45,7 @@ const getCardSchema = ({
     imgURL,
     datePublished,
     dateModified,
+    author,
     pageType,
   });
 };

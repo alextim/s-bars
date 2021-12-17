@@ -50,7 +50,7 @@ const pageSources = Object.keys(allDirs).map((name) => ({
   resolve: 'gatsby-source-filesystem',
   options: {
     name,
-    path: path.join(__dirname, contentDir, allDirs[name]),
+    path: path.join(__dirname, contentDir, allDirs[name].folder),
   },
 }));
 

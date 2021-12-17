@@ -66,6 +66,7 @@ export const mdPostCardFragment = graphql`
     }
     dateModified
     datePublished
+    author
     slug
     excerpt(pruneLength: 180)
     timeToRead

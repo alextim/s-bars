@@ -15,7 +15,17 @@ const excerptStyle = {
 };
 
 const PostCard = ({
-  data: { slug: to, cover, title, excerpt, headline, metaDescription, datePublished, dateModified },
+  data: {
+    slug: to,
+    cover,
+    title,
+    excerpt,
+    headline,
+    metaDescription,
+    datePublished,
+    dateModified,
+    author,
+  },
   readMore,
 }) => (
   <article css={card.wrap}>
@@ -29,6 +39,7 @@ const PostCard = ({
             cover,
             datePublished,
             dateModified,
+            author,
             pageType: 'BlogPosting',
           }),
         )}

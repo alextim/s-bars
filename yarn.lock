@@ -2,20 +2,20 @@
 # yarn lockfile v1
 
 
-"@alextim/at-blog@^0.4.1":
-  version "0.4.1"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.4.1/49178b6cfe65a915e659479df3de753a6c32432db60c47402c95549497ff5730#b4d1ef8738e9abc044caea1ed4bcb91c22ea267a"
-  integrity sha512-eIg6VRZ11oxbppr60+tlovg6NOwr1hwTRran++VTntrOlgKe9RbO3dUa2W3NyPdnu1UlwNQnFiFKsOmoqEB06g==
+"@alextim/at-blog@^0.5.0":
+  version "0.5.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.5.0/633c33c03582512daee4a5599debe82695a5b85dd9a6a1b7d83bfd9288d65949#cddcc4d803e16aec694acec46dcc20644d463ae5"
+  integrity sha512-24MivKwUDSUf9MifywA1emKISXqRA6ksPZ9SYU/i+Gb03ys7WXHfh4PLAtrdIcwNhZvPWq/jgeCExaq/sGGsoQ==
 
-"@alextim/at-seo@^0.4.2":
-  version "0.4.2"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.4.2/2802cf0f3af01d536d56e5863d52ebd149969e236e550d1fc809fa113156f3ae#f78434ae8de1f82dc4831a22fe164eecf95cd195"
-  integrity sha512-be8Thc5pOuZV6YwkPQBH+Jo3rbG8VCh1IqtFMdiCUSIYbiA6hsh3/Hjt5a1FIXMoSCQXbP9XCzlsyeNWy8WK1A==
+"@alextim/at-seo@^0.4.5":
+  version "0.4.5"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.4.5/1e6b9a6523237ca7a2e5aceafb4b7ebfc875f7bf2eb26e5702105d75783ab957#4b4423a56201bfd3f01a260127720aaad84e729d"
+  integrity sha512-rKK6yes9JIcUUcBHCSsih9RO2bq3xX6Ht+ddY1effcglG0kYzc4536ed0FJgN8/lqr+2R2v3K6eCMpV6bp2aFA==
 
-"@alextim/at-site-core@^0.4.0":
-  version "0.4.0"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-site-core/0.4.0/13940cbc0506c98622f944895c2d802a728055200d1961bacc9d5ff4da67a998#f00a338c199cf69b9f73e195f16600cd486e3569"
-  integrity sha512-DTKvBF8jSyoRUpp7K0IOjwVeL8YkYmwihniasucusxCyarRINpvwkQoJ682lYGNxI1OQyZ6nRsLH9pHOl4zV0g==
+"@alextim/at-site-core@^0.5.0":
+  version "0.5.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-site-core/0.5.0/388e109ffecba1da37675458e40cde551c91d6d693692e6513017ef9a42117c4#7a055ee9046217185e88bc56cd3f483079ecf455"
+  integrity sha512-W0nK31IIXVBBYmhP9tBrVgpyNI4FDOC3+rpNnPhix4tWbVyNPMuy+mOD5tjxfMNHt3F9SqwresXmKxp76NujEA==
 
 "@alextim/at-sitemap@^0.3.1":
   version "0.3.1"
