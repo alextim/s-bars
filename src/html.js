@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/html-has-lang */
 import React from 'react';
 
-export default function HTML(props) {
+const HTML = (props) => {
   const {
     htmlAttributes,
     headComponents,
@@ -43,4 +43,6 @@ export default function HTML(props) {
       </body>
     </html>
   );
-}
+};
+
+export default HTML;
