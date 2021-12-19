@@ -284,9 +284,6 @@ if (config.googleAnalyticsID) {
 module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl,
-    // TODO: delete this
-    // locales: i18n.localeCodes.map((code) => ({ code, ...locales[code] })),
-    // defaultLang: i18n.defaultLang,
   },
   plugins,
 };
