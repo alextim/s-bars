@@ -261,6 +261,8 @@ const plugins = [
     options: {
       createRobotsTxt: true,
       ignoreImagesWithoutAlt: false,
+      locales: i18n.locales,
+      defaultLang: i18n.defaultLang,
       noIndex,
     },
   },

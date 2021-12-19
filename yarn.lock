@@ -17,9 +17,10 @@
   resolved "https://npm.pkg.github.com/download/@alextim/at-site-core/0.6.0/232d97a7a29989ecd8c8546ddb711f4891f27e206e927bc347a138417077a2c5#3edd7dd7b64d933274b914dee6275251c329c816"
   integrity sha512-F/Ry7281jUwjLbJ0lz4pxxQ9+2EKr5Y/iiR7qYU3GLRsqgnoYh0wVQfxhXQ0NkBdSGXpuVemvMzKexQ2k0WGDw==
 
-"@alextim/at-sitemap@^0.3.1":
-  version "0.3.1"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-sitemap/0.3.1/1d0aed41751afa50ba8ffaa7702d2824c03301140993674879fec6ddfd66edd6"
+"@alextim/at-sitemap@^0.4.0":
+  version "0.4.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-sitemap/0.4.0/12f65ff9af9993397e44577e4123fae8a5425508d5dadad2bd5e0912e63cc0b7#1fa123432fb41b10a3940311743f3f1a11bf3c59"
+  integrity sha512-TBZHFa8VoxNvFrz51kZuBi7lAS+3uSFsIhigWR1VZ2lEH1gnzMP/eq8ujNET9DIAIw39Fd/FeMC1FrnFzPUmFw==
   dependencies:
     sitemap "^7.0.0"
 
