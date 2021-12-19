@@ -2,20 +2,20 @@
 # yarn lockfile v1
 
 
-"@alextim/at-blog@^0.5.0":
-  version "0.5.0"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.5.0/633c33c03582512daee4a5599debe82695a5b85dd9a6a1b7d83bfd9288d65949#cddcc4d803e16aec694acec46dcc20644d463ae5"
-  integrity sha512-24MivKwUDSUf9MifywA1emKISXqRA6ksPZ9SYU/i+Gb03ys7WXHfh4PLAtrdIcwNhZvPWq/jgeCExaq/sGGsoQ==
+"@alextim/at-blog@^0.6.0":
+  version "0.6.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-blog/0.6.0/8e79c7b29e742208fffdc9e5b6e35612aa7e83ef7979e7cfc088d56ed419b8cf#16d89c7725dd99cab01fd4a4a083b972c146da6c"
+  integrity sha512-BfwZbVzkX5GGNRn6J/g0C/JxS7hBrReBOkaH/b8X4hLAZzW9F8tBMo+4Lj8S5ok4DFJRqMxS9gsfkgcnZNo61g==
 
 "@alextim/at-seo@^0.4.5":
   version "0.4.5"
   resolved "https://npm.pkg.github.com/download/@alextim/at-seo/0.4.5/1e6b9a6523237ca7a2e5aceafb4b7ebfc875f7bf2eb26e5702105d75783ab957#4b4423a56201bfd3f01a260127720aaad84e729d"
   integrity sha512-rKK6yes9JIcUUcBHCSsih9RO2bq3xX6Ht+ddY1effcglG0kYzc4536ed0FJgN8/lqr+2R2v3K6eCMpV6bp2aFA==
 
-"@alextim/at-site-core@^0.5.0":
-  version "0.5.0"
-  resolved "https://npm.pkg.github.com/download/@alextim/at-site-core/0.5.0/388e109ffecba1da37675458e40cde551c91d6d693692e6513017ef9a42117c4#7a055ee9046217185e88bc56cd3f483079ecf455"
-  integrity sha512-W0nK31IIXVBBYmhP9tBrVgpyNI4FDOC3+rpNnPhix4tWbVyNPMuy+mOD5tjxfMNHt3F9SqwresXmKxp76NujEA==
+"@alextim/at-site-core@^0.6.0":
+  version "0.6.0"
+  resolved "https://npm.pkg.github.com/download/@alextim/at-site-core/0.6.0/232d97a7a29989ecd8c8546ddb711f4891f27e206e927bc347a138417077a2c5#3edd7dd7b64d933274b914dee6275251c329c816"
+  integrity sha512-F/Ry7281jUwjLbJ0lz4pxxQ9+2EKr5Y/iiR7qYU3GLRsqgnoYh0wVQfxhXQ0NkBdSGXpuVemvMzKexQ2k0WGDw==
 
 "@alextim/at-sitemap@^0.3.1":
   version "0.3.1"
