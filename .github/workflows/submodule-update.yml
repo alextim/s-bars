@@ -11,7 +11,8 @@ on:
       - '.gitignore'
       - '.vscode/**/*.*'
       - 'README.md'
-
+      - 'ADDENUM.md'
+  
   workflow_dispatch:
     branches:
       - main
