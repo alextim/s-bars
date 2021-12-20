@@ -10,7 +10,7 @@ const config = require('./s-bars.content/config/website');
 
 const manifestIconSrc = path.join(__dirname, 'src', 'assets', 'images', 'icon.png');
 
-const { contentDir, postDirs, pageDirs, cardsPerPage } = config;
+const { contentDir, postDirs, pageDirs, authorDirs, cardsPerPage } = config;
 
 const toBoolean = (x) => {
   if (!x) {
@@ -45,7 +45,7 @@ const headers = {
   '/ru/404.html': ['Cache-Control: max-age=300'],
 };
 
-const allDirs = { ...pageDirs, ...postDirs };
+const allDirs = { ...pageDirs, ...postDirs, ...authorDirs };
 const pageSources = Object.keys(allDirs).map((name) => ({
   resolve: 'gatsby-source-filesystem',
   options: {
@@ -251,6 +251,7 @@ const plugins = [
       templatesDir: path.join(__dirname, 'src', config.templatesDir, 'blog'),
       cardsPerPage,
       postDirs,
+      authorDirs,
       locales: i18n.locales,
       defaultLang: i18n.defaultLang,
       noIndex,
