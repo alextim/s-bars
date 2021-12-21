@@ -1,11 +1,19 @@
+# System
+# Keep it!!!!
 http://s-bars.netlify.app/*   https://s-bars.com.ua/:splat    301!
 https://s-bars.netlify.app/*  https://s-bars.com.ua/:splat    301!
+
+
+# Temporary redirects
+# Delete all of them when Google will renew its cache
+# Old domain
 
 http://s-bars.com/*           https://s-bars.com.ua/:splat    301!
 https://s-bars.com/*          https://s-bars.com.ua/:splat    301!
 http://www.s-bars.com/*       https://s-bars.com.ua/:splat    301!
 https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 
+# Old pages in default language (Ukranian)
 /czvetyi-v-okno/                                               /                                                 301
 /podarok-v-okno/                                               /                                                 301
 
@@ -47,7 +55,7 @@ https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 /uborka-snega-s-krysh2/                                        /blog/uborka-snega-s-krysh/                                             301
 /zashhita-metallov-ot-korrozii/                                /blog/zashhita-metallov-ot-korrozii/                                    301
 
-
+# Old pages in secondary language (Russian)
 /ru/czvetyi-v-okno/                                               /ru/                                                 301
 /ru/podarok-v-okno/                                               /ru/                                                 301
 
@@ -89,7 +97,9 @@ https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 /ru/uborka-snega-s-krysh2/                                        /ru/blog/uborka-snega-s-krysh/                                             301
 /ru/zashhita-metallov-ot-korrozii/                                /ru/blog/zashhita-metallov-ot-korrozii/                                    301
 
-/ru/*                         /ru/404                         404
+# System: all not found pages in secondary language (Russian)
+# Keep it!!!!
+/ru/*      /ru/404      404
 
 
 
