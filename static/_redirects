@@ -6,8 +6,6 @@ https://s-bars.com/*          https://s-bars.com.ua/:splat    301!
 http://www.s-bars.com/*       https://s-bars.com.ua/:splat    301!
 https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 
-/ru/*                         /ru/404                         404
-
 /czvetyi-v-okno/                                               /                                                 301
 /podarok-v-okno/                                               /                                                 301
 
@@ -91,6 +89,7 @@ https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 /ru/uborka-snega-s-krysh2/                                        /ru/blog/uborka-snega-s-krysh/                                             301
 /ru/zashhita-metallov-ot-korrozii/                                /ru/blog/zashhita-metallov-ot-korrozii/                                    301
 
+/ru/*                         /ru/404                         404
 
 
 
