@@ -14,7 +14,7 @@ http://www.s-bars.com/*       https://s-bars.com.ua/:splat    301!
 https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 
 # Old pages in default language (Ukranian)
-/czvetyi-v-okno/                                               /                                                 301
+# /czvetyi-v-okno/                                               /                                                 301
 
 ################################################################ END ###########################################################################
 
