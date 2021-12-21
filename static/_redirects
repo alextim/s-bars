@@ -8,41 +8,88 @@ https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 
 /ru/*                         /ru/404                         404
 
+/czvetyi-v-okno/                                               /                                                 301
+/podarok-v-okno/                                               /                                                 301
+
+/chto-takoe-elevator-tipy-elevatorov/                          /tipy-obektov/elevatory-promyshlennye-cexa/       301
+/elevatory-promyshlennye-cexa/                                 /tipy-obektov/elevatory-promyshlennye-cexa/       301
+/kachestvennaya-okraska-elevatorov-promyshlennymi-alpinistami/ /tipy-obektov/elevatory-promyshlennye-cexa/       301
+/krany-kozlovye-mostovye-portovye/                             /tipy-obektov/krany-kozlovye-mostovye-portovye/   301
+/obshhestvennye-obekty-trc-vokzaly/                            /tipy-obektov/obshhestvennye-obekty-trc-vokzaly/  301
+/puteprovody-mosty-i-estakady/                                 /tipy-obektov/puteprovody-mosty-i-estakady/       301
+/pochemu-antikorrozijnaya-zashhita-mostov-tak-vazhna/          /tipy-obektov/puteprovody-mosty-i-estakady/       301
+/rezervuary-dlya-zhidkostej/                                   /tipy-obektov/rezervuary-dlya-zhidkostej/         301
 
 
+/peskostrujnaya-ochistka/                                      /services/                                                              301
+/moika-okon/                                                   /services/kliningovye-uslugi/                                           301
+/mojka-fasadov/                                                /services/kliningovye-uslugi/                                           301
+/montazh-i-demontazh-reklamnyx-konstrukcij-shhitov-i-bannerov/ /services/montazh-i-demontazh-reklamnyx-konstrukcij-shhitov-i-bannerov/ 301
+/nanesenie-specialnyx-pokrytij/                                /services/nanesenie-specialnyx-pokrytij/                                301
+/provedenie-vnutrennix-rabot/                                  /services/provedenie-vnutrennix-rabot/                                  301
+/pokraska-fasadov-i-zhelezobetonnyx-konstrukcij/               /services/pokraska-betonnyh-konstrukcij/                                301
+/pokraska-kryishi/                                             /services/pokraska-kryishi/                                             301
+/pokraska-fasada/                                              /services/pokraska-fasada/                                              301
+/pokraska-metalla/                                             /services/pokraska-metalla/                                             301
+/razmeschenie-narujnoi-reklamy/                                /services/razmeschenie-narujnoi-reklamy/                                301
+/uteplenie-sten-i-fasadov/                                     /services/uteplenie-sten-i-fasadov/                                     301
+/etapy-teploizolyacii-naruzhnoe-uteplenie-domov/               /services/uteplenie-sten-i-fasadov/                                     301
+/naruzhnoe-uteplenie-sten-kvartir-domov/                       /services/uteplenie-sten-i-fasadov/                                     301
+
+/chto-takoe-korroziya/                                         /blog/                                                                  301
+/arenda-oborudovaniya-apparaty-vysokogo-davleniya-karcher/     /blog/arenda-oborudovaniya-apparaty-vysokogo-davleniya-karcher/         301
+/gidroizolyaciya-zhidkoj-rezinoj-za-ili-protiv/                /blog/gidroizolyaciya-zhidkoj-rezinoj-za-ili-protiv/                    301
+/obrezka-derevev/                                              /blog/obrezka-derevev/                                                  301
+/obrezka-derevev2/                                             /blog/obrezka-derevev/                                                  301
+/peskostrujnaya-obrabotka-metalla/                             /blog/peskostrujnaya-obrabotka-metalla/                                 301
+/preimushhestva-gidrostrujnoj-ochistki-metallokonstrukcij/     /blog/preimushhestva-gidrostrujnoj-ochistki-metallokonstrukcij/         301
+/promyshlennyi-alpinizm/                                       /blog/promyshlennyi-alpinizm/                                           301
+/promyshlennyj-alpinizm-osobennosti-professii/                 /blog/promyshlennyi-alpinizm/                                           301
+/specifika-okrashivaniya-metallicheskix-trub-cena-raboty/      /blog/specifika-okrashivaniya-metallicheskix-trub-cena-raboty/          301
+/uborka-snega-s-krysh2/                                        /blog/uborka-snega-s-krysh/                                             301
+/zashhita-metallov-ot-korrozii/                                /blog/zashhita-metallov-ot-korrozii/                                    301
 
 
+/ru/czvetyi-v-okno/                                               /ru/                                                 301
+/ru/podarok-v-okno/                                               /ru/                                                 301
+
+/ru/chto-takoe-elevator-tipy-elevatorov/                          /ru/tipy-obektov/elevatory-promyshlennye-cexa/       301
+/ru/elevatory-promyshlennye-cexa/                                 /ru/tipy-obektov/elevatory-promyshlennye-cexa/       301
+/ru/kachestvennaya-okraska-elevatorov-promyshlennymi-alpinistami/ /ru/tipy-obektov/elevatory-promyshlennye-cexa/       301
+/ru/krany-kozlovye-mostovye-portovye/                             /ru/tipy-obektov/krany-kozlovye-mostovye-portovye/   301
+/ru/obshhestvennye-obekty-trc-vokzaly/                            /ru/tipy-obektov/obshhestvennye-obekty-trc-vokzaly/  301
+/ru/puteprovody-mosty-i-estakady/                                 /ru/tipy-obektov/puteprovody-mosty-i-estakady/       301
+/ru/pochemu-antikorrozijnaya-zashhita-mostov-tak-vazhna/          /ru/tipy-obektov/puteprovody-mosty-i-estakady/       301
+/ru/rezervuary-dlya-zhidkostej/                                   /ru/tipy-obektov/rezervuary-dlya-zhidkostej/         301
 
 
+/ru/peskostrujnaya-ochistka/                                      /ru/services/                                                              301
+/ru/moika-okon/                                                   /ru/services/kliningovye-uslugi/                                           301
+/ru/mojka-fasadov/                                                /ru/services/kliningovye-uslugi/                                           301
+/ru/montazh-i-demontazh-reklamnyx-konstrukcij-shhitov-i-bannerov/ /ru/services/montazh-i-demontazh-reklamnyx-konstrukcij-shhitov-i-bannerov/ 301
+/ru/nanesenie-specialnyx-pokrytij/                                /ru/services/nanesenie-specialnyx-pokrytij/                                301
+/ru/provedenie-vnutrennix-rabot/                                  /ru/services/provedenie-vnutrennix-rabot/                                  301
+/ru/pokraska-fasadov-i-zhelezobetonnyx-konstrukcij/               /ru/services/pokraska-betonnyh-konstrukcij/                                301
+/ru/pokraska-kryishi/                                             /ru/services/pokraska-kryishi/                                             301
+/ru/pokraska-fasada/                                              /ru/services/pokraska-fasada/                                              301
+/ru/pokraska-metalla/                                             /ru/services/pokraska-metalla/                                             301
+/ru/razmeschenie-narujnoi-reklamy/                                /ru/services/razmeschenie-narujnoi-reklamy/                                301
+/ru/uteplenie-sten-i-fasadov/                                     /ru/services/uteplenie-sten-i-fasadov/                                     301
+/ru/etapy-teploizolyacii-naruzhnoe-uteplenie-domov/               /ru/services/uteplenie-sten-i-fasadov/                                     301
+/ru/naruzhnoe-uteplenie-sten-kvartir-domov/                       /ru/services/uteplenie-sten-i-fasadov/                                     301
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/ru/chto-takoe-korroziya/                                         /ru/blog/                                                                  301
+/ru/arenda-oborudovaniya-apparaty-vysokogo-davleniya-karcher/     /ru/blog/arenda-oborudovaniya-apparaty-vysokogo-davleniya-karcher/         301
+/ru/gidroizolyaciya-zhidkoj-rezinoj-za-ili-protiv/                /ru/blog/gidroizolyaciya-zhidkoj-rezinoj-za-ili-protiv/                    301
+/ru/obrezka-derevev/                                              /ru/blog/obrezka-derevev/                                                  301
+/ru/obrezka-derevev2/                                             /ru/blog/obrezka-derevev/                                                  301
+/ru/peskostrujnaya-obrabotka-metalla/                             /ru/blog/peskostrujnaya-obrabotka-metalla/                                 301
+/ru/preimushhestva-gidrostrujnoj-ochistki-metallokonstrukcij/     /ru/blog/preimushhestva-gidrostrujnoj-ochistki-metallokonstrukcij/         301
+/ru/promyshlennyi-alpinizm/                                       /ru/blog/promyshlennyi-alpinizm/                                           301
+/ru/promyshlennyj-alpinizm-osobennosti-professii/                 /ru/blog/promyshlennyi-alpinizm/                                           301
+/ru/specifika-okrashivaniya-metallicheskix-trub-cena-raboty/      /ru/blog/specifika-okrashivaniya-metallicheskix-trub-cena-raboty/          301
+/ru/uborka-snega-s-krysh2/                                        /ru/blog/uborka-snega-s-krysh/                                             301
+/ru/zashhita-metallov-ot-korrozii/                                /ru/blog/zashhita-metallov-ot-korrozii/                                    301
 
 
 
