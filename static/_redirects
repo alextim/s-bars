@@ -1,23 +1,10 @@
-# System
-# Keep it!!!!
 http://s-bars.netlify.app/*   https://s-bars.com.ua/:splat    301!
 https://s-bars.netlify.app/*  https://s-bars.com.ua/:splat    301!
 
-######################################################### START ########################################################################
-# Temporary redirects
-# Delete all of them when Google will renew its cache
-# Old domain
 
 http://s-bars.com/*           https://s-bars.com.ua/:splat    301!
 https://s-bars.com/*          https://s-bars.com.ua/:splat    301!
 http://www.s-bars.com/*       https://s-bars.com.ua/:splat    301!
 https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 
-# Old pages in default language (Ukranian)
-# /czvetyi-v-okno/                                               /                                                 301
-
-################################################################ END ###########################################################################
-
-# System: all not found pages in secondary language (Russian)
-# Keep it!!!!
 /ru/*      /ru/404      404
