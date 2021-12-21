@@ -3,7 +3,7 @@
 http://s-bars.netlify.app/*   https://s-bars.com.ua/:splat    301!
 https://s-bars.netlify.app/*  https://s-bars.com.ua/:splat    301!
 
-
+######################################################### START ########################################################################
 # Temporary redirects
 # Delete all of them when Google will renew its cache
 # Old domain
@@ -96,6 +96,7 @@ https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 /ru/specifika-okrashivaniya-metallicheskix-trub-cena-raboty/      /ru/blog/specifika-okrashivaniya-metallicheskix-trub-cena-raboty/          301
 /ru/uborka-snega-s-krysh2/                                        /ru/blog/uborka-snega-s-krysh/                                             301
 /ru/zashhita-metallov-ot-korrozii/                                /ru/blog/zashhita-metallov-ot-korrozii/                                    301
+################################################################ END ###########################################################################
 
 # System: all not found pages in secondary language (Russian)
 # Keep it!!!!
