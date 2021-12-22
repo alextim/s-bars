@@ -63,7 +63,6 @@
     "email-validator": "^2.0.4",
     "emotion-theming": "^11.0.0",
     "gatsby": "^4.4.0",
-    "gatsby-cli": "^4.4.0",
     "gatsby-plugin-emotion": "^7.4.0",
     "gatsby-plugin-feed": "^4.4.0",
     "gatsby-plugin-google-analytics": "^4.4.0",
@@ -119,6 +118,7 @@
     "stylelint-config-standard": "^24.0.0"
   },
   "comments": {
+    "gatsby-cli": "^4.4.0",
     "content/data/locales/translations/src/*.json": [
       "yarn translations:json2yaml",
       "git add ."
