@@ -1,7 +1,7 @@
 # System
 # Keep it!!!!
-http://s-bars.netlify.app/*   https://s-bars.com.ua/:splat    301!
-https://s-bars.netlify.app/*  https://s-bars.com.ua/:splat    301!
+# http://s-bars.netlify.app/*   https://s-bars.com.ua/:splat    301!
+# https://s-bars.netlify.app/*  https://s-bars.com.ua/:splat    301!
 
 
 
@@ -11,10 +11,10 @@ https://s-bars.netlify.app/*  https://s-bars.com.ua/:splat    301!
 # Delete all between START and END
 
 # Old domain
-http://s-bars.com/*           https://s-bars.com.ua/:splat    301!
-https://s-bars.com/*          https://s-bars.com.ua/:splat    301!
-http://www.s-bars.com/*       https://s-bars.com.ua/:splat    301!
-https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
+# http://s-bars.com/*           https://s-bars.com.ua/:splat    301!
+# https://s-bars.com/*          https://s-bars.com.ua/:splat    301!
+# http://www.s-bars.com/*       https://s-bars.com.ua/:splat    301!
+# https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 
 # Old pages in default language (Ukranian)
 /czvetyi-v-okno                                                /                                                 301!
