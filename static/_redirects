@@ -3,12 +3,14 @@
 http://s-bars.netlify.app/*   https://s-bars.com.ua/:splat    301!
 https://s-bars.netlify.app/*  https://s-bars.com.ua/:splat    301!
 
+
+
 # ########################################### Temporary redirects START ###########################################
 # Temporary redirects
 # When Google will renew its cache
 # Delete all between START and END
-# Old domain
 
+# Old domain
 http://s-bars.com/*           https://s-bars.com.ua/:splat    301!
 https://s-bars.com/*          https://s-bars.com.ua/:splat    301!
 http://www.s-bars.com/*       https://s-bars.com.ua/:splat    301!
@@ -26,7 +28,6 @@ https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 /puteprovody-mosty-i-estakady/                                 /tipy-obektov/puteprovody-mosty-i-estakady/       301
 /pochemu-antikorrozijnaya-zashhita-mostov-tak-vazhna/          /tipy-obektov/puteprovody-mosty-i-estakady/       301
 /rezervuary-dlya-zhidkostej/                                   /tipy-obektov/rezervuary-dlya-zhidkostej/         301
-
 
 /peskostrujnaya-ochistka/                                      /services/                                                              301
 /moika-okon/                                                   /services/kliningovye-uslugi/                                           301
@@ -56,6 +57,7 @@ https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 /uborka-snega-s-krysh2/                                        /blog/uborka-snega-s-krysh/                                             301
 /zashhita-metallov-ot-korrozii/                                /blog/zashhita-metallov-ot-korrozii/                                    301
 
+
 # Old pages in secondary language (Russian)
 /ru/czvetyi-v-okno/                                               /ru/                                                 301
 /ru/podarok-v-okno/                                               /ru/                                                 301
@@ -68,7 +70,6 @@ https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 /ru/puteprovody-mosty-i-estakady/                                 /ru/tipy-obektov/puteprovody-mosty-i-estakady/       301
 /ru/pochemu-antikorrozijnaya-zashhita-mostov-tak-vazhna/          /ru/tipy-obektov/puteprovody-mosty-i-estakady/       301
 /ru/rezervuary-dlya-zhidkostej/                                   /ru/tipy-obektov/rezervuary-dlya-zhidkostej/         301
-
 
 /ru/peskostrujnaya-ochistka/                                      /ru/services/                                                              301
 /ru/moika-okon/                                                   /ru/services/kliningovye-uslugi/                                           301
@@ -98,6 +99,7 @@ https://www.s-bars.com/*      https://s-bars.com.ua/:splat    301!
 /ru/uborka-snega-s-krysh2/                                        /ru/blog/uborka-snega-s-krysh/                                             301
 /ru/zashhita-metallov-ot-korrozii/                                /ru/blog/zashhita-metallov-ot-korrozii/                                    301
 # ########################################################### Temporary redirects END ###########################################################
+
 
 # System: all not found pages in secondary language (Russian)
 # Keep it!!!!
