@@ -165,6 +165,6 @@ jobs:
         #  token: ${{ secrets.TELEGRAM_TOKEN }}
         #  args: "${{ env.AT_STATE }}, branch: ${{ env.BRANCH_NAME }}, ${{ env.COMMIT_MESSAGE }}"
         run: |
-          echo "T_COMMIT_MESSAGE=$${{ env.AT_STATE }}, branch: ${{ env.BRANCH_NAME }}, ${{ env.COMMIT_MESSAGE }}" >> $GITHUB_ENV
-          curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?text=$T_COMMIT_MESSAGE&chat_id=${{ secrets.TELEGRAM_TO }}"
+          T_MESSAGE="${{ env.AT_STATE }}, branch: ${{ env.BRANCH_NAME }}, ${{ env.COMMIT_MESSAGE }}"
+          curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?text=$T_MESSAGE&chat_id=${{ secrets.TELEGRAM_TO }}"
 
