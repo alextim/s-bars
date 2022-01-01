@@ -9,8 +9,7 @@ on:
       - '.github/**/*.*'
       - '.gitignore'
       - '.vscode/**/*.*'
-      - 'README.md'
-      - 'ADDENUM.md'
+      - '**.md'
 
   workflow_dispatch:
     branches:
@@ -21,6 +20,17 @@ on:
         description: commit message
         required: true
         default: remote data update
+
+concurrency:
+  # Ensures that only one deploy task per branch/environment will run at a time.
+  group: environment-${{ github.ref }}
+
+  # cancel any in-progress job or run
+  # group: ${{ github.head_ref }}
+
+  # Automatically cancel in-progress actions on the same branch
+  # group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   submodule-update:
@@ -62,24 +72,29 @@ jobs:
       - name: Setup Node environment
         uses: actions/setup-node@v2.5.0
         with:
-          node-version: 14.x
+          node-version: 16
+          cache: 'yarn'
+          # node-version: 14.x
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      #- name: Get yarn cache directory path
+      #  id: yarn-cache-dir-path
+      #  run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v2.1.7
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
+      #- uses: actions/cache@v2.1.7
+      #  id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      #  with:
+      #    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+      #    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      #    restore-keys: ${{ runner.os }}-yarn-
 
       - name: Installing dependencies
         # if: steps.yarn-cache.outputs.cache-hit != 'true'
-        run: yarn install --prefer-offline
+        # run: yarn install --prefer-offline
+        if: steps.cache-npm.outputs.cache-hit != 'true'
+        run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CI: true
 
       - name: Set development env
         if: ${{ github.ref == 'refs/heads/dev' }}
