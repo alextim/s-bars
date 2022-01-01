@@ -75,6 +75,8 @@ jobs:
           node-version: 16
           cache: 'yarn'
           # node-version: 14.x
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       #- name: Get yarn cache directory path
       #  id: yarn-cache-dir-path
