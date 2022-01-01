@@ -150,8 +150,7 @@ jobs:
         #  args: deploy --dir=public --prod
         run: |
           npm i -g netlify-cli
-          netlify deploy --prod --dir=public
-        # --auth ${{ env.NETLIFY_AUTH_TOKEN }} --site ${{ env.NETLIFY_SITE_ID }}
+          netlify deploy --prod --dir=public --telemetry-disable
 
 
       - name: Check deploy
