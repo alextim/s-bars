@@ -69,7 +69,7 @@ jobs:
           ref: ${{ github.event.ref }}
           token: ${{ secrets.ACCESS_TOKEN }}
 
-      - name: Setup Node environment
+      - name: Setup Node
         uses: actions/setup-node@v2.5.1
         with:
           node-version: 16
@@ -89,7 +89,7 @@ jobs:
       #    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       #    restore-keys: ${{ runner.os }}-yarn-
 
-      - name: Installing dependencies
+      - name: Installing NPM dependencies
         # if: steps.yarn-cache.outputs.cache-hit != 'true'
         # run: yarn install --prefer-offline
         if: steps.cache-npm.outputs.cache-hit != 'true'
@@ -143,14 +143,15 @@ jobs:
       - name: Deploy to Netlify
         if: success()
         #uses: netlify/actions/cli@master
-        #env:
-        #  NETLIFY_AUTH_TOKEN: ${{ env.NETLIFY_AUTH_TOKEN }}
-        #  NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ env.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
         #with:
         #  args: deploy --dir=public --prod
         run: |
           npm i -g netlify-cli
-          netlify deploy --prod --dir=public --auth ${{ env.NETLIFY_AUTH_TOKEN }} --site ${{ env.NETLIFY_SITE_ID }}
+          netlify deploy --prod --dir=public
+        # --auth ${{ env.NETLIFY_AUTH_TOKEN }} --site ${{ env.NETLIFY_SITE_ID }}
 
 
       - name: Check deploy
