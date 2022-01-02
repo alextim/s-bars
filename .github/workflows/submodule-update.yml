@@ -179,7 +179,7 @@ jobs:
         run: echo "COMMIT_MESSAGE=${{ steps.get_push_msg.outputs.commit_msg }}" >> $GITHUB_ENV
 
       - name: Send to Telegram
-        if: ${{ always() && !(env.AT_STATE == format('Deploy{0} OK', ':') && startsWith(env.COMMIT_MESSAGE, 'Bump ')) }}
+        if: ${{ always() && !cancelled() && !(env.AT_STATE == format('Deploy{0} OK', ':') && startsWith(env.COMMIT_MESSAGE, 'Bump ')) }}
         # uses: appleboy/telegram-action@master
         # with:
         #  to: ${{ secrets.TELEGRAM_TO }}
