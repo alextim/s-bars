@@ -2,17 +2,17 @@
 import { jsx } from '@emotion/react';
 import { graphql /* , Link */ } from 'gatsby';
 
-import SEO from '../../components/SEO';
-import Layout from '../../components/Layout';
+import SEO from '../components/SEO';
+import Layout from '../components/Layout';
 
-import AsideServices from '../../components/AsideServices';
-import AsideFeaturedPosts from '../../components/AsideFeaturedPosts';
+import AsideServices from '../components/AsideServices';
+import AsideFeaturedPosts from '../components/AsideFeaturedPosts';
 // import AsideRecentPosts from '../../components/AsideRecentPosts';
 
-import InnerAsideLayout from '../../components/InnerAsideLayout';
-import PostInfo from '../../components/blog/PostInfo';
+import InnerAsideLayout from '../components/InnerAsideLayout';
+import PostInfo from '../components/blog/PostInfo';
 
-import LastUpdated from '../../components/blog/LastUpdated';
+import LastUpdated from '../components/blog/LastUpdated';
 
 const styleWidgetArea = {
   display: 'flex',
