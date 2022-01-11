@@ -73,7 +73,7 @@
     "gatsby-plugin-remove-generator": "^1.2.0",
     "gatsby-plugin-sass": "^5.4.0",
     "gatsby-plugin-sharp": "^4.4.0",
-    "gatsby-remark-images": "^6.4.0",
+    "gatsby-remark-images": "^6.5.0",
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-source-filesystem": "^4.4.0",
     "gatsby-transformer-remark": "^5.4.0",
