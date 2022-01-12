@@ -2834,7 +2834,7 @@ babel-plugin-preval@^5.0.0:
     babel-plugin-macros "^2.8.0"
     require-from-string "^2.0.2"
 
-babel-plugin-remove-graphql-queries@^4.5.0, babel-plugin-remove-graphql-queries@^4.5.1:
+babel-plugin-remove-graphql-queries@^4.5.1:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-4.5.1.tgz#e6ffbc4d418c87fc0cc1e6f129de128c23096cb4"
   integrity sha512-/sjf253nMUTIpfZhGAwKJ2nl3/yjzWFkACPSRr99mp5fyzVGOUC3BL1rPJV1LEqGpWUeDA4iIJME6twNWAUrSA==
@@ -2846,7 +2846,7 @@ babel-plugin-transform-react-remove-prop-types@^0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz"
 
-babel-preset-gatsby@^2.5.0, babel-preset-gatsby@^2.5.1:
+babel-preset-gatsby@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-2.5.1.tgz#b097a937136a57d3997b6bc36f310b7f98d075b8"
   integrity sha512-MALUfqOD+cUYUozkCrr3EJAXRIqZEJXIRglMP36f+n4shQPvMsCaEzo2LVXf+0xqcbIV7y7jke2vvM7TPDTQ8g==
@@ -5560,22 +5560,22 @@ gatsby-plugin-google-analytics@^4.5.0:
     minimatch "3.0.4"
     web-vitals "^1.1.2"
 
-gatsby-plugin-image@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.5.0.tgz#59a5aa4336789aeef498b9972b9bcc2d820a5bad"
-  integrity sha512-EaL/82by1G0WrSMcGvj24bwes+EbQZSeeMCL8tg7Q6t/69YhdljVRLsdbGU0+1rQ49e+kc0Sa7VdeRvnJv9dew==
+gatsby-plugin-image@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.5.1.tgz#6828d0b827f9efc6202a4b53f6802dfe704ffcce"
+  integrity sha512-ueJ4hWO5j0ERiaqGl4WExivwLCI5Zydo3dYsGB+mgU8cALoOv+dqoj6lIVX/fJKiolJMg/P/7DSwAbeAq74TYw==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/parser" "^7.15.5"
     "@babel/runtime" "^7.15.4"
     "@babel/traverse" "^7.15.4"
     babel-jsx-utils "^1.1.0"
-    babel-plugin-remove-graphql-queries "^4.5.0"
+    babel-plugin-remove-graphql-queries "^4.5.1"
     camelcase "^5.3.1"
     chokidar "^3.5.2"
     common-tags "^1.8.2"
     fs-extra "^10.0.0"
-    gatsby-core-utils "^3.5.0"
+    gatsby-core-utils "^3.5.1"
     objectFitPolyfill "^2.3.5"
     prop-types "^15.7.2"
 
@@ -5747,7 +5747,7 @@ gatsby-source-filesystem@^4.5.1:
     valid-url "^1.0.9"
     xstate "^4.26.1"
 
-gatsby-telemetry@^3.5.0, gatsby-telemetry@^3.5.1:
+gatsby-telemetry@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-3.5.1.tgz#f5649a63e1dfc64a8fdcdf676a7e69c05c7fa19d"
   integrity sha512-d8w06YPKVKErzDOd+6kqV7XVjW+XClgkyjzZU+TiaLMqxlsXbu/BeplE0NFSfZHh1lBFmhp5AFSW7eDZPi3CkQ==
