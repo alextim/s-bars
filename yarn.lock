@@ -5649,19 +5649,19 @@ gatsby-plugin-sass@^5.5.0:
     resolve-url-loader "^3.1.4"
     sass-loader "^10.1.1"
 
-gatsby-plugin-sharp@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.5.0.tgz#3796fc4c70c443bf16f5ea261eb652698b721693"
-  integrity sha512-TEcBt77klwu4qcPavSdTqa2C8fXBMYXJzyS71Ck2Z92GJxjsG5X+JGmazVej62VONssZSG/DUu/vb/hWiOcX5g==
+gatsby-plugin-sharp@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.5.1.tgz#a6341e8be7be1da8c8510c92c3fdf68e97086734"
+  integrity sha512-q2XWcnZX71FVd3hAw8Qb+x6hT1W/OOUhr4Shx5YrcwTJ5X9wnBsdK9o1CevXqDnjrEDipA8nXg1gq9Xa7zJdzw==
   dependencies:
     "@babel/runtime" "^7.15.4"
     async "^3.2.2"
     bluebird "^3.7.2"
     filenamify "^4.3.0"
     fs-extra "^10.0.0"
-    gatsby-core-utils "^3.5.0"
+    gatsby-core-utils "^3.5.1"
     gatsby-plugin-utils "^2.5.0"
-    gatsby-telemetry "^3.5.0"
+    gatsby-telemetry "^3.5.1"
     got "^11.8.3"
     lodash "^4.17.21"
     mini-svg-data-uri "^1.4.3"
