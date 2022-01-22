@@ -1,4 +1,5 @@
 # Addenum
+
 ### Оживить блог
 
 ## Useful Links
@@ -8,10 +9,8 @@ https://technicalseo.com/tools/rss-parser/
 [Repo](https://dotlayer.com/how-to-use-a-private-github-repo-as-a-dependency-with-yarn-npm/)
 https://technicalseo.com/
 
-
 !!!!
 https://sitechecker.pro/
-
 
 [Mozilla Observatory](https://observatory.mozilla.org/)
 [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?hl=en)
@@ -24,8 +23,8 @@ for images
 the BEST!!!!!
 https://www.dareboost.com/
 
-
 https://ogp.me/#types
+
 ## TO-DO
 
 - [ ] detect language
@@ -33,7 +32,6 @@ https://ogp.me/#types
 - [ ] gatsby-plugin-offline
 - [ ] contact form - modal - add real Abort handler
 - [ ] GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES
-
 
 ## Known Issues
 
@@ -58,10 +56,10 @@ https://ogp.me/#types
 
 - Contact Form
   TextArea font has a bit smaller look, despite the same fontSize and fontFamily.
-Special Pages
-category
-category-list
-tag
-tag-list
-years
-year-list
+  Special Pages
+  category
+  category-list
+  tag
+  tag-list
+  years
+  year-list
