@@ -1,7 +1,8 @@
-/.git
-/.cache
-/.husky
-/.netlify
-/.vscode
+.cache
+.git
+.husky
+.netlify
+.vscode
 node_modules
 public
+s-bars.content
