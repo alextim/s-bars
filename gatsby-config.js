@@ -152,13 +152,6 @@ const plugins = [
   // 'gatsby-plugin-offline',
   // 'gatsby-plugin-remove-serviceworker',
   {
-    resolve: 'gatsby-plugin-portal',
-    options: {
-      key: 'portal',
-      id: 'portal',
-    },
-  },
-  {
     resolve: 'gatsby-plugin-netlify',
     options: {
       mergeSecurityHeaders: true,
