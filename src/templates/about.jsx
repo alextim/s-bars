@@ -1,13 +1,11 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/SEO';
-import Layout from '../components/Layout';
-import Section from '../components/Section';
+import SEO from '@/components/SEO';
+import Layout from '@/components/Layout';
+import Section from '@/components/Section';
 
-import Triptych from '../components/home-page-parts/Triptych';
+import Triptych from '@/components/home-page-parts/Triptych';
 
 const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
@@ -37,12 +35,7 @@ const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }
       {sections && (
         <React.Fragment>
           <Section text={sections[0].text} />
-          <Triptych
-            title={sections[1].title}
-            subtitle={sections[1].subtitle}
-            text={sections[1].text}
-            items={sections[1].items}
-          />
+          <Triptych title={sections[1].title} subtitle={sections[1].subtitle} text={sections[1].text} items={sections[1].items} />
         </React.Fragment>
       )}
       {html && (

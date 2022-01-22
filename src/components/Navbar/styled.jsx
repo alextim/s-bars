@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 const lrStyle = {
   display: 'flex',
   alignItems: 'center',

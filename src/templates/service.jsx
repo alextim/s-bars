@@ -1,11 +1,10 @@
-import React from 'react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/SEO';
-import Layout from '../components/Layout';
-import AsideServices from '../components/AsideServices';
-import InnerAsideLayout from '../components/InnerAsideLayout';
-import ServiceSchema from '../components/ServiceSchema';
+import SEO from '@/components/SEO';
+import Layout from '@/components/Layout';
+import AsideServices from '@/components/AsideServices';
+import InnerAsideLayout from '@/components/InnerAsideLayout';
+import ServiceSchema from '@/components/ServiceSchema';
 
 const ServicePageTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {

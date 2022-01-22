@@ -1,7 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import container from '../../theme/container';
+import container from '@/theme/container';
 
 const ContainerFullWidth = ({ children, ...props }) => (
   <div css={container.hero} {...props}>

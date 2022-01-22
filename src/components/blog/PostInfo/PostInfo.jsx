@@ -1,8 +1,6 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
-import useLocaleData from '../../../hooks/useLocaleData';
-import { useTranslation } from '../../../i18n';
+import useLocaleData from '@/hooks/useLocaleData';
+import { useTranslation } from '@/i18n';
 
 const styleWrap = (t) => ({
   marginTop: t.space[5],
@@ -28,9 +26,7 @@ const PostInfo = ({ author, datePublished, timeToRead }) => {
   return (
     <div css={styleWrap}>
       {author && author.length > 0 && <span css={styleAuthor}>{author.join(', ')}</span>}
-      {datePublished && (
-        <span>{new Date(datePublished).toLocaleDateString(formatLocale, options)}</span>
-      )}
+      {datePublished && <span>{new Date(datePublished).toLocaleDateString(formatLocale, options)}</span>}
       {datePublished && timeToRead && <span css={styleSeparator}>·</span>}
       {timeToRead && <span>{`${timeToRead} ${t('post.minToRead')}`}</span>}
     </div>

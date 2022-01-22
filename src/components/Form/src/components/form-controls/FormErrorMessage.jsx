@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 const styleError = (t) => ({
   color: t.colors.error,
 });

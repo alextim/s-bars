@@ -1,6 +1,7 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
+
 const path = require('path');
 const getCSP = require('@alextim/csp');
 
@@ -145,15 +146,6 @@ const plugins = [
       },
     },
   },
-  {
-    resolve: 'gatsby-plugin-eslint',
-    options: {
-      stages: ['develop'],
-      extensions: ['js', 'jsx'],
-      exclude: ['node_modules', '.cache', 'public', '.netlify', '.vscode', '.husky'],
-      // Any eslint-webpack-plugin options below
-    },
-  },
 
   // this (optional) plugin enables Progressive Web App + Offline functionality
   // To learn more, visit: https://gatsby.dev/offline
@@ -175,7 +167,6 @@ const plugins = [
       generateMatchPathRewrites: false,
     },
   },
-  // 'gatsby-plugin-sass',
   'gatsby-plugin-remove-generator',
   // 'gatsby-plugin-webpack-bundle-analyser-v2',
   {

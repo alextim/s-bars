@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ButtonBase from '../ButtonBase';
 import Link from '../LocalizedLink';
 

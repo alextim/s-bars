@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { keyframes, css as CSS, jsx } from '@emotion/react';
+import { keyframes, css as CSS } from '@emotion/react';
 
 const right = keyframes`
   0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
@@ -31,13 +30,11 @@ const Spinner = ({ css, color, size = 2.5 }) => {
     `;
   };
 
-  const wrapper = () => {
-    return CSS`
+  const wrapper = () => CSS`
       width: ${size}${unit};
       height: ${size}${unit};
       position: relative;
     `;
-  };
 
   return (
     <span css={[wrapper(), css]}>

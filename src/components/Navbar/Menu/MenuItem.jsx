@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
-import colors from '../../../theme/colors';
-import mq from '../../../theme/media-queries';
-import fontWeights from '../../../theme/font-weights';
+import colors from '@/theme/colors';
+import mq from '@/theme/media-queries';
+import fontWeights from '@/theme/font-weights';
 
 import styleMenuItemLg from './styleMenuItemLg';
 
@@ -68,11 +66,7 @@ const linkStyle = {
 };
 
 const MenuItem = ({ children, to, isActive, onClick, extraStyle = {} }) => (
-  <Link
-    css={{ ...linkStyle, ...extraStyle, ...(isActive ? activeStyle : {}) }}
-    to={to}
-    onClick={onClick}
-  >
+  <Link css={{ ...linkStyle, ...extraStyle, ...(isActive ? activeStyle : {}) }} to={to} onClick={onClick}>
     {children}
   </Link>
 );

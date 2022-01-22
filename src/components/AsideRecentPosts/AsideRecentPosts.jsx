@@ -1,7 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import { useTranslation } from '../../i18n';
+import { useTranslation } from '@/i18n';
 import AsidePosts from '../AsidePosts';
 
 const AsideRecentPosts = ({ items }) => {

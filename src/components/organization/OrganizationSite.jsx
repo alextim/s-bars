@@ -1,11 +1,9 @@
-import React from 'react';
-
 import utils from '@alextim/utils';
 
+import useSiteMetadata from '@/hooks/useSiteMetadata';
 import IconLink from '../IconLink';
 
 // import { siteUrl } from '../../../s-bars.content/config/website';
-import useSiteMetadata from '../../hooks/useSiteMetadata';
 
 const OrganizationSite = () => {
   const { siteUrl } = useSiteMetadata();

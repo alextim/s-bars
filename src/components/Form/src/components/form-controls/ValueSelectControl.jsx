@@ -1,4 +1,3 @@
-import React from 'react';
 import FormLabel from './FormLabel';
 import FormControl from './FormControl';
 import FormErrorMessage from './FormErrorMessage';

@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 import Icon from './Icon';
 
 const styleWrap = {

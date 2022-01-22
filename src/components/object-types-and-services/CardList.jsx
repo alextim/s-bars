@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 import Card from './Card';
 
 import styleCardsWrap from '../styles/styleCardsWrap';

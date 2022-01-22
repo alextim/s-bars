@@ -1,9 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 
-import mq from '../../../theme/media-queries';
-import { space } from '../../../theme/space';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
 
 import styleA from '../styleA';
 

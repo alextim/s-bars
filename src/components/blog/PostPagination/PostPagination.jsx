@@ -1,10 +1,9 @@
-import React from 'react';
 import { Link } from 'gatsby';
 
-import { space } from '../../../theme/space';
-import colors from '../../../theme/colors';
+import { space } from '@/theme/space';
+import colors from '@/theme/colors';
 
-import { currentLink, prevLink, nextLink } from '../../../helpers/pagination';
+import { currentLink, prevLink, nextLink } from '@/helpers/pagination';
 
 // https://gist.github.com/kottenator/9d936eb3e4e3c3e02598
 function pagination(currentPage, pageCount, delta = 2) {

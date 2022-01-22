@@ -1,12 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
-import { fontSizes } from '../../theme/font-sizes';
-import fontWeights from '../../theme/font-weights';
-import fonts from '../../theme/fonts';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
+import { fontSizes } from '@/theme/font-sizes';
+import fontWeights from '@/theme/font-weights';
+import fonts from '@/theme/fonts';
 
 const styleWrap = {
   marginBottom: space[10],
@@ -42,15 +40,7 @@ const styleBodyWrap = {
   marginTop: space[4],
 };
 
-const Section = ({
-  title,
-  subtitle,
-  text,
-  image,
-  textLast,
-  textAlign = 'match-parent',
-  children,
-}) => {
+const Section = ({ title, subtitle, text, image, textLast, textAlign = 'match-parent', children }) => {
   const styleText = {
     ...styleTextDefault,
     textAlign,
@@ -61,12 +51,7 @@ const Section = ({
       {title && <h2 css={styleTitle}>{title}</h2>}
       {subtitle && <div css={styleSubtitle}>{subtitle}</div>}
       {image && image.sm && (
-        <GatsbyImage
-          css={styleImg}
-          image={image.sm.childImageSharp.gatsbyImageData}
-          alt={image.alt}
-          title={image.title}
-        />
+        <GatsbyImage css={styleImg} image={image.sm.childImageSharp.gatsbyImageData} alt={image.alt} title={image.title} />
       )}
       {!textLast && text && <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />}
       <div css={styleBodyWrap}>{children}</div>

@@ -1,14 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
+import mq from '@/theme/media-queries';
+import colors from '@/theme/colors';
+import { fontSizes } from '@/theme/font-sizes';
+import sizes from '@/theme/sizes';
+import shadows from '@/theme/shadows';
+import container from '@/theme/container';
 import Navbar from '../Navbar';
-
-import mq from '../../theme/media-queries';
-import colors from '../../theme/colors';
-import { fontSizes } from '../../theme/font-sizes';
-import sizes from '../../theme/sizes';
-import shadows from '../../theme/shadows';
-import container from '../../theme/container';
 
 // const rootPath = `${__PATH_PREFIX__}/`;
 //   if (location.pathname === rootPath) {

@@ -1,10 +1,8 @@
-/** @jsx jsx */
 import React, { useState } from 'react';
-import { jsx } from '@emotion/react';
 
+import { useTranslation } from '@/i18n';
 import sendData from '../Form/src/services/send-data';
 
-import { useTranslation } from '../../i18n';
 import useModal from '../Form/src/components/Modal/useModal';
 
 import ModalContent from './ModalContent';

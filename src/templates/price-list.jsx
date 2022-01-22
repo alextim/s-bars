@@ -1,12 +1,9 @@
-import React from 'react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/SEO';
-
-import Layout from '../components/Layout';
-import PriceList from '../components/PriceList';
-
-import styleHtmlDefault from '../components/styles/styleHtml';
+import SEO from '@/components/SEO';
+import Layout from '@/components/Layout';
+import PriceList from '@/components/PriceList';
+import styleHtmlDefault from '@/components/styles/styleHtml';
 
 const styleHtml = {
   ...styleHtmlDefault,
@@ -21,17 +18,7 @@ const PriceListTemplate = ({ data, location: { pathname }, pageContext: { locale
     mainNav,
     footerNav,
     socialLinks,
-    page: {
-      title,
-      metaTitle,
-      headline,
-      metaDescription,
-      cover,
-      noindex,
-      breadcrumbs,
-      sections,
-      html,
-    },
+    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, sections, html },
   } = data;
 
   return (

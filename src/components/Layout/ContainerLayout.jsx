@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Container from '../Container';
 import BaseLayout from './BaseLayout';
 

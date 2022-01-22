@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import React from 'react';
 
-import fonts from '../../../theme/fonts';
+import fonts from '@/theme/fonts';
 
 const headingStyle = {
   marginBottom: '0.4rem',

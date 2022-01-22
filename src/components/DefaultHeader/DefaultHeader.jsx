@@ -1,8 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
 
 const styleHeadline = {
   marginTop: '1rem',

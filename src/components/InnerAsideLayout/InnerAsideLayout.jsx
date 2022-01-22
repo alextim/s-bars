@@ -1,10 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
 
 const styleWrap = {
   display: 'flex',
@@ -55,13 +52,7 @@ const styleAside = {
 const InnerAsideLayout = ({ cover, html, children, aside }) => (
   <div css={styleWrap}>
     <div css={styleImage}>
-      {cover && cover.sm && (
-        <GatsbyImage
-          image={cover.sm.childImageSharp.gatsbyImageData}
-          alt={cover.alt}
-          title={cover.title}
-        />
-      )}
+      {cover && cover.sm && <GatsbyImage image={cover.sm.childImageSharp.gatsbyImageData} alt={cover.alt} title={cover.title} />}
     </div>
     <div css={styleBody}>
       {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}

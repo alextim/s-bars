@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { GatsbyImage, withArtDirection, getImage } from 'gatsby-plugin-image';
 
-import mq from '../../../theme/media-queries';
-import colors from '../../../theme/colors';
-import { fontSizes } from '../../../theme/font-sizes';
+import mq from '@/theme/media-queries';
+import colors from '@/theme/colors';
+import { fontSizes } from '@/theme/font-sizes';
 
 const styleWrap = {
   display: 'grid',
@@ -48,9 +46,7 @@ const getImages = (image) => {
 
 const SliderItem = ({ title, image }) => (
   <div css={styleWrap}>
-    {image && (
-      <GatsbyImage image={getImages(image)} alt={image.alt} title={image.title} css={styleImage} />
-    )}
+    {image && <GatsbyImage image={getImages(image)} alt={image.alt} title={image.title} css={styleImage} />}
     <div css={styleTitle}>{title}</div>
   </div>
 );

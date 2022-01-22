@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import React from 'react';
 
-import { useTranslation } from '../../i18n';
+import { useTranslation } from '@/i18n';
+import useServiceItems from '@/hooks/useServiceItems';
 import useForm from '../Form/src/hooks/useForm';
-import useServiceItems from '../../hooks/useServiceItems';
 
 // import Link from '../LocalizedLink';
 import Button from '../Button';
@@ -67,8 +65,7 @@ const Form = ({ onSubmit }) => {
   const PHONE = t('if.phone');
   const EMAIL = 'E-mail';
 
-  const validateEmail = (x) =>
-    fieldsInfo[EMAIL_FIELD].validate(x) ? '' : t('validation.invalid', { name: EMAIL });
+  const validateEmail = (x) => (fieldsInfo[EMAIL_FIELD].validate(x) ? '' : t('validation.invalid', { name: EMAIL }));
 
   const validationSchema = {
     email: {},
@@ -193,14 +190,9 @@ const Form = ({ onSubmit }) => {
     },
   };
 
-  const { setFieldValue, values, errors, handleOnChange, handleOnSubmit /* , disable */ } = useForm(
-    validationSchema,
-    onSubmit,
-  );
+  const { setFieldValue, values, errors, handleOnChange, handleOnSubmit /* , disable */ } = useForm(validationSchema, onSubmit);
 
-  const hasErrors = () => {
-    return Object.keys(errors).some((key) => errors[key]);
-  };
+  const hasErrors = () => Object.keys(errors).some((key) => errors[key]);
 
   const serviceItems = useServiceItems().map(({ title }) => title);
   serviceItems.push(OTHER);
@@ -241,37 +233,13 @@ const Form = ({ onSubmit }) => {
           </FormSection>
 
           <FormSection title={t('if.message.title')} description={t('if.message.description')}>
-            <TextAreaControl
-              name="message"
-              value={values.message}
-              error={errors.message}
-              onChange={handleOnChange}
-            />
+            <TextAreaControl name="message" value={values.message} error={errors.message} onChange={handleOnChange} />
           </FormSection>
 
           <FormSection title={t('if.vc.title')} description={t('if.vc.description')}>
-            <BoxedInputControl
-              label={NAME}
-              name="name"
-              required
-              value={values.name}
-              error={errors.name}
-              onChange={handleOnChange}
-            />
-            <BoxedInputControl
-              label={POSITION}
-              name="position"
-              value={values.position}
-              error={errors.position}
-              onChange={handleOnChange}
-            />
-            <BoxedInputControl
-              label={COMPANY}
-              name="company"
-              value={values.company}
-              error={errors.company}
-              onChange={handleOnChange}
-            />
+            <BoxedInputControl label={NAME} name="name" required value={values.name} error={errors.name} onChange={handleOnChange} />
+            <BoxedInputControl label={POSITION} name="position" value={values.position} error={errors.position} onChange={handleOnChange} />
+            <BoxedInputControl label={COMPANY} name="company" value={values.company} error={errors.company} onChange={handleOnChange} />
             <BoxedInputControl
               label={PHONE}
               name="phone"

@@ -1,12 +1,9 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import colors from '../../theme/colors';
-import { space } from '../../theme/space';
-import transition from '../../theme/transition';
-import fonts from '../../theme/fonts';
-import { fontSizes } from '../../theme/font-sizes';
-import buttons from '../../theme/buttons';
+import colors from '@/theme/colors';
+import { space } from '@/theme/space';
+import transition from '@/theme/transition';
+import fonts from '@/theme/fonts';
+import { fontSizes } from '@/theme/font-sizes';
+import buttons from '@/theme/buttons';
 
 const semibold = 500;
 
@@ -89,18 +86,7 @@ const buttonStyles = {
   },
 };
 
-const ButtonBase = ({
-  to,
-  overrideCSS,
-  icon,
-  children,
-  linkComponent,
-  tag,
-  secondary,
-  tracking,
-  variant,
-  ...rest
-}) => {
+const ButtonBase = ({ to, overrideCSS, icon, children, linkComponent, tag, secondary, tracking, variant, ...rest }) => {
   if (tag === 'link') {
     components.link = linkComponent;
   }

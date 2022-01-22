@@ -1,8 +1,6 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
-import useLocaleData from '../../../hooks/useLocaleData';
-import { useTranslation } from '../../../i18n';
+import useLocaleData from '@/hooks/useLocaleData';
+import { useTranslation } from '@/i18n';
 
 const styleWrap = (t) => ({
   marginTop: t.space[5],

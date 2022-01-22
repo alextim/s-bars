@@ -1,15 +1,14 @@
 import React from 'react';
-
 import utils from '@alextim/utils';
 
-import colors from '../../theme/colors';
+import colors from '@/theme/colors';
 
 import IconLink from '../IconLink';
 
 const OrganizationCloudPhones = ({ voice }) => {
   const { whatsapp, viber, telegram } = colors.brands;
   return (
-    <>
+    <React.Fragment>
       {voice.whatsapp && (
         <IconLink
           icon="whatsapp"
@@ -48,7 +47,7 @@ const OrganizationCloudPhones = ({ voice }) => {
           {utils.formatPhone(voice.viber)}
         </IconLink>
       )}
-    </>
+    </React.Fragment>
   );
 };
 

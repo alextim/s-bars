@@ -1,9 +1,7 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-import mq from '../../../theme/media-queries';
+import mq from '@/theme/media-queries';
 
 const styleWrap = {
   display: 'flex',
@@ -79,13 +77,7 @@ const HalfContentItem = ({ component, title, text, image, fullwidth, left }) => 
     </React.Fragment>
   );
   const imgContent =
-    image && image.src ? (
-      <GatsbyImage
-        image={image.src.childImageSharp.gatsbyImageData}
-        alt={image.alt}
-        title={image.alt}
-      />
-    ) : null;
+    image && image.src ? <GatsbyImage image={image.src.childImageSharp.gatsbyImageData} alt={image.alt} title={image.alt} /> : null;
 
   const textStyle = {
     ...styleText,

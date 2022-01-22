@@ -1,6 +1,34 @@
 module.exports = {
+  root: true,
+  globals: {
+    graphql: true,
+  },
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
+    requireConfigFile: false,
+    experimentalObjectRestSpread: true,
+    sourceType: 'module',
+    ecmaFeatures: {
+      globalReturn: false,
+      jsx: true,
+    },
+    babelOptions: {
+      presets: ['@babel/preset-react'],
+    },
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      'eslint-import-resolver-custom-alias': {
+        alias: {
+          '@': './src',
+        },
+        extensions: ['.js', '.jsx'],
+      },
+    },
   },
   env: {
     browser: true,
@@ -8,19 +36,20 @@ module.exports = {
     es6: true,
     jest: true,
     node: true,
+    es2021: true,
   },
-  plugins: ['@emotion', 'import', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
 
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'prettier',
     'airbnb',
     'airbnb/hooks',
-    'plugin:prettier/recommended',
+    'eslint:recommended',
+    'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:import/errors',
+    'prettier',
   ],
+  plugins: ['@emotion', 'import', 'jsx-a11y', 'react', 'react-hooks', 'prettier'],
+
   rules: {
     // 'react/react-in-jsx-scope': 'off',
     // 'react/jsx-uses-react': 'off',
@@ -28,7 +57,7 @@ module.exports = {
     quotes: [2, 'single', { avoidEscape: true }],
     'jsx-quotes': [2, 'prefer-double'],
     semi: ['error', 'always'],
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['error', 'unix'],
     'no-console': ['error', { allow: ['warn', 'error'] }],
     // 'prettier/prettier': ['error', { endOfLine: 'auto' }],
     // Allowing ++ on numbers
@@ -39,5 +68,13 @@ module.exports = {
     'react/prop-types': 'off',
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'no-restricted-exports': 'off',
+    'react/jsx-fragments': 0,
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    // 'no-anonymous-exports-page-templates': 'warn',
+    // 'limited-exports-page-templates': 'warn',
+    '@emotion/syntax-preference': [2, 'object'],
+    '@emotion/jsx-import': 0,
+    'prettier/prettier': 'error',
   },
 };

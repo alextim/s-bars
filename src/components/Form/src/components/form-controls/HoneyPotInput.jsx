@@ -1,6 +1,4 @@
 /* eslint-disable jsx-a11y/autocomplete-valid */
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 
 const style = {
   position: 'absolute',

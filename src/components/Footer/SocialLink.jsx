@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 const style = (t) => ({
   display: 'flex',
   justifyContent: 'center',

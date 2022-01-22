@@ -1,10 +1,9 @@
-import React from 'react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/SEO';
+import SEO from '@/components/SEO';
 
-import Layout from '../components/Layout';
-import Sections from '../components/Sections';
+import Layout from '@/components/Layout';
+import Sections from '@/components/Sections';
 
 const PageTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
@@ -13,26 +12,11 @@ const PageTemplate = ({ data, location: { pathname }, pageContext: { locale } })
     mainNav,
     footerNav,
     socialLinks,
-    page: {
-      title,
-      metaTitle,
-      headline,
-      metaDescription,
-      cover,
-      noindex,
-      breadcrumbs,
-      sections,
-      html,
-    },
+    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, sections, html },
   } = data;
 
   return (
-    <Layout
-      title={title}
-      headline={headline}
-      cover={cover}
-      context={{ translations, address, mainNav, footerNav, socialLinks }}
-    >
+    <Layout title={title} headline={headline} cover={cover} context={{ translations, address, mainNav, footerNav, socialLinks }}>
       <SEO
         locale={locale}
         title={metaTitle}

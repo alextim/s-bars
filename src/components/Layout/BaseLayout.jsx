@@ -1,6 +1,7 @@
-/** @jsx jsx */
-import { jsx, ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@emotion/react';
 
+import mq from '@/theme/media-queries';
+import sizes from '@/theme/sizes';
 import theme from '../../theme';
 
 import AppContextProvider from '../../context';
@@ -8,9 +9,6 @@ import GlobalStyle from '../GlobalStyle';
 import Header from '../Header';
 import Footer from '../Footer';
 // import useInquiryForm from '../useInquiryForm';
-
-import mq from '../../theme/media-queries';
-import sizes from '../../theme/sizes';
 
 const rootStyle = {
   display: 'flex',

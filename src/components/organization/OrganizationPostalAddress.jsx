@@ -1,6 +1,5 @@
 import React from 'react';
-
-import useOrgAddress from '../../hooks/useOrgAddress';
+import useOrgAddress from '@/hooks/useOrgAddress';
 
 const OrganizationPostalAddress = () => {
   const {
@@ -11,14 +10,14 @@ const OrganizationPostalAddress = () => {
   } = useOrgAddress();
 
   return (
-    <>
+    <React.Fragment>
       <div>{legalName}</div>
       {streetAddress?.map((item, i) => (
         <div key={i}>{item}</div>
       ))}
       <div>{`${postalCode || ''}  ${addressLocality}`}</div>
       <div>{addressCountryName}</div>
-    </>
+    </React.Fragment>
   );
 };
 

@@ -1,10 +1,8 @@
-/** @jsx jsx */
 import { useState } from 'react';
-import { jsx } from '@emotion/react';
 
-import mq from '../../../theme/media-queries';
-import sizes from '../../../theme/sizes';
-import colors from '../../../theme/colors';
+import mq from '@/theme/media-queries';
+import sizes from '@/theme/sizes';
+import colors from '@/theme/colors';
 
 import MenuItem from './MenuItem';
 
@@ -126,12 +124,7 @@ const SubMenu = ({ title, to, items, path, onClick }) => {
   return (
     <li css={menuItemWrapStyle} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <div css={headingWrapStyle}>
-        <MenuItem
-          isActive={path === to}
-          to={to}
-          extraStyle={menuItemExtraStyle}
-          onClick={(e) => onClickWrap(e, to)}
-        >
+        <MenuItem isActive={path === to} to={to} extraStyle={menuItemExtraStyle} onClick={(e) => onClickWrap(e, to)}>
           {title}
         </MenuItem>
         <div type="button" css={toggleStyle} onTouchStart={toggleVisible} />
@@ -139,11 +132,7 @@ const SubMenu = ({ title, to, items, path, onClick }) => {
       <ul css={{ ...dropDownWrapStyle, display: visible ? 'flex' : 'none' }}>
         {items.map((item) => (
           <li key={item.to} css={styleLi}>
-            <MenuItem
-              isActive={path === item.to}
-              to={item.to}
-              onClick={(e) => onClickWrap(e, item.to)}
-            >
+            <MenuItem isActive={path === item.to} to={item.to} onClick={(e) => onClickWrap(e, item.to)}>
               {item.title}
             </MenuItem>
           </li>

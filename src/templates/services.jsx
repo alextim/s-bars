@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import PageTemplate from '../components/object-types-and-services';
+import PageTemplate from '@/components/object-types-and-services';
 
 const ServiceListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => (
   <PageTemplate data={data} pathname={pathname} locale={locale} type="service" />

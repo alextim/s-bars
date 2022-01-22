@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 const getStyle = (t, isInvalid) => ({
   display: 'flex',
   flexDirection: 'column',

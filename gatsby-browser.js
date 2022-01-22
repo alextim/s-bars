@@ -1,5 +1,3 @@
-import React from 'react';
-
 import I18nProvider from './src/i18n/i18n-context';
 
 // eslint-disable-next-line import/prefer-default-export

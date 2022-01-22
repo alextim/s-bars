@@ -5,9 +5,6 @@ if (process.platform === 'win32') {
   const huskyScript = fs.readFileSync('.git/hooks/husky.sh', {
     encoding: 'utf-8',
   });
-  const fixedHuskyScript = huskyScript.replace(
-    'run_command yarn run --silent;;',
-    'run_command npx --no-install;;'
-  );
+  const fixedHuskyScript = huskyScript.replace('run_command yarn run --silent;;', 'run_command npx --no-install;;');
   fs.writeFileSync('.git/hooks/husky.sh', fixedHuskyScript);
 }

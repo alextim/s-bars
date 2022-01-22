@@ -1,10 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
+import mq from '@/theme/media-queries';
+import colors from '@/theme/colors';
 
-import mq from '../../theme/media-queries';
-import colors from '../../theme/colors';
-
-import { useTranslation } from '../../i18n';
+import { useTranslation } from '@/i18n';
 
 const styleWrap = {
   display: 'flex',
@@ -65,9 +62,7 @@ const styleDescription = {
   },
 };
 
-const Row = ({ children, overrideCSS = {} }) => (
-  <li css={{ ...styleRow, ...overrideCSS }}>{children}</li>
-);
+const Row = ({ children, overrideCSS = {} }) => <li css={{ ...styleRow, ...overrideCSS }}>{children}</li>;
 
 const styleHeading = {
   fontWeight: 'bold',
@@ -80,15 +75,9 @@ const styleDescriptionHeading = {
     display: 'block',
   },
 };
-const Name = ({ children, overrideCSS = [] }) => (
-  <div css={[styleName, ...overrideCSS]}>{children}</div>
-);
-const Price = ({ children, overrideCSS = [] }) => (
-  <div css={[stylePrice, ...overrideCSS]}>{children}</div>
-);
-const Description = ({ children, overrideCSS = [] }) => (
-  <div css={[styleDescription, ...overrideCSS]}>{children}</div>
-);
+const Name = ({ children, overrideCSS = [] }) => <div css={[styleName, ...overrideCSS]}>{children}</div>;
+const Price = ({ children, overrideCSS = [] }) => <div css={[stylePrice, ...overrideCSS]}>{children}</div>;
+const Description = ({ children, overrideCSS = [] }) => <div css={[styleDescription, ...overrideCSS]}>{children}</div>;
 
 const PriceList = ({ items }) => {
   const { t } = useTranslation();
@@ -97,15 +86,10 @@ const PriceList = ({ items }) => {
       <Row overrideCSS={styleHeadRow}>
         <Name overrideCSS={[styleHeading]}>{t('priceList.name')}</Name>
         <Price overrideCSS={[styleHeading]}>{t('priceList.price')}</Price>
-        <Description overrideCSS={[styleHeading, styleDescriptionHeading]}>
-          {t('priceList.description')}
-        </Description>
+        <Description overrideCSS={[styleHeading, styleDescriptionHeading]}>{t('priceList.description')}</Description>
       </Row>
       {items.map(({ title: name, subtitle: price, text: description }, i) => (
-        <Row
-          key={i}
-          overrideCSS={{ backgroundColor: i % 2 ? colors.tables.odd : colors.tables.even }}
-        >
+        <Row key={i} overrideCSS={{ backgroundColor: i % 2 ? colors.tables.odd : colors.tables.even }}>
           <Name>{name}</Name>
           <Price>{price}</Price>
           <Description>{description}</Description>

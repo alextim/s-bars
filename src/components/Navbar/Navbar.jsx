@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import mq from '../../theme/media-queries';
-import BODY_PREVENT_SCROLLING from '../../constants/body-prevent-scrolling';
-import useMainNavItems from '../../hooks/useMainNavtems';
+import mq from '@/theme/media-queries';
+import BODY_PREVENT_SCROLLING from '@/constants/body-prevent-scrolling';
+import useMainNavItems from '@/hooks/useMainNavtems';
 
 import Hamburger from '../Hamburger';
 import Logo from '../Logo';
@@ -32,7 +32,7 @@ const Navbar = () => {
 
   //    <Menu menuData={menuData} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpenWrap} />
   return (
-    <>
+    <React.Fragment>
       <Left>
         <Logo onClick={close} />
       </Left>
@@ -40,7 +40,7 @@ const Navbar = () => {
       <Right>
         <Hamburger open={isMenuOpen} bp={mq.lg} onClick={toggleOpen} />
       </Right>
-    </>
+    </React.Fragment>
   );
 };
 

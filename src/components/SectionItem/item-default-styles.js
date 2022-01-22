@@ -1,8 +1,8 @@
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
-import fonts from '../../theme/fonts';
-import { fontSizes } from '../../theme/font-sizes';
-import fontWeights from '../../theme/font-weights';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
+import fonts from '@/theme/fonts';
+import { fontSizes } from '@/theme/font-sizes';
+import fontWeights from '@/theme/font-weights';
 
 export const styleWrap = {
   display: 'flex',

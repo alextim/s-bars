@@ -19,9 +19,7 @@ const getLanguages = () => {
     const locale = allLocales[code];
     // Error if one of the locales provided isn't a valid locale
     if (!locale) {
-      throw new Error(
-        `Invalid locale provided: ${code}. See i18n.json for the list of available locales.`,
-      );
+      throw new Error(`Invalid locale provided: ${code}. See i18n.json for the list of available locales.`);
     }
     locales[code] = locale;
   });

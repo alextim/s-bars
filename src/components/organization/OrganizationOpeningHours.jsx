@@ -1,8 +1,6 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
 
-import { useTranslation } from '../../i18n';
+import { useTranslation } from '@/i18n';
 
 const wrapStyle = {
   display: 'grid',

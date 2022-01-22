@@ -1,12 +1,9 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
 
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
 import Section from '../../Section';
 import { SectionItemR, SectionItemL, SectionItemImage } from './tryptich-items';
-
-import mq from '../../../theme/media-queries';
-import { space } from '../../../theme/space';
 
 const styleWrap = {
   display: 'grid',

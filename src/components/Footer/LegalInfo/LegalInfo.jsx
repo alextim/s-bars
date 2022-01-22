@@ -1,7 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import mq from '../../../theme/media-queries';
+import mq from '@/theme/media-queries';
 
 const style = {
   [mq.lg]: {

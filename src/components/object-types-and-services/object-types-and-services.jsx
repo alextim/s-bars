@@ -1,7 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import { getListItems } from '../../helpers/list-info';
+import { getListItems } from '@/helpers/list-info';
 
 import Layout from '../Layout';
 import SEO from '../SEO';

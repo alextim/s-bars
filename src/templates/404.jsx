@@ -1,9 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/SEO';
-import Layout from '../components/Layout/ContainerLayout';
+import SEO from '@/components/SEO';
+import Layout from '@/components/Layout/ContainerLayout';
 
 const wrapStyle = (t) => ({
   textAlign: 'center',
@@ -28,13 +26,7 @@ const NotFoundTemplate = ({ data, location: { pathname }, pageContext: { locale 
 
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex
-      />
+      <SEO locale={locale} title={metaTitle} description={metaDescription} pathname={pathname} noindex />
       <div css={wrapStyle}>
         <h1 css={headingStyle}>{title}</h1>
         {html && <div dangerouslySetInnerHTML={{ __html: html }} />}

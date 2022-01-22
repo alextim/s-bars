@@ -1,8 +1,7 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
 
+import useOrgContacts from '@/hooks/useOrgContacts';
 import config from '../../../s-bars.content/config/website';
-import useOrgContacts from '../../hooks/useOrgContacts';
 
 const getOrganizationSchema = (orgContacts, orgAddress) => {
   const { organizationType } = orgContacts;

@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 import { CheckBox } from './inputs';
 import FormLabel from './FormLabel';
 import FormControl from './FormControl';

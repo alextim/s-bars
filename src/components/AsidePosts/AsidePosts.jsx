@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 import AsideWidget from '../AsideWidget';
 
 const styleLink = {

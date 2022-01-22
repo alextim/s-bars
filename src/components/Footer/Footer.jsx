@@ -1,22 +1,19 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
+import colors from '@/theme/colors';
+import container from '@/theme/container';
+import { fontSizes } from '@/theme/font-sizes';
 
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
-import colors from '../../theme/colors';
-import container from '../../theme/container';
-import { fontSizes } from '../../theme/font-sizes';
-
+import { useTranslation } from '@/i18n';
+import useOrganizationContacts from '@/hooks/useOrgContacts';
+import useFooterNavItems from '@/hooks/useFooterNavItems';
+import useSocialLinks from '@/hooks/useSocialLinks';
 import FooterWidget from './FooterWidget';
 import LegalInfo from './LegalInfo';
 import FooterNavigation from './FooterNavigation';
 import Link from '../LocalizedLink';
 
-import { useTranslation } from '../../i18n';
 import { useAppContext } from '../../context';
-import useOrganizationContacts from '../../hooks/useOrgContacts';
-import useFooterNavItems from '../../hooks/useFooterNavItems';
-import useSocialLinks from '../../hooks/useSocialLinks';
 
 import SocialLinks from './SocialLinks';
 
@@ -39,9 +36,7 @@ const styleWidgetWrap = {
   lineHeight: 1.75,
 };
 
-const WidgetWrapper = ({ extraStyle = {}, children }) => (
-  <div css={{ ...styleWidgetWrap, ...extraStyle }}>{children}</div>
-);
+const WidgetWrapper = ({ extraStyle = {}, children }) => <div css={{ ...styleWidgetWrap, ...extraStyle }}>{children}</div>;
 
 const styleWidgetArea = {
   display: 'grid',

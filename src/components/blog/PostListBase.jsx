@@ -1,10 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 import config from '../../../s-bars.content/config/website';
 
-import { prevLink, nextLink } from '../../helpers/pagination';
-import { useTranslation } from '../../i18n';
+import { prevLink, nextLink } from '@/helpers/pagination';
+import { useTranslation } from '@/i18n';
 
 import styleCardsWrap from '../styles/styleCardsWrap';
 
@@ -15,7 +12,7 @@ import styleHtml from '../styles/styleHtml';
 // import loadable from '@loadable/component';
 
 import PostPagination from './PostPagination';
-// import { CategoryWidget, TagsWidget, YearsWidget } from '../components/post-widgets';
+// import { CategoryWidget, TagsWidget, YearsWidget } from '@/components/post-widgets';
 
 const Cards = ({ posts, readMore, cardComponent }) => {
   const { t } = useTranslation();

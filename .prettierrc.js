@@ -4,7 +4,7 @@ module.exports = {
   // Why include an unnecessary character at the end of every line? Break the habit (automatically)!
   semi: true,
   singleQuote: true,
-  printWidth: 100,
+  printWidth: 140,
   endOfLine: 'auto',
   overrides: [
     {

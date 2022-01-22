@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 /**
  *
  *  https://gist.github.com/niksumeiko/360164708c3b326bd1c8

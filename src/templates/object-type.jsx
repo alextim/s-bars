@@ -1,13 +1,11 @@
-import React from 'react';
 import { graphql } from 'gatsby';
 
+import SEO from '@/components/SEO';
+import Layout from '@/components/Layout';
+import AsideButtonList from '@/components/AsideButtonList';
+
+import InnerAsideLayout from '@/components/InnerAsideLayout';
 import { getObjectTypesTitle, getFormattedObjectTypeItems } from '../helpers/list-info';
-
-import SEO from '../components/SEO';
-import Layout from '../components/Layout';
-import AsideButtonList from '../components/AsideButtonList';
-
-import InnerAsideLayout from '../components/InnerAsideLayout';
 
 const ObjectTypePageTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
@@ -38,12 +36,7 @@ const ObjectTypePageTemplate = ({ data, location: { pathname }, pageContext: { l
       <InnerAsideLayout
         cover={cover}
         html={html}
-        aside={
-          <AsideButtonList
-            title={getObjectTypesTitle(mainNav)}
-            items={getFormattedObjectTypeItems(mainNav)}
-          />
-        }
+        aside={<AsideButtonList title={getObjectTypesTitle(mainNav)} items={getFormattedObjectTypeItems(mainNav)} />}
       />
     </Layout>
   );

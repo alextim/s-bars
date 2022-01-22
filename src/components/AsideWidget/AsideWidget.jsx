@@ -1,10 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import { space } from '../../theme/space';
-import fonts from '../../theme/fonts';
-import { fontSizes } from '../../theme/font-sizes';
-import fontWeights from '../../theme/font-weights';
+import { space } from '@/theme/space';
+import fonts from '@/theme/fonts';
+import { fontSizes } from '@/theme/font-sizes';
+import fontWeights from '@/theme/font-weights';
 
 const styleWrap = {
   marginBottom: space[6],

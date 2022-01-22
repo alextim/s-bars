@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
-import useLocaleData from '../../../hooks/useLocaleData';
+
+import useLocaleData from '@/hooks/useLocaleData';
 
 const styleWrap = (t) => ({
   fontSize: t.fontSizes[0],

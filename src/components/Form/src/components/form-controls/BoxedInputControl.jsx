@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 import Input from './inputs';
 import FormLabel from './FormLabel';
 import FormErrorMessage from './FormErrorMessage';

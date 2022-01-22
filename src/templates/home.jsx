@@ -1,26 +1,16 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/SEO';
+import SEO from '@/components/SEO';
 
-import Container from '../components/Container';
-import Layout from '../components/Layout/BaseLayout';
+import Container from '@/components/Container';
+import Layout from '@/components/Layout/BaseLayout';
 
-import Section from '../components/Section';
+import Section from '@/components/Section';
 
-import mq from '../theme/media-queries';
-import { space } from '../theme/space';
-
-import {
-  Slider,
-  ObjectTypes,
-  Triptych,
-  WorkTypes,
-  Carousel,
-  Credo,
-} from '../components/home-page-parts';
+import { Slider, ObjectTypes, Triptych, WorkTypes, Carousel, Credo } from '@/components/home-page-parts';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
 
 const styleTitle = {
   marginTop: space[2],
@@ -52,13 +42,7 @@ const HomeTemplate = ({ data, location: { pathname }, pageContext: { locale } })
 
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex={noindex}
-      />
+      <SEO locale={locale} title={metaTitle} description={metaDescription} pathname={pathname} noindex={noindex} />
 
       <Container>
         {sections && (
@@ -68,12 +52,7 @@ const HomeTemplate = ({ data, location: { pathname }, pageContext: { locale } })
             <h1 css={styleTitle}>{title}</h1>
             <div css={styleHeadline}>{headline}</div>
 
-            <ObjectTypes
-              title={sections[1].title}
-              subtitle={sections[1].subtitle}
-              text={sections[1].text}
-              items={objectTypes}
-            />
+            <ObjectTypes title={sections[1].title} subtitle={sections[1].subtitle} text={sections[1].text} items={objectTypes} />
             <Triptych
               title={sections[2].title}
               subtitle={sections[2].subtitle}
@@ -82,18 +61,8 @@ const HomeTemplate = ({ data, location: { pathname }, pageContext: { locale } })
               breakWords
             />
             <WorkTypes title={sections[3].title} items={sections[3].items} />
-            <Carousel
-              title={sections[4].title}
-              subtitle={sections[4].subtitle}
-              text={sections[4].text}
-              items={sections[4].items}
-            />
-            <Credo
-              title={sections[5].title}
-              subtitle={sections[5].subtitle}
-              text={sections[5].text}
-              items={sections[5].items}
-            />
+            <Carousel title={sections[4].title} subtitle={sections[4].subtitle} text={sections[4].text} items={sections[4].items} />
+            <Credo title={sections[5].title} subtitle={sections[5].subtitle} text={sections[5].text} items={sections[5].items} />
           </React.Fragment>
         )}
         {html && (

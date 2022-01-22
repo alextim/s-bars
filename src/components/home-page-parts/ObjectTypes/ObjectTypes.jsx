@@ -1,10 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
+import { fontSizes } from '@/theme/font-sizes';
 import ObjectTypeItem from './ObjectTypeItem';
-import mq from '../../../theme/media-queries';
-import { space } from '../../../theme/space';
-import { fontSizes } from '../../../theme/font-sizes';
 
 import Section from '../../Section';
 
@@ -37,13 +34,7 @@ const ObjectTypes = ({ title, subtitle, text, items }) => (
   <Section title={title} subtitle={subtitle}>
     <div css={styleWrap}>
       {items.map(({ title: itemTitle, to }, i) => (
-        <ObjectTypeItem
-          key={i}
-          title={itemTitle}
-          to={to}
-          firstRow={i < ncols}
-          firstCol={i % ncols === 0}
-        />
+        <ObjectTypeItem key={i} title={itemTitle} to={to} firstRow={i < ncols} firstCol={i % ncols === 0} />
       ))}
     </div>
     <div css={styleText} dangerouslySetInnerHTML={{ __html: text }} />

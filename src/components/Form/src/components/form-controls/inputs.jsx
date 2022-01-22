@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 const Input = ({ ...props }) => <input {...props} />;
 
 export default Input;

@@ -1,12 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import SEO from '../components/SEO';
-import Layout from '../components/Layout';
-import Section from '../components/Section';
+import SEO from '@/components/SEO';
+import Layout from '@/components/Layout';
+import Section from '@/components/Section';
 
-import InquiryForm from '../components/InquiryForm';
+import InquiryForm from '@/components/InquiryForm';
 
 const InquiryTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {

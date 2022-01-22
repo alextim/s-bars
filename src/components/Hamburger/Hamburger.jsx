@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 const Hamburger = ({ w = 2.5, m = 0, open, bp, onClick }) => {
   const wrapStyle = {
     height: `${w}rem`,

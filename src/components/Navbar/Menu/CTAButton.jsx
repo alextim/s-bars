@@ -1,8 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import mq from '../../../theme/media-queries';
-import { useTranslation } from '../../../i18n';
+import mq from '@/theme/media-queries';
+import { useTranslation } from '@/i18n';
 import Button from '../../Button';
 
 const style = {

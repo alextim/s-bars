@@ -1,8 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import { fontSizes } from '../../../theme/font-sizes';
-import { space } from '../../../theme/space';
+import { fontSizes } from '@/theme/font-sizes';
+import { space } from '@/theme/space';
 
 const styleReadMore = {
   paddingTop: space[5],

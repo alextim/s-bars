@@ -1,13 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
+import colors from '@/theme/colors';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
+import { fontSizes } from '@/theme/font-sizes';
 import { styleTitle as defaultStyleTitle, styleImg } from '../../SectionItem/item-default-styles';
-
-import colors from '../../../theme/colors';
-import mq from '../../../theme/media-queries';
-import { space } from '../../../theme/space';
-import { fontSizes } from '../../../theme/font-sizes';
 
 const styleWrapL = {
   textAlign: 'center',
@@ -98,13 +95,7 @@ export const SectionItemImage = ({ data }) => {
   const { image } = data;
   return (
     <div css={styleImageWrap}>
-      {image && image.sm && (
-        <GatsbyImage
-          image={image.sm.childImageSharp.gatsbyImageData}
-          alt={image.alt}
-          title={image.title}
-        />
-      )}
+      {image && image.sm && <GatsbyImage image={image.sm.childImageSharp.gatsbyImageData} alt={image.alt} title={image.title} />}
     </div>
   );
 };

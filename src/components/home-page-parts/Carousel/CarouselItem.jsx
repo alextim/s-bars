@@ -1,11 +1,8 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-import mq from '../../../theme/media-queries';
-import { space } from '../../../theme/space';
-import { fontSizes } from '../../../theme/font-sizes';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
+import { fontSizes } from '@/theme/font-sizes';
 
 const styleWrap = {
   display: 'flex',
@@ -60,13 +57,7 @@ const styleCustomerName = {
 
 const Carouseltem = ({ heading, customer, description, image }) => (
   <div css={styleWrap}>
-    {image && image.sm && (
-      <GatsbyImage
-        image={image.sm.childImageSharp.gatsbyImageData}
-        alt={image.alt}
-        title={image.title}
-      />
-    )}
+    {image && image.sm && <GatsbyImage image={image.sm.childImageSharp.gatsbyImageData} alt={image.alt} title={image.title} />}
     <div css={styleTextWrap}>
       <div css={styleDescription} dangerouslySetInnerHTML={{ __html: description }} />
       <div css={styleCustomerWrap}>

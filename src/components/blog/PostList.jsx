@@ -1,5 +1,3 @@
-import React from 'react';
-
 import PostListBase from './PostListBase';
 import PostCard from './PostCard';
 

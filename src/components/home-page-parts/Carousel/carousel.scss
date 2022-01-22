@@ -1,21 +1,21 @@
-.swiper-container-horizontal.sb_carousel>.swiper-pagination-bullets {
+.swiper-container-horizontal.sb_carousel > .swiper-pagination-bullets {
   top: calc(100% - 8.5rem);
   left: 0;
   width: 100%;
 }
 
-.sb_carousel>.swiper-button-next,
-.sb_carousel>.swiper-button-prev {
+.sb_carousel > .swiper-button-next,
+.sb_carousel > .swiper-button-prev {
   top: calc(50% - 3rem);
 }
 
 @media (min-width: 992px) {
-  .swiper-container-horizontal.sb_carousel>.swiper-pagination-bullets {
+  .swiper-container-horizontal.sb_carousel > .swiper-pagination-bullets {
     top: calc(100% - 5.5rem);
   }
 
-  .sb_carousel>.swiper-button-next,
-  .sb_carousel>.swiper-button-prev {
+  .sb_carousel > .swiper-button-next,
+  .sb_carousel > .swiper-button-prev {
     top: calc(50% - 1.5rem);
   }
 }

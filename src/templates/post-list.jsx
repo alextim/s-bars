@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
-import PostList from '../components/blog/PostList';
+import PostList from '@/components/blog/PostList';
 
 const PostListTemplate = ({ data, location: { pathname }, pageContext }) => (
   <PostList data={data} pathname={pathname} pageContext={pageContext} />

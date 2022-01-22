@@ -1,6 +1,6 @@
-import mq from '../../theme/media-queries';
-import { space } from '../../theme/space';
-import card from '../../theme/card';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
+import card from '@/theme/card';
 
 const styleCardsWrap = {
   display: 'grid',

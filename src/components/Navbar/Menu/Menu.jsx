@@ -1,10 +1,9 @@
 /* eslint-disable import/no-unresolved */
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { Location } from '@reach/router';
+
+import mq from '@/theme/media-queries';
+import sizes from '@/theme/sizes';
 import LanguageSwitch from '../../LanguageSwitch';
-import mq from '../../../theme/media-queries';
-import sizes from '../../../theme/sizes';
 
 import CTAButton from './CTAButton';
 import MenuItem from './MenuItem';
@@ -117,39 +116,28 @@ const Menu = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <Location>
-      {({ location: { pathname } }) => {
-        return (
-          <div css={{ ...styleWrap, ...(isMenuOpen ? styleWrapOpened : {}) }}>
-            <ul css={styleMenuWrap}>
-              {navItems.map(({ title, to, submenu }, i) => {
-                if (submenu) {
-                  return (
-                    <SubMenu
-                      key={i}
-                      to={to}
-                      title={title}
-                      items={submenu}
-                      path={pathname}
-                      onClick={onClick}
-                    />
-                  );
-                }
-                return (
-                  <li key={i} css={menuItemWrapStyle}>
-                    <MenuItem to={to} isActive={to === pathname} onClick={onClick}>
-                      {title}
-                    </MenuItem>
-                  </li>
-                );
-              })}
-            </ul>
-            <div css={styleWrapR}>
-              <CTAButton onClick={onClick} />
-              <LanguageSwitch closeMenu={() => setIsMenuOpen(false)} />
-            </div>
+      {({ location: { pathname } }) => (
+        <div css={{ ...styleWrap, ...(isMenuOpen ? styleWrapOpened : {}) }}>
+          <ul css={styleMenuWrap}>
+            {navItems.map(({ title, to, submenu }, i) => {
+              if (submenu) {
+                return <SubMenu key={i} to={to} title={title} items={submenu} path={pathname} onClick={onClick} />;
+              }
+              return (
+                <li key={i} css={menuItemWrapStyle}>
+                  <MenuItem to={to} isActive={to === pathname} onClick={onClick}>
+                    {title}
+                  </MenuItem>
+                </li>
+              );
+            })}
+          </ul>
+          <div css={styleWrapR}>
+            <CTAButton onClick={onClick} />
+            <LanguageSwitch closeMenu={() => setIsMenuOpen(false)} />
           </div>
-        );
-      }}
+        </div>
+      )}
     </Location>
   );
 };

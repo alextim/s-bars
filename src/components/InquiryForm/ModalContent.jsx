@@ -1,8 +1,6 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
 
-import { useTranslation } from '../../i18n';
+import { useTranslation } from '@/i18n';
 
 import { ModalHeader, ModalFooter, ModalBody } from '../Form/src/components/Modal';
 import Message from '../Form/src/components/Message';

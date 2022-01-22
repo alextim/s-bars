@@ -1,10 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import colors from '../../../theme/colors';
-import links from '../../../theme/links';
-import mq from '../../../theme/media-queries';
-import { space } from '../../../theme/space';
+import colors from '@/theme/colors';
+import links from '@/theme/links';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
 
 import FaCheck from '../../../assets/fa/solid/check.svg';
 

@@ -1,8 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
-import mq from '../../../theme/media-queries';
-import { space } from '../../../theme/space';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
 
 import Section from '../../Section';
 import SectionItem from './SectionItemRound';
@@ -18,9 +15,7 @@ const styleWrap = {
 
 const WorkTypes = ({ title, items }) => (
   <Section title={title}>
-    <div css={styleWrap}>
-      {items && items.map((item, i) => <SectionItem key={i} data={item} />)}
-    </div>
+    <div css={styleWrap}>{items && items.map((item, i) => <SectionItem key={i} data={item} />)}</div>
   </Section>
 );
 

@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
-import { space } from '../../../theme/space';
+import { space } from '@/theme/space';
 
 import { styleWrap, styleSubtitle, styleText } from '../../SectionItem/item-default-styles';
 
@@ -28,12 +26,7 @@ const SectionItemRound = ({ data }) => {
   return (
     <div css={styleWrapRound}>
       {image && image.sm && (
-        <GatsbyImage
-          image={image.sm.childImageSharp.gatsbyImageData}
-          alt={image.alt}
-          title={image.title}
-          css={styleImageRound}
-        />
+        <GatsbyImage image={image.sm.childImageSharp.gatsbyImageData} alt={image.alt} title={image.title} css={styleImageRound} />
       )}
       <h3 css={styleTitleRound}>{title}</h3>
       {subtitle && <div css={styleSubtitle}>{subtitle}</div>}

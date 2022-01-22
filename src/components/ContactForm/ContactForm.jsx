@@ -1,14 +1,11 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
 
+import { useTranslation } from '@/i18n';
 import { ContactFormBase } from '../Form';
 import Spinner from '../Spinner';
 
 import EMAIL_FIELD from '../../../config/form/email-field';
 import fieldsInfo from '../../../config/form/contact-form-fields';
-
-import { useTranslation } from '../../i18n';
 
 import Button from '../Button';
 
@@ -79,6 +76,7 @@ const ContactForm = () => {
   const modalContent = {
     error: {
       heading: t('form.error'),
+      // eslint-disable-next-line react/no-unstable-nested-components
       body: (error) => (
         <React.Fragment>
           <b>{error}</b>
@@ -107,6 +105,7 @@ const ContactForm = () => {
           <Spinner css={spinnerStyle} />
         </div>
       ),
+      // eslint-disable-next-line react/no-unstable-nested-components
       action: (closeModal) => (
         <Button onClick={closeModal} primary>
           {t('form.cancel')}

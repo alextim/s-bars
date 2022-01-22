@@ -185,9 +185,7 @@ function useForm(validationSchema, callback, defaultValues = {}) {
   };
 
   const isValid = () => {
-    const hasErrors = Object.keys(validationSchema).some((name) =>
-      Boolean(validateField(name, values[name])),
-    );
+    const hasErrors = Object.keys(validationSchema).some((name) => Boolean(validateField(name, values[name])));
 
     return !hasErrors;
   };

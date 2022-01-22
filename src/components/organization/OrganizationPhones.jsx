@@ -1,5 +1,3 @@
-import React from 'react';
-
 import utils from '@alextim/utils';
 
 import IconLink from '../IconLink';

@@ -1,6 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import React from 'react';
+
+import { useTranslation } from '@/i18n';
 
 import {
   EMAIL_FIELD,
@@ -10,9 +10,7 @@ import {
   EMAIL_MAX_LENGTH,
   MESSAGE_MIN_LENGTH,
   MESSAGE_MAX_LENGTH,
-} from '../../../lib/form/contact-form-fields';
-
-import { useTranslation } from '../../../i18n';
+} from '../../../../config/form/contact-form-fields';
 
 import { ContactFormBase } from '../../Form';
 import Spinner from '../../Spinner';

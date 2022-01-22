@@ -1,19 +1,16 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 
 import utils from '@alextim/utils';
 
+import SEO from '@/components/SEO';
+import Layout from '@/components/Layout';
+import Section from '@/components/Section';
+
+import styleItemsWrap from '@/components/organization/styleItemsWrap';
+import OrganizationOpeningHours from '@/components/organization/OrganizationOpeningHours';
 import useOrgContacts from '../hooks/useOrgContacts';
 import { useTranslation } from '../i18n';
-
-import SEO from '../components/SEO';
-import Layout from '../components/Layout';
-import Section from '../components/Section';
-
-import styleItemsWrap from '../components/organization/styleItemsWrap';
-import OrganizationOpeningHours from '../components/organization/OrganizationOpeningHours';
 
 const styleContactItemWrap = (t) => ({
   display: 'flex',

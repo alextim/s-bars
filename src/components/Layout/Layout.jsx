@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ContainerLayout from './ContainerLayout';
 import PageHeader from '../DefaultHeader';
 import Breadcrumbs from '../Breadcrumbs';

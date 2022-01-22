@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import fieldsInfo from '../../../../../lib/form/contact-form-fields';
-import EMAIL_FIELD from '../../../../../lib/form/email-field';
+import fieldsInfo from '../../../../../../config/form/contact-form-fields';
+import EMAIL_FIELD from '../../../../../../config/form/email-field';
 
-import useForm from '../../hooks/useForm';
+import useForm from '@/hooks/useForm';
 import sendData from '../../services/send-data';
 
 import useModal from '../Modal/useModal';
@@ -111,20 +111,12 @@ const ContactFormBase = ({ fields, modalContent, actionControl, endPoint, getErr
     }
   };
 
-  const { values, errors, handleOnChange, handleOnSubmit /* , disable */ } = useForm(
-    validationSchema,
-    onSubmitForm,
-  );
+  const { values, errors, handleOnChange, handleOnSubmit /* , disable */ } = useForm(validationSchema, onSubmitForm);
 
   return (
-    <>
+    <React.Fragment>
       <Modal>
-        <ModalContentBase
-          content={modalContent}
-          loading={loading}
-          cancel={closeModal}
-          error={error}
-        />
+        <ModalContentBase content={modalContent} loading={loading} cancel={closeModal} error={error} />
       </Modal>
 
       <form onSubmit={handleOnSubmit} noValidate>
@@ -161,7 +153,7 @@ const ContactFormBase = ({ fields, modalContent, actionControl, endPoint, getErr
           {actionControl}
         </div>
       </form>
-    </>
+    </React.Fragment>
   );
 };
 

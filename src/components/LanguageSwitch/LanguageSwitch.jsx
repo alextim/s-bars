@@ -1,14 +1,12 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 // eslint-disable-next-line import/no-unresolved
 import { Location } from '@reach/router';
 import { Link } from 'gatsby';
 
-import useAllSitePath from '../../hooks/useAllSitePath';
-import colors from '../../theme/colors';
+import colors from '@/theme/colors';
 
-import i18n from '../../i18n/i18n';
-import { useLocale } from '../../i18n/i18n-context';
+import i18n from '@/i18n//i18n';
+import { useLocale } from '@/i18n//i18n-context';
+import useAllSitePath from '@/hooks/useAllSitePath';
 
 const wrapStyle = {
   display: 'inline-flex',

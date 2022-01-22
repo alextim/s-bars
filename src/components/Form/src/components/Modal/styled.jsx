@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 export const styleModalWrap = {
   position: 'fixed',
   top: 0,

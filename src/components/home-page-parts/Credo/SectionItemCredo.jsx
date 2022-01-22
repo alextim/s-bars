@@ -1,11 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
+import colors from '@/theme/colors';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
 import Icon from '../../Icon';
-
-import colors from '../../../theme/colors';
-import mq from '../../../theme/media-queries';
-import { space } from '../../../theme/space';
 
 import { styleTitle } from '../../SectionItem/item-default-styles';
 

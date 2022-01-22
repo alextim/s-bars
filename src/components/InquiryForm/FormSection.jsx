@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-
 const styleWrap = (t) => ({
   display: 'grid',
   gridGap: t.space[2],

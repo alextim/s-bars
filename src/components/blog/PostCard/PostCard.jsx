@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Helmet } from 'react-helmet';
 
-import card from '../../../theme/card';
-import { space } from '../../../theme/space';
+import card from '@/theme/card';
+import { space } from '@/theme/space';
 
 import getCardSchema from '../../SEO/getCardSchema';
 
@@ -15,17 +13,7 @@ const excerptStyle = {
 };
 
 const PostCard = ({
-  data: {
-    slug: to,
-    cover,
-    title,
-    excerpt,
-    headline,
-    metaDescription,
-    datePublished,
-    dateModified,
-    author,
-  },
+  data: { slug: to, cover, title, excerpt, headline, metaDescription, datePublished, dateModified, author },
   readMore,
 }) => (
   <article css={card.wrap}>
