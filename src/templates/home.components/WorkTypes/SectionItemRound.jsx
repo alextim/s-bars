@@ -2,7 +2,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { space } from '@/theme/space';
 
-import { styleWrap, styleSubtitle, styleText } from '../../SectionItem/item-default-styles';
+import { styleWrap, styleSubtitle, styleText } from '@/components/SectionItem/item-default-styles';
 
 const styleTitleRound = {
   marginBottom: space[4],

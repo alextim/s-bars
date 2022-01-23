@@ -3,7 +3,7 @@ import links from '@/theme/links';
 import mq from '@/theme/media-queries';
 import { space } from '@/theme/space';
 
-import FaCheck from '../../../assets/fa/solid/check.svg';
+import FaCheck from '@/assets/fa/solid/check.svg';
 
 const styleIcon = {
   marginRight: space[2],

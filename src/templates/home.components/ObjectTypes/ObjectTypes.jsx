@@ -1,9 +1,9 @@
 import mq from '@/theme/media-queries';
 import { space } from '@/theme/space';
 import { fontSizes } from '@/theme/font-sizes';
-import ObjectTypeItem from './ObjectTypeItem';
+import Section from '@/components/Section';
 
-import Section from '../../Section';
+import ObjectTypeItem from './ObjectTypeItem';
 
 const ncols = 3;
 

@@ -2,15 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import SEO from '@/components/SEO';
-
 import Container from '@/components/Container';
 import Layout from '@/components/Layout/BaseLayout';
-
 import Section from '@/components/Section';
 
-import { Slider, ObjectTypes, Triptych, WorkTypes, Carousel, Credo } from '@/components/home-page-parts';
 import mq from '@/theme/media-queries';
 import { space } from '@/theme/space';
+
+import { Slider, ObjectTypes, Triptych, WorkTypes, Carousel, Credo } from './home.components';
 
 const styleTitle = {
   marginTop: space[2],

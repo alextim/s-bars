@@ -4,7 +4,7 @@ import colors from '@/theme/colors';
 import mq from '@/theme/media-queries';
 import { space } from '@/theme/space';
 import { fontSizes } from '@/theme/font-sizes';
-import { styleTitle as defaultStyleTitle, styleImg } from '../../SectionItem/item-default-styles';
+import { styleTitle as defaultStyleTitle, styleImg } from '@/components/SectionItem/item-default-styles';
 
 const styleWrapL = {
   textAlign: 'center',

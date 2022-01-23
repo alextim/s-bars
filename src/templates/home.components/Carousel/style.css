@@ -1,0 +1,32 @@
+.sb_carousel > .react-multi-carousel-dot-list {
+  top: calc(100% - 9rem);
+  left: 0;
+  width: 100%;
+}
+
+.sb_carousel > .react-multiple-carousel__arrow--left,
+.sb_carousel > .react-multiple-carousel__arrow--right {
+  top: calc(50% - 4rem);
+}
+
+@media (max-width: 360px) {
+  .sb_carousel > .react-multi-carousel-dot-list {
+    top: calc(100% - 10.5rem);
+  }
+
+  .sb_carousel > .react-multiple-carousel__arrow--left,
+  .sb_carousel > .react-multiple-carousel__arrow--right {
+    top: calc(50% - 5rem);
+  }
+}
+
+@media (min-width: 992px) {
+  .sb_carousel > .react-multi-carousel-dot-list {
+    top: calc(100% - 6rem);
+  }
+
+  .sb_carousel > .react-multiple-carousel__arrow--left,
+  .sb_carousel > .react-multiple-carousel__arrow--right {
+    top: calc(50% - 2rem);
+  }
+}

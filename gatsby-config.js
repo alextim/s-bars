@@ -56,9 +56,6 @@ const pageSources = Object.keys(allDirs).map((name) => ({
 }));
 
 const plugins = [
-  {
-    resolve: 'gatsby-plugin-sass',
-  },
   'gatsby-plugin-image',
   {
     resolve: 'gatsby-source-filesystem',

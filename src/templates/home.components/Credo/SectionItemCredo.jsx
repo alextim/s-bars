@@ -1,9 +1,9 @@
 import colors from '@/theme/colors';
 import mq from '@/theme/media-queries';
 import { space } from '@/theme/space';
-import Icon from '../../Icon';
+import Icon from '@/components/Icon';
 
-import { styleTitle } from '../../SectionItem/item-default-styles';
+import { styleTitle } from '@/components/SectionItem/item-default-styles';
 
 const styleWrapHorizontal = {
   [mq.lg]: {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import mq from '@/theme/media-queries';
 import { space } from '@/theme/space';
-import Section from '../../Section';
+import Section from '@/components/Section';
 import { SectionItemR, SectionItemL, SectionItemImage } from './tryptich-items';
 
 const styleWrap = {
