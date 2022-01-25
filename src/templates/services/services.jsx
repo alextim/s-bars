@@ -1,19 +1,19 @@
 import { graphql } from 'gatsby';
 
-import PageTemplate from './services/components';
+import PageTemplate from './components';
 
-const ObjectTypeListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => (
-  <PageTemplate data={data} pathname={pathname} locale={locale} type="object" />
+const ServiceListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => (
+  <PageTemplate data={data} pathname={pathname} locale={locale} type="service" />
 );
 
-export default ObjectTypeListTemplate;
+export default ServiceListTemplate;
 
 export const pageQuery = graphql`
-  query ObjectTypeListPageQuery($id: String!, $locale: String!) {
+  query ServiceListPageQuery($id: String!, $locale: String!) {
     page: mdPage(id: { eq: $id }) {
       ...MdPageFragment
     }
-    pageItems: allMdPage(filter: { type: { eq: "object" }, locale: { eq: $locale } }) {
+    pageItems: allMdPage(filter: { type: { eq: "service" }, locale: { eq: $locale } }) {
       edges {
         node {
           ...MdCardFragment

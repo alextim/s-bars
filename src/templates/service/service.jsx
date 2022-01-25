@@ -1,20 +1,20 @@
-import React from 'react';
 import { graphql } from 'gatsby';
 
 import SEO from '@/components/SEO';
 import Layout from '@/components/Layout';
-import Section from '@/components/Section';
 
-import Triptych from './home/components/Triptych';
+import InnerAsideLayout from '@/components/InnerAsideLayout';
+import ServiceSchema from './components/ServiceSchema';
+import AsideServices from './components/AsideServices';
 
-const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const ServicePageTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex, breadcrumbs, sections, html },
+    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, html },
   } = data;
 
   return (
@@ -31,26 +31,19 @@ const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }
         pathname={pathname}
         noindex={noindex}
         breadcrumbs={breadcrumbs}
+        imgPath={cover?.sm?.publicURL}
       />
-      {sections && (
-        <React.Fragment>
-          <Section text={sections[0].text} />
-          <Triptych title={sections[1].title} subtitle={sections[1].subtitle} text={sections[1].text} items={sections[1].items} />
-        </React.Fragment>
-      )}
-      {html && (
-        <Section>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Section>
-      )}
+      <ServiceSchema pathname={pathname} title={title} address={address} />
+
+      <InnerAsideLayout cover={cover} html={html} aside={<AsideServices mainNav={mainNav} />} />
     </Layout>
   );
 };
 
-export default AboutTemplate;
+export default ServicePageTemplate;
 
 export const pageQuery = graphql`
-  query AboutPageQuery($id: String!, $locale: String!) {
+  query ServicePageQuery($id: String!, $locale: String!) {
     page: mdPage(id: { eq: $id }) {
       ...MdPageFragment
     }

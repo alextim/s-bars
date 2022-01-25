@@ -9,8 +9,8 @@ import Section from '@/components/Section';
 
 import styleItemsWrap from '@/components/organization/styleItemsWrap';
 import OrganizationOpeningHours from '@/components/organization/OrganizationOpeningHours';
-import useOrgContacts from '../hooks/useOrgContacts';
-import { useTranslation } from '../i18n';
+import useOrgContacts from '@/hooks/useOrgContacts';
+import { useTranslation } from '@/i18n';
 
 const styleContactItemWrap = (t) => ({
   display: 'flex',

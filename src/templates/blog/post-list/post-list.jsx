@@ -1,22 +1,31 @@
 import { graphql } from 'gatsby';
 
-import PageTemplate from './services/components';
+import PostList from './components/PostList';
 
-const ObjectTypeListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => (
-  <PageTemplate data={data} pathname={pathname} locale={locale} type="object" />
+const PostListTemplate = ({ data, location: { pathname }, pageContext }) => (
+  <PostList data={data} pathname={pathname} pageContext={pageContext} />
 );
 
-export default ObjectTypeListTemplate;
+export default PostListTemplate;
 
-export const pageQuery = graphql`
-  query ObjectTypeListPageQuery($id: String!, $locale: String!) {
-    page: mdPage(id: { eq: $id }) {
+export const postListTemplateQuery = graphql`
+  query PostListQuery($locale: String!, $skip: Int!, $limit: Int!, $type: String!) {
+    #
+    # blogPath
+    # regex: "//blog//"
+    #
+    page: mdPage(slug: { regex: "//blog//" }, locale: { eq: $locale }) {
       ...MdPageFragment
     }
-    pageItems: allMdPage(filter: { type: { eq: "object" }, locale: { eq: $locale } }) {
+    posts: allMdPost(
+      sort: { fields: [featured, datePublished], order: [ASC, DESC] }
+      limit: $limit
+      skip: $skip
+      filter: { locale: { eq: $locale }, type: { eq: $type } }
+    ) {
       edges {
         node {
-          ...MdCardFragment
+          ...MdPostCardFragment
         }
       }
     }

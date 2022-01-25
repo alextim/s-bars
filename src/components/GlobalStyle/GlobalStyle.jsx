@@ -1,3 +1,4 @@
+/* eslint-disable @emotion/syntax-preference */
 import { Global, css } from '@emotion/react';
 
 import links from '@/theme/links';

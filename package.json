@@ -46,8 +46,8 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "@alextim/at-seo": "^0.4.5",
     "@alextim/at-site-core": "^0.8.6",
+    "@alextim/at-seo": "^0.4.5",
     "@alextim/at-sitemap": "^0.4.0",
     "@alextim/csp": "^0.1.2",
     "@alextim/i18n-utils": "^0.1.0",
@@ -78,7 +78,6 @@
     "gatsby-transformer-yaml": "^4.5.0",
     "node-fetch": "^3.2.0",
     "react": "^17.0.2",
-    "react-device-detect": "^2.1.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-multi-carousel": "^2.6.5"

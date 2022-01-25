@@ -1,20 +1,19 @@
-import React from 'react';
 import { graphql } from 'gatsby';
 
 import SEO from '@/components/SEO';
 import Layout from '@/components/Layout';
 import Section from '@/components/Section';
 
-import Triptych from './home/components/Triptych';
+import InquiryForm from './components/InquiryForm';
 
-const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const InquiryTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex, breadcrumbs, sections, html },
+    page: { title, metaTitle, headline, metaDescription, noindex, breadcrumbs },
   } = data;
 
   return (
@@ -32,25 +31,18 @@ const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }
         noindex={noindex}
         breadcrumbs={breadcrumbs}
       />
-      {sections && (
-        <React.Fragment>
-          <Section text={sections[0].text} />
-          <Triptych title={sections[1].title} subtitle={sections[1].subtitle} text={sections[1].text} items={sections[1].items} />
-        </React.Fragment>
-      )}
-      {html && (
-        <Section>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Section>
-      )}
+
+      <Section>
+        <InquiryForm />
+      </Section>
     </Layout>
   );
 };
 
-export default AboutTemplate;
+export default InquiryTemplate;
 
 export const pageQuery = graphql`
-  query AboutPageQuery($id: String!, $locale: String!) {
+  query InquiryPageQuery($id: String!, $locale: String!) {
     page: mdPage(id: { eq: $id }) {
       ...MdPageFragment
     }

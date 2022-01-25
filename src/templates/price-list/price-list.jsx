@@ -1,20 +1,24 @@
-import React from 'react';
 import { graphql } from 'gatsby';
 
 import SEO from '@/components/SEO';
 import Layout from '@/components/Layout';
-import Section from '@/components/Section';
+import styleHtmlDefault from '../shared/styles/styleHtml';
+import { PriceList } from './components';
 
-import Triptych from './home/components/Triptych';
+const styleHtml = {
+  ...styleHtmlDefault,
 
-const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  textAlign: 'justify',
+};
+
+const PriceListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex, breadcrumbs, sections, html },
+    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, sections, html },
   } = data;
 
   return (
@@ -22,6 +26,7 @@ const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }
       title={title}
       headline={headline}
       breadcrumbs={breadcrumbs}
+      cover={cover}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
       <SEO
@@ -32,25 +37,16 @@ const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }
         noindex={noindex}
         breadcrumbs={breadcrumbs}
       />
-      {sections && (
-        <React.Fragment>
-          <Section text={sections[0].text} />
-          <Triptych title={sections[1].title} subtitle={sections[1].subtitle} text={sections[1].text} items={sections[1].items} />
-        </React.Fragment>
-      )}
-      {html && (
-        <Section>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </Section>
-      )}
+      {sections && sections[0] && sections[0].items && <PriceList items={sections[0].items} />}
+      {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
     </Layout>
   );
 };
 
-export default AboutTemplate;
+export default PriceListTemplate;
 
 export const pageQuery = graphql`
-  query AboutPageQuery($id: String!, $locale: String!) {
+  query PriceListPageQuery($id: String!, $locale: String!) {
     page: mdPage(id: { eq: $id }) {
       ...MdPageFragment
     }

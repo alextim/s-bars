@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby';
 
 import SEO from '@/components/SEO';
-
 import Layout from '@/components/Layout';
 import Sections from '@/components/Sections';
 

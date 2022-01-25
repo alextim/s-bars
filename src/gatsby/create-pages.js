@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
+const path = require('path');
 const config = require('../../s-bars.content/config/website');
 
 const templatesDir = `..${config.templatesDir}`;
 
-const serviceDefaultTemplate = require.resolve(`${templatesDir}service.jsx`);
-const objectTypeDefaultTemplate = require.resolve(`${templatesDir}object-type.jsx`);
+const getTemplate = (name) => require.resolve(path.join(templatesDir, name, `${name}.jsx`));
+const serviceDefaultTemplate = getTemplate('service');
+const objectTypeDefaultTemplate = getTemplate('object-type');
 
 module.exports = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
