@@ -2,17 +2,20 @@ import React from 'react';
 import useLocaleData from '@/hooks/useLocaleData';
 import { useTranslation } from '@/i18n';
 
-const styleWrap = (t) => ({
-  marginTop: t.space[5],
-  marginBottom: t.space[5],
-  fontSize: t.fontSizes[0],
-});
-const styleAuthor = (t) => ({
-  marginRight: t.space[3],
-});
-const styleSeparator = (t) => ({
-  margin: `0 ${t.space[1]}`,
-});
+import { fontSizes } from '@/theme/font-sizes';
+import { space } from '@/theme/space';
+
+const styleWrap = {
+  marginTop: space[5],
+  marginBottom: space[5],
+  fontSize: fontSizes[0],
+};
+const styleAuthor = {
+  marginRight: space[3],
+};
+const styleSeparator = {
+  margin: `0 ${space[1]}`,
+};
 
 const PostInfo = ({ author, datePublished, timeToRead }) => {
   const { formatLocale } = useLocaleData();

@@ -1,18 +1,22 @@
 import { graphql } from 'gatsby';
 
+import { space } from '@/theme/space';
+import { fontSizes } from '@/theme/font-sizes';
+
 import SEO from '@/components/SEO';
 import Layout from '@/components/Layout/ContainerLayout';
 
-const styleWrap = (t) => ({
+const styleWrap = {
   textAlign: 'center',
-  marginTop: t.space[8],
-  marginBottom: t.space[8],
-});
+  marginTop: space[8],
+  marginBottom: space[8],
+};
 
-const styleHeading = (t) => ({
+const styleHeading = {
   fontFamily: 'monospace',
-  fontSize: t.fontSizes[12],
-});
+  fontSize: fontSizes[12],
+};
+
 // const styleHtml = { textAlign: 'center' };
 
 const NotFoundTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {

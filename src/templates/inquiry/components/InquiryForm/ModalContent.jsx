@@ -1,13 +1,17 @@
 import React from 'react';
 
 import { useTranslation } from '@/i18n';
+import { space } from '@/theme/space';
 
 import { ModalHeader, ModalFooter, ModalBody } from '@/components/Form/src/components/Modal';
 import Message from '@/components/Form/src/components/Message';
 import Spinner from '@/components/Spinner';
 import Button from '@/components/Button';
 
-const styleSpinner = (t) => ({ display: 'block', marginTop: t.space[8] });
+const styleSpinner = {
+  display: 'block',
+  marginTop: space[8],
+};
 
 const ModalContent = ({ loading, cancel, error }) => {
   const { t } = useTranslation();

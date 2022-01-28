@@ -2,12 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import disableScroll from 'disable-scroll';
 
-import {
-  styleModalWrap,
-  styleModalOverlay,
-  styleModalContent,
-  StyledModalCloseButton,
-} from './styled';
+import { styleModalWrap, styleModalOverlay, styleModalContent, StyledModalCloseButton } from './styled';
 
 const ESC_KEY = 27;
 

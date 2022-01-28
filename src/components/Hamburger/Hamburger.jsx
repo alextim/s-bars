@@ -1,4 +1,5 @@
 import mq from '@/theme/media-queries';
+import colors from '@/theme/colors';
 
 const styleSpanCommon = {
   content: '""',
@@ -28,13 +29,13 @@ const styleWrap = {
 };
 
 const Hamburger = ({ open, onClick }) => {
-  const styleSpan = (t) => ({
+  const styleSpan = {
     ...styleSpanCommon,
-    backgroundColor: open ? 'transparent' : t.colors.text,
+    backgroundColor: open ? 'transparent' : colors.text,
 
     ':before, :after': {
       ...styleSpanCommon,
-      backgroundColor: t.colors.text,
+      backgroundColor: colors.text,
     },
 
     ':before': {
@@ -47,7 +48,7 @@ const Hamburger = ({ open, onClick }) => {
       bottom: '-0.625rem',
       transform: open ? 'rotate(-45deg)' : 'none',
     },
-  });
+  };
 
   return (
     <button css={styleWrap} type="button" aria-label={`${open ? 'Close' : 'Open'} menu`} onClick={onClick}>

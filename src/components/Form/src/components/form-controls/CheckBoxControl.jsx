@@ -1,27 +1,22 @@
+import mq from '@/theme/media-queries';
+
 import { CheckBox } from './inputs';
 import FormLabel from './FormLabel';
 import FormControl from './FormControl';
 import FormErrorMessage from './FormErrorMessage';
 
-const styleInnerWrap = (t) => ({
+const styleInnerWrap = {
   display: 'inline-flex',
   alignItems: 'baseline',
-  [t.mq.lg]: {
+  [mq.lg]: {
     alignItems: 'center',
   },
-});
+};
 
 const CheckBoxControl = ({ name, label, value, required, error, onChange, ...props }) => (
   <FormControl isInvalid={error}>
     <div css={styleInnerWrap}>
-      <CheckBox
-        id={name}
-        name={name}
-        required={required}
-        checked={value}
-        onChange={onChange}
-        {...props}
-      />
+      <CheckBox id={name} name={name} required={required} checked={value} onChange={onChange} {...props} />
       <FormLabel inline right htmlFor={name} required={required}>
         {label}
       </FormLabel>

@@ -1,8 +1,8 @@
-import { ThemeProvider } from '@emotion/react';
+// import { ThemeProvider } from '@emotion/react';
 
 import mq from '@/theme/media-queries';
 import sizes from '@/theme/sizes';
-import theme from '../../theme';
+// import theme from '../../theme';
 
 import AppContextProvider from '../../context';
 import GlobalStyle from '../GlobalStyle';
@@ -28,14 +28,14 @@ const styleMain = {
 
 const BaseLayout = ({ context, children }) => (
   <AppContextProvider value={context}>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <div css={styleRoot}>
-        <Header />
-        <main css={styleMain}>{children}</main>
-        <Footer />
-      </div>
-    </ThemeProvider>
+    {/* <ThemeProvider theme={theme}> */}
+    <GlobalStyle />
+    <div css={styleRoot}>
+      <Header />
+      <main css={styleMain}>{children}</main>
+      <Footer />
+    </div>
+    {/* </ThemeProvider> */}
   </AppContextProvider>
 );
 

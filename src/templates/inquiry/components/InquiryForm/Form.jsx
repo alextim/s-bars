@@ -14,6 +14,9 @@ import BoxedInputControl from '@/components/Form/src/components/form-controls/Bo
 import FormErrorMessage from '@/components/Form/src/components/form-controls/FormErrorMessage';
 import AutofillTrapForm from '@/components/Form/src/components/autofill-trap-form';
 
+import { space } from '@/theme/space';
+import mq from '@/theme/media-queries';
+
 import FormSection from './FormSection';
 
 import EMAIL_FIELD from '../../../../../config/form/email-field';
@@ -21,23 +24,23 @@ import fieldsInfo from '../../../../../config/form/inquiry-form-fields';
 
 const OTHER_FIELD = 'other';
 
-const styleSections = (t) => ({
+const styleSections = {
   display: 'grid',
-  gridGap: t.space[8],
-});
+  gridGap: space[8],
+};
 
-const styleFooter = (t) => ({
+const styleFooter = {
   display: 'flex',
   flexDirection: 'column',
-  [t.mq.lg]: {
+  [mq.lg]: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+};
 
-const styleButton = (t) => ({
-  marginTop: t.space[4],
-});
+const styleButton = {
+  marginTop: space[4],
+};
 
 const PrivacyLabel = () => {
   const { t } = useTranslation();

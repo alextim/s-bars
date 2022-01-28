@@ -10,34 +10,31 @@ const left = keyframes`
   100% {transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg)}
 `;
 
-const Spinner = ({ css, color, size = 2.5 }) => {
-  const unit = 'rem';
-  const style = (i) => {
-    const value = size;
+const unit = 'rem';
 
-    return CSS`
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: ${`${value}${unit}`};
-      height: ${`${value}${unit}`};
-      border: ${`${value / 10}${unit}`} solid ${color};
-      opacity: 0.4;
-      border-radius: 100%;
-      animation-fill-mode: forwards;
-      perspective: 800px;
-      animation: ${i === 1 ? right : left} 2s 0s infinite linear;
-    `;
+const Spinner = ({ css, color, size = 2.5 }) => {
+  const style = (i) => CSS`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: ${`${size}${unit}`};
+    height: ${`${size}${unit}`};
+    border: ${`${size / 10}${unit}`} solid ${color};
+    opacity: 0.4;
+    border-radius: 100%;
+    animation-fill-mode: forwards;
+    perspective: 800px;
+    animation: ${i === 1 ? right : left} 2s 0s infinite linear;
+  `;
+
+  const styleWrap = {
+    width: `{size}${unit}`,
+    height: `${size}${unit}`,
+    position: 'relative',
   };
 
-  const wrapper = () => CSS`
-      width: ${size}${unit};
-      height: ${size}${unit};
-      position: relative;
-    `;
-
   return (
-    <span css={[wrapper(), css]}>
+    <span css={[styleWrap, css]}>
       <span css={style(1)} />
       <span css={style(2)} />
     </span>

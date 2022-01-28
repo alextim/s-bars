@@ -1,13 +1,17 @@
-const getStyle = (t, isInvalid) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  '> input, > textarea': {
-    borderColor: isInvalid ? t.colors.error : t.colors.body,
-  },
-});
+import colors from '@/theme/colors';
 
 const FormControl = ({ children, isInvalid }) => (
-  <div css={(t) => getStyle(t, isInvalid)}>{children}</div>
+  <div
+    css={{
+      display: 'flex',
+      flexDirection: 'column',
+      '> input, > textarea': {
+        borderColor: isInvalid ? colors.error : colors.body,
+      },
+    }}
+  >
+    {children}
+  </div>
 );
 
 export default FormControl;

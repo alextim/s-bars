@@ -1,8 +1,9 @@
-const styleError = (t) => ({
-  color: t.colors.error,
-});
+import colors from '@/theme/colors';
 
-const FormErrorMessage = ({ children }) =>
-  children ? <div css={styleError}>{children}</div> : null;
+const styleError = {
+  color: colors.error,
+};
+
+const FormErrorMessage = ({ children }) => (children ? <div css={styleError}>{children}</div> : null);
 
 export default FormErrorMessage;

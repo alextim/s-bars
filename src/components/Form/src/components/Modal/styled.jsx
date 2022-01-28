@@ -1,3 +1,6 @@
+import colors from '@/theme/colors';
+import shadows from '@/theme/shadows';
+
 export const styleModalWrap = {
   position: 'fixed',
   top: 0,
@@ -26,7 +29,7 @@ const styleCloseButtonWrap = {
   top: '1rem',
 };
 
-const styleCloseButton = (t) => ({
+const styleCloseButton = {
   position: 'relative',
   width: '1.5rem',
   height: '1.75rem',
@@ -45,7 +48,7 @@ const styleCloseButton = (t) => ({
     left: '1rem',
     height: '1.5rem',
     width: '2px',
-    backgroundColor: t.colors.modal.text,
+    backgroundColor: colors.modal.text,
   },
 
   '&::before': {
@@ -55,7 +58,7 @@ const styleCloseButton = (t) => ({
   '&::after': {
     transform: 'rotate(-45deg)',
   },
-});
+};
 
 export const StyledModalCloseButton = ({ onClick }) => (
   <div css={styleCloseButtonWrap}>
@@ -70,7 +73,7 @@ export const StyledModalCloseButton = ({ onClick }) => (
   </div>
 );
 
-export const styleModalContent = (t) => ({
+export const styleModalContent = {
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
@@ -78,12 +81,12 @@ export const styleModalContent = (t) => ({
   maxWidth: '26rem',
   top: 0,
   margin: '3.75rem auto',
-  color: t.colors.modal.text,
-  backgroundColor: t.colors.modal.bg,
-  boxShadow: t.shadows.dialog,
+  color: colors.modal.text,
+  backgroundColor: colors.modal.bg,
+  boxShadow: shadows.dialog,
   outline: 0,
   zIndex: 1400,
-});
+};
 
 export const ModalHeader = ({ children }) => (
   <div

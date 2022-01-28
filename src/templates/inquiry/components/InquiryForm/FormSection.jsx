@@ -1,43 +1,48 @@
-const styleWrap = (t) => ({
+import { space } from '@/theme/space';
+import mq from '@/theme/media-queries';
+import colors from '@/theme/colors';
+import fonts from '@/theme/fonts';
+
+const styleWrap = {
   display: 'grid',
-  gridGap: t.space[2],
-  [t.mq.lg]: {
+  gridGap: space[2],
+  [mq.lg]: {
     gridGap: 0,
     gridTemplateColumns: '1fr 3fr',
   },
-});
+};
 
-const styleTitle = (t) => ({
+const styleTitle = {
   margin: 0,
-  fontFamily: t.fonts.body,
-  [t.mq.lg]: {
+  fontFamily: fonts.body,
+  [mq.lg]: {
     gridColumn: 2,
     grdRow: 1,
-    paddingLeft: t.space[4],
-    paddingBottom: t.space[2],
-    borderLeft: `1px ${t.colors.brand.main} solid`,
+    paddingLeft: space[4],
+    paddingBottom: space[2],
+    borderLeft: `1px ${colors.brand.main} solid`,
   },
-});
+};
 
-const styleDescription = (t) => ({
-  [t.mq.lg]: {
+const styleDescription = {
+  [mq.lg]: {
     gridColumn: 1,
     gridRow: 2,
     textAlign: 'right',
-    paddingRight: t.space[4],
+    paddingRight: space[4],
   },
-});
+};
 
-const styleContentWrap = (t) => ({
+const styleContentWrap = {
   display: 'grid',
-  gridGap: t.space[4],
-  [t.mq.lg]: {
+  gridGap: space[4],
+  [mq.lg]: {
     gridColumn: 2,
     gridRow: 2,
-    paddingLeft: t.space[4],
-    borderLeft: `1px ${t.colors.brand.main} solid`,
+    paddingLeft: space[4],
+    borderLeft: `1px ${colors.brand.main} solid`,
   },
-});
+};
 
 const FormSection = ({ title, description, children }) => (
   <section css={styleWrap}>

@@ -1,18 +1,20 @@
 import React from 'react';
 import useLocaleData from '@/hooks/useLocaleData';
 import { useTranslation } from '@/i18n';
+import { fontSizes } from '@/theme/font-sizes';
+import { space } from '@/theme/space';
 
-const styleWrap = (t) => ({
-  marginTop: t.space[5],
-  fontSize: t.fontSizes[0],
-});
+const styleWrap = {
+  marginTop: space[5],
+  fontSize: fontSizes[0],
+};
 
-const styleCaption = (t) => ({
+const styleCaption = {
   ':after': {
     content: '":"',
-    marginRight: t.space[1],
+    marginRight: space[1],
   },
-});
+};
 
 const LastUpdated = ({ date }) => {
   const { formatLocale } = useLocaleData();

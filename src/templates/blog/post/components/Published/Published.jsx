@@ -1,11 +1,13 @@
 import React from 'react';
 
 import useLocaleData from '@/hooks/useLocaleData';
+import { fontSizes } from '@/theme/font-sizes';
+import { space } from '@/theme/space';
 
-const styleWrap = (t) => ({
-  fontSize: t.fontSizes[0],
-  marginBottom: t.space[2],
-});
+const styleWrap = {
+  fontSize: fontSizes[0],
+  marginBottom: space[2],
+};
 
 const Published = ({ date }) => {
   const { formatLocale } = useLocaleData();

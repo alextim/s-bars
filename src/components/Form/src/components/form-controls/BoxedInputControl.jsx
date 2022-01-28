@@ -1,3 +1,5 @@
+import colors from '@/theme/colors';
+
 import Input from './inputs';
 import FormLabel from './FormLabel';
 import FormErrorMessage from './FormErrorMessage';
@@ -26,18 +28,11 @@ const styleLabel = {
 };
 const BoxedInputControl = ({ name, label, type = 'text', value, required, error, onChange }) => (
   <div css={styleWrap}>
-    <div css={[styleInnerWrap, (t) => ({ borderColor: error ? t.colors.error : t.colors.body })]}>
+    <div css={[styleInnerWrap, { borderColor: error ? colors.error : colors.body }]}>
       <FormLabel htmlFor={name} required={required} inline overrideCSS={styleLabel}>
         {label}
       </FormLabel>
-      <Input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        value={value}
-        onChange={onChange}
-      />
+      <Input id={name} name={name} type={type} required={required} value={value} onChange={onChange} />
     </div>
     <FormErrorMessage>{error}</FormErrorMessage>
   </div>

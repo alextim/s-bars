@@ -2,6 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import utils from '@alextim/utils';
+import mq from '@/theme/media-queries';
+import { space } from '@/theme/space';
 
 import SEO from '@/components/SEO';
 import Layout from '@/components/Layout';
@@ -12,24 +14,27 @@ import OrganizationOpeningHours from '@/components/organization/OrganizationOpen
 import useOrgContacts from '@/hooks/useOrgContacts';
 import { useTranslation } from '@/i18n';
 
-const styleContactItemWrap = (t) => ({
+const styleContactItemWrap = {
   display: 'flex',
   flexDirection: 'column',
   marginBottom: '1rem',
-  [t.mq.lg]: {
+  [mq.lg]: {
     paddingRight: '1rem',
     ':last-of-type': {
       paddingRight: 0,
     },
   },
-});
+};
+
 const styleContactItemTitle = {
   marginBottom: '0.5rem',
   fontWeight: 'bold',
 };
+
 const styleAddressWrap = {
   marginBottom: '0.5rem',
 };
+
 const styleItemSeparator = {
   marginBottom: '0.5rem',
 };
@@ -93,13 +98,13 @@ const ContactPoints = ({ items }) => {
   ));
 };
 
-const styleWrap3 = (t) => ({
+const styleWrap3 = {
   display: 'grid',
-  gridGap: t.space[8],
-  [t.mq.lg]: {
+  gridGap: space[8],
+  [mq.lg]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
-});
+};
 
 const ContactsTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {

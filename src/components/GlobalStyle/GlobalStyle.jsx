@@ -10,6 +10,7 @@ import lineHeights from '@/theme/line-heights';
 import { fontSizes } from '@/theme/font-sizes';
 import fontWeights from '@/theme/font-weights';
 import { space } from '@/theme/space';
+
 import BODY_PREVENT_SCROLLING from '@/constants/body-prevent-scrolling';
 
 const GlobalStyle = () => (

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
+import { space } from '@/theme/space';
+
 import fieldsInfo from '../../../../../../config/form/contact-form-fields';
 import EMAIL_FIELD from '../../../../../../config/form/email-field';
 
-import useForm from '@/hooks/useForm';
+import useForm from '../../hooks/useForm';
 import sendData from '../../services/send-data';
 
 import useModal from '../Modal/useModal';
@@ -26,10 +28,10 @@ async function sendDataMock() {
 }
 */
 
-const styleControlsWrap = (t) => ({
+const styleControlsWrap = {
   display: 'grid',
-  gridGap: t.space[6],
-});
+  gridGap: space[6],
+};
 
 const ContactFormBase = ({ fields, modalContent, actionControl, endPoint, getErrorMessage }) => {
   const [error, setError] = useState('');
