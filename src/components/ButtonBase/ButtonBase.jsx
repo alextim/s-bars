@@ -7,7 +7,7 @@ import buttons from '@/theme/buttons';
 
 const semibold = 500;
 
-const focusStyle = {
+const styleFocus = {
   outline: 'none',
   boxShadow: `0 0 0 2px ${colors.input.focusBoxShadow}`,
 };
@@ -64,7 +64,7 @@ const buttonStyles = {
       textDecoration: 'none',
     },
     ':focus': {
-      ...focusStyle,
+      ...styleFocus,
     },
     ':after': {
       content: '""',

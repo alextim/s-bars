@@ -1,37 +1,40 @@
-const Hamburger = ({ w = 2.5, m = 0, open, bp, onClick }) => {
-  const wrapStyle = {
-    height: `${w}rem`,
-    width: `${w}rem`,
-    margin: m,
-    position: 'relative',
-    transform: 'rotate(0deg)',
-    transition: '0.5s ease-in-out',
-    backgroundColor: 'transparent',
-    border: 'none',
+import mq from '@/theme/media-queries';
 
-    [bp]: {
-      display: 'none',
-      pointerEvents: 'none',
-    },
-  };
+const styleSpanCommon = {
+  content: '""',
+  display: 'block',
+  position: 'absolute',
+  height: '0.125rem',
+  width: '1.25rem',
+  borderRadius: '1px',
+  transition: 'all 300ms ease-in-out',
+};
 
-  const commonSpanStyle = {
-    content: '""',
-    display: 'block',
-    position: 'absolute',
-    height: '0.125rem',
-    width: '1.25rem',
-    borderRadius: '1px',
-    transition: 'all 300ms ease-in-out',
-  };
+const HAMBURGER_WIDTH = '2.5rem';
+const styleWrap = {
+  height: HAMBURGER_WIDTH,
+  width: HAMBURGER_WIDTH,
+  margin: 0,
+  position: 'relative',
+  transform: 'rotate(0deg)',
+  transition: '0.5s ease-in-out',
+  backgroundColor: 'transparent',
+  border: 'none',
 
-  const spanStyle = (t) => ({
-    ...commonSpanStyle,
+  [mq.lg]: {
+    display: 'none',
+    pointerEvents: 'none',
+  },
+};
+
+const Hamburger = ({ open, onClick }) => {
+  const styleSpan = (t) => ({
+    ...styleSpanCommon,
     backgroundColor: open ? 'transparent' : t.colors.text,
 
     ':before, :after': {
+      ...styleSpanCommon,
       backgroundColor: t.colors.text,
-      ...commonSpanStyle,
     },
 
     ':before': {
@@ -47,13 +50,8 @@ const Hamburger = ({ w = 2.5, m = 0, open, bp, onClick }) => {
   });
 
   return (
-    <button
-      css={wrapStyle}
-      type="button"
-      aria-label={`${open ? 'Close' : 'Open'} menu`}
-      onClick={onClick}
-    >
-      <span css={spanStyle} />
+    <button css={styleWrap} type="button" aria-label={`${open ? 'Close' : 'Open'} menu`} onClick={onClick}>
+      <span css={styleSpan} />
     </button>
   );
 };

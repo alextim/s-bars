@@ -5,7 +5,7 @@ import SocialLink from './SocialLink';
 
 import Icon from '../Icon';
 
-const wrapStyle = {
+const styleWrap = {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -15,7 +15,7 @@ const wrapStyle = {
 };
 
 const SocialLinks = ({ items }) => (
-  <div css={wrapStyle}>
+  <div css={styleWrap}>
     {Object.keys(items).map((key) => (
       <SocialLink key={key} icon={<Icon name={key} />} name={utils.upperFirst(key)} to={items[key].to} title={items[key].title} />
     ))}

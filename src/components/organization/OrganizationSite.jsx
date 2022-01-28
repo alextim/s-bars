@@ -3,8 +3,6 @@ import utils from '@alextim/utils';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
 import IconLink from '../IconLink';
 
-// import { siteUrl } from '../../../s-bars.content/config/website';
-
 const OrganizationSite = () => {
   const { siteUrl } = useSiteMetadata();
   const hostName = utils.extractHostname(siteUrl);

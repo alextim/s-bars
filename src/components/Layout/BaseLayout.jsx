@@ -8,15 +8,14 @@ import AppContextProvider from '../../context';
 import GlobalStyle from '../GlobalStyle';
 import Header from '../Header';
 import Footer from '../Footer';
-// import useInquiryForm from '../useInquiryForm';
 
-const rootStyle = {
+const styleRoot = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
 };
 
-const mainStyle = {
+const styleMain = {
   width: '100%',
   flex: '1 1 auto',
   marginTop: sizes.header.sm,
@@ -31,9 +30,9 @@ const BaseLayout = ({ context, children }) => (
   <AppContextProvider value={context}>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <div css={rootStyle}>
+      <div css={styleRoot}>
         <Header />
-        <main css={mainStyle}>{children}</main>
+        <main css={styleMain}>{children}</main>
         <Footer />
       </div>
     </ThemeProvider>

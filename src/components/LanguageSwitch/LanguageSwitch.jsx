@@ -8,13 +8,13 @@ import i18n from '@/i18n//i18n';
 import { useLocale } from '@/i18n//i18n-context';
 import useAllSitePath from '@/hooks/useAllSitePath';
 
-const wrapStyle = {
+const styleWrap = {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
 };
 
-const itemWrapStyle = {
+const styleItemWrap = {
   ':after': {
     content: '"|"',
     margin: '0 0.4rem',
@@ -27,7 +27,7 @@ const itemWrapStyle = {
   },
 };
 
-const itemStyle = {
+const styleItem = {
   color: colors.header.text,
   textTransform: 'uppercase',
   ':active, :focus, :hover': {
@@ -39,8 +39,8 @@ const itemStyle = {
   },
 };
 
-const activeItemStyle = {
-  ...itemStyle,
+const styleActiveItem = {
+  ...styleItem,
   color: colors.header.nav.languageSwitch.selected,
 };
 
@@ -77,14 +77,14 @@ const LanguageSwitch = ({ closeMenu, extraStyle = {} }) => {
   return (
     <Location>
       {({ location: { pathname } }) => (
-        <div css={{ ...wrapStyle, ...extraStyle }}>
+        <div css={{ ...styleWrap, ...extraStyle }}>
           {i18n.localeCodes.map((code) => {
             const { shortName } = i18n.locales[code];
             const isCurrent = locale === code;
             return (
-              <div key={code} className="lang-switch-item" css={itemWrapStyle}>
+              <div key={code} className="lang-switch-item" css={styleItemWrap}>
                 <Link
-                  css={isCurrent ? activeItemStyle : itemStyle}
+                  css={isCurrent ? styleActiveItem : styleItem}
                   to={isCurrent ? pathname : getSafePath(pathname, code, allPathes)}
                   onClick={closeMenu}
                 >

@@ -98,7 +98,7 @@ const styleWrapR = {
   },
 };
 
-const menuItemWrapStyle = {
+const styleMenuItemWrap = {
   margin: 0,
   [mq.lg]: {
     display: 'inline-flex',
@@ -124,7 +124,7 @@ const Menu = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
                 return <SubMenu key={i} to={to} title={title} items={submenu} path={pathname} onClick={onClick} />;
               }
               return (
-                <li key={i} css={menuItemWrapStyle}>
+                <li key={i} css={styleMenuItemWrap}>
                   <MenuItem to={to} isActive={to === pathname} onClick={onClick}>
                     {title}
                   </MenuItem>

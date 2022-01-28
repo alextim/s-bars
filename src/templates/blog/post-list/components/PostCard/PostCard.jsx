@@ -8,7 +8,7 @@ import getCardSchema from '@/components/SEO/getCardSchema';
 
 import ReadMore from '../ReadMore';
 
-const excerptStyle = {
+const styleExcerpt = {
   paddingTop: space[2],
 };
 
@@ -43,7 +43,7 @@ const PostCard = ({
       <a href={to} css={card.link}>
         <h2 css={card.heading}>{title}</h2>
       </a>
-      <p css={excerptStyle}>{excerpt}</p>
+      <p css={styleExcerpt}>{excerpt}</p>
       <ReadMore to={to} title={readMore} />
     </div>
   </article>

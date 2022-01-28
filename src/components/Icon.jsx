@@ -17,7 +17,7 @@ import AntHome from '../assets/ant-design-icons/outlined/home.svg';
 // import { FaViber } from 'react-icons/fa';
 // import { FaSkype } from 'react-icons/fa';
 
-const defStyle = {
+const styleDefault = {
   width: '1em',
   height: '1em',
 };
@@ -26,7 +26,7 @@ const Icon = ({ name, css = {}, ...rest }) => {
   if (!name) {
     return null;
   }
-  const style = { ...defStyle, ...css };
+  const style = { ...styleDefault, ...css };
   const icons = {
     facebook: <FaFacebookF css={style} {...rest} />,
     instagram: <FaInstagram css={style} {...rest} />,

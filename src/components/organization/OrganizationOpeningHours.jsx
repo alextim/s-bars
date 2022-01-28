@@ -2,19 +2,19 @@ import React from 'react';
 
 import { useTranslation } from '@/i18n';
 
-const wrapStyle = {
+const styleWrap = {
   display: 'grid',
   gridTemplateColumns: '4rem 3rem 1rem 3rem',
   rowGap: '0.1rem',
   columnGap: '0.1rem',
 };
-const dowStyle = {
+const styleDOW = {
   ':after': {
     content: '":"',
   },
 };
 
-const dayOffColumnStyle = {
+const styleDayOffColumn = {
   gridColumn: '2 / span 3',
 };
 
@@ -44,12 +44,12 @@ const OrganizationOpeningHours = ({ openingHours }) => {
   };
 
   return (
-    <div css={wrapStyle}>
+    <div css={styleWrap}>
       {openingHours.map(([dow, timeStart, timeFinish]) => (
         <React.Fragment key={dow}>
-          <div css={dowStyle}>{parseDow(dow)}</div>
+          <div css={styleDOW}>{parseDow(dow)}</div>
           {timeStart === timeFinish && timeFinish === '00:00' ? (
-            <div css={dayOffColumnStyle}>{t(dow.length === 2 ? 'day_off' : 'days_off')}</div>
+            <div css={styleDayOffColumn}>{t(dow.length === 2 ? 'day_off' : 'days_off')}</div>
           ) : (
             <React.Fragment>
               <div>{timeStart}</div>

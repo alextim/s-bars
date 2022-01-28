@@ -1,3 +1,5 @@
+import { getImage } from 'gatsby-plugin-image';
+
 const useBanner = (cover) => {
   if (!cover || !cover.sm) {
     return null;
@@ -5,7 +7,7 @@ const useBanner = (cover) => {
 
   let img;
   if (cover.xl) {
-    img = [cover.sm.childImageSharp.gatsbyImageData, cover.xl.childImageSharp.gatsbyImageData];
+    img = [getImage(cover.sm), getImage(cover.xl)];
     /*
     img = [
       {
@@ -19,7 +21,7 @@ const useBanner = (cover) => {
     ];
     */
   } else {
-    img = cover.sm.childImageSharp.gatsbyImageData;
+    img = getImage(cover.sm);
   }
   return {
     img,

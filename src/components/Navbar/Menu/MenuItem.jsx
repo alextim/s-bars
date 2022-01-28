@@ -6,11 +6,11 @@ import fontWeights from '@/theme/font-weights';
 
 import styleMenuItemLg from './styleMenuItemLg';
 
-const activeStyle = {
+const styleActive = {
   boxShadow: `0 -2px 0 ${colors.header.nav.item.boxShadowColor} inset`,
 };
 
-const linkStyle = {
+const styleLink = {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -66,7 +66,7 @@ const linkStyle = {
 };
 
 const MenuItem = ({ children, to, isActive, onClick, extraStyle = {} }) => (
-  <Link css={{ ...linkStyle, ...extraStyle, ...(isActive ? activeStyle : {}) }} to={to} onClick={onClick}>
+  <Link css={{ ...styleLink, ...extraStyle, ...(isActive ? styleActive : {}) }} to={to} onClick={onClick}>
     {children}
   </Link>
 );

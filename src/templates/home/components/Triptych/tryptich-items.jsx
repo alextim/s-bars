@@ -1,4 +1,4 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import colors from '@/theme/colors';
 import mq from '@/theme/media-queries';
@@ -91,11 +91,6 @@ export const SectionItemR = ({ data, breakWords }) => {
   );
 };
 
-export const SectionItemImage = ({ data }) => {
-  const { image } = data;
-  return (
-    <div css={styleImageWrap}>
-      {image && image.sm && <GatsbyImage image={image.sm.childImageSharp.gatsbyImageData} alt={image.alt} title={image.title} />}
-    </div>
-  );
-};
+export const SectionItemImage = ({ data: { image } }) => (
+  <div css={styleImageWrap}>{image && image.sm && <GatsbyImage image={getImage(image.sm)} alt={image.alt} title={image.title} />}</div>
+);

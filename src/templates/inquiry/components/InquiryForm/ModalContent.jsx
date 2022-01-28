@@ -7,7 +7,7 @@ import Message from '@/components/Form/src/components/Message';
 import Spinner from '@/components/Spinner';
 import Button from '@/components/Button';
 
-const spinnerStyle = (t) => ({ display: 'block', marginTop: t.space[8] });
+const styleSpinner = (t) => ({ display: 'block', marginTop: t.space[8] });
 
 const ModalContent = ({ loading, cancel, error }) => {
   const { t } = useTranslation();
@@ -47,7 +47,7 @@ const ModalContent = ({ loading, cancel, error }) => {
             }}
           >
             <div>{t('form.pls_wait')}</div>
-            <Spinner css={spinnerStyle} />
+            <Spinner css={styleSpinner} />
           </div>
         </ModalBody>
         <ModalFooter justify="center">

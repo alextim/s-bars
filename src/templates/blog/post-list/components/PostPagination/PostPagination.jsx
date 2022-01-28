@@ -33,7 +33,7 @@ function pagination(currentPage, pageCount, delta = 2) {
     });
 }
 
-const wrapperStyle = {
+const styleWrap = {
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
@@ -41,7 +41,7 @@ const wrapperStyle = {
   margin: '3rem 0',
 };
 
-const paginationNumberStyle = {
+const stylePaginationNumber = {
   height: '2.5rem',
   margin: `0 ${space[1]}`,
   minWidth: '2.5rem',
@@ -53,7 +53,7 @@ const paginationNumberStyle = {
   },
 };
 
-const activeStyle = {
+const styleActive = {
   color: colors.highlight,
   boxShadow: `0 2px 0 0 ${colors.highlight}`,
 };
@@ -68,7 +68,7 @@ const PostPagination = ({ currentPage, numPages, slug }) => {
   const pages = pagination(currentPage, numPages);
 
   return (
-    <div css={wrapperStyle}>
+    <div css={styleWrap}>
       {!isFirst && <Link to={prevLink(currentPage, slug)}>{'<'}</Link>}
       {pages.map((page) => {
         if (typeof page !== 'number') {
@@ -79,8 +79,8 @@ const PostPagination = ({ currentPage, numPages, slug }) => {
             key={page}
             to={currentLink(page, slug)}
             css={{
-              ...paginationNumberStyle,
-              ...(page === currentPage ? activeStyle : {}),
+              ...stylePaginationNumber,
+              ...(page === currentPage ? styleActive : {}),
             }}
           >
             {page}
@@ -88,7 +88,7 @@ const PostPagination = ({ currentPage, numPages, slug }) => {
         );
       })}
       {!isLast && (
-        <Link to={nextLink(currentPage, slug)} css={paginationNumberStyle}>
+        <Link to={nextLink(currentPage, slug)} css={stylePaginationNumber}>
           {'>'}
         </Link>
       )}

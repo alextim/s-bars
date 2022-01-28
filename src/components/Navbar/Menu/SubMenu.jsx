@@ -8,7 +8,7 @@ import MenuItem from './MenuItem';
 
 import styleMenuItemLg from './styleMenuItemLg';
 
-const menuItemWrapStyle = {
+const styleMenuItemWrap = {
   [mq.lg]: {
     display: 'flex',
     alignItems: 'center',
@@ -17,7 +17,7 @@ const menuItemWrapStyle = {
   },
 };
 
-const dropDownWrapStyle = {
+const styleDropdownWrap = {
   flexDirection: 'column',
   // padding: '0 2rem',
   listStyleType: 'none',
@@ -35,7 +35,7 @@ const dropDownWrapStyle = {
   },
 };
 
-const headingWrapStyle = {
+const styleHeadingWrap = {
   display: 'inline-flex',
   alignItems: 'center',
   width: '100%',
@@ -46,7 +46,7 @@ const headingWrapStyle = {
   },
 };
 
-const menuItemExtraStyle = {
+const styleMenuItemExtra = {
   [mq.lg]: {
     ...styleMenuItemLg,
 
@@ -92,7 +92,7 @@ const SubMenu = ({ title, to, items, path, onClick }) => {
     onClick(e);
   };
 
-  const toggleStyle = {
+  const styleToggle = {
     position: 'absolute',
     width: '4rem',
     height: '100%',
@@ -122,14 +122,14 @@ const SubMenu = ({ title, to, items, path, onClick }) => {
   };
 
   return (
-    <li css={menuItemWrapStyle} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      <div css={headingWrapStyle}>
-        <MenuItem isActive={path === to} to={to} extraStyle={menuItemExtraStyle} onClick={(e) => onClickWrap(e, to)}>
+    <li css={styleMenuItemWrap} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      <div css={styleHeadingWrap}>
+        <MenuItem isActive={path === to} to={to} extraStyle={styleMenuItemExtra} onClick={(e) => onClickWrap(e, to)}>
           {title}
         </MenuItem>
-        <div type="button" css={toggleStyle} onTouchStart={toggleVisible} />
+        <div type="button" css={styleToggle} onTouchStart={toggleVisible} />
       </div>
-      <ul css={{ ...dropDownWrapStyle, display: visible ? 'flex' : 'none' }}>
+      <ul css={{ ...styleDropdownWrap, display: visible ? 'flex' : 'none' }}>
         {items.map((item) => (
           <li key={item.to} css={styleLi}>
             <MenuItem isActive={path === item.to} to={item.to} onClick={(e) => onClickWrap(e, item.to)}>

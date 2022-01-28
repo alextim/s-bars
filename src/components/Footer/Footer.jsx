@@ -75,7 +75,7 @@ const styleColophonBottomInnerWrap = {
   },
 };
 
-const footerStyle = {
+const styleFooter = {
   color: colors.footer.text,
   backgroundColor: colors.footer.bg,
   fontSize: fontSizes[1],
@@ -102,7 +102,7 @@ const Footer = () => {
   const socialLinks = useSocialLinks();
 
   return (
-    <footer css={footerStyle}>
+    <footer css={styleFooter}>
       <Container>
         <div css={styleWidgetArea}>
           <WidgetWrapper extraStyle={styleA}>

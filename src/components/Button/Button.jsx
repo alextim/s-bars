@@ -3,17 +3,7 @@ import Link from '../LocalizedLink';
 
 const linkComponent = ({ children, ...rest }) => <Link {...rest}>{children}</Link>;
 
-const Button = ({
-  to,
-  overrideCSS,
-  icon,
-  children,
-  tag,
-  secondary,
-  tracking,
-  variant,
-  ...rest
-}) => (
+const Button = ({ to, overrideCSS, icon, children, tag, secondary, tracking, variant, ...rest }) => (
   <ButtonBase
     to={to}
     overrideCSS={overrideCSS}
