@@ -1,26 +1,14 @@
 version: 2
-registries:
-  "@alextim/at-site-core":
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    token: ${{secrets.NPM_TOKEN}}
-  "@alextim/at-sitemap":
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    token: ${{secrets.NPM_TOKEN}}
-
 updates:
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: '/'
     schedule:
       interval: daily
 
   - package-ecosystem: npm
     open-pull-requests-limit: 10
-    registries:
-      - "@alextim/at-site-core"
-      - "@alextim/at-sitemap"
-    directory: "/"
+
+    directory: '/'
     schedule:
       interval: daily
     versioning-strategy: increase

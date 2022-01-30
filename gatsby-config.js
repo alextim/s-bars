@@ -219,7 +219,7 @@ const plugins = [
     },
   },
   {
-    resolve: '@alextim/at-site-core',
+    resolve: '@alextim/gatsby-plugin-blogcore',
     options: {
       templatesDir: path.join(__dirname, 'src', config.templatesDir),
       pageDirs,
@@ -234,7 +234,7 @@ const plugins = [
     },
   },
   {
-    resolve: '@alextim/at-sitemap',
+    resolve: '@alextim/gatsby-plugin-sitemap',
     options: {
       createRobotsTxt: true,
       ignoreImagesWithoutAlt: false,
