@@ -17,8 +17,6 @@ const styleHeading = {
   fontSize: fontSizes[12],
 };
 
-// const styleHtml = { textAlign: 'center' };
-
 const NotFoundTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
   const {
     translations,

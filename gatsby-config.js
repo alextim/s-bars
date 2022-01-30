@@ -7,7 +7,6 @@ const getCSP = require('@alextim/csp');
 
 const i18n = require('./src/i18n/i18n');
 const config = require('./s-bars.content/config/website');
-// const locales = require('./s-bars.content/config/locales');
 
 const manifestIconSrc = path.join(__dirname, 'src', 'assets', 'images', 'icon.png');
 

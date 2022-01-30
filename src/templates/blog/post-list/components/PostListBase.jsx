@@ -8,7 +8,6 @@ import styleCardsWrap from '../../../shared/styles/styleCardsWrap';
 import styleHtml from '../../../shared/styles/styleHtml';
 
 import config from '../../../../../s-bars.content/config/website';
-// import loadable from '@loadable/component';
 
 import PostPagination from './PostPagination';
 // import { CategoryWidget, TagsWidget, YearsWidget } from '@/components/post-widgets';
