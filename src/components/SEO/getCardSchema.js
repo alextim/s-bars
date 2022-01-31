@@ -18,22 +18,22 @@ const getCardSchema = ({ to, title, headline, cover, datePublished, dateModified
     throw new Error(`getCardSchema: Unsupported pageType ${pageType}!`);
   }
 
-  const URL = `${siteUrl}${to}`;
+  const pageUrl = `${siteUrl}${to}`;
 
-  let imgURL;
+  let imgUrl;
   if (cover && cover.sm && cover.sm.publicURL) {
-    imgURL = `${siteUrl}${cover.sm.publicURL}`;
+    imgUrl = `${siteUrl}${cover.sm.publicURL}`;
   }
 
   return getPageSchema({
     organizationName,
     siteUrl,
     siteLogo,
-    URL,
+    pageUrl,
     title,
     headline,
     htmlLang,
-    imgURL,
+    imgUrl,
     datePublished,
     dateModified,
     author,
