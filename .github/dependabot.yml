@@ -12,5 +12,3 @@ updates:
     schedule:
       interval: daily
     versioning-strategy: increase
-    ignore:
-      - dependency-name: gatsby
