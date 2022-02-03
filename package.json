@@ -46,7 +46,7 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "@alextim/at-seo": "^0.4.27",
+    "@alextim/at-seo": "^0.4.28",
     "@alextim/gatsby-plugin-blogcore": "^0.8.33",
     "@alextim/gatsby-plugin-sitemap": "^0.4.19",
     "@alextim/csp": "^0.1.16",

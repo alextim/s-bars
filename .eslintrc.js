@@ -69,8 +69,10 @@ module.exports = {
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'no-restricted-exports': 'off',
     'react/jsx-fragments': 0,
+    /*
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    */
     // 'no-anonymous-exports-page-templates': 'warn',
     // 'limited-exports-page-templates': 'warn',
     '@emotion/syntax-preference': [2, 'object'],
