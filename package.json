@@ -46,8 +46,8 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "@alextim/at-seo": "^0.4.26",
-    "@alextim/gatsby-plugin-blogcore": "^0.8.32",
+    "@alextim/at-seo": "^0.4.27",
+    "@alextim/gatsby-plugin-blogcore": "^0.8.33",
     "@alextim/gatsby-plugin-sitemap": "^0.4.19",
     "@alextim/csp": "^0.1.16",
     "@alextim/i18n-utils": "^0.1.14",
@@ -81,8 +81,8 @@
     "react-multi-carousel": "^2.6.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
-    "@babel/eslint-parser": "^7.16.5",
+    "@babel/core": "^7.17.0",
+    "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-react": "^7.16.7",
     "@emotion/eslint-plugin": "^11.7.0",
     "@hot-loader/react-dom": "^17.0.2",

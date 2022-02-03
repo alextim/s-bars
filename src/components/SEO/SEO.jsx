@@ -1,14 +1,18 @@
-import { SeoBase } from '@alextim/at-seo';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+
+import { getSeoData } from '@alextim/at-seo';
 
 import i18n from '@/i18n';
-
 import useSocialLinks from '@/hooks/useSocialLinks';
 import useOrgContacts from '@/hooks/useOrgContacts';
 import useOrgAddress from '@/hooks/useOrgAddress';
+
 import config from '../../../s-bars.content/config/website';
 
 const SEO = ({
   title,
+  keywords,
   description,
   headline,
   locale,
@@ -44,32 +48,33 @@ const SEO = ({
       }, {});
   }
   */
-  return (
-    <SeoBase
-      config={config}
-      siteMeta={siteMeta}
-      i18n={i18n}
-      orgContacts={orgContacts}
-      orgAddress={orgAddress}
-      socialLinks={socialLinks}
-      title={title}
-      description={description}
-      headline={headline}
-      locale={locale}
-      pathname={pathname}
-      pageType={pageType}
-      imgPath={imgPath}
-      datePublished={datePublished}
-      dateModified={dateModified}
-      author={author}
-      breadcrumbs={breadcrumbs}
-      tags={tags?.map(({ title: tagTitle }) => tagTitle)}
-      canonical={canonical}
-      noindex={noindex}
-      metas={metas}
-      links={links}
-    />
-  );
+  const data = getSeoData({
+    config,
+    siteMeta,
+    i18n,
+    orgContacts,
+    orgAddress,
+    socialLinks,
+    title,
+    keywords,
+    headline,
+    description,
+    locale,
+    pathname,
+    pageType,
+    imgPath,
+    datePublished,
+    dateModified,
+    author,
+    breadcrumbs,
+    tags: tags?.map(({ title: tagTitle }) => tagTitle),
+    canonical,
+    noindex,
+    metas,
+    links,
+  });
+
+  return <Helmet htmlAttributes={data.htmlAttributes} title={data.title} meta={data.meta} link={data.link} script={data.script} />;
 };
 
 export default SEO;
