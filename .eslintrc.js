@@ -51,32 +51,30 @@ module.exports = {
   plugins: ['@emotion', 'import', 'jsx-a11y', 'react', 'react-hooks', 'prettier'],
 
   rules: {
-    // 'react/react-in-jsx-scope': 'off',
-    // 'react/jsx-uses-react': 'off',
     indent: ['error', 2, { SwitchCase: 1 }],
     quotes: [2, 'single', { avoidEscape: true }],
     'jsx-quotes': [2, 'prefer-double'],
     semi: ['error', 'always'],
     'linebreak-style': ['error', 'unix'],
     'no-console': ['error', { allow: ['warn', 'error'] }],
-    // 'prettier/prettier': ['error', { endOfLine: 'auto' }],
-    // Allowing ++ on numbers
     'no-plusplus': 'off',
+    'no-restricted-exports': 'off',
+
     'react/no-array-index-key': 'warn',
     'react/no-danger': 0,
     'react/jsx-props-no-spreading': 0,
     'react/prop-types': 'off',
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
-    'no-restricted-exports': 'off',
     'react/jsx-fragments': 0,
-    /*
+    /* No React import */
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    */
+
     // 'no-anonymous-exports-page-templates': 'warn',
     // 'limited-exports-page-templates': 'warn',
     '@emotion/syntax-preference': [2, 'object'],
     '@emotion/jsx-import': 0,
+
     'prettier/prettier': 'error',
   },
 };

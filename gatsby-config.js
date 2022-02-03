@@ -55,6 +55,7 @@ const pageSources = Object.keys(allDirs).map((name) => ({
 }));
 
 const plugins = [
+  'gatsby-plugin-preact',
   'gatsby-plugin-image',
   {
     resolve: 'gatsby-source-filesystem',
