@@ -88,39 +88,26 @@ export const styleModalContent = {
   zIndex: 1400,
 };
 
-export const ModalHeader = ({ children }) => (
-  <div
-    css={{
-      position: 'relative',
-      padding: '1rem 1.5rem',
-      fontSize: '1.25rem',
-      fontWeight: 600,
-    }}
-  >
-    {children}
-  </div>
-);
+const styleModalHeader = {
+  position: 'relative',
+  padding: '1rem 1.5rem',
+  fontSize: '1.25rem',
+  fontWeight: 600,
+};
+export const ModalHeader = ({ children }) => <div css={styleModalHeader}>{children}</div>;
 
-export const ModalBody = ({ children }) => (
-  <div
-    css={{
-      position: 'relative',
-      padding: '0.5rem 1.5rem 1.5rem',
-      flex: '1 1 0%',
-    }}
-  >
-    {children}
-  </div>
-);
+const styleModalBody = {
+  position: 'relative',
+  padding: '0.5rem 1.5rem 1.5rem',
+  flex: '1 1 0%',
+};
+export const ModalBody = ({ children }) => <div css={styleModalBody}>{children}</div>;
 
-export const ModalFooter = ({ justify, children }) => (
-  <div
-    css={{
-      display: 'flex',
-      justifyContent: justify || 'flex-end',
-      padding: '1rem 1.5rem',
-    }}
-  >
-    {children}
-  </div>
-);
+export const ModalFooter = ({ justify, children }) => {
+  const styleModalFooter = {
+    display: 'flex',
+    justifyContent: justify || 'flex-end',
+    padding: '1rem 1.5rem',
+  };
+  return <div css={styleModalFooter}>{children}</div>;
+};

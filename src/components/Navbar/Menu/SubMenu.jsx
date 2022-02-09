@@ -17,24 +17,6 @@ const styleMenuItemWrap = {
   },
 };
 
-const styleDropdownWrap = {
-  flexDirection: 'column',
-  // padding: '0 2rem',
-  listStyleType: 'none',
-  padding: 0,
-  margin: 0,
-  backgroundColor: colors.header.nav.submenu.bg,
-
-  [mq.lg]: {
-    position: 'absolute',
-    top: sizes.header.lg,
-    backgroundColor: colors.header.bg,
-    left: 0,
-    boxShadow: '2px 2px 15px 0 rgba(0,0,0,.8)',
-    zIndex: 100,
-  },
-};
-
 const styleHeadingWrap = {
   display: 'inline-flex',
   alignItems: 'center',
@@ -65,6 +47,29 @@ const styleMenuItemExtra = {
 
 const styleLi = {
   margin: 0,
+};
+
+const styleDropdownWrap = {
+  display: 'flex',
+  flexDirection: 'column',
+  // padding: '0 2rem',
+  listStyleType: 'none',
+  padding: 0,
+  margin: 0,
+  backgroundColor: colors.header.nav.submenu.bg,
+
+  [mq.lg]: {
+    position: 'absolute',
+    top: sizes.header.lg,
+    backgroundColor: colors.header.bg,
+    left: 0,
+    boxShadow: '2px 2px 15px 0 rgba(0,0,0,.8)',
+    zIndex: 100,
+  },
+};
+
+const styleDropdownWrapHidden = {
+  display: 'none',
 };
 
 const SubMenu = ({ title, to, items, path, onClick }) => {
@@ -129,7 +134,7 @@ const SubMenu = ({ title, to, items, path, onClick }) => {
         </MenuItem>
         <div type="button" css={styleToggle} onTouchStart={toggleVisible} />
       </div>
-      <ul css={{ ...styleDropdownWrap, display: visible ? 'flex' : 'none' }}>
+      <ul css={visible ? styleDropdownWrap : styleDropdownWrapHidden}>
         {items.map((item) => (
           <li key={item.to} css={styleLi}>
             <MenuItem isActive={path === item.to} to={item.to} onClick={(e) => onClickWrap(e, item.to)}>

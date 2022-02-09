@@ -28,7 +28,8 @@ import Button from '../Button';
 
 import styleA from './styleA';
 
-const Container = ({ children }) => <div css={container.header}>{children}</div>;
+const styleContainerHeader = container.header;
+const Container = ({ children }) => <div css={styleContainerHeader}>{children}</div>;
 
 const styleWidgetWrap = {
   display: 'flex',
@@ -36,7 +37,10 @@ const styleWidgetWrap = {
   lineHeight: 1.75,
 };
 
-const WidgetWrapper = ({ extraStyle = {}, children }) => <div css={{ ...styleWidgetWrap, ...extraStyle }}>{children}</div>;
+const WidgetWrapper = ({ extraStyle = {}, children }) => {
+  const style = { ...styleWidgetWrap, ...extraStyle };
+  return <div css={style}>{children}</div>;
+};
 
 const styleWidgetArea = {
   display: 'grid',

@@ -224,7 +224,8 @@ const Form = ({ onSubmit }) => {
               error={errors.subject}
               onChange={onSubjectChange}
             />
-            <div css={{ display: isOtherItemSelected(values.subject) ? 'block' : 'none' }}>
+            {/* TODO: style instead of css */}
+            <div style={{ display: isOtherItemSelected(values.subject) ? 'block' : 'none' }}>
               <InputControl
                 label={OTHER}
                 name={OTHER_FIELD}

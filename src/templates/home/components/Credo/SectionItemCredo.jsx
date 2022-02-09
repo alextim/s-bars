@@ -47,10 +47,11 @@ const stylePlane = {
 
 export const SectionItemCredo = ({ data }) => {
   const { title, text, icon } = data;
+  const style = { ...styleIcon, ...(icon === 'plane' ? stylePlane : {}) };
   return (
     <div css={styleWrapHorizontal}>
       <div css={styleCircleWrap}>
-        <Icon name={icon} css={{ ...styleIcon, ...(icon === 'plane' ? stylePlane : {}) }} />
+        <Icon name={icon} css={style} />
       </div>
       <h3 css={styleTitle}>{title}</h3>
       <div css={styleCredoText} dangerouslySetInnerHTML={{ __html: text }} />
