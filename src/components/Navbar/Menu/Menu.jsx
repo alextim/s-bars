@@ -9,7 +9,7 @@ import CTAButton from './CTAButton';
 import MenuItem from './MenuItem';
 import SubMenu from './SubMenu';
 
-const styleWrap = {
+const styleWrapDefault = {
   flex: 1,
   minWidth: '50%',
 
@@ -113,11 +113,11 @@ const Menu = ({ navItems, isMenuOpen, setIsMenuOpen }) => {
       setIsMenuOpen(false);
     }
   };
-
+  const styleWrap = isMenuOpen ? { ...styleWrapDefault, ...styleWrapOpened } : styleWrapDefault;
   return (
     <Location>
       {({ location: { pathname } }) => (
-        <div css={{ ...styleWrap, ...(isMenuOpen ? styleWrapOpened : {}) }}>
+        <div css={styleWrap}>
           <ul css={styleMenuWrap}>
             {navItems.map(({ title, to, submenu }, i) => {
               if (submenu) {

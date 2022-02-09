@@ -8,7 +8,7 @@ import i18n from '@/i18n//i18n';
 import { useLocale } from '@/i18n//i18n-context';
 import useAllSitePath from '@/hooks/useAllSitePath';
 
-const styleWrap = {
+const styleWrapDefault = {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -66,7 +66,7 @@ const getSafePath = (pathname, code, allPathes) => {
   return i18n.localizePath('/', code);
 };
 
-const LanguageSwitch = ({ closeMenu, extraStyle = {} }) => {
+const LanguageSwitch = ({ closeMenu }) => {
   const { locale } = useLocale();
   const allPathes = useAllSitePath();
 
@@ -77,7 +77,7 @@ const LanguageSwitch = ({ closeMenu, extraStyle = {} }) => {
   return (
     <Location>
       {({ location: { pathname } }) => (
-        <div css={{ ...styleWrap, ...extraStyle }}>
+        <div css={styleWrapDefault}>
           {i18n.localeCodes.map((code) => {
             const { shortName } = i18n.locales[code];
             const isCurrent = locale === code;
