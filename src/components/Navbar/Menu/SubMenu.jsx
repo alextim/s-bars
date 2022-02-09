@@ -50,7 +50,7 @@ const styleLi = {
 };
 
 const styleDropdownWrap = {
-  display: visible ? 'flex' : 'none',
+  display: 'flex',
   flexDirection: 'column',
   // padding: '0 2rem',
   listStyleType: 'none',
