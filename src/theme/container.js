@@ -13,6 +13,7 @@ const header = {
     padding: '0 2rem',
   },
 };
+
 const main = {
   ...header,
 };

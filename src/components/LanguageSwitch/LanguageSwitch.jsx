@@ -4,8 +4,8 @@ import { Link } from 'gatsby';
 
 import colors from '@/theme/colors';
 
-import i18n from '@/i18n//i18n';
-import { useLocale } from '@/i18n//i18n-context';
+import i18n from '@/i18n/i18n';
+import { useLocale } from '@/i18n/i18n-context';
 import useAllSitePath from '@/hooks/useAllSitePath';
 
 const styleWrapDefault = {
@@ -82,7 +82,8 @@ const LanguageSwitch = ({ closeMenu }) => {
             const { shortName } = i18n.locales[code];
             const isCurrent = locale === code;
             return (
-              <div key={code} className="lang-switch-item" css={styleItemWrap}>
+              <div key={code} css={styleItemWrap}>
+                {/* <div key={code} className="lang-switch-item" css={styleItemWrap}> */}
                 <Link
                   css={isCurrent ? styleActiveItem : styleItem}
                   to={isCurrent ? pathname : getSafePath(pathname, code, allPathes)}

@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { getPageSchema } from '@alextim/at-seo';
 
-import { locales } from '@/i18n//i18n';
-import { useLocale } from '@/i18n//i18n-context';
+import { locales } from '@/i18n/i18n';
+import { useLocale } from '@/i18n/i18n-context';
 import useOrgAddress from '@/hooks/useOrgAddress';
 
 import config from '../../../s-bars.content/config/website';

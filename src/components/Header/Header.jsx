@@ -4,6 +4,7 @@ import { fontSizes } from '@/theme/font-sizes';
 import sizes from '@/theme/sizes';
 import shadows from '@/theme/shadows';
 import container from '@/theme/container';
+
 import Navbar from '../Navbar';
 
 // const rootPath = `${__PATH_PREFIX__}/`;

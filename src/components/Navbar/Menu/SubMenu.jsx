@@ -30,6 +30,7 @@ const styleHeadingWrap = {
 
 const styleMenuItemExtra = {
   [mq.lg]: {
+    /* styleMenuItemLg is needed because extra style will override [mq.lg] property */
     ...styleMenuItemLg,
 
     ':after': {

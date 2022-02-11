@@ -6,7 +6,7 @@ import mq from '@/theme/media-queries';
 import colors from '@/theme/colors';
 import fontWeights from '@/theme/font-weights';
 import { fontSizes } from '@/theme/font-sizes';
-import { useLocale } from '@/i18n//i18n-context';
+import { useLocale } from '@/i18n/i18n-context';
 import i18n from '@/i18n';
 import useOrgContacts from '@/hooks/useOrgContacts';
 

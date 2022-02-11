@@ -1,6 +1,6 @@
 import React from 'react';
 import { ModalHeader, ModalFooter, ModalBody } from '../Modal';
-import Message from '../Message';
+import { MessageSuccess, MessageError } from '../messages';
 
 const ModalContentBase = ({ content, loading, cancel, error }) => {
   if (loading) {
@@ -18,7 +18,7 @@ const ModalContentBase = ({ content, loading, cancel, error }) => {
       <React.Fragment>
         <ModalHeader>{content.error.heading}</ModalHeader>
         <ModalBody>
-          <Message variant="error">{content.error.body(error)}</Message>
+          <MessageError>{content.error.body(error)}</MessageError>
         </ModalBody>
       </React.Fragment>
     );
@@ -28,7 +28,7 @@ const ModalContentBase = ({ content, loading, cancel, error }) => {
     <React.Fragment>
       <ModalHeader>{content.success.heading}</ModalHeader>
       <ModalBody>
-        <Message variant="success">{content.success.body}</Message>
+        <MessageSuccess>{content.success.body}</MessageSuccess>
       </ModalBody>
     </React.Fragment>
   );

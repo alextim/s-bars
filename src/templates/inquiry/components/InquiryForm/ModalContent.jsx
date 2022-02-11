@@ -4,7 +4,7 @@ import { useTranslation } from '@/i18n';
 import { space } from '@/theme/space';
 
 import { ModalHeader, ModalFooter, ModalBody } from '@/components/Form/src/components/Modal';
-import Message from '@/components/Form/src/components/Message';
+import { MessageSuccess, MessageError } from '@/components/Form/src/components/messages';
 import Spinner from '@/components/Spinner';
 import Button from '@/components/Button';
 
@@ -21,13 +21,13 @@ const ModalContent = ({ loading, cancel, error }) => {
       <React.Fragment>
         <ModalHeader>{t('form.error')}</ModalHeader>
         <ModalBody>
-          <Message variant="error">
+          <MessageError>
             <p>
               <b>{error}</b>
             </p>
             <p>{t('if.sorry')}</p>
             <div>{t('if.try_later')}</div>
-          </Message>
+          </MessageError>
         </ModalBody>
         <ModalFooter justify="center">
           <Button onClick={cancel}>{t('form.close')}</Button>
@@ -65,11 +65,11 @@ const ModalContent = ({ loading, cancel, error }) => {
     <React.Fragment>
       <ModalHeader>{t('form.success')}</ModalHeader>
       <ModalBody>
-        <Message variant="success">
+        <MessageSuccess>
           {' '}
           <p>{t('if.thanks')}</p>
           <div>{t('if.we_will_response')}</div>
-        </Message>
+        </MessageSuccess>
       </ModalBody>
       <ModalFooter justify="center">
         <Button onClick={cancel}>{t('form.close')}</Button>
