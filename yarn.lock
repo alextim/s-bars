@@ -3607,10 +3607,10 @@ babel-plugin-transform-react-remove-prop-types@^0.4.24:
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
   integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
 
-babel-preset-gatsby@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-2.9.0.tgz#6a478ee39b99be21b5ed804ebd8cc96a0fd492d3"
-  integrity sha512-naGwVr1uCX2NsyM38pTp0f+vO0UfCH2h7wEC1H8B748twHTUpoOPJ/GWUs+/FQzNrfgOvHSspcqkRyD3Vb2EPg==
+babel-preset-gatsby@^2.11.1, babel-preset-gatsby@^2.9.0:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-2.11.1.tgz#860d8d9903df38c314fa6f0cfdb197d02555c4e4"
+  integrity sha512-NGUNAIb3hzD1Mt97q5T3gSSuVuaqnYFSm7AvgByDa3Mk2ohF5Ni86sCLVPRIntIzJvgU5OWY4Qz+6rrI1SwprQ==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.14.0"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.14.5"
@@ -3625,8 +3625,8 @@ babel-preset-gatsby@^2.9.0:
     babel-plugin-dynamic-import-node "^2.3.3"
     babel-plugin-macros "^2.8.0"
     babel-plugin-transform-react-remove-prop-types "^0.4.24"
-    gatsby-core-utils "^3.9.0"
-    gatsby-legacy-polyfills "^2.9.0"
+    gatsby-core-utils "^3.11.1"
+    gatsby-legacy-polyfills "^2.11.0"
 
 backo2@^1.0.2, backo2@~1.0.2:
   version "1.0.2"
@@ -6262,10 +6262,10 @@ gatsby-cli@^4.9.0:
     yoga-layout-prebuilt "^1.10.0"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.2, gatsby-core-utils@^3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.9.0.tgz#7be5969622e44c4475cb14f1ac64b49a4072ab6c"
-  integrity sha512-SvPnr86oXTY3ldbQ4QAkEew3BQE9vlzUXcXVJqTOhMUeGEz2kibBFUmVp8ia9Y1eOD+K/0xXQ54jUqaResj69w==
+gatsby-core-utils@^3.11.1, gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.2, gatsby-core-utils@^3.9.0:
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.11.1.tgz#ea87c1d3aa45c26c9ea32b8e8b029afe6a56f8c7"
+  integrity sha512-Op9/uihtcsDLlZDfRsGJ1ya2mFx2YH9Zmx93bawElZ0YpIzKjCkNTp+I5i5UANxvs5I+Fljl0WHQRudMWg+fWA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     ci-info "2.0.0"
@@ -6275,7 +6275,7 @@ gatsby-core-utils@^3.5.2, gatsby-core-utils@^3.8.2, gatsby-core-utils@^3.9.0:
     fs-extra "^10.0.0"
     got "^11.8.3"
     import-from "^4.0.0"
-    lmdb "^2.1.7"
+    lmdb "^2.2.4"
     lock "^1.1.0"
     node-object-hash "^2.3.10"
     proper-lockfile "^4.1.2"
@@ -6290,10 +6290,10 @@ gatsby-graphiql-explorer@^2.9.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
-gatsby-legacy-polyfills@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/gatsby-legacy-polyfills/-/gatsby-legacy-polyfills-2.9.0.tgz#444d5efc100dea7da129b4c13d42b5fa13c51180"
-  integrity sha512-w0A4NnWOZRKhAlT7Hms/ACEQh7ICHDMC6RTy7yVlPY0wJ8tajcfZJsWy+FZxCBzJclpR9l3CLWZmRNz6gHRARA==
+gatsby-legacy-polyfills@^2.11.0, gatsby-legacy-polyfills@^2.9.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/gatsby-legacy-polyfills/-/gatsby-legacy-polyfills-2.11.0.tgz#8b2afc4d97f44eb5767fe9b49f55ff675055ffd2"
+  integrity sha512-ulkRNCitwFjwUM4f2ufljH0WjELm6QEIOGRryNRt9LKJEB9QGmdm+KUAWIv7xrFUqKq1Pn6is64wcfXDw21zSA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     core-js-compat "3.9.0"
@@ -8342,10 +8342,21 @@ lmdb@2.2.1:
     ordered-binary "^1.2.4"
     weak-lru-cache "^1.2.2"
 
-lmdb@^2.0.2, lmdb@^2.1.7:
+lmdb@^2.0.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/lmdb/-/lmdb-2.2.3.tgz#713ffa515c31e042808abf364b4aa0feaeaf6360"
   integrity sha512-+OiHQpw22mBBxocb/9vcVNETqf0k5vgHA2r+KX7eCf8j5tSV50ZIv388iY1mnnrERIUhs2sjKQbZhPg7z4HyPQ==
+  dependencies:
+    msgpackr "^1.5.4"
+    nan "^2.14.2"
+    node-gyp-build "^4.2.3"
+    ordered-binary "^1.2.4"
+    weak-lru-cache "^1.2.2"
+
+lmdb@^2.2.4:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/lmdb/-/lmdb-2.2.6.tgz#a52ef533812b8abcbe0033fc9d74d215e7dfc0a0"
+  integrity sha512-UmQV0oZZcV3EN6rjcAjIiuWcc3MYZGWQ0GUYz46Ron5fuTa/dUow7WSQa6leFkvZIKVUdECBWVw96tckfEzUFQ==
   dependencies:
     msgpackr "^1.5.4"
     nan "^2.14.2"
