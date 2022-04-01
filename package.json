@@ -63,7 +63,7 @@
     "gatsby-plugin-emotion": "^7.9.0",
     "gatsby-plugin-feed": "^4.9.0",
     "gatsby-plugin-google-analytics": "^4.9.0",
-    "gatsby-plugin-image": "^2.9.0",
+    "gatsby-plugin-image": "^2.11.1",
     "gatsby-plugin-manifest": "^4.9.0",
     "gatsby-plugin-netlify": "^4.1.0",
     "gatsby-plugin-preact": "^6.9.0",
