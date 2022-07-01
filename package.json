@@ -71,7 +71,7 @@
     "gatsby-plugin-remove-generator": "^1.2.0",
     "gatsby-plugin-sharp": "^4.17.0",
     "gatsby-remark-images": "^6.15.1",
-    "gatsby-source-filesystem": "^4.15.0",
+    "gatsby-source-filesystem": "^4.17.0",
     "gatsby-transformer-remark": "^5.15.1",
     "gatsby-transformer-sharp": "^4.15.1",
     "gatsby-transformer-yaml": "^4.15.0",
