@@ -76,7 +76,7 @@
     "gatsby-transformer-sharp": "^4.15.1",
     "gatsby-transformer-yaml": "^4.15.0",
     "node-fetch": "^3.2.6",
-    "preact": "^10.7.3",
+    "preact": "^10.8.2",
     "preact-render-to-string": "^5.2.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
