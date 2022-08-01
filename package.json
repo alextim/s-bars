@@ -84,7 +84,7 @@
     "react-multi-carousel": "^2.8.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.6",
+    "@babel/core": "^7.18.10",
     "@babel/eslint-parser": "^7.18.9",
     "@babel/preset-react": "^7.18.6",
     "@commitlint/cli": "^17.0.3",
