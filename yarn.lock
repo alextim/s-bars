@@ -6930,10 +6930,10 @@ gatsby-plugin-page-creator@^4.19.0:
     globby "^11.1.0"
     lodash "^4.17.21"
 
-gatsby-plugin-preact@^6.19.0:
-  version "6.19.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-6.19.0.tgz#6da031c3cf61bea7279a5907ee57fa5639091191"
-  integrity sha512-iWiJDmv7l1YhnzTd5LDI+W/yT6n2iq5CCs1Nu0rubetMfou3jgxnddoMkjg90nNPP0NBU40kl5+CCrHPjLT05A==
+gatsby-plugin-preact@^6.22.0:
+  version "6.22.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-6.22.0.tgz#4293b759c829acf1f13576754efc82d820688afe"
+  integrity sha512-u+YHbDQrnEQf0GKiZXB/c/flFajnYyBbuBQYsRw0cq0nov4uuJABDIdJviAvLygjSh1DkbZBD5SppMSKheM/yA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@gatsbyjs/webpack-hot-middleware" "^2.25.3"
