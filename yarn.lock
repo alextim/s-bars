@@ -6840,10 +6840,10 @@ gatsby-parcel-config@0.10.1:
     "@parcel/transformer-raw" "2.6.2"
     "@parcel/transformer-react-refresh-wrap" "2.6.2"
 
-gatsby-plugin-emotion@^7.19.0:
-  version "7.19.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-7.19.0.tgz#1e1d3251ce986f4dfc3c72feb4aafb5c6b2121a3"
-  integrity sha512-sESLf2cUH91sFFzgylRKb5Vc/9cS9ca9KeG1/kjTRuONNBuu0tgiSQnrCPkfxa4Ij9xEO4QlgjKFhwHZNCu3Tw==
+gatsby-plugin-emotion@^7.22.0:
+  version "7.22.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-7.22.0.tgz#9f1e3f310e51ff66c22981a1b53848a9fe1baa0b"
+  integrity sha512-rHyKVQ26vfGLvUO8efCrIunKqq0ILnwLp8xfsBSjtFBYTny9se6Wob2dJMv9nX8HQSc/toC5W3lUbnnHvojNTA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@emotion/babel-preset-css-prop" "^11.2.0"
