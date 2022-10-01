@@ -57,7 +57,7 @@
     "@emotion/react": "^11.10.4",
     "@sendgrid/mail": "^7.7.0",
     "disable-scroll": "^0.6.0",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
     "email-validator": "^2.0.4",
     "gatsby": "^4.22.0",
     "gatsby-plugin-emotion": "^7.19.0",
