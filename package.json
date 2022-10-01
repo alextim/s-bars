@@ -60,7 +60,7 @@
     "dotenv": "^16.0.2",
     "email-validator": "^2.0.4",
     "gatsby": "^4.22.0",
-    "gatsby-plugin-emotion": "^7.19.0",
+    "gatsby-plugin-emotion": "^7.24.0",
     "gatsby-plugin-feed": "^4.22.0",
     "gatsby-plugin-google-analytics": "^4.22.0",
     "gatsby-plugin-image": "^2.19.0",
