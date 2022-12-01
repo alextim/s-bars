@@ -3517,27 +3517,6 @@ babel-preset-fbjs@^3.4.0:
     "@babel/plugin-transform-template-literals" "^7.0.0"
     babel-plugin-syntax-trailing-function-commas "^7.0.0-beta.0"
 
-babel-preset-gatsby@^2.24.0:
-  version "2.24.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-2.24.0.tgz#fca7b629e335d98a7feb19f85d73e39356abbb3f"
-  integrity sha512-EFPclGESPH2grzmN3bX6UoDi+3fgk+zLR5lDPGGaOgrUOEdxETMYdnz9VA37mjI2W/a+x/xCeE7qJRnNCJtn4g==
-  dependencies:
-    "@babel/plugin-proposal-class-properties" "^7.14.0"
-    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.14.5"
-    "@babel/plugin-proposal-optional-chaining" "^7.14.5"
-    "@babel/plugin-syntax-dynamic-import" "^7.8.3"
-    "@babel/plugin-transform-classes" "^7.15.4"
-    "@babel/plugin-transform-runtime" "^7.15.0"
-    "@babel/plugin-transform-spread" "^7.14.6"
-    "@babel/preset-env" "^7.15.4"
-    "@babel/preset-react" "^7.14.0"
-    "@babel/runtime" "^7.15.4"
-    babel-plugin-dynamic-import-node "^2.3.3"
-    babel-plugin-macros "^3.1.0"
-    babel-plugin-transform-react-remove-prop-types "^0.4.24"
-    gatsby-core-utils "^3.24.0"
-    gatsby-legacy-polyfills "^2.24.0"
-
 babel-preset-gatsby@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-3.2.0.tgz#e5b640116acd01c86899eea4112e4284f1653a0a"
@@ -6153,14 +6132,6 @@ gatsby-graphiql-explorer@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-3.2.0.tgz#e9ae46cc9b95a0b2bb7b571847e72f3dd914f123"
   integrity sha512-MQVsBgUbcHPngLwfihHEWYM/MRL7dAQQD4y9qDCbd9+bh9RIZQxCSvo8o5zBLyMibsAkXvYPtNvfLCed/BSBGg==
-
-gatsby-legacy-polyfills@^2.24.0:
-  version "2.24.0"
-  resolved "https://registry.yarnpkg.com/gatsby-legacy-polyfills/-/gatsby-legacy-polyfills-2.24.0.tgz#17c1804eaff15bae952bfd18e5c8d6b18ebacabb"
-  integrity sha512-3O/SlgTtK3z+rbp9UPgA5Hc0AgFbklpgZ1nx40HfgsbRcSHl81INzyIPjN9Fpp9BM4GOknAAL7VPfeilTn2mog==
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    core-js-compat "3.9.0"
 
 gatsby-legacy-polyfills@^3.2.0:
   version "3.2.0"
