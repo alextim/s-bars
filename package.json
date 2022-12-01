@@ -69,7 +69,7 @@
     "gatsby-plugin-preact": "^7.2.0",
     "gatsby-plugin-react-helmet": "^5.24.0",
     "gatsby-plugin-remove-generator": "^1.2.0",
-    "gatsby-plugin-sharp": "^4.24.0",
+    "gatsby-plugin-sharp": "^5.2.0",
     "gatsby-remark-images": "^6.24.0",
     "gatsby-source-filesystem": "^4.24.0",
     "gatsby-transformer-remark": "^6.2.0",
