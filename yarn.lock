@@ -6221,16 +6221,16 @@ gatsby-plugin-emotion@^8.5.0:
     "@babel/runtime" "^7.20.7"
     "@emotion/babel-preset-css-prop" "^11.10.0"
 
-gatsby-plugin-feed@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-5.2.0.tgz#5ae1ed0eda304f74a23d2355834d21e7b917ef55"
-  integrity sha512-lNSVEOuGs39kV+zP5h2i/mVp5pQcwIYumtIOSDkxLuiQryTC5ZerTsZ5l1ntzK1O+3a7hClTOWvwF+uJjl7QTw==
+gatsby-plugin-feed@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-5.5.0.tgz#ebddd6fa3b64b4403993949f94b65f8e21ff7efd"
+  integrity sha512-ZoPKxsByNJBmGSYXOFygAu2dzrLDpP0E5PEXM+aDI47KZSoRxFmKcX9MEwLCzVnj6Y/kIYZ3GZyeBkHoauya1g==
   dependencies:
-    "@babel/runtime" "^7.15.4"
+    "@babel/runtime" "^7.20.7"
     "@hapi/joi" "^15.1.1"
     common-tags "^1.8.2"
-    fs-extra "^10.1.0"
-    gatsby-plugin-utils "^4.2.0"
+    fs-extra "^11.1.0"
+    gatsby-plugin-utils "^4.5.0"
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
@@ -6364,16 +6364,16 @@ gatsby-plugin-typescript@^5.3.1:
     "@babel/runtime" "^7.15.4"
     babel-plugin-remove-graphql-queries "^5.3.1"
 
-gatsby-plugin-utils@^4.2.0, gatsby-plugin-utils@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-4.3.1.tgz#a7d318130e6413aa4e7a039a26d2258dd49c1917"
-  integrity sha512-9bR6/zEg8uUMqVW7+X58WfBj9JC6AZqi0Q4nZbK2aB2/SY4R+qloWi8Vc+4f0ja4Djc/OtMzo+dtJBhZvWMwTg==
+gatsby-plugin-utils@^4.3.1, gatsby-plugin-utils@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-4.5.0.tgz#259f6c751a9b2a61ef9f62c7d9111004c4d98541"
+  integrity sha512-FNWLzlrjwBb5NGtpHB72DC8dwCGmBAqJW5vvhnmY7eH+h178NidSs8JI7ntHu2Dtl8sOFYua+2n5eAN7HkEY8Q==
   dependencies:
-    "@babel/runtime" "^7.15.4"
+    "@babel/runtime" "^7.20.7"
     fastq "^1.13.0"
-    fs-extra "^10.1.0"
-    gatsby-core-utils "^4.3.1"
-    gatsby-sharp "^1.3.0"
+    fs-extra "^11.1.0"
+    gatsby-core-utils "^4.5.0"
+    gatsby-sharp "^1.5.0"
     graphql-compose "^9.0.10"
     import-from "^4.0.0"
     joi "^17.7.0"
@@ -6415,6 +6415,14 @@ gatsby-sharp@^1.3.0:
   dependencies:
     "@types/sharp" "^0.31.0"
     sharp "^0.31.2"
+
+gatsby-sharp@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/gatsby-sharp/-/gatsby-sharp-1.5.0.tgz#a8c84a536818a3bd1a2d89433e1bd10c7060fbcd"
+  integrity sha512-+/lksp7lpd732COWY92E5rmRdZjI2BGS68p3FTndOXH/g0/R67JMGWOFiY7Ayal33EETcBmkYpFyGl8hnZ7S3Q==
+  dependencies:
+    "@types/sharp" "^0.31.0"
+    sharp "^0.31.3"
 
 gatsby-source-filesystem@^5.5.0:
   version "5.5.0"
@@ -10795,7 +10803,7 @@ shallow-compare@^1.2.2:
   resolved "https://registry.yarnpkg.com/shallow-compare/-/shallow-compare-1.2.2.tgz#fa4794627bf455a47c4f56881d8a6132d581ffdb"
   integrity sha512-LUMFi+RppPlrHzbqmFnINTrazo0lPNwhcgzuAXVVcfy/mqPDrQmHAyz5bvV0gDAuRFrk804V0HpQ6u9sZ0tBeg==
 
-sharp@^0.31.2:
+sharp@^0.31.2, sharp@^0.31.3:
   version "0.31.3"
   resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.31.3.tgz#60227edc5c2be90e7378a210466c99aefcf32688"
   integrity sha512-XcR4+FCLBFKw1bdB+GEhnUNXNXvnt0tDo4WsBsraKymuo/IAuPuCBVAL2wIkUw2r/dwFW5Q5+g66Kwl2dgDFVg==
