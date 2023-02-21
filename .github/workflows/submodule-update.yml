@@ -179,4 +179,4 @@ jobs:
         #  args: "${{ env.AT_STATE }}, branch: ${{ env.BRANCH_NAME }}, ${{ env.COMMIT_MESSAGE }}"
         run: |
           T_MESSAGE="${{ env.AT_STATE }}, branch: ${{ env.BRANCH_NAME }}, ${{ env.COMMIT_MESSAGE }}"
-          curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?text=$T_MESSAGE&chat_id=${{ secrets.TELEGRAM_TO }}"
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_TO }}" -d "text=$T_MESSAGE"
