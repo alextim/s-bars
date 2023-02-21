@@ -1,12 +1,10 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 
 import { getSeoData } from '@alextim/at-seo';
 
 import i18n from '@/i18n';
-import useSocialLinks from '@/hooks/useSocialLinks';
+import transformSocialLinks from '@/hooks/transformSocialLinks';
 import useOrgContacts from '@/hooks/useOrgContacts';
-import useOrgAddress from '@/hooks/useOrgAddress';
 
 import config from '../../../s-bars.content/config/website';
 
@@ -28,9 +26,10 @@ const SEO = ({
   noindex = false,
   metas,
   links,
+  socialLinksData,
+  orgAddress,
 }) => {
-  const socialLinks = useSocialLinks();
-  const orgAddress = useOrgAddress();
+  const socialLinks = transformSocialLinks(socialLinksData);
   const orgContacts = useOrgContacts();
   const siteMeta = i18n.locales[locale];
 
@@ -74,7 +73,23 @@ const SEO = ({
     links,
   });
 
-  return <Helmet htmlAttributes={data.htmlAttributes} title={data.title} meta={data.meta} link={data.link} script={data.script} />;
+  return (
+    <React.Fragment>
+      <html lang={data.htmlAttributes.lang} />
+      <title>{data.title}</title>
+      {data.meta.map((item, i) => (
+        <meta key={`meta-${i}`} {...item} />
+      ))}
+      {data.link.map((item, i) => (
+        <link key={`link-${i}`} {...item} />
+      ))}
+      {data.script.map(({ type, innerHtml }, i) => (
+        <script key={`script-${i}`} type={type}>
+          {innerHtml}
+        </script>
+      ))}
+    </React.Fragment>
+  );
 };
 
 export default SEO;

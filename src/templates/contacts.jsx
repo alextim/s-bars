@@ -106,14 +106,14 @@ const styleWrap3 = {
   },
 };
 
-const ContactsTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const ContactsTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex, breadcrumbs },
+    page: { title, headline, breadcrumbs },
   } = data;
   const { openingHours, embedMap } = useOrgContacts();
   const { contactPoint } = address;
@@ -125,15 +125,6 @@ const ContactsTemplate = ({ data, location: { pathname }, pageContext: { locale 
       breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex={noindex}
-        breadcrumbs={breadcrumbs}
-      />
-
       <Section>
         <div css={styleWrap3}>
           <div>
@@ -161,6 +152,27 @@ const ContactsTemplate = ({ data, location: { pathname }, pageContext: { locale 
 };
 
 export default ContactsTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { metaTitle, metaDescription, noindex, breadcrumbs },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex={noindex}
+      breadcrumbs={breadcrumbs}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query ContactsPageQuery($id: String!, $locale: String!) {

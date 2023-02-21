@@ -69,6 +69,7 @@ module.exports = {
     /* No React import */
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
 
     // 'no-anonymous-exports-page-templates': 'warn',
     // 'limited-exports-page-templates': 'warn',

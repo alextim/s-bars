@@ -7,14 +7,14 @@ import Section from '@/components/Section';
 
 import Triptych from './home/components/Triptych';
 
-const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const AboutTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex, breadcrumbs, sections, html },
+    page: { title, headline, breadcrumbs, sections, html },
   } = data;
 
   return (
@@ -24,14 +24,6 @@ const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }
       breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex={noindex}
-        breadcrumbs={breadcrumbs}
-      />
       {sections && (
         <React.Fragment>
           <Section text={sections[0].text} />
@@ -48,6 +40,27 @@ const AboutTemplate = ({ data, location: { pathname }, pageContext: { locale } }
 };
 
 export default AboutTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { metaTitle, metaDescription, noindex, breadcrumbs },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex={noindex}
+      breadcrumbs={breadcrumbs}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query AboutPageQuery($id: String!, $locale: String!) {

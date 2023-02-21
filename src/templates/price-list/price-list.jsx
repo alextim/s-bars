@@ -11,14 +11,14 @@ const styleHtml = {
   textAlign: 'justify',
 };
 
-const PriceListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const PriceListTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, sections, html },
+    page: { title, headline, cover, breadcrumbs, sections, html },
   } = data;
 
   return (
@@ -29,14 +29,6 @@ const PriceListTemplate = ({ data, location: { pathname }, pageContext: { locale
       cover={cover}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex={noindex}
-        breadcrumbs={breadcrumbs}
-      />
       {sections && sections[0] && sections[0].items && <PriceList items={sections[0].items} />}
       {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
     </Layout>
@@ -44,6 +36,27 @@ const PriceListTemplate = ({ data, location: { pathname }, pageContext: { locale
 };
 
 export default PriceListTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { metaTitle, metaDescription, noindex, breadcrumbs },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex={noindex}
+      breadcrumbs={breadcrumbs}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query PriceListPageQuery($id: String!, $locale: String!) {

@@ -28,21 +28,19 @@ const styleHeadline = {
   },
 };
 
-const HomeTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const HomeTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, headline, metaTitle, metaDescription, noindex, sections, html },
+    page: { title, headline, sections, html },
   } = data;
   const objectTypes = mainNav.edges[1].node.submenu;
 
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
-      <SEO locale={locale} title={metaTitle} description={metaDescription} pathname={pathname} noindex={noindex} />
-
       <Container>
         {sections && (
           <React.Fragment>
@@ -75,6 +73,26 @@ const HomeTemplate = ({ data, location: { pathname }, pageContext: { locale } })
 };
 
 export default HomeTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { metaTitle, metaDescription, noindex },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex={noindex}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query HomePageQuery($id: String!, $locale: String!) {

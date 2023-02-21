@@ -16,27 +16,14 @@ const styleWidgetArea = {
   flexDirection: 'column',
 };
 
-const PostTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const PostTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    post: {
-      title,
-      metaTitle,
-      headline,
-      metaDescription,
-      cover,
-      noindex,
-      breadcrumbs,
-      datePublished,
-      dateModified,
-      author,
-      html,
-      timeToRead,
-    },
+    post: { title, headline, cover, breadcrumbs, datePublished, dateModified, author, html, timeToRead },
   } = data;
 
   return (
@@ -46,20 +33,6 @@ const PostTemplate = ({ data, location: { pathname }, pageContext: { locale } })
       breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        headline={headline}
-        pathname={pathname}
-        noindex={noindex}
-        breadcrumbs={breadcrumbs}
-        datePublished={datePublished}
-        dateModified={dateModified}
-        author={author}
-        pageType="BlogPosting"
-        imgPath={cover?.sm?.publicURL}
-      />
       <PostInfo author={author} datePublished={datePublished} timeToRead={timeToRead} />
       <InnerAsideLayout
         cover={cover}
@@ -79,23 +52,46 @@ const PostTemplate = ({ data, location: { pathname }, pageContext: { locale } })
 
 export default PostTemplate;
 
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    post: { metaTitle, metaDescription, noindex, breadcrumbs, headline, datePublished, dateModified, author, cover },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      headline={headline}
+      pathname={pathname}
+      noindex={noindex}
+      breadcrumbs={breadcrumbs}
+      datePublished={datePublished}
+      dateModified={dateModified}
+      author={author}
+      pageType="BlogPosting"
+      imgPath={cover?.sm?.publicURL}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
+
 export const postQuery = graphql`
   query PostQuery($id: String!, $locale: String!) {
     post: mdPost(id: { eq: $id }) {
       ...MdPostFragment
     }
-    recentPosts: allMdPost(sort: { fields: [datePublished], order: DESC }, limit: 10, filter: { locale: { eq: $locale } }) {
+    recentPosts: allMdPost(sort: { datePublished: DESC }, limit: 10, filter: { locale: { eq: $locale } }) {
       edges {
         node {
           ...MdPostShortInfoFragment
         }
       }
     }
-    featuredPosts: allMdPost(
-      sort: { fields: [datePublished], order: DESC }
-      limit: 10
-      filter: { featured: { eq: true }, locale: { eq: $locale } }
-    ) {
+    featuredPosts: allMdPost(sort: { datePublished: DESC }, limit: 10, filter: { featured: { eq: true }, locale: { eq: $locale } }) {
       edges {
         node {
           ...MdPostShortInfoFragment

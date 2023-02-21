@@ -1,8 +1,6 @@
-import { prevLink, nextLink } from '@/templates/blog/post-list/components/PostPagination/page-link-params';
 import { useTranslation } from '@/i18n';
 
 import Layout from '@/components/Layout';
-import SEO from '@/components/SEO';
 
 import styleCardsWrap from '../../../shared/styles/styleCardsWrap';
 import styleHtml from '../../../shared/styles/styleHtml';
@@ -20,14 +18,13 @@ const Cards = ({ posts, readMore, cardComponent }) => {
 
 const PostListBase = ({
   data,
-  pathname,
   /**
    * keep it for the future!
    */
   /*
   pageContext: { locale, currentPage, numPages, categories, tags, years },
   */
-  pageContext: { locale, to, currentPage, numPages },
+  pageContext: { to, currentPage, numPages },
   title,
   readMore,
   cardComponent,
@@ -38,29 +35,11 @@ const PostListBase = ({
     mainNav,
     footerNav,
     socialLinks,
-    page: { html, title: defaultTitle, metaTitle, headline, metaDescription, noindex, breadcrumbs },
+    page: { html, title: defaultTitle, headline, breadcrumbs },
     posts,
   } = data;
 
   const isFirst = currentPage === 1;
-  const isLast = currentPage === numPages;
-
-  const links = [];
-
-  if (numPages > 1) {
-    if (!isFirst) {
-      links.push({
-        rel: 'prev',
-        href: config.siteUrl + prevLink(currentPage, to),
-      });
-    }
-    if (!isLast) {
-      links.push({
-        rel: 'next',
-        href: config.siteUrl + nextLink(currentPage, to),
-      });
-    }
-  }
 
   return (
     <Layout
@@ -69,16 +48,6 @@ const PostListBase = ({
       breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex={noindex}
-        breadcrumbs={breadcrumbs}
-        pageType="Blog"
-        links={links}
-      />
       {isFirst && html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
 
       <div css={styleCardsWrap}>

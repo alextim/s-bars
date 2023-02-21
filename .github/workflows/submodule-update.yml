@@ -73,30 +73,23 @@ jobs:
         uses: actions/setup-node@v3.6.0
         with:
           node-version: 16
-          cache: 'yarn'
-          # node-version: 14.x
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      #- name: Get yarn cache directory path
-      #  id: yarn-cache-dir-path
-      #  run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      #- uses: actions/cache@v2.1.7
-      #  id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-      #  with:
-      #    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-      #    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      #    restore-keys: ${{ runner.os }}-yarn-
-
-      - name: Installing NPM dependencies
-        # if: steps.yarn-cache.outputs.cache-hit != 'true'
-        # run: yarn install --prefer-offline
-        if: steps.cache-npm.outputs.cache-hit != 'true'
-        run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
+      - name: Install dependencies
+        run: npm install
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           CI: true
+
+      #- name: Installing NPM dependencies
+      # if: steps.yarn-cache.outputs.cache-hit != 'true'
+      # run: yarn install --prefer-offline
+      # if: steps.cache-npm.outputs.cache-hit != 'true'
+      # run: yarn install --prefer-offline --frozen-lockfile --ignore-engines --registry https://registry.npmjs.org --network-timeout 300000
+      # env:
+      #   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #   CI: true
 
       - name: Set development env
         if: ${{ github.ref == 'refs/heads/dev' }}
@@ -123,7 +116,7 @@ jobs:
       - name: Build the project
         run: |
           npm i -g gatsby-cli
-          yarn build
+          npm build
         env:
           GATSBY_TELEMETRY_DISABLED: 1
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -151,7 +144,6 @@ jobs:
         run: |
           npm i -g netlify-cli
           netlify deploy --prod --dir=public --telemetry-disable
-
 
       - name: Check deploy
         if: ${{ failure() && env.AT_STATE == '' }}
@@ -188,4 +180,3 @@ jobs:
         run: |
           T_MESSAGE="${{ env.AT_STATE }}, branch: ${{ env.BRANCH_NAME }}, ${{ env.COMMIT_MESSAGE }}"
           curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage?text=$T_MESSAGE&chat_id=${{ secrets.TELEGRAM_TO }}"
-

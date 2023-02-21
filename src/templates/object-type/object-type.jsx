@@ -7,14 +7,14 @@ import AsideButtonList from '@/components/AsideButtonList';
 import InnerAsideLayout from '@/components/InnerAsideLayout';
 import { getObjectTypesTitle, getFormattedObjectTypeItems } from '../shared/helpers/list-info';
 
-const ObjectTypePageTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const ObjectTypePageTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, html },
+    page: { title, headline, cover, breadcrumbs, html },
   } = data;
 
   return (
@@ -24,15 +24,6 @@ const ObjectTypePageTemplate = ({ data, location: { pathname }, pageContext: { l
       breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex={noindex}
-        breadcrumbs={breadcrumbs}
-        imgPath={cover?.sm?.publicURL}
-      />
       <InnerAsideLayout
         cover={cover}
         html={html}
@@ -43,6 +34,28 @@ const ObjectTypePageTemplate = ({ data, location: { pathname }, pageContext: { l
 };
 
 export default ObjectTypePageTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { metaTitle, metaDescription, noindex, breadcrumbs, cover },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex={noindex}
+      breadcrumbs={breadcrumbs}
+      imgPath={cover?.sm?.publicURL}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query ObjectTypePageQuery($id: String!, $locale: String!) {

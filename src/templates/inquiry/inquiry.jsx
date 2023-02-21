@@ -6,14 +6,14 @@ import Section from '@/components/Section';
 
 import InquiryForm from './components/InquiryForm';
 
-const InquiryTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const InquiryTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, noindex, breadcrumbs },
+    page: { title, headline, breadcrumbs },
   } = data;
 
   return (
@@ -23,15 +23,6 @@ const InquiryTemplate = ({ data, location: { pathname }, pageContext: { locale }
       breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex={noindex}
-        breadcrumbs={breadcrumbs}
-      />
-
       <Section>
         <InquiryForm />
       </Section>
@@ -40,6 +31,27 @@ const InquiryTemplate = ({ data, location: { pathname }, pageContext: { locale }
 };
 
 export default InquiryTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { metaTitle, metaDescription, noindex, breadcrumbs },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex={noindex}
+      breadcrumbs={breadcrumbs}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query InquiryPageQuery($id: String!, $locale: String!) {

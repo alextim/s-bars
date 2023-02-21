@@ -1,3 +1,4 @@
+import React from 'react';
 import { graphql } from 'gatsby';
 
 import SEO from '@/components/SEO';
@@ -7,14 +8,14 @@ import InnerAsideLayout from '@/components/InnerAsideLayout';
 import ServiceSchema from './components/ServiceSchema';
 import AsideServices from './components/AsideServices';
 
-const ServicePageTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const ServicePageTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, html },
+    page: { title, headline, cover, breadcrumbs, html },
   } = data;
 
   return (
@@ -24,6 +25,20 @@ const ServicePageTemplate = ({ data, location: { pathname }, pageContext: { loca
       breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
+      <InnerAsideLayout cover={cover} html={html} aside={<AsideServices mainNav={mainNav} />} />
+    </Layout>
+  );
+};
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { title, metaTitle, metaDescription, cover, noindex, breadcrumbs },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <React.Fragment>
       <SEO
         locale={locale}
         title={metaTitle}
@@ -32,11 +47,11 @@ const ServicePageTemplate = ({ data, location: { pathname }, pageContext: { loca
         noindex={noindex}
         breadcrumbs={breadcrumbs}
         imgPath={cover?.sm?.publicURL}
+        socialLinksData={socialLinks}
+        orgAddress={address}
       />
       <ServiceSchema pathname={pathname} title={title} address={address} />
-
-      <InnerAsideLayout cover={cover} html={html} aside={<AsideServices mainNav={mainNav} />} />
-    </Layout>
+    </React.Fragment>
   );
 };
 

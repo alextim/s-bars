@@ -4,26 +4,18 @@ import SEO from '@/components/SEO';
 import Layout from '@/components/Layout';
 import Sections from '@/components/Sections';
 
-const PageTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const PageTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, headline, metaDescription, cover, noindex, breadcrumbs, sections, html },
+    page: { title, headline, cover, sections, html },
   } = data;
 
   return (
     <Layout title={title} headline={headline} cover={cover} context={{ translations, address, mainNav, footerNav, socialLinks }}>
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex={noindex}
-        breadcrumbs={breadcrumbs}
-      />
       {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
       <Sections data={sections} />
     </Layout>
@@ -31,6 +23,27 @@ const PageTemplate = ({ data, location: { pathname }, pageContext: { locale } })
 };
 
 export default PageTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { metaTitle, metaDescription, noindex, breadcrumbs },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex={noindex}
+      breadcrumbs={breadcrumbs}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query PageQuery($id: String!, $locale: String!) {

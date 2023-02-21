@@ -8,14 +8,10 @@ import { useTranslation } from '@/i18n';
 import useOrganizationContacts from '@/hooks/useOrgContacts';
 import useFooterNavItems from '@/hooks/useFooterNavItems';
 import useSocialLinks from '@/hooks/useSocialLinks';
-import FooterWidget from './FooterWidget';
-import LegalInfo from './LegalInfo';
-import FooterNavigation from './FooterNavigation';
-import Link from '../LocalizedLink';
 
 import { useAppContext } from '../../context';
 
-import SocialLinks from './SocialLinks';
+import Link from '../LocalizedLink';
 
 import styleItemsWrap from '../organization/styleItemsWrap';
 // import OrganizationPostalAddress from '../organization/OrganizationPostalAddress';
@@ -27,6 +23,10 @@ import OrganizationPhones from '../organization/OrganizationPhones';
 import Button from '../Button';
 
 import styleA from './styleA';
+import SocialLinks from './SocialLinks';
+import FooterWidget from './FooterWidget';
+import LegalInfo from './LegalInfo';
+import FooterNavigation from './FooterNavigation';
 
 const styleContainerHeader = container.header;
 const Container = ({ children }) => <div css={styleContainerHeader}>{children}</div>;

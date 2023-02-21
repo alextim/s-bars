@@ -1,14 +1,9 @@
 import { useAppContext } from '../context';
+import transformSocialLinks from './transformSocialLinks';
 
 const useSocialLinks = () => {
   const { socialLinks } = useAppContext();
-  if (!socialLinks.edges.length) {
-    return undefined;
-  }
-  return socialLinks.edges.reduce((acc, { node: { code, to, title } }) => {
-    acc[code] = { to, title };
-    return acc;
-  }, {});
+  return transformSocialLinks(socialLinks);
 };
 
 export default useSocialLinks;

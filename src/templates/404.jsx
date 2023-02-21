@@ -17,19 +17,18 @@ const styleHeading = {
   fontSize: fontSizes[12],
 };
 
-const NotFoundTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => {
+const NotFoundTemplate = ({ data }) => {
   const {
     translations,
     address,
     mainNav,
     footerNav,
     socialLinks,
-    page: { title, metaTitle, metaDescription, html },
+    page: { title, html },
   } = data;
 
   return (
     <Layout context={{ translations, address, mainNav, footerNav, socialLinks }}>
-      <SEO locale={locale} title={metaTitle} description={metaDescription} pathname={pathname} noindex />
       <div css={styleWrap}>
         <h1 css={styleHeading}>{title}</h1>
         {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
@@ -39,6 +38,26 @@ const NotFoundTemplate = ({ data, location: { pathname }, pageContext: { locale 
 };
 
 export default NotFoundTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { metaTitle, metaDescription },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query NotFoundPageQuery($id: String!, $locale: String!) {

@@ -1,14 +1,11 @@
 [build]
   functions = "functions"
-  command = "yarn build"
+  command = "npm run build"
   publish = "public"
 
 [functions]
   node_bundler = "esbuild"
 
-[build.environment]
-  NETLIFY_USE_YARN = "true"
-
 [dev]
   # Local dev command. A.k.a npm start
-  command = "yarn dev"
+  command = "npm run dev"

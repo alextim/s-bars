@@ -1,12 +1,32 @@
 import { graphql } from 'gatsby';
 
+import SEO from '@/components/SEO';
 import PageTemplate from './components';
 
-const ServiceListTemplate = ({ data, location: { pathname }, pageContext: { locale } }) => (
-  <PageTemplate data={data} pathname={pathname} locale={locale} type="service" />
-);
+const ServiceListTemplate = ({ data }) => <PageTemplate data={data} type="service" />;
 
 export default ServiceListTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale } }) => {
+  const {
+    page: { metaTitle, metaDescription, noindex, breadcrumbs },
+    socialLinks,
+    address,
+  } = data;
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex={noindex}
+      breadcrumbs={breadcrumbs}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const pageQuery = graphql`
   query ServiceListPageQuery($id: String!, $locale: String!) {

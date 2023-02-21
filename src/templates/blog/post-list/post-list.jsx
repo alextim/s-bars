@@ -1,5 +1,10 @@
 import { graphql } from 'gatsby';
 
+import { prevLink, nextLink } from '@/templates/blog/post-list/components/PostPagination/page-link-params';
+import SEO from '@/components/SEO';
+
+import config from '../../../../s-bars.content/config/website';
+
 import PostList from './components/PostList';
 
 const PostListTemplate = ({ data, location: { pathname }, pageContext }) => (
@@ -7,6 +12,49 @@ const PostListTemplate = ({ data, location: { pathname }, pageContext }) => (
 );
 
 export default PostListTemplate;
+
+export const Head = ({ data, location: { pathname }, pageContext: { locale, to, currentPage, numPages } }) => {
+  const {
+    page: { metaTitle, metaDescription, noindex, breadcrumbs },
+    socialLinks,
+    address,
+  } = data;
+
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === numPages;
+
+  const links = [];
+
+  if (numPages > 1) {
+    if (!isFirst) {
+      links.push({
+        rel: 'prev',
+        href: config.siteUrl + prevLink(currentPage, to),
+      });
+    }
+    if (!isLast) {
+      links.push({
+        rel: 'next',
+        href: config.siteUrl + nextLink(currentPage, to),
+      });
+    }
+  }
+
+  return (
+    <SEO
+      locale={locale}
+      title={metaTitle}
+      description={metaDescription}
+      pathname={pathname}
+      noindex={noindex}
+      breadcrumbs={breadcrumbs}
+      pageType="Blog"
+      links={links}
+      socialLinksData={socialLinks}
+      orgAddress={address}
+    />
+  );
+};
 
 export const postListTemplateQuery = graphql`
   query PostListQuery($locale: String!, $skip: Int!, $limit: Int!, $type: String!) {
@@ -18,7 +66,7 @@ export const postListTemplateQuery = graphql`
       ...MdPageFragment
     }
     posts: allMdPost(
-      sort: { fields: [featured, datePublished], order: [ASC, DESC] }
+      sort: [{ featured: ASC }, { datePublished: DESC }]
       limit: $limit
       skip: $skip
       filter: { locale: { eq: $locale }, type: { eq: $type } }

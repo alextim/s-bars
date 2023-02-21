@@ -1,5 +1,3 @@
-import { Helmet } from 'react-helmet';
-
 import useOrgContacts from '@/hooks/useOrgContacts';
 import config from '../../../../../s-bars.content/config/website';
 
@@ -46,21 +44,18 @@ const getAreaServed = (orgAddress) => {
 
 const ServiceSchema = ({ pathname, title, address }) => {
   const orgContacts = useOrgContacts();
-  const url = `${config.siteUrl}${pathname}`;
 
   return (
-    <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Service',
-          serviceType: title,
-          url,
-          provider: getOrganizationSchema(orgContacts, address),
-          areaServed: getAreaServed(address),
-        })}
-      </script>
-    </Helmet>
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: title,
+        url: `${config.siteUrl}${pathname}`,
+        provider: getOrganizationSchema(orgContacts, address),
+        areaServed: getAreaServed(address),
+      })}
+    </script>
   );
 };
 

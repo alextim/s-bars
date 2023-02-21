@@ -1,11 +1,10 @@
 import Layout from '@/components/Layout';
-import SEO from '@/components/SEO';
 
 import { getListItems } from '../../shared/helpers/list-info';
 import styleHtml from '../../shared/styles/styleHtml';
 import CardList from './CardList';
 
-const ObjectTypeServiceList = ({ data, pathname, locale, type }) => {
+const ObjectTypeServiceList = ({ data, type }) => {
   const {
     translations,
     address,
@@ -13,7 +12,7 @@ const ObjectTypeServiceList = ({ data, pathname, locale, type }) => {
     footerNav,
     socialLinks,
     pageItems = [],
-    page: { html, title, metaTitle, headline, metaDescription, noindex, breadcrumbs },
+    page: { html, title, headline, breadcrumbs },
   } = data;
 
   /**
@@ -38,14 +37,6 @@ const ObjectTypeServiceList = ({ data, pathname, locale, type }) => {
       breadcrumbs={breadcrumbs}
       context={{ translations, address, mainNav, footerNav, socialLinks }}
     >
-      <SEO
-        locale={locale}
-        title={metaTitle}
-        description={metaDescription}
-        pathname={pathname}
-        noindex={noindex}
-        breadcrumbs={breadcrumbs}
-      />
       <CardList items={items} />
       {html && <div css={styleHtml} dangerouslySetInnerHTML={{ __html: html }} />}
     </Layout>

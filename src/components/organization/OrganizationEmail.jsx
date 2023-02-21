@@ -11,6 +11,6 @@ const EmailLink = ({ email, hideIcon }) => {
   );
 };
 
-const OrganizationEmail = ({ emails }) => emails.map((email, i) => <EmailLink key={email} email={email} hideIcon={i} />);
+const OrganizationEmail = ({ emails }) => emails?.map((email, i) => <EmailLink key={email} email={email} hideIcon={i} />);
 
 export default OrganizationEmail;

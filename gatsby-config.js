@@ -55,7 +55,6 @@ const pageSources = Object.keys(allDirs).map((name) => ({
 }));
 
 const plugins = [
-  'gatsby-plugin-preact',
   'gatsby-plugin-image',
   {
     resolve: 'gatsby-source-filesystem',
@@ -103,7 +102,7 @@ const plugins = [
       ],
     },
   },
-  'gatsby-plugin-react-helmet',
+  // 'gatsby-plugin-react-helmet',
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
@@ -158,7 +157,6 @@ const plugins = [
       generateMatchPathRewrites: false,
     },
   },
-  'gatsby-plugin-remove-generator',
   // 'gatsby-plugin-webpack-bundle-analyser-v2',
   {
     resolve: 'gatsby-plugin-feed',
@@ -197,7 +195,7 @@ const plugins = [
               {
                 posts: allMdPost(
                   limit: 30,
-                  sort: { order: DESC, fields: [datePublished] },
+                  sort: { datePublished: DESC },
                 ) {
                   edges {
                     node {

@@ -1,5 +1,4 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Helmet } from 'react-helmet';
 
 import card from '@/theme/card';
 import { space } from '@/theme/space';
@@ -17,22 +16,20 @@ const PostCard = ({
   readMore,
 }) => (
   <article css={card.wrap}>
-    <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(
-          getCardSchema({
-            to,
-            title,
-            headline: headline || metaDescription,
-            cover,
-            datePublished,
-            dateModified,
-            author,
-            pageType: 'BlogPosting',
-          }),
-        )}
-      </script>
-    </Helmet>
+    <script type="application/ld+json">
+      {JSON.stringify(
+        getCardSchema({
+          to,
+          title,
+          headline: headline || metaDescription,
+          cover,
+          datePublished,
+          dateModified,
+          author,
+          pageType: 'BlogPosting',
+        }),
+      )}
+    </script>
 
     {cover && (
       <a href={to}>
