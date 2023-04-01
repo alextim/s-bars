@@ -59,7 +59,7 @@
     "dotenv": "^16.0.3",
     "email-validator": "^2.0.4",
     "gatsby": "^5.7.0",
-    "gatsby-plugin-emotion": "^8.7.0",
+    "gatsby-plugin-emotion": "^8.8.0",
     "gatsby-plugin-feed": "^5.7.0",
     "gatsby-plugin-google-analytics": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
