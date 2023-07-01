@@ -60,7 +60,7 @@
     "email-validator": "^2.0.4",
     "gatsby": "^5.10.0",
     "gatsby-plugin-emotion": "^8.10.0",
-    "gatsby-plugin-feed": "^5.10.0",
+    "gatsby-plugin-feed": "^5.11.0",
     "gatsby-plugin-google-analytics": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-manifest": "^5.10.0",
