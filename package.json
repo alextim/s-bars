@@ -97,7 +97,7 @@
     "gatsby-plugin-react-svg": "^3.3.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
-    "prettier": "^3.0.3",
+    "prettier": "^3.1.0",
     "preval.macro": "^5.0.0",
     "typescript": "^5.3.2"
   },
