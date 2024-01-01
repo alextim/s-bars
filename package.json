@@ -83,7 +83,7 @@
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@emotion/eslint-plugin": "^11.11.0",
-    "babel-preset-gatsby": "^3.12.1",
+    "babel-preset-gatsby": "^3.13.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
