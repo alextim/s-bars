@@ -58,7 +58,7 @@
     "disable-scroll": "^0.6.0",
     "dotenv": "^16.3.1",
     "email-validator": "^2.0.4",
-    "gatsby": "^5.13.1",
+    "gatsby": "^5.13.3",
     "gatsby-plugin-emotion": "^8.13.1",
     "gatsby-plugin-feed": "^5.13.0",
     "gatsby-plugin-google-analytics": "^5.13.0",
