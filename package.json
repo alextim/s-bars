@@ -95,7 +95,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "gatsby-plugin-react-svg": "^3.3.0",
-    "husky": "^9.0.10",
+    "husky": "^9.0.11",
     "lint-staged": "^15.2.1",
     "prettier": "^3.2.5",
     "preval.macro": "^5.0.0",
