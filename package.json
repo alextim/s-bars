@@ -81,7 +81,7 @@
     "@babel/eslint-parser": "^7.25.1",
     "@babel/preset-react": "^7.24.7",
     "@commitlint/cli": "^19.4.1",
-    "@commitlint/config-conventional": "^19.1.0",
+    "@commitlint/config-conventional": "^19.4.1",
     "@emotion/eslint-plugin": "^11.11.0",
     "babel-preset-gatsby": "^3.13.2",
     "cross-env": "^7.0.3",
