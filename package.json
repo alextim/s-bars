@@ -54,7 +54,7 @@
     "@alextim/translit": "^0.1.17",
     "@alextim/utils": "^0.1.26",
     "@emotion/react": "^11.14.0",
-    "@sendgrid/mail": "^8.1.4",
+    "@sendgrid/mail": "^8.1.5",
     "disable-scroll": "^0.6.0",
     "dotenv": "^16.4.7",
     "email-validator": "^2.0.4",
