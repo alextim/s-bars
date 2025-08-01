@@ -99,7 +99,7 @@
     "lint-staged": "^15.3.0",
     "prettier": "^3.4.2",
     "preval.macro": "^5.0.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.9.2"
   },
   "comments": {
     "content/data/locales/translations/src/*.json": [
