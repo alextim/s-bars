@@ -74,7 +74,7 @@
     "node-fetch": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
-    "react-multi-carousel": "^2.8.5"
+    "react-multi-carousel": "^2.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",
