@@ -80,7 +80,7 @@
     "@babel/core": "^8.0.10",
     "@babel/eslint-parser": "^8.0.7",
     "@babel/preset-react": "^8.0.1",
-    "@commitlint/cli": "^21.2.3",
+    "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
     "@emotion/eslint-plugin": "^11.12.0",
     "babel-preset-gatsby": "^3.16.0",
